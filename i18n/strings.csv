@@ -1,0 +1,881 @@
+keys,ru,es,de,fr,pt_BR
+Muscle,Маслкар,Muscle,Muscle,Muscle,Muscle
+Euro,Евро,Euro,Euro,Euro,Euro
+Offroad,Офроуд,Offroad,Offroad,Offroad,Offroad
+Hearts,Черви,Corazones,Herz,Cœurs,Copas
+Diamonds,Бубны,Diamantes,Karo,Carreaux,Ouros
+Spades,Пики,Picas,Pik,Piques,Espadas
+Clubs,Трефы,Tréboles,Kreuz,Trèfles,Paus
+Jack,Валет,Jota,Bube,Valet,Valete
+Queen,Дама,Reina,Dame,Dame,Dama
+King,Король,Rey,König,Roi,Rei
+Ace,Туз,As,Ass,As,Ás
+Sport,Спорт,Sport,Sport,Sport,Sport
+Super,Супер,Super,Super,Super,Super
+Hyper,Гипер,Hyper,Hyper,Hyper,Hyper
+Legend,Легенда,Legend,Legende,Légende,Lenda
+SPORT,СПОРТ,SPORT,SPORT,SPORT,SPORT
+SUPER,СУПЕР,SUPER,SUPER,SUPER,SUPER
+HYPER,ГИПЕР,HYPER,HYPER,HYPER,HYPER
+LEGEND,ЛЕГЕНДА,LEGEND,LEGENDE,LÉGENDE,LENDA
+Checkered Flag,Клетчатый флаг,Bandera a Cuadros,Zielflagge,Drapeau à damier,Bandeira Quadriculada
+Racing Stripes,Гоночные полосы,Franjas de Carrera,Rennstreifen,Bandes de course,Listras de Corrida
+Carbon Fiber,Углеволокно,Fibra de Carbono,Carbonfaser,Fibre de carbone,Fibra de Carbono
+Neon Grid,Неоновая сетка,Rejilla Neón,Neon-Gitter,Grille Néon,Grade Neon
+Classic Red,Красная классика,Rojo Clásico,Klassisch Rot,Rouge classique,Vermelho Clássico
+Classic Blue,Синяя классика,Azul Clásico,Klassisch Blau,Bleu classique,Azul Clássico
+COMMON,ОБЫЧНЫЙ,COMÚN,NORMAL,COMMUN,COMUM
+UNCOMMON,НЕОБЫЧНЫЙ,POCO COMÚN,UNÜBLICH,PEU COMMUN,INCOMUM
+RARE,РЕДКИЙ,RARO,SELTEN,RARE,RARO
+Solo Drive,Соло-заезд,Coche Solitario,Solofahrt,Conduite Solo,Carro Solo
+High Card,Старшая карта,Carta Alta,Hohe Karte,Carte haute,Carta Alta
+Tandem,Тандем,Tándem,Tandem,Tandem,Tandem
+Pair,Пара,Pareja,Paar,Paire,Par
+Double Tandem,Двойной тандем,Doble Tándem,Doppeltandem,Double Tandem,Duplo Tandem
+Two Pair,Две пары,Doble Pareja,Zwei Paare,Double paire,Dois Pares
+Convoy,Конвой,Convoy,Konvoi,Convoi,Comboio
+Three of a Kind,Сет,Trío,Drilling,Brelan,Trinca
+Gear Shift,Смена передач,Cambio de Marcha,Gangwechsel,Passage de vitesse,Troca de Marcha
+Straight,Стрит,Escalera,Straße,Suite,Sequência
+Same Garage,Один гараж,Mismo Garaje,Gleiche Garage,Même Garage,Mesma Garagem
+Flush,Флеш,Color,Flush,Couleur,Flush
+Full Garage,Полный гараж,Garaje Lleno,Volle Garage,Garage Plein,Garagem Cheia
+Full House,Фулл-хаус,Full,Full House,Full,Full House
+Fleet,Автопарк,Flota,Flotte,Flotte,Frota
+Four of a Kind,Каре,Póker,Vierling,Carré,Quadra
+Factory Line,Конвейер,Línea de Montaje,Fließband,Chaîne de montage,Linha de Montagem
+Straight Flush,Стрит-флеш,Escalera de Color,Straight Flush,Quinte flush,Straight Flush
+Nitro,Нитро,Nitro,Nitro,Nitro,Nitro
+Bonus,Бонус,Bono,Bonus,Bonus,Bônus
+NITRO,НИТРО,NITRO,NITRO,NITRO,NITRO
+BONUS,БОНУС,BONO,BONUS,BONUS,BÔNUS
+[c]+30[/] Chips when scored,Фишки [c]+30[/] при подсчёте,[c]+30[/] Fichas al puntuar,[c]+30[/] Chips beim Werten,[c]+30[/] Jetons au score,[c]+30[/] Fichas ao pontuar
+Turbo,Турбо,Turbo,Turbo,Turbo,Turbo
+Power,Сила,Poder,Power,Puissance,Poder
+TURBO,ТУРБО,TURBO,TURBO,TURBO,TURBO
+POWER,СИЛА,PODER,POWER,PUISS.,PODER
+[m]+4[/] Mult when scored,Множитель [m]+4[/] при подсчёте,[m]+4[/] Mult al puntuar,[m]+4[/] Mult beim Werten,[m]+4[/] Mult au score,[m]+4[/] Mult ao pontuar
+Carbon,Карбон,Carbono,Carbon,Carbone,Carbono
+Glass,Стекло,Cristal,Glas,Verre,Vidro
+CARBON,КАРБОН,CARBONO,CARBON,CARBONE,CARBONO
+GLASS,СТЕКЛО,CRISTAL,GLAS,VERRE,VIDRO
+"[x]X2[/] Mult when scored,
+1 in 4 chance to break","Множитель [x]X2[/] при подсчёте,
+шанс 1 из 4 сломаться","[x]X2[/] Mult al puntuar,
+1 entre 4 de romperse","[x]X2[/] Mult beim Werten,
+1 zu 4 Bruchchance","[x]X2[/] Mult au score,
+1 chance sur 4 de casser","[x]X2[/] Mult ao pontuar,
+1 em 4 de quebrar"
+Gold Rims,Золотые диски,Llantas de Oro,Goldfelgen,Jantes Or,Rodas de Ouro
+Gold,Золото,Oro,Gold,Or,Ouro
+GOLD,ЗОЛОТО,ORO,GOLD,OR,OURO
+[$]+$2[/] when scored,[$]+$2[/] при подсчёте,[$]+$2[/] al puntuar,[$]+$2[/] beim Werten,[$]+$2[/] au score,[$]+$2[/] ao pontuar
+"Played [g]%s[/] cars give
+[m]+3[/] Mult when scored","Сыгранные машины [g]%s[/]
+при подсчёте: Множитель [m]+3[/]","Los coches [g]%s[/] jugados
+dan [m]+3[/] Mult al puntuar","Gespielte [g]%s[/]-Autos
+geben [m]+3[/] Mult beim Werten","Les voitures [g]%s[/] jouées
+donnent [m]+3[/] Mult au score","Carros [g]%s[/] jogados dão
+[m]+3[/] Mult ao pontuar"
+"Played [g]%s[/] cards give
+[m]+3[/] Mult when scored","Сыгранные карты [g]%s[/]
+при подсчёте: Множитель [m]+3[/]","Las cartas de [g]%s[/] jugadas
+dan [m]+3[/] Mult al puntuar","Gespielte [g]%s[/]-Karten
+geben [m]+3[/] Mult beim Werten","Les cartes [g]%s[/] jouées
+donnent [m]+3[/] Mult au score","Cartas de [g]%s[/] jogadas
+dão [m]+3[/] Mult ao pontuar"
+"Played [g]%s[/] give
+[m]+3[/] Mult when scored","Сыгранные [g]%s[/]
+при подсчёте: Множитель [m]+3[/]","[g]%s[/] jugados dan
+[m]+3[/] Mult al puntuar","Jedes gespielte [g]%s[/]
+gibt [m]+3[/] Mult beim Werten","Les [g]%s[/] joués
+donnent [m]+3[/] Mult au score","Jogar [g]%s[/] dá
+[m]+3[/] Mult ao pontuar"
+Nitro Boost,Нитро-буст,Impulso Nitro,Nitro-Boost,Boost Nitro,Impulso Nitro
+Joker,Джокер,Joker,Joker,Joker,Coringa
+[m]+4[/] Mult,Множитель [m]+4[/],[m]+4[/] Mult,[m]+4[/] Mult,[m]+4[/] Mult,[m]+4[/] Mult
+V8 Heart,Сердце V8,Corazón V8,V8-Herz,Cœur V8,Coração V8
+Heart Throb,Сердцеед,Rompecorazones,Herzensbrecher,Coup de Cœur,Paixão de Copas
+Rising Sun,Страна восхода,Sol Naciente,Aufgehende Sonne,Soleil Levant,Sol Nascente
+Diamond Ring,Бубновый звон,Anillo Diamante,Diamantring,Bague Diamant,Anel de Diamante
+Autobahn,Автобан,Autobahn,Autobahn,Autobahn,Autobahn
+Spade Digger,Пиковый землекоп,Pala de Picas,Pik-Gräber,Fossoyeur,Pá de Espadas
+Mud Tires,Грязевая резина,Ruedas de Barro,Matschreifen,Pneus Boue,Pneus de Lama
+Club Regular,Трефовый гость,Socio del Club,Kreuz-Stammgast,Habitué du Club,Sócio do Clube
+Twin Turbo,Твин-турбо,Doble Turbo,Biturbo,Twin Turbo,Turbo Duplo
+Double Trouble,Двойная беда,Doble Lío,Doppelter Ärger,Double Peine,Dose Dupla
+"[m]+8[/] Mult if hand contains
+a [g]Tandem[/] (Pair)","Множитель [m]+8[/], если в руке
+есть [g]Тандем[/] (Пара)","[m]+8[/] Mult si la mano tiene
+un [g]Tándem[/] (Pareja)","[m]+8[/] Mult, wenn die Hand
+ein [g]Tandem[/] (Paar) enthält","[m]+8[/] Mult si la main contient
+un [g]Tandem[/] (Paire)","[m]+8[/] Mult se a mão tiver
+um [g]Tandem[/] (Par)"
+"[m]+8[/] Mult if hand
+contains a [g]Pair[/]","Множитель [m]+8[/], если в руке
+есть [g]Пара[/]","[m]+8[/] Mult si la mano
+tiene una [g]Pareja[/]","[m]+8[/] Mult, wenn die Hand
+ein [g]Paar[/] enthält","[m]+8[/] Mult si la main
+contient une [g]Paire[/]","[m]+8[/] Mult se a mão
+tiver um [g]Par[/]"
+Wide Body,Широкий кузов,Carrocería Ancha,Breitbau,Wide Body,Wide Body
+Twin Peaks,Твин Пикс,Picos Gemelos,Zwillingsgipfel,Jumeaux,Picos Gêmeos
+"[c]+50[/] Chips if hand contains
+a [g]Tandem[/] (Pair)","Фишки [c]+50[/], если в руке
+есть [g]Тандем[/] (Пара)","[c]+50[/] Fichas si la mano
+tiene un [g]Tándem[/] (Pareja)","[c]+50[/] Chips, wenn die Hand
+ein [g]Tandem[/] (Paar) enthält","[c]+50[/] Jetons si la main contient
+un [g]Tandem[/] (Paire)","[c]+50[/] Fichas se a mão tiver
+um [g]Tandem[/] (Par)"
+"[c]+50[/] Chips if hand
+contains a [g]Pair[/]","Фишки [c]+50[/], если в руке
+есть [g]Пара[/]","[c]+50[/] Fichas si la mano
+tiene una [g]Pareja[/]","[c]+50[/] Chips, wenn die Hand
+ein [g]Paar[/] enthält","[c]+50[/] Jetons si la main
+contient une [g]Paire[/]","[c]+50[/] Fichas se a mão
+tiver um [g]Par[/]"
+Convoy Leader,Лидер конвоя,Líder de Convoy,Konvoi-Chef,Chef de Convoi,Líder do Comboio
+Triple Threat,Тройная угроза,Triple Amenaza,Dreifachgefahr,Triple Menace,Ameaça Tripla
+"[m]+12[/] Mult if hand contains
+a [g]Convoy[/] (Three of a Kind)","Множитель [m]+12[/], если в руке
+есть [g]Конвой[/] (Сет)","[m]+12[/] Mult si la mano tiene
+un [g]Convoy[/] (Trío)","[m]+12[/] Mult, wenn die Hand
+einen [g]Konvoi[/] (Drilling) enthält","[m]+12[/] Mult si la main contient
+un [g]Convoi[/] (Brelan)","[m]+12[/] Mult se a mão tiver
+um [g]Comboio[/] (Trinca)"
+"[m]+12[/] Mult if hand contains
+a [g]Three of a Kind[/]","Множитель [m]+12[/], если в руке
+есть [g]Сет[/]","[m]+12[/] Mult si la mano tiene
+un [g]Trío[/]","[m]+12[/] Mult, wenn die Hand
+einen [g]Drilling[/] enthält","[m]+12[/] Mult si la main contient
+un [g]Brelan[/]","[m]+12[/] Mult se a mão tiver
+uma [g]Trinca[/]"
+Drift King,Король дрифта,Rey del Drift,Drift-König,Roi du Drift,Rei do Drift
+Straight Shooter,Меткий стрелок,Tirador Certero,Scharfschütze,Tireur d'Élite,Tiro Certeiro
+"[m]+12[/] Mult if hand contains
+a [g]Gear Shift[/] (Straight)","Множитель [m]+12[/], если в руке
+есть [g]Смена передач[/] (Стрит)","[m]+12[/] Mult si la mano tiene
+un [g]Cambio de Marcha[/] (Escalera)","[m]+12[/] Mult, wenn die Hand
+einen [g]Gangwechsel[/] (Straße) enthält","[m]+12[/] Mult si la main contient
+un [g]Passage de vitesse[/] (Suite)","[m]+12[/] Mult se a mão tiver
+uma [g]Troca de Marcha[/]
+(Sequência)"
+"[m]+12[/] Mult if hand
+contains a [g]Straight[/]","Множитель [m]+12[/], если в руке
+есть [g]Стрит[/]","[m]+12[/] Mult si la mano
+tiene una [g]Escalera[/]","[m]+12[/] Mult, wenn die Hand
+eine [g]Straße[/] enthält","[m]+12[/] Mult si la main
+contient une [g]Suite[/]","[m]+12[/] Mult se a mão
+tiver uma [g]Sequência[/]"
+Brand Loyalty,Верность марке,Lealtad de Marca,Markentreue,Fidélité Marque,Fidelidade
+Suit Up,Всё в масть,Mismo Palo,Farbe bekennen,Couleur Pure,Terno e Naipe
+"[m]+10[/] Mult if hand contains
+a [g]Same Garage[/] (Flush)","Множитель [m]+10[/], если в руке
+есть [g]Один гараж[/] (Флеш)","[m]+10[/] Mult si la mano tiene
+un [g]Mismo Garaje[/] (Color)","[m]+10[/] Mult, wenn die Hand
+eine [g]Gleiche Garage[/] (Flush) enthält","[m]+10[/] Mult si la main contient
+un [g]Même Garage[/] (Couleur)","[m]+10[/] Mult se a mão tiver
+uma [g]Mesma Garagem[/]
+(Flush)"
+"[m]+10[/] Mult if hand
+contains a [g]Flush[/]","Множитель [m]+10[/], если в руке
+есть [g]Флеш[/]","[m]+10[/] Mult si la mano
+tiene un [g]Color[/]","[m]+10[/] Mult, wenn die Hand
+einen [g]Flush[/] enthält","[m]+10[/] Mult si la main
+contient une [g]Couleur[/]","[m]+10[/] Mult se a mão
+tiver um [g]Flush[/]"
+Lightweight,Облегчёнка,Ultraligero,Leichtbau,Poids Plume,Peso Pena
+Minimalist,Минималист,Minimalista,Minimalist,Minimaliste,Minimalista
+"[m]+20[/] Mult if played hand
+has [g]3 or fewer[/] cars","Множитель [m]+20[/], если
+сыграно [g]не больше 3[/] машин","[m]+20[/] Mult si la mano jugada
+tiene [g]3 coches o menos[/]","[m]+20[/] Mult, wenn die Hand
+[g]3 oder weniger[/] Autos hat","[m]+20[/] Mult si la main jouée
+a [g]3 voitures ou moins[/]","[m]+20[/] Mult se a mão jogada
+tiver [g]3 ou menos[/] carros"
+"[m]+20[/] Mult if played hand
+has [g]3 or fewer[/] cards","Множитель [m]+20[/], если
+сыграно [g]не больше 3[/] карт","[m]+20[/] Mult si la mano jugada
+tiene [g]3 cartas o menos[/]","[m]+20[/] Mult, wenn die Hand
+[g]3 oder weniger[/] Karten hat","[m]+20[/] Mult si la main jouée
+a [g]3 cartes ou moins[/]","[m]+20[/] Mult se a mão jogada
+tiver [g]3 ou menos[/] cartas"
+Odometer,Одометр,Cuentakilómetros,Tacho,Compteur km,Odômetro
+Card Counter,Счётчик карт,Cuenta Cartas,Kartenzähler,Compteur Cartes,Conta-Cartas
+"Gains [m]+1[/] Mult per hand played
+(Currently [m]+{val}[/] Mult)","Множитель [m]+1[/] за каждую руку
+(Сейчас: Множитель [m]+{val}[/])","Gana [m]+1[/] Mult por mano jugada
+(Ahora [m]+{val}[/] Mult)","Erhält [m]+1[/] Mult pro Hand
+(Aktuell [m]+{val}[/] Mult)","Gagne [m]+1[/] Mult par main jouée
+(Actuel : [m]+{val}[/] Mult)","Ganha [m]+1[/] Mult por mão
+jogada (Atual: [m]+{val}[/] Mult)"
+Chrome Bumper,Хром-бампер,Defensa Cromada,Chrom-Stoßstange,Pare-choc Chromé,Parachoque Cromo
+Royal Guard,Королевский двор,Guardia Real,Königsgarde,Garde Royale,Guarda Real
+"Played face cars (J, Q, K)
+give [c]+30[/] Chips when scored","Сыгранные фигуры (J, Q, K)
+при подсчёте: Фишки [c]+30[/]","Los coches figura (J, Q, K)
+dan [c]+30[/] Fichas al puntuar","Gespielte Bildautos (J, Q, K)
+geben [c]+30[/] Chips beim Werten","Les voitures figures jouées (J, Q, K)
+donnent [c]+30[/] Jetons au score","Figuras jogadas (J, Q, K)
+dão [c]+30[/] Fichas ao pontuar"
+"Played face cards (J, Q, K)
+give [c]+30[/] Chips when scored","Сыгранные фигуры (J, Q, K)
+при подсчёте: Фишки [c]+30[/]","Las figuras jugadas (J, Q, K)
+dan [c]+30[/] Fichas al puntuar","Gespielte Bildkarten (J, Q, K)
+geben [c]+30[/] Chips beim Werten","Les figures jouées (J, Q, K)
+donnent [c]+30[/] Jetons au score","Figuras jogadas (J, Q, K)
+dão [c]+30[/] Fichas ao pontuar"
+Ace Driver,Ас за рулём,Piloto As,Ass-Fahrer,As du Volant,Piloto Ás
+Ace Up the Sleeve,Туз в рукаве,As en la Manga,Ass im Ärmel,As dans la Manche,Ás na Manga
+"Played Aces give [c]+20[/] Chips
+and [m]+4[/] Mult when scored","Сыгранные тузы: Фишки [c]+20[/]
+и Множитель [m]+4[/] при подсчёте","Los Ases jugados dan [c]+20[/]
+Fichas y [m]+4[/] Mult al puntuar","Gespielte Asse geben [c]+20[/]
+Chips und [m]+4[/] Mult beim Werten","Les As joués donnent [c]+20[/] Jetons
+et [m]+4[/] Mult au score","Ases jogados dão [c]+20[/]
+Fichas e [m]+4[/] Mult ao pontuar"
+Even Gears,Чётные ступени,Marchas Pares,Gerade Gänge,Rapports Pairs,Marchas Pares
+Even Odds,Ставка на чёт,Pares y Nones,Gerade Zahlen,Pairs Chanceux,Números Pares
+"Played 10, 8, 6, 4, 2
+give [m]+4[/] Mult when scored","Сыгранные 10, 8, 6, 4, 2
+при подсчёте: Множитель [m]+4[/]","Los 10, 8, 6, 4 y 2 jugados
+dan [m]+4[/] Mult al puntuar","Gespielte 10, 8, 6, 4, 2
+geben [m]+4[/] Mult beim Werten","Les 10, 8, 6, 4, 2 joués
+donnent [m]+4[/] Mult au score","10, 8, 6, 4, 2 jogados
+dão [m]+4[/] Mult ao pontuar"
+Odd Gears,Нечётные ступени,Marchas Impares,Ungerade Gänge,Rapports Impairs,Marchas Ímpares
+Odd One Out,Ставка на нечет,Impar Suelto,Ungerade Zahlen,Impairs Chanceux,Número Ímpar
+"Played A, 9, 7, 5, 3
+give [c]+31[/] Chips when scored","Сыгранные A, 9, 7, 5, 3
+при подсчёте: Фишки [c]+31[/]","Los A, 9, 7, 5 y 3 jugados
+dan [c]+31[/] Fichas al puntuar","Gespielte A, 9, 7, 5, 3
+geben [c]+31[/] Chips beim Werten","Les A, 9, 7, 5, 3 joués
+donnent [c]+31[/] Jetons au score","A, 9, 7, 5, 3 jogados
+dão [c]+31[/] Fichas ao pontuar"
+Car Show,Автошоу,Salón del Auto,Autoshow,Salon Auto,Salão do Carro
+Full Table,Полный стол,Mesa Llena,Voller Tisch,Table Pleine,Mesa Cheia
+"[m]+4[/] Mult for each Mod you own
+(Currently [m]+{val}[/] Mult)","Множитель [m]+4[/] за каждый мод
+(Сейчас: Множитель [m]+{val}[/])","[m]+4[/] Mult por cada Mod
+que tengas (Ahora [m]+{val}[/] Mult)","[m]+4[/] Mult pro Mod im Besitz
+(Aktuell [m]+{val}[/] Mult)","[m]+4[/] Mult par Mod possédé
+(Actuel : [m]+{val}[/] Mult)","[m]+4[/] Mult por Mod que você
+tem (Atual: [m]+{val}[/] Mult)"
+"[m]+4[/] Mult for each Joker you own
+(Currently [m]+{val}[/] Mult)","Множитель [m]+4[/] за каждого джокера
+(Сейчас: Множитель [m]+{val}[/])","[m]+4[/] Mult por cada Joker
+que tengas (Ahora [m]+{val}[/] Mult)","[m]+4[/] Mult pro Joker im Besitz
+(Aktuell [m]+{val}[/] Mult)","[m]+4[/] Mult par Joker possédé
+(Actuel : [m]+{val}[/] Mult)","[m]+4[/] Mult por Coringa que você
+tem (Atual: [m]+{val}[/] Mult)"
+Scrap Collector,Сборщик лома,Chatarrero,Schrottsammler,Ferrailleur,Sucateiro
+Thin Deck,Тонкая колода,Mazo Fino,Dünnes Deck,Paquet Allégé,Baralho Fino
+"[m]+3[/] Mult for each car below 52
+in your garage (Currently [m]+{val}[/])","Множитель [m]+3[/] за каждую
+машину меньше 52 в гараже
+(Сейчас: [m]+{val}[/])","[m]+3[/] Mult por cada coche menos
+de 52 en tu garaje (Ahora [m]+{val}[/])","[m]+3[/] Mult pro Auto unter 52
+in deiner Garage (Aktuell [m]+{val}[/])","[m]+3[/] Mult par voiture sous 52
+dans ton garage (Actuel : [m]+{val}[/])","[m]+3[/] Mult por carro abaixo
+de 52 na garagem (Atual: [m]+{val}[/])"
+"[m]+3[/] Mult for each card below 52
+in your deck (Currently [m]+{val}[/])","Множитель [m]+3[/] за каждую
+карту меньше 52 в колоде
+(Сейчас: [m]+{val}[/])","[m]+3[/] Mult por cada carta menos
+de 52 en tu mazo (Ahora [m]+{val}[/])","[m]+3[/] Mult pro Karte unter 52
+im Deck (Aktuell [m]+{val}[/])","[m]+3[/] Mult par carte sous 52
+dans ton deck (Actuel : [m]+{val}[/])","[m]+3[/] Mult por carta abaixo de 52
+no baralho (Atual: [m]+{val}[/])"
+Rev Limiter,Отсечка,Limitador,Drehzahlbremse,Limiteur Régime,Corta-giro
+Encore,На бис,Bis,Zugabe,Bis,Bis
+"Retrigger the first scored
+car [g]2[/] additional times","Первая засчитанная машина
+срабатывает ещё [g]2[/] раза","Reactiva el primer coche
+puntuado [g]2[/] veces más","Das erste gewertete Auto
+wird [g]2[/] Mal wiederholt","Redéclenche la première
+voiture jouée [g]2[/] fois de plus","Reativa o primeiro carro
+pontuado [g]2[/] vezes extras"
+"Retrigger the first scored
+card [g]2[/] additional times","Первая засчитанная карта
+срабатывает ещё [g]2[/] раза","Reactiva la primera carta
+puntuada [g]2[/] veces más","Die erste gewertete Karte
+wird [g]2[/] Mal wiederholt","Redéclenche la première
+carte jouée [g]2[/] fois de plus","Reativa a primeira carta
+pontuada [g]2[/] vezes extras"
+Echo Exhaust,Эхо-выхлоп,Escape Eco,Echo-Auspuff,Échappement Écho,Escape Eco
+Small Fry,Мелюзга,Cartas Bajas,Kleine Fische,Petit Joueur,Peixe Miúdo
+"Retrigger each played
+[g]2, 3, 4[/] and [g]5[/]","Повторно срабатывают
+сыгранные [g]2, 3, 4[/] и [g]5[/]","Reactiva cada [g]2, 3, 4[/] y [g]5[/]
+jugado","Jede gespielte [g]2, 3, 4[/]
+und [g]5[/] wird wiederholt","Redéclenche chaque
+[g]2, 3, 4[/] et [g]5[/] joué","Reativa cada [g]2, 3, 4[/]
+e [g]5[/] jogado"
+Launch Control,Лаунч-контроль,Control de Salida,Launch Control,Launch Control,Launch Control
+Opening Bet,Первая ставка,Apuesta Inicial,Ersteinsatz,Mise Initiale,Aposta Inicial
+"[x]X2[/] Mult on the [g]first[/]
+hand of each race","Множитель [x]X2[/] в [g]первой[/]
+руке каждой гонки","[x]X2[/] Mult en la [g]primera[/]
+mano de cada carrera","[x]X2[/] Mult auf die [g]erste[/]
+Hand jedes Rennens","[x]X2[/] Mult sur la [g]première[/]
+main de chaque course","[x]X2[/] Mult na [g]primeira[/]
+mão de cada corrida"
+Final Lap,Финальный круг,Última Vuelta,Letzte Runde,Dernier Tour,Volta Final
+Last Call,Последний кон,Última Ronda,Letzter Aufruf,Dernier Appel,Última Rodada
+"[x]X3[/] Mult on the [g]last[/]
+hand of each race","Множитель [x]X3[/] в [g]последней[/]
+руке каждой гонки","[x]X3[/] Mult en la [g]última[/]
+mano de cada carrera","[x]X3[/] Mult auf die [g]letzte[/]
+Hand jedes Rennens","[x]X3[/] Mult sur la [g]dernière[/]
+main de chaque course","[x]X3[/] Mult na [g]última[/]
+mão de cada corrida"
+Photo Finish,Фотофиниш,Foto Finish,Fotofinish,Photo Finish,Foto na Chegada
+Portrait,Портрет,Retrato,Porträt,Portrait,Retrato
+"First played face car
+gives [x]X2[/] Mult when scored","Первая сыгранная фигура
+при подсчёте: Множитель [x]X2[/]","El primer coche figura jugado
+da [x]X2[/] Mult al puntuar","Das erste gespielte Bildauto
+gibt [x]X2[/] Mult beim Werten","La première figure jouée
+donne [x]X2[/] Mult au score","Primeira figura jogada
+dá [x]X2[/] Mult ao pontuar"
+"First played face card
+gives [x]X2[/] Mult when scored","Первая сыгранная фигура
+при подсчёте: Множитель [x]X2[/]","La primera figura jugada
+da [x]X2[/] Mult al puntuar","Die erste gespielte Bildkarte
+gibt [x]X2[/] Mult beim Werten","La première figure jouée
+donne [x]X2[/] Mult au score","A primeira figura jogada
+dá [x]X2[/] Mult ao pontuar"
+Supercharger,Компрессор,Sobrealimentador,Kompressor,Compresseur,Compressor
+High Roller,Хайроллер,Gran Apostador,High Roller,Gros Flambeur,Grande Apostador
+[x]X1.5[/] Mult,Множитель [x]X1.5[/],[x]X1.5[/] Mult,[x]X1.5[/] Mult,[x]X1.5[/] Mult,[x]X1.5[/] Mult
+Getaway Driver,Водила-беглец,Piloto de Fuga,Fluchtfahrer,Pilote de Fuite,Piloto de Fuga
+Boss Hunter,Гроза боссов,Cazajefes,Bossjäger,Chasseur de Boss,Caça-Boss
+"Gains [x]X0.25[/] Mult per Boss
+race won (Currently [x]X{val}[/])","Множитель [x]X0.25[/] за победу
+в гонке босса (Сейчас: [x]X{val}[/])","Gana [x]X0.25[/] Mult por carrera
+de Jefe ganada (Ahora [x]X{val}[/])","Erhält [x]X0.25[/] Mult pro
+gewonnenem Boss-Rennen (Aktuell [x]X{val}[/])","Gagne [x]X0.25[/] Mult par course
+de Boss gagnée (Actuel : [x]X{val}[/])","Ganha [x]X0.25[/] Mult por
+corrida Boss vencida (Atual: [x]X{val}[/])"
+Gas Station,Заправка,Gasolinera,Tankstelle,Station-service,Posto
+Allowance,Карманные деньги,Paga Extra,Taschengeld,Argent de Poche,Mesada
+"Earn [$]$4[/] at the end
+of each race","Получи [$]$4[/] в конце
+каждой гонки","Gana [$]$4[/] al final
+de cada carrera","Erhalte [$]$4[/] am Ende
+jedes Rennens","Gagne [$]$4[/] à la fin
+de chaque course","Ganhe [$]$4[/] no fim
+de cada corrida"
+Street Cred,Уличный респект,Fama Callejera,Straßenruf,Respect Rue,Moral de Rua
+Saver,Копилка,Ahorrador,Sparer,Économe,Poupador
+"Earn [$]$1[/] per unused discard
+at the end of each race","Получи [$]$1[/] за каждый
+оставшийся сброс после гонки","Gana [$]$1[/] por descarte sin usar
+al final de cada carrera","Erhalte [$]$1[/] pro ungenutztem
+Ablegen am Rennende","Gagne [$]$1[/] par défausse inutilisée
+à la fin de chaque course","Ganhe [$]$1[/] por descarte não
+usado no fim de cada corrida"
+Pit Crew,Пит-команда,Equipo de Boxes,Boxencrew,Équipe Stand,Equipe de Box
+Extra Hand,Запасная рука,Mano Extra,Extrahand,Main Bonus,Mão Extra
+[c]+1[/] hand each race,[c]+1[/] рука в каждой гонке,[c]+1[/] mano cada carrera,[c]+1[/] Hand pro Rennen,[c]+1[/] main par course,[c]+1[/] mão por corrida
+Tow Truck,Эвакуатор,Grúa,Abschleppwagen,Dépanneuse,Guincho
+Second Chance,Второй шанс,Revancha,Zweite Chance,Seconde Chance,Segunda Chance
+[m]+1[/] discard each race,[m]+1[/] сброс в каждой гонке,[m]+1[/] descarte cada carrera,[m]+1[/] Ablegen pro Rennen,[m]+1[/] défausse par course,[m]+1[/] descarte por corrida
+Big Trunk,Большой багажник,Maletero Grande,Kofferraum XL,Grand Coffre,Porta-malas
+Big Pockets,Глубокие карманы,Bolsillos Hondos,Tiefe Taschen,Grandes Poches,Bolsos Fundos
+[g]+1[/] hand size,[g]+1[/] к размеру руки,[g]+1[/] tamaño de mano,[g]+1[/] Handgröße,[g]+1[/] taille de main,[g]+1[/] tamanho da mão
+Respray: %s,Покраска: %s,Repintado: %s,Lack: %s,Peinture: %s,Pintura: %s
+Suit Swap: %s,Смена масти: %s,Cambio: %s,Farbwechsel: %s,Changement: %s,Troca de Naipe: %s
+"Repaint up to 3 selected
+cars as [g]%s[/]","Перекрашивает до 3 выбранных
+машин в [g]%s[/]","Repinta hasta 3 coches
+elegidos como [g]%s[/]","Lackiere bis zu 3 gewählte
+Autos als [g]%s[/]","Repeint 3 voitures choisies
+maximum en [g]%s[/]","Repinta até 3 carros
+selecionados como [g]%s[/]"
+"Change up to 3 selected
+cards to [g]%s[/]","Меняет масть до 3 выбранных
+карт на [g]%s[/]","Cambia hasta 3 cartas
+elegidas a [g]%s[/]","Wandle bis zu 3 gewählte
+Karten in [g]%s[/] um","Change 3 cartes choisies
+maximum en [g]%s[/]","Troca até 3 cartas
+selecionadas para [g]%s[/]"
+Nitro Kit,Комплект нитро,Kit Nitro,Nitro-Set,Kit Nitro,Kit Nitro
+Bonus Charm,Амулет бонуса,Amuleto Bono,Bonus-Talisman,Charme Bonus,Truque Bônus
+"Install [g]Nitro[/] on up to
+2 selected cars
+([c]+30[/] Chips when scored)","Ставит [g]Нитро[/] на выбранные
+машины (до 2)
+(Фишки [c]+30[/] при подсчёте)","Instala [g]Nitro[/] en hasta
+2 coches elegidos
+([c]+30[/] Fichas al puntuar)","Baue [g]Nitro[/] in bis zu
+2 gewählte Autos ein
+([c]+30[/] Chips beim Werten)","Installe [g]Nitro[/] sur 2 voitures
+choisies maximum
+([c]+30[/] Jetons au score)","Instala [g]Nitro[/] em até
+2 carros selecionados
+([c]+30[/] Fichas ao pontuar)"
+"Turn up to 2 selected cards
+into [g]Bonus[/] cards
+([c]+30[/] Chips when scored)","Делает до 2 выбранных карт
+картами [g]Бонус[/]
+(Фишки [c]+30[/] при подсчёте)","Convierte hasta 2 cartas
+elegidas en cartas [g]Bono[/]
+([c]+30[/] Fichas al puntuar)","Wandle bis zu 2 gewählte
+Karten in [g]Bonus[/]-Karten um
+([c]+30[/] Chips beim Werten)","Change 2 cartes choisies max
+en cartes [g]Bonus[/]
+([c]+30[/] Jetons au score)","Transforma até 2 cartas
+selecionadas em [g]Bônus[/]
+([c]+30[/] Fichas ao pontuar)"
+Turbo Kit,Комплект турбо,Kit Turbo,Turbo-Set,Kit Turbo,Kit Turbo
+Power Charm,Амулет силы,Amuleto Poder,Power-Talisman,Charme Puissance,Truque Poder
+"Install [g]Turbo[/] on up to
+2 selected cars
+([m]+4[/] Mult when scored)","Ставит [g]Турбо[/] на выбранные
+машины (до 2)
+(Множитель [m]+4[/] при подсчёте)","Instala [g]Turbo[/] en hasta
+2 coches elegidos
+([m]+4[/] Mult al puntuar)","Baue [g]Turbo[/] in bis zu
+2 gewählte Autos ein
+([m]+4[/] Mult beim Werten)","Installe [g]Turbo[/] sur 2 voitures
+choisies maximum
+([m]+4[/] Mult au score)","Instala [g]Turbo[/] em até
+2 carros selecionados
+([m]+4[/] Mult ao pontuar)"
+"Turn up to 2 selected cards
+into [g]Power[/] cards
+([m]+4[/] Mult when scored)","Делает до 2 выбранных карт
+картами [g]Сила[/]
+(Множитель [m]+4[/] при подсчёте)","Convierte hasta 2 cartas
+elegidas en cartas [g]Poder[/]
+([m]+4[/] Mult al puntuar)","Wandle bis zu 2 gewählte
+Karten in [g]Power[/]-Karten um
+([m]+4[/] Mult beim Werten)","Change 2 cartes choisies max
+en cartes [g]Puissance[/]
+([m]+4[/] Mult au score)","Transforma até 2 cartas
+selecionadas em [g]Poder[/]
+([m]+4[/] Mult ao pontuar)"
+Carbon Kit,Комплект карбона,Kit de Carbono,Carbon-Set,Kit Carbone,Kit Carbono
+Glass Charm,Амулет стекла,Amuleto Cristal,Glas-Talisman,Charme Verre,Truque Vidro
+"Install a [g]Carbon[/] body on
+1 selected car
+([x]X2[/] Mult, 1 in 4 breaks)","Ставит [g]Карбон[/] на
+1 выбранную машину
+(Множитель [x]X2[/], риск 1 из 4)","Instala carrocería de [g]Carbono[/]
+en 1 coche elegido
+([x]X2[/] Mult, 1 de 4 se rompe)","Baue eine [g]Carbon[/]-Karosse
+in 1 gewähltes Auto ein
+([x]X2[/] Mult, 1 zu 4 Bruch)","Installe une caisse [g]Carbone[/] sur
+1 voiture choisie
+([x]X2[/] Mult, 1 chance sur 4 de casser)","Instala carroceria [g]Carbono[/]
+em 1 carro selecionado
+([x]X2[/] Mult, 1 em 4 quebra)"
+"Turn 1 selected card
+into a [g]Glass[/] card
+([x]X2[/] Mult, 1 in 4 breaks)","Делает 1 выбранную карту
+картой [g]Стекло[/]
+(Множитель [x]X2[/], риск 1 из 4)","Convierte 1 carta elegida
+en carta [g]Cristal[/]
+([x]X2[/] Mult, 1 de 4 se rompe)","Wandle 1 gewählte Karte
+in eine [g]Glas[/]-Karte um
+([x]X2[/] Mult, 1 zu 4 Bruch)","Change 1 carte choisie
+en carte [g]Verre[/]
+([x]X2[/] Mult, 1 chance sur 4 de casser)","Transforma 1 carta
+selecionada em [g]Vidro[/]
+([x]X2[/] Mult, 1 em 4 quebra)"
+Gold Charm,Амулет золота,Amuleto Oro,Gold-Talisman,Charme Or,Truque Ouro
+"Install [g]Gold Rims[/] on up to
+2 selected cars
+([$]+$2[/] when scored)","Ставит [g]Золотые диски[/] на
+выбранные машины (до 2)
+([$]+$2[/] при подсчёте)","Instala [g]Llantas de Oro[/] en
+hasta 2 coches elegidos
+([$]+$2[/] al puntuar)","Montiere [g]Goldfelgen[/] an bis zu
+2 gewählten Autos
+([$]+$2[/] beim Werten)","Installe des [g]Jantes Or[/] sur
+2 voitures choisies maximum
+([$]+$2[/] au score)","Instala [g]Rodas de Ouro[/] em
+até 2 carros selecionados
+([$]+$2[/] ao pontuar)"
+"Turn up to 2 selected cards
+into [g]Gold[/] cards
+([$]+$2[/] when scored)","Делает до 2 выбранных карт
+картами [g]Золото[/]
+([$]+$2[/] при подсчёте)","Convierte hasta 2 cartas
+elegidas en cartas [g]Oro[/]
+([$]+$2[/] al puntuar)","Wandle bis zu 2 gewählte
+Karten in [g]Gold[/]-Karten um
+([$]+$2[/] beim Werten)","Change 2 cartes choisies max
+en cartes [g]Or[/]
+([$]+$2[/] au score)","Transforma até 2 cartas
+selecionadas em [g]Ouro[/]
+([$]+$2[/] ao pontuar)"
+Scrapyard,Свалка,Desguace,Schrottplatz,Casse Auto,Ferro-velho
+Shredder,Шредер,Trituradora,Reißwolf,Broyeur,Triturador
+"Scrap up to 2 selected cars
+(removes them from your garage)","Пускает до 2 выбранных машин
+на лом (убирает из гаража)","Desguaza hasta 2 coches elegidos
+(los quita de tu garaje)","Verschrotte bis zu 2 gewählte
+Autos (raus aus der Garage)","Envoie à la casse 2 voitures
+choisies max (retirées du garage)","Sucateia até 2 carros
+selecionados (saem da garagem)"
+"Destroy up to 2 selected cards
+(removes them from your deck)","Уничтожает до 2 выбранных карт
+(убирает из колоды)","Destruye hasta 2 cartas elegidas
+(las quita de tu mazo)","Vernichte bis zu 2 gewählte
+Karten (raus aus dem Deck)","Détruit 2 cartes choisies max
+(retirées de ton deck)","Destrói até 2 cartas
+selecionadas (saem do baralho)"
+Clone Shop,Клон-цех,Taller de Clones,Klon-Werkstatt,Atelier Clone,Loja de Clones
+Mirror,Зеркало,Espejo,Spiegel,Miroir,Espelho
+"Create a copy of
+1 selected car","Создаёт копию
+1 выбранной машины","Crea una copia de
+1 coche elegido","Erstelle eine Kopie von
+1 gewähltem Auto","Crée une copie de
+1 voiture choisie","Cria uma cópia de
+1 carro selecionado"
+"Create a copy of
+1 selected card","Создаёт копию
+1 выбранной карты","Crea una copia de
+1 carta elegida","Erstelle eine Kopie von
+1 gewählten Karte","Crée une copie de
+1 carte choisie","Cria uma cópia de
+1 carta selecionada"
+Engine Swap,Свап мотора,Cambio de Motor,Motortausch,Swap Moteur,Troca de Motor
+Promotion,Повышение,Ascenso,Beförderung,Promotion,Promoção
+"Increase the rank of up to
+2 selected cars by 1","Повышает ранг до 2
+выбранных машин на 1","Sube 1 el rango de hasta
+2 coches elegidos","Erhöhe den Rang von bis zu
+2 gewählten Autos um 1","Augmente de 1 le rang de
+2 voitures choisies maximum","Aumenta em 1 o valor de até
+2 carros selecionados"
+"Increase the rank of up to
+2 selected cards by 1","Повышает ранг до 2
+выбранных карт на 1","Sube 1 el rango de hasta
+2 cartas elegidas","Erhöhe den Rang von bis zu
+2 gewählten Karten um 1","Augmente de 1 le rang de
+2 cartes choisies maximum","Aumenta em 1 o valor de até
+2 cartas selecionadas"
+Cash Grab,Сорвать куш,Billetazo,Geldregen,Coup de Cash,Grana em Dobro
+"Double your money
+(max [$]$20[/])","Удваивает твои деньги
+(макс. [$]$20[/])","Duplica tu dinero
+(máx. [$]$20[/])","Verdopple dein Geld
+(max. [$]$20[/])","Double ton argent
+(max [$]$20[/])","Dobra seu dinheiro
+(máx. [$]$20[/])"
+Garage Pack,Гаражный пак,Pack Garaje,Garagen-Pack,Pack Garage,Pacote Garagem
+Card Pack,Пак карт,Pack de Cartas,Karten-Pack,Pack de Cartes,Pacote de Cartas
+"Choose [g]1[/] of [g]3[/] cars
+to add to your garage","Выбери [g]1[/] из [g]3[/] машин
+в свой гараж","Elige [g]1[/] de [g]3[/] coches
+para tu garaje","Wähle [g]1[/] von [g]3[/] Autos
+für deine Garage","Choisis [g]1[/] voiture sur [g]3[/]
+pour ton garage","Escolha [g]1[/] de [g]3[/] carros
+para sua garagem"
+"Choose [g]1[/] of [g]3[/] cards
+to add to your deck","Выбери [g]1[/] из [g]3[/] карт
+в свою колоду","Elige [g]1[/] de [g]3[/] cartas
+para tu mazo","Wähle [g]1[/] von [g]3[/] Karten
+für dein Deck","Choisis [g]1[/] carte sur [g]3[/]
+pour ton deck","Escolha [g]1[/] de [g]3[/] cartas
+para o baralho"
+Dyno Pack,Дино-пак,Pack Dyno,Dyno-Pack,Pack Dyno,Pacote Dyno
+Upgrade Pack,Пак прокачек,Pack de Mejoras,Upgrade-Pack,Pack Amélio,Pacote Upgrade
+"Choose [g]1[/] of [g]3[/] Dyno Tunes
+and level up that hand","Выбери [g]1[/] из [g]3[/] настроек
+диностенда и прокачай руку","Elige [g]1[/] de [g]3[/] afinaciones
+Dyno y sube esa mano","Wähle [g]1[/] von [g]3[/] Dyno-Tunes
+und level die Hand","Choisis [g]1[/] Tune Dyno sur [g]3[/]
+et monte cette main","Escolha [g]1[/] de [g]3[/] Dyno Tunes
+e suba essa mão"
+"Choose [g]1[/] of [g]3[/] Upgrades
+and level up that hand","Выбери [g]1[/] из [g]3[/] прокачек
+и улучши эту комбинацию","Elige [g]1[/] de [g]3[/] Mejoras
+y sube esa mano","Wähle [g]1[/] von [g]3[/] Upgrades
+und level die Hand","Choisis [g]1[/] Amélioration sur [g]3[/]
+et monte cette main","Escolha [g]1[/] de [g]3[/] Upgrades
+e suba essa mão"
+Workshop Pack,Пак мастерской,Pack Taller,Werkstatt-Pack,Pack Atelier,Pacote Oficina
+Trick Pack,Пак фокусов,Pack de Trucos,Trick-Pack,Pack Astuce,Pacote Truque
+"Choose [g]1[/] of [g]3[/] Workshop cards
+for your Garage slots","Выбери [g]1[/] из [g]3[/] карт
+мастерской в слоты гаража","Elige [g]1[/] de [g]3[/] cartas
+de Taller para el Garaje","Wähle [g]1[/] von [g]3[/] Werkstatt-
+karten für die Garage","Choisis [g]1[/] carte Atelier
+sur [g]3[/] pour ton Garage","Escolha [g]1[/] de [g]3[/] cartas
+de Oficina para a Garagem"
+"Choose [g]1[/] of [g]3[/] Trick cards
+for your item slots","Выбери [g]1[/] из [g]3[/] фокусов
+в слоты предметов","Elige [g]1[/] de [g]3[/] cartas Truco
+para tus huecos de objeto","Wähle [g]1[/] von [g]3[/] Trick-
+Karten für die Item-Plätze","Choisis [g]1[/] carte Astuce sur [g]3[/]
+pour tes objets","Escolha [g]1[/] de [g]3[/] cartas de
+Truque para os Itens"
+Mod Pack,Пак модов,Pack de Mods,Mod-Pack,Pack de Mods,Pacote de Mods
+Joker Pack,Пак джокеров,Pack de Jokers,Joker-Pack,Pack de Jokers,Pacote Coringa
+Choose [g]1[/] of [g]2[/] Mods,Выбери [g]1[/] из [g]2[/] модов,Elige [g]1[/] de [g]2[/] Mods,Wähle [g]1[/] von [g]2[/] Mods,Choisis [g]1[/] Mod sur [g]2[/],Escolha [g]1[/] de [g]2[/] Mods
+Choose [g]1[/] of [g]2[/] Jokers,Выбери [g]1[/] из [g]2[/] джокеров,Elige [g]1[/] de [g]2[/] Jokers,Wähle [g]1[/] von [g]2[/] Jokern,Choisis [g]1[/] Joker sur [g]2[/],Escolha [g]1[/] de [g]2[/] Coringas
+All %s cars are debuffed,Машины %s ослаблены,"Todos los coches %s
+están debilitados",Alle %s-Autos sind geschwächt,Toutes les voitures %s sont affaiblies,"Todos os carros %s
+são enfraquecidos"
+All %s cards are debuffed,Карты %s ослаблены,"Todas las cartas de %s
+están debilitadas",Alle %s-Karten sind geschwächt,Toutes les cartes %s sont affaiblies,"Todas as cartas de %s
+são enfraquecidas"
+All %s are debuffed,Все %s ослаблены,Debilitados: todos los %s,Alle %s sind geschwächt,Tous les %s sont affaiblis,"Todo o naipe de %s
+é enfraquecido"
+Emission Zone,Экозона,Zona Eco,Umweltzone,Zone Anti-Émission,Zona de Emissões
+Heartbreak Hill,Червонный холм,Colina Rompecorazones,Herzschmerz,Cœur Brisé,Coração Partido
+Import Tax,Пошлина,Aduana,Importzoll,Taxe Import,Taxa de Importação
+Diamond Lane,Бубновая полоса,Carril Diamante,Karo-Spur,Mine de Carreaux,Mina de Diamantes
+Speed Camera,Радар,Radar,Blitzer,Radar,Radar
+Spade Bend,Пиковый поворот,Curva de Picas,Pik-Kurve,Fosse de Piques,Cova das Espadas
+Paved Only,Только асфальт,Solo Asfalto,Nur Asphalt,Route Goudronnée,Só Asfalto
+Club Corner,Трефовый угол,Esquina Trébol,Kreuz-Ecke,Trèfle Maudit,Esquina do Clube
+Roadblock,Блокпост,Bloqueo,Straßensperre,Barrage,Bloqueio
+All face cars are debuffed,Все фигуры ослаблены,"Todos los coches figura
+están debilitados",Alle Bildautos sind geschwächt,Toutes les figures sont affaiblies,"Todas as figuras
+são enfraquecidas"
+All face cards are debuffed,Все фигуры ослаблены,"Todas las figuras
+están debilitadas",Alle Bildkarten sind geschwächt,Toutes les figures sont affaiblies,"Todas as figuras
+são enfraquecidas"
+Toll Road,Платная дорога,Peaje,Mautstraße,Péage,Pedágio
+Lose $1 per car played,-$1 за каждую сыгранную машину,Pierdes $1 por coche jugado,Verliere $1 pro gespieltem Auto,Perds $1 par voiture jouée,Perca $1 por carro jogado
+Lose $1 per card played,-$1 за каждую сыгранную карту,Pierdes $1 por carta jugada,Verliere $1 pro gespielter Karte,Perds $1 par carte jouée,Perca $1 por carta jogada
+Heavy Rain,Ливень,Lluvia Fuerte,Starkregen,Forte Pluie,Chuva Forte
+No discards,Без сбросов,Sin descartes,Kein Ablegen,Pas de défausses,Sem descartes
+Flat Tire,Прокол,Pinchazo,Platten,Pneu Crevé,Pneu Furado
+-1 hand size,-1 к размеру руки,-1 tamaño de mano,-1 Handgröße,-1 taille de main,-1 tamanho da mão
+Time Trial,Заезд на время,Contrarreloj,Zeitfahren,Contre-la-montre,Contra o Relógio
+"Only 1 hand, but the
+target is much lower","Всего 1 рука, но
+цель гораздо ниже","Solo 1 mano, pero el
+objetivo es mucho menor","Nur 1 Hand, aber das
+Ziel ist viel niedriger","1 seule main, mais la
+cible est bien plus basse","Só 1 mão, mas a
+meta é bem menor"
+Full Load,Полная загрузка,Carga Completa,Volle Ladung,Pleine Charge,Carga Total
+Must play exactly 5 cars,Нужно сыграть ровно 5 машин,Debes jugar exactamente 5 coches,Genau 5 Autos spielen,Joue exactement 5 voitures,Jogue exatamente 5 carros
+Must play exactly 5 cards,Нужно сыграть ровно 5 карт,Debes jugar exactamente 5 cartas,Genau 5 Karten spielen,Joue exactement 5 cartes,Jogue exatamente 5 cartas
+Tunnel,Тоннель,Túnel,Tunnel,Tunnel,Túnel
+"Base Chips and Mult
+are halved","Базовые Фишки и Множитель
+уменьшены вдвое","Las Fichas y el Mult base
+se reducen a la mitad","Basis-Chips und Mult
+werden halbiert","Jetons et Mult de base
+sont divisés par deux","Fichas e Mult base
+são reduzidos à metade"
+The Rival,Соперник,El Rival,Der Rivale,Le Rival,O Rival
+"Each hand type can only
+be played once this race","Каждую комбинацию можно
+сыграть лишь раз за гонку","Cada tipo de mano solo se
+puede jugar una vez esta carrera","Jede Handart darf in diesem
+Rennen nur einmal gespielt werden","Chaque type de main ne peut
+être joué qu'une fois cette course","Cada tipo de mão só pode
+ser jogado 1 vez nesta corrida"
+Grand Prix,Гран-при,Gran Premio,Grand Prix,Grand Prix,Grande Prêmio
+"The championship final.
+The target is huge!","Финал чемпионата.
+Цель огромна!","La final del campeonato.
+¡El objetivo es enorme!","Das Meisterschaftsfinale.
+Das Ziel ist riesig!","La finale du championnat.
+La cible est énorme !","A final do campeonato.
+A meta é gigante!"
+Play Hand,Сыграть руку,Jugar Mano,Hand spielen,Jouer,Jogar Mão
+Sort Hand,Сортировать,Ordenar Mano,Hand sortieren,Trier,Ordenar
+Rank,Ранг,Rango,Rang,Valeur,Valor
+Discard,Сброс,Descartar,Ablegen,Défausser,Descartar
+Round Score,Очки раунда,Puntos Carrera,Rundenpunkte,Score de course,Pontos da Rodada
+Hands,Руки,Manos,Hände,Mains,Mãos
+Discards,Сбросы,Descartes,Ablagen,Défausses,Descartes
+Ante,Анте,Ante,Ante,Ante,Fase
+Race,Гонка,Carrera,Rennen,Course,Corrida
+Run Info,Инфо о забеге,Info Partida,Run-Info,Infos partie,Info da Run
+Menu,Меню,Menú,Menü,Menu,Menu
+Cars instead of cards.,Тачки вместо карт.,Coches en vez de cartas.,Autos statt Karten.,"Des voitures, pas des cartes.",Carros no lugar de cartas.
+Continue,Продолжить,Continuar,Weiter,Continuer,Continuar
+Start Engine,Завести мотор,Arrancar Motor,Motor starten,Démarrer,Ligar Motor
+How to Play,Как играть,Cómo Jugar,Anleitung,Comment jouer,Como Jogar
+Settings,Настройки,Ajustes,Einstellungen,Options,Configurações
+Quit,Выход,Salir,Beenden,Quitter,Sair
+Choose a Race,Выбери гонку,Elige una Carrera,Wähle ein Rennen,Choisis une course,Escolha a Corrida
+Pick your next race,Выбери следующую гонку,Escoge tu próxima carrera,Such dein nächstes Rennen aus,Choisis ta prochaine course,Escolha a próxima corrida
+Score at least,Набери минимум,Puntúa al menos,Erreiche mind.,Score minimum,Faça no mínimo
+Reward:,Награда:,Premio:,Belohnung:,Récompense :,Prêmio:
+Pit Stop,Пит-стоп,Pit Stop,Boxenstopp,Pit Stop,Pit Stop
+Upgrade your ride,Прокачай тачку,Mejora tu bólido,Tune deine Kiste,Améliore ta bagnole,Melhore seu carro
+Cars instead of cards,Тачки вместо карт,Coches en vez de cartas,Autos statt Karten,"Des voitures, pas des cartes",Carros no lugar de cartas
+Mods,Моды,Mods,Mods,Mods,Mods
+Jokers,Джокеры,Jokers,Joker,Jokers,Coringas
+Garage,Гараж,Garaje,Garage,Garage,Garagem
+Items,Предметы,Objetos,Items,Objets,Itens
+lvl.,ур.,nv.,Stf.,niv.,nív.
+Sell,Продать,Vender,Verkaufen,Vendre,Vender
+Use,Применить,Usar,Nutzen,Utiliser,Usar
+Buy,Купить,Comprar,Kaufen,Acheter,Comprar
+Take,Взять,Tomar,Nehmen,Prendre,Pegar
+Chips,Фишки,Fichas,Chips,Jetons,Fichas
+"Face car (J, Q, K)","Машина-фигура (J, Q, K)","Coche figura (J, Q, K)","Bildauto (J, Q, K)","Voiture figure (J, Q, K)","Carro figura (J, Q, K)"
+"Face card (J, Q, K)","Фигура (J, Q, K)","Figura (J, Q, K)","Bildkarte (J, Q, K)","Figure (J, Q, K)","Carta figura (J, Q, K)"
+Counts high or low in a %s,"В комбинации %s может стоять и сверху, и снизу",Cuenta alta o baja en: %s,Zählt hoch oder niedrig: %s,Compte haut ou bas dans une %s,Conta como alta ou baixa em uma %s
+"[m]Debuffed:[/] this car gives no chips
+and no effects in this race","[m]Ослаблена:[/] эта машина не даёт фишек
+и эффектов в этой гонке","[m]Debilitado:[/] este coche no da
+fichas ni efectos en esta carrera","[m]Geschwächt:[/] dieses Auto bringt
+keine Chips und keine Effekte","[m]Affaiblie :[/] cette voiture ne donne
+ni jetons ni effets dans cette course","[m]Enfraquecido:[/] este carro não dá fichas
+nem efeitos nesta corrida"
+"[m]Debuffed:[/] this card gives no chips
+and no effects in this race","[m]Ослаблена:[/] эта карта не даёт фишек
+и эффектов в этой гонке","[m]Debilitada:[/] esta carta no da
+fichas ni efectos en esta carrera","[m]Geschwächt:[/] diese Karte bringt
+keine Chips und keine Effekte","[m]Affaiblie :[/] cette carte ne donne
+ni jetons ni effets dans cette course","[m]Enfraquecido:[/] esta carta não dá fichas
+nem efeitos nesta corrida"
+Sells for,Продаётся за,Se vende por,Verkauf für,Vendu pour,Vende por
+Dyno: %s,Диностенд: %s,Dyno: %s,Dyno: %s,Dyno : %s,Dyno: %s
+Upgrade: %s,Прокачка: %s,Mejora: %s,Upgrade: %s,Amélioration : %s,Upgrade: %s
+"Level up [g]%s[/]
+[c]+%d[/] Chips, [m]+%d[/] Mult","Прокачка [g]%s[/]
+Фишки [c]+%d[/], Множитель [m]+%d[/]","Sube de nivel [g]%s[/]
+[c]+%d[/] Fichas, [m]+%d[/] Mult","Stufe für [g]%s[/]
+[c]+%d[/] Chips, [m]+%d[/] Mult","Monte [g]%s[/]
+[c]+%d[/] Jetons, [m]+%d[/] Mult","Suba [g]%s[/] de nível
+[c]+%d[/] Fichas, [m]+%d[/] Mult"
+"Level up [g]%s[/] (%s)
+[c]+%d[/] Chips, [m]+%d[/] Mult","Прокачка [g]%s[/] (%s)
+Фишки [c]+%d[/], Множитель [m]+%d[/]","Sube de nivel [g]%s[/] (%s)
+[c]+%d[/] Fichas, [m]+%d[/] Mult","Stufe für [g]%s[/] (%s)
+[c]+%d[/] Chips, [m]+%d[/] Mult","Monte [g]%s[/] (%s)
+[c]+%d[/] Jetons, [m]+%d[/] Mult","Suba [g]%s[/] de nível (%s)
+[c]+%d[/] Fichas, [m]+%d[/] Mult"
+"Select %s cars in hand, then Use","Выбери машины в руке (%s), затем нажми Применить",Elige %s coches en mano y pulsa Usar,"Wähle %s Autos in der Hand, dann Nutzen","Choisis %s voitures en main, puis Utiliser",Selecione %s carros na mão e use
+"Select %s cards in hand, then Use","Выбери карты в руке (%s), затем нажми Применить",Elige %s cartas en mano y pulsa Usar,"Wähle %s Karten in der Hand, dann Nutzen","Choisis %s cartes en main, puis Utiliser",Selecione %s cartas na mão e use
+Use any time,Можно применить в любой момент,Úsalo en cualquier momento,Jederzeit nutzbar,Utilisable à tout moment,Use a qualquer momento
+Your Garage,Твой гараж,Tu Garaje,Deine Garage,Ton Garage,Sua Garagem
+Your Deck,Твоя колода,Tu Mazo,Dein Deck,Ton Deck,Seu Baralho
+Cars in garage: %d,Машин в гараже: %d,Coches en el garaje: %d,Autos in Garage: %d,Voitures au garage : %d,Carros na garagem: %d
+Cards in deck: %d,Карт в колоде: %d,Cartas en el mazo: %d,Karten im Deck: %d,Cartes dans le deck : %d,Cartas no baralho: %d
+Left to draw: %d,Осталось в колоде: %d,Por robar: %d,Noch zu ziehen: %d,Restant à piocher : %d,Restam para comprar: %d
+Click to view,Нажми для просмотра,Clic para ver,Klicken zum Ansehen,Clique pour voir,Clique para ver
+Speed,Скорость,Velocidad,Tempo,Vitesse,Velocidade
+Music: On,Музыка: вкл,Música: Sí,Musik: An,Musique : oui,Música: Sim
+Music: Off,Музыка: выкл,Música: No,Musik: Aus,Musique : non,Música: Não
+Suit,Масть,Palo,Farbe,Couleur,Naipe
+Class,Класс,Clase,Klasse,Classe,Classe
+Street Race,Уличная гонка,Carrera Urbana,Straßenrennen,Course de rue,Corrida de Rua
+A quick sprint through town,Быстрый спринт по городу,Un sprint rápido por la ciudad,Ein Sprint durch die Stadt,Un petit sprint en ville,Um sprint rápido pela cidade
+Circuit Race,Кольцевая гонка,Carrera de Circuito,Rundstrecke,Course sur circuit,Corrida de Circuito
+A full lap of the circuit,Полный круг по трассе,Una vuelta completa al circuito,Eine volle Runde auf der Strecke,Un tour complet du circuit,Uma volta completa no circuito
+ANTE,АНТЕ,ANTE,ANTE,ANTE,FASE
+Race!,В гонку!,¡Carrera!,Los!,Course !,Corre!
+Defeated,Пройдена,Derrotado,Besiegt,Battu,Derrotado
+Upcoming,Впереди,Próxima,Kommt noch,À venir,Próxima
+Must play exactly 5 cars!,Нужно ровно 5 машин!,¡Debes jugar exactamente 5 coches!,Genau 5 Autos spielen!,Joue exactement 5 voitures !,Jogue exatamente 5 carros!
+Must play exactly 5 cards!,Нужно ровно 5 карт!,¡Debes jugar exactamente 5 cartas!,Genau 5 Karten spielen!,Joue exactement 5 cartes !,Jogue exatamente 5 cartas!
+Toll,Плата,Peaje,Maut,Péage,Pedágio
+Broken!,Сломалась!,¡Roto!,Kaputt!,Cassée !,Quebrou!
+Again!,Ещё раз!,¡Otra vez!,Nochmal!,Encore !,De novo!
+Debuffed,Ослаблена,Debilitado,Geschwächt,Affaiblie,Enfraquecido
+Already played!,Уже сыграно!,¡Ya jugada!,Schon gespielt!,Déjà jouée !,Já jogado!
+RACE WON!,ГОНКА ВЫИГРАНА!,¡CARRERA GANADA!,RENNEN GEWONNEN!,COURSE GAGNÉE !,CORRIDA VENCIDA!
+%s won,%s: победа,Ganada: %s,%s gewonnen,%s gagnée,%s vencida
+Remaining hands,Оставшиеся руки,Manos restantes,Übrige Hände,Mains restantes,Mãos restantes
+"Interest ($1 per $5, max $5)","Проценты ($1 за $5, макс. $5)","Intereses ($1 por cada $5, máx. $5)","Zinsen ($1 pro $5, max $5)","Intérêts ($1 par $5, max $5)","Juros ($1 por $5, máx. $5)"
+Cash Out:,Забрать:,Cobrar:,Auszahlung:,Encaisser :,Resgatar:
+PIT STOP,ПИТ-СТОП,PIT STOP,BOXENSTOPP,PIT STOP,PIT STOP
+Next Race,На старт,Próx. Carrera,Nächstes Rennen,Course suivante,Próx. Corrida
+MODS,МОДЫ,MODS,MODS,MODS,MODS
+JOKERS,ДЖОКЕРЫ,JOKERS,JOKER,JOKERS,CORINGAS
+GARAGE,ГАРАЖ,GARAJE,GARAGE,GARAGE,GARAGEM
+ITEMS,ПРЕДМЕТЫ,OBJETOS,ITEMS,OBJETS,ITENS
+BOOSTER PACKS,БУСТЕР-ПАКИ,SOBRES,BOOSTER-PACKS,BOOSTERS,PACOTES
+Reroll,Обновить,Renovar,Neu mischen,Relancer,Rerrolar
+Not enough cash!,Не хватает денег!,¡No hay dinero suficiente!,Zu wenig Cash!,Pas assez de cash !,Grana insuficiente!
+Mod slots are full!,Слоты модов заняты!,¡No quedan huecos de Mod!,Mod-Plätze voll!,Emplacements de Mods pleins !,Slots de Mods cheios!
+Joker slots are full!,Слоты джокеров заняты!,¡No quedan huecos de Joker!,Joker-Plätze voll!,Emplacements de Jokers pleins !,Slots de Coringas cheios!
+Garage is full!,Гараж полон!,¡Garaje lleno!,Garage ist voll!,Garage plein !,Garagem cheia!
+Item slots are full!,Слоты предметов заняты!,¡No quedan huecos de objeto!,Item-Plätze voll!,Emplacements d'objets pleins !,Slots de Itens cheios!
+Use it during a race,Используй во время гонки,Úsalo durante una carrera,Im Rennen nutzen,À utiliser en course,Use durante uma corrida
+Select cars: %s,Выбери машины: %s,Elige coches: %s,Wähle Autos: %s,Choisis des voitures : %s,Selecione carros: %s
+Select cards: %s,Выбери карты: %s,Elige cartas: %s,Wähle Karten: %s,Choisis des cartes : %s,Selecione cartas: %s
+Choose 1,Выбери 1,Elige 1,Wähle 1,Choisis-en 1,Escolha 1
+Skip,Пропустить,Saltar,Überspringen,Passer,Pular
+Added to garage!,В гараже!,¡Al garaje!,In der Garage!,Au garage !,Na garagem!
+Added to deck!,В колоде!,¡Al mazo!,Im Deck!,Au deck !,No baralho!
+Save file is damaged,Сохранение повреждено,Partida guardada dañada,Spielstand beschädigt,Sauvegarde corrompue,Save corrompido
+SETTINGS,НАСТРОЙКИ,AJUSTES,EINSTELLUNGEN,OPTIONS,CONFIGURAÇÕES
+Language,Язык,Idioma,Sprache,Langue,Idioma
+Music,Музыка,Música,Musik,Musique,Música
+Sound effects,Звуки,Efectos,Effekte,Effets sonores,Efeitos
+Game speed,Скорость игры,Velocidad,Tempo,Vitesse,Velocidade
+Screen shake,Тряска экрана,Vibración,Wackeln,Tremblement,Tremor
+Fullscreen,Полный экран,Pantalla completa,Vollbild,Plein écran,Tela cheia
+Card art,Рисунок карт,Arte de cartas,Kartenmotiv,Art des cartes,Arte das cartas
+Cars,Машины,Coches,Autos,Voitures,Carros
+Classic,Классика,Clásico,Klassisch,Classique,Clássico
+Suits,Масти,Palos,Kartenfarben,Couleurs,Naipes
+Car brands,Классы машин,Marcas de coches,Automarken,Marques auto,Marcas de carros
+Card back,Рубашка,Dorso de carta,Kartenrücken,Dos des cartes,Verso da carta
+Back,Назад,Volver,Zurück,Retour,Voltar
+On,Вкл,Sí,An,Oui,Sim
+Off,Выкл,No,Aus,Non,Não
+CHAMPION!,ЧЕМПИОН!,¡CAMPEÓN!,CHAMPION!,CHAMPION !,CAMPEÃO!
+WRECKED!,АВАРИЯ!,¡ACCIDENTE!,TOTALSCHADEN!,ÉPAVE !,BATIDA FATAL!
+You won the Grand Prix!,Гран-при твой!,¡Ganaste el Gran Premio!,Du hast den Grand Prix gewonnen!,Tu as gagné le Grand Prix !,Você venceu o Grande Prêmio!
+You ran out of hands.,Руки закончились.,Te quedaste sin manos.,Dir sind die Hände ausgegangen.,Tu n'as plus de mains.,Suas mãos acabaram.
+Ante reached,Достигнуто анте,Ante alcanzado,Ante erreicht,Ante atteint,Fase alcançada
+Best hand,Лучшая рука,Mejor mano,Beste Hand,Meilleure main,Melhor mão
+Most played,Чаще всего,Más jugada,Am meisten gespielt,Plus jouée,Mais jogada
+Cars in garage,Машин в гараже,Coches en el garaje,Autos in Garage,Voitures au garage,Carros na garagem
+Cards in deck,Карт в колоде,Cartas en el mazo,Karten im Deck,Cartes dans le deck,Cartas no baralho
+Keep Racing (Endless),Гонять без конца,Modo Infinito,Weiterrasen (Endlos),Course infinie,Modo Infinito
+New Run,Новый забег,Nueva Partida,Neuer Run,Nouvelle run,Nova Run
+Main Menu,Главное меню,Menú Principal,Hauptmenü,Menu principal,Menu Principal
+MENU,МЕНЮ,MENÚ,MENÜ,MENU,MENU
+Resume,Продолжить,Continuar,Weiter,Reprendre,Continuar
+Your run is saved,Забег сохранён,Partida guardada,Lauf gespeichert,Partie sauvegardée,Corrida salva
+HAND LEVELS,УРОВНИ КОМБИНАЦИЙ,NIVELES DE MANO,HAND-STUFEN,NIVEAUX DES MAINS,NÍVEIS DAS MÃOS
+Hand,Комбинация,Mano,Hand,Main,Mão
+Level,Уровень,Nivel,Stufe,Niveau,Nível
+Played,Сыграно,Jugada,Gespielt,Jouée,Jogadas
+YOUR GARAGE,ТВОЙ ГАРАЖ,TU GARAJE,DEINE GARAGE,TON GARAGE,SUA GARAGEM
+YOUR DECK,ТВОЯ КОЛОДА,TU MAZO,DEIN DECK,TON DECK,SEU BARALHO
+Your deck is a [color=#ffd23f]garage of 52 cars[/color]: 4 suits (%s) x 13 ranks.,Твоя колода - это [color=#ffd23f]гараж из 52 машин[/color]: 4 класса (%s) x 13 рангов.,Tu mazo es un [color=#ffd23f]garaje de 52 coches[/color]: 4 marcas (%s) x 13 rangos.,Dein Deck ist eine [color=#ffd23f]Garage mit 52 Autos[/color]: 4 Marken (%s) x 13 Ränge.,Ton deck est un [color=#ffd23f]garage de 52 voitures[/color] : 4 marques (%s) x 13 rangs.,Seu baralho é uma [color=#ffd23f]garagem de 52 carros[/color]: 4 naipes (%s) x 13 valores.
+Your deck has [color=#ffd23f]52 cards[/color]: 4 suits (%s) x 13 ranks.,В твоей колоде [color=#ffd23f]52 карты[/color]: 4 масти (%s) x 13 рангов.,Tu mazo tiene [color=#ffd23f]52 cartas[/color]: 4 palos (%s) x 13 valores.,Dein Deck hat [color=#ffd23f]52 Karten[/color]: 4 Farben (%s) x 13 Ränge.,Ton deck contient [color=#ffd23f]52 cartes[/color] : 4 couleurs (%s) x 13 rangs.,Seu baralho tem [color=#ffd23f]52 cartas[/color]: 4 naipes (%s) x 13 valores.
+Select up to 5 cars and [color=#2f8cff]Play[/color] them as a poker hand.,Выбери до 5 машин и [color=#2f8cff]сыграй[/color] их как покерную комбинацию.,Elige hasta 5 coches y [color=#2f8cff]Juégalos[/color] como mano de póker.,Wähle bis zu 5 Autos und [color=#2f8cff]spiele[/color] sie als Pokerhand.,Choisis jusqu'à 5 voitures et [color=#2f8cff]Joue-les[/color] comme une main de poker.,Selecione até 5 carros e [color=#2f8cff]Jogue[/color] como uma mão de pôquer.
+Select up to 5 cards and [color=#2f8cff]Play[/color] them as a poker hand.,Выбери до 5 карт и [color=#2f8cff]сыграй[/color] их как покерную комбинацию.,Elige hasta 5 cartas y [color=#2f8cff]Juégalas[/color] como mano de póker.,Wähle bis zu 5 Karten und [color=#2f8cff]spiele[/color] sie als Pokerhand.,Choisis jusqu'à 5 cartes et [color=#2f8cff]Joue-les[/color] comme une main de poker.,Selecione até 5 cartas e [color=#2f8cff]Jogue[/color] como uma mão de pôquer.
+"A Tandem is a Pair, a Gear Shift is a Straight, a Same Garage is a Flush, and so on.","Тандем - это Пара, Смена передач - Стрит, Один гараж - Флеш и так далее.","Un Tándem es una Pareja, un Cambio de Marcha es una Escalera, un Mismo Garaje es un Color, y así.","Ein Tandem ist ein Paar, ein Gangwechsel eine Straße, eine Gleiche Garage ein Flush usw.","Un Tandem est une Paire, un Passage de vitesse est une Suite, un Même Garage est une Couleur, etc.","Um Tandem é um Par, uma Troca de Marcha é uma Sequência, uma Mesma Garagem é um Flush, e por aí vai."
+Score = [color=#2f8cff]Chips[/color] x [color=#ff4b3e]Mult[/color]. Every scored car adds its chips.,Очки = [color=#2f8cff]Фишки[/color] x [color=#ff4b3e]Множитель[/color]. Каждая засчитанная машина добавляет свои фишки.,Puntos = [color=#2f8cff]Fichas[/color] x [color=#ff4b3e]Mult[/color]. Cada coche puntuado suma sus fichas.,Punkte = [color=#2f8cff]Chips[/color] x [color=#ff4b3e]Mult[/color]. Jedes gewertete Auto bringt seine Chips.,Score = [color=#2f8cff]Jetons[/color] x [color=#ff4b3e]Mult[/color]. Chaque voiture marquée ajoute ses jetons.,Pontos = [color=#2f8cff]Fichas[/color] x [color=#ff4b3e]Mult[/color]. Cada carro pontuado soma suas fichas.
+Score = [color=#2f8cff]Chips[/color] x [color=#ff4b3e]Mult[/color]. Every scored card adds its chips.,Очки = [color=#2f8cff]Фишки[/color] x [color=#ff4b3e]Множитель[/color]. Каждая засчитанная карта добавляет свои фишки.,Puntos = [color=#2f8cff]Fichas[/color] x [color=#ff4b3e]Mult[/color]. Cada carta puntuada suma sus fichas.,Punkte = [color=#2f8cff]Chips[/color] x [color=#ff4b3e]Mult[/color]. Jede gewertete Karte bringt ihre Chips.,Score = [color=#2f8cff]Jetons[/color] x [color=#ff4b3e]Mult[/color]. Chaque carte marquée ajoute ses jetons.,Pontos = [color=#2f8cff]Fichas[/color] x [color=#ff4b3e]Mult[/color]. Cada carta pontuada soma suas fichas.
+Beat the target score before you run out of hands. [color=#ff4b3e]Discard[/color] to dig for better cars.,"Набери нужные очки, пока не кончились руки. [color=#ff4b3e]Сбрасывай[/color] машины, чтобы найти получше.",Supera el objetivo antes de quedarte sin manos. [color=#ff4b3e]Descarta[/color] para buscar mejores coches.,"Erreiche die Zielpunkte, bevor dir die Hände ausgehen. [color=#ff4b3e]Lege ab[/color], um bessere Autos zu finden.",Bats le score cible avant de manquer de mains. [color=#ff4b3e]Défausse[/color] pour chercher de meilleures voitures.,Bata a meta antes de acabarem as mãos. [color=#ff4b3e]Descarte[/color] para buscar carros melhores.
+Beat the target score before you run out of hands. [color=#ff4b3e]Discard[/color] to dig for better cards.,"Набери нужные очки, пока не кончились руки. [color=#ff4b3e]Сбрасывай[/color] карты, чтобы найти получше.",Supera el objetivo antes de quedarte sin manos. [color=#ff4b3e]Descarta[/color] para buscar mejores cartas.,"Erreiche die Zielpunkte, bevor dir die Hände ausgehen. [color=#ff4b3e]Lege ab[/color], um bessere Karten zu finden.",Bats le score cible avant de manquer de mains. [color=#ff4b3e]Défausse[/color] pour chercher de meilleures cartes.,Bata a meta antes de acabarem as mãos. [color=#ff4b3e]Descarte[/color] para buscar cartas melhores.
+"Each Ante has a Street Race, a Circuit Race and a [color=#ff4b3e]Boss Race[/color] with a nasty rule.","В каждом анте есть Уличная гонка, Кольцевая гонка и [color=#ff4b3e]Гонка босса[/color] с подлым правилом.","Cada Ante tiene una Carrera Urbana, una Carrera de Circuito y una [color=#ff4b3e]Carrera de Jefe[/color] con una regla traicionera.","Jede Ante hat ein Straßenrennen, eine Rundstrecke und ein [color=#ff4b3e]Boss-Rennen[/color] mit fieser Regel.","Chaque Ante a une Course de rue, une Course sur circuit et une [color=#ff4b3e]Course de Boss[/color] avec une règle vicieuse.","Cada Fase tem uma Corrida de Rua, uma Corrida de Circuito e uma [color=#ff4b3e]Corrida Boss[/color] com uma regra maldosa."
+"Spend cash at the [color=#e8572f]Pit Stop[/color]: Mods change how you score, Dyno Tunes level up hands, Workshop cards upgrade your cars.","Трать деньги на [color=#e8572f]Пит-стопе[/color]: Моды меняют подсчёт очков, Диностенд прокачивает комбинации, карты Мастерской улучшают твои машины.","Gasta dinero en el [color=#e8572f]Pit Stop[/color]: los Mods cambian cómo puntúas, las Afinaciones Dyno suben de nivel las manos y las cartas de Taller mejoran tus coches.","Gib Cash im [color=#e8572f]Boxenstopp[/color] aus: Mods ändern deine Wertung, Dyno-Tunes leveln Hände auf, Werkstatt-Karten tunen deine Autos.","Dépense ton cash au [color=#e8572f]Pit Stop[/color] : les Mods changent ton score, les Tunes Dyno font monter les mains en niveau, les cartes Atelier améliorent tes voitures.","Gaste grana no [color=#e8572f]Pit Stop[/color]: Mods mudam como você pontua, Dyno Tunes sobem o nível das mãos, cartas da Oficina melhoram seus carros."
+"Spend cash at the [color=#e8572f]Pit Stop[/color]: Jokers change how you score, Upgrades level up hands, Trick cards change your cards.","Трать деньги на [color=#e8572f]Пит-стопе[/color]: Джокеры меняют подсчёт очков, Прокачки улучшают комбинации, Фокусы меняют твои карты.","Gasta dinero en el [color=#e8572f]Pit Stop[/color]: los Jokers cambian cómo puntúas, las Mejoras suben de nivel las manos y las cartas de Truco cambian tus cartas.","Gib Cash im [color=#e8572f]Boxenstopp[/color] aus: Joker ändern deine Wertung, Upgrades leveln Hände auf, Trick-Karten verändern deine Karten.","Dépense ton cash au [color=#e8572f]Pit Stop[/color] : les Jokers changent ton score, les Améliorations font monter les mains en niveau, les cartes Astuce changent tes cartes.","Gaste grana no [color=#e8572f]Pit Stop[/color]: Coringas mudam como você pontua, Upgrades sobem o nível das mãos, cartas de Truque mudam suas cartas."
+Booster packs: open one and take 1 of the choices.,Бустер-паки: открой пак и возьми 1 из предложенного.,Sobres: abre uno y quédate con 1 de las opciones.,Booster-Packs: Öffne eins und nimm 1 der Optionen.,Boosters : ouvre-en un et prends 1 des choix.,Pacotes: abra um e leve 1 das opções.
+Win the Grand Prix at Ante 8 to become Champion.,Выиграй Гран-при на 8-м анте и стань Чемпионом.,Gana el Gran Premio en el Ante 8 para ser Campeón.,"Gewinne den Grand Prix bei Ante 8, um Champion zu werden.",Gagne le Grand Prix à l'Ante 8 pour devenir Champion.,Vença o Grande Prêmio na Fase 8 para virar Campeão.
+Card upgrades,Улучшения,Mejoras de cartas,Karten-Upgrades,Améliorations de cartes,Upgrades de cartas
+Card statuses,Статусы,Estados de cartas,Karten-Status,Statuts des cartes,Status das cartas
+the boss blocks this car: it gives no chips and no effects.,босс блокирует эту машину: она не даёт фишек и эффектов.,el jefe bloquea este coche: no da fichas ni efectos.,der Boss blockiert dieses Auto: keine Chips und keine Effekte.,le boss bloque cette voiture : elle ne donne ni jetons ni effets.,o boss bloqueia este carro: ele não dá fichas nem efeitos.
+the boss blocks this card: it gives no chips and no effects.,босс блокирует эту карту: она не даёт фишек и эффектов.,el jefe bloquea esta carta: no da fichas ni efectos.,der Boss blockiert diese Karte: keine Chips und keine Effekte.,le boss bloque cette carte : elle ne donne ni jetons ni effets.,o boss bloqueia esta carta: ela não dá fichas nem efeitos.
+Face cars,Машины-фигуры,Coches figura,Bildautos,Voitures figures,Carros figura
+Face cards,Фигуры,Figuras,Bildkarten,Figures,Figuras
+"J, Q and K. Some effects count only them.","J, Q и K. Некоторые эффекты учитывают только их.","J, Q y K. Hay efectos que solo cuentan estos rangos.","J, Q und K. Manche Effekte zählen nur sie.","J, Q et K. Certains effets ne comptent qu'elles.","J, Q e K. Alguns efeitos contam só essas."
+the car scores one more time.,машина засчитывается ещё раз.,el coche puntúa una vez más.,das Auto wird einmal mehr gewertet.,la voiture marque une fois de plus.,o carro pontua mais uma vez.
+the card scores one more time.,карта засчитывается ещё раз.,la carta puntúa una vez más.,die Karte wird einmal mehr gewertet.,la carte marque une fois de plus.,a carta pontua mais uma vez.
+a Carbon car broke and left your garage.,машина с Карбоном сломалась и покинула гараж.,un coche de Carbono se rompió y salió de tu garaje.,ein Carbon-Auto ist kaputtgegangen und hat deine Garage verlassen.,une voiture Carbone a cassé et a quitté ton garage.,um carro Carbono quebrou e saiu da sua garagem.
+a Glass card broke and left your deck.,карта Стекло разбилась и покинула колоду.,una carta de Cristal se rompió y salió de tu mazo.,eine Glas-Karte ist zerbrochen und hat dein Deck verlassen.,une carte Verre s'est brisée et a quitté ton deck.,uma carta de Vidro quebrou e saiu do seu baralho.
+Garage cards,Карты гаража,Cartas del Garaje,Garagenkarten,Cartes Garage,Cartas da Garagem
+"Dyno Tunes and Cash Grab work at once. Workshop cards need cars: select them in your hand, then click the card and press Use.","Диностенд и Сорвать куш срабатывают сразу. Картам Мастерской нужны машины: выбери их в руке, затем нажми на карту и на Применить.","Las Afinaciones Dyno y Billetazo actúan al instante. Las cartas de Taller necesitan coches: elígelos en tu mano, luego haz clic en la carta y pulsa Usar.","Dyno-Tunes und Geldregen wirken sofort. Werkstatt-Karten brauchen Autos: Wähle sie in deiner Hand, klicke dann die Karte und drücke Nutzen.","Les Tunes Dyno et Coup de Cash agissent tout de suite. Les cartes Atelier ont besoin de voitures : choisis-les en main, clique sur la carte puis sur Utiliser.","Dyno Tunes e Grana em Dobro funcionam na hora. Cartas da Oficina precisam de carros: selecione-os na mão, clique na carta e aperte Usar."
+"Upgrades and Cash Grab work at once. Trick cards need cards: select them in your hand, then click the item and press Use.","Прокачки и Сорвать куш срабатывают сразу. Фокусам нужны карты: выбери их в руке, затем нажми на предмет и на Применить.","Las Mejoras y Billetazo actúan al instante. Las cartas de Truco necesitan cartas: elígelas en tu mano, luego haz clic en el objeto y pulsa Usar.","Upgrades und Geldregen wirken sofort. Trick-Karten brauchen Karten: Wähle sie in deiner Hand, klicke dann das Item und drücke Nutzen.","Les Améliorations et Coup de Cash agissent tout de suite. Les cartes Astuce ont besoin de cartes : choisis-les en main, clique sur l'objet puis sur Utiliser.","Upgrades e Grana em Dobro funcionam na hora. Cartas de Truque precisam de cartas: selecione-as na mão, clique no item e aperte Usar."
+"Keys: Enter = Play hand, Backspace = Discard, Esc = Menu, M = Music, F11 = Fullscreen. Hover any card for details.","Клавиши: Enter - сыграть руку, Backspace - сброс, Esc - меню, M - музыка, F11 - полный экран. Наведи на любую карту, чтобы узнать подробности.","Teclas: Enter = Jugar mano, Retroceso = Descartar, Esc = Menú, M = Música, F11 = Pantalla completa. Pasa el ratón sobre cualquier carta para ver detalles.","Tasten: Enter = Hand spielen, Backspace = Ablegen, Esc = Menü, M = Musik, F11 = Vollbild. Mit der Maus über Karten für Details.","Touches : Entrée = Jouer la main, Retour arrière = Défausser, Échap = Menu, M = Musique, F11 = Plein écran. Survole une carte pour les détails.","Teclas: Enter = Jogar mão, Backspace = Descartar, Esc = Menu, M = Música, F11 = Tela cheia. Passe o mouse em qualquer carta para ver detalhes."
+HOW TO PLAY,КАК ИГРАТЬ,CÓMO JUGAR,ANLEITUNG,COMMENT JOUER,COMO JOGAR
+DYNO TUNE,ДИНОСТЕНД,AFINACIÓN DYNO,DYNO-TUNE,TUNE DYNO,DYNO TUNE
+UPGRADE,ПРОКАЧКА,MEJORA,UPGRADE,AMÉLIO.,UPGRADE
+WORKSHOP,МАСТЕРСКАЯ,TALLER,WERKSTATT,ATELIER,OFICINA
+TRICK,ФОКУС,TRUCO,TRICK,ASTUCE,TRUQUE
+Mult,Множитель,Mult,Mult,Mult,Mult

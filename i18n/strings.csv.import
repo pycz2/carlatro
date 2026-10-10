@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://ddanthekl61ue"
+
+[deps]
+
+files=["res://i18n/strings.ru.translation", "res://i18n/strings.es.translation", "res://i18n/strings.de.translation", "res://i18n/strings.fr.translation", "res://i18n/strings.pt_BR.translation"]
+
+source_file="res://i18n/strings.csv"
+dest_files=["res://i18n/strings.ru.translation", "res://i18n/strings.es.translation", "res://i18n/strings.de.translation", "res://i18n/strings.fr.translation", "res://i18n/strings.pt_BR.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true
