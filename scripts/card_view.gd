@@ -497,11 +497,13 @@ func _draw_back() -> void:
 			for i in 4:
 				draw_rect(Rect2(24, 58 + i * 6, 48, 2), Color("1a0b2e"))
 			draw_rect(Rect2(4, 70, 88, 60), Color("1a0b2e"))
+			# floor area inside the border; bottom corners cut to stay inside the rounded frame
+			var floor_area := PackedVector2Array([Vector2(4, 70), Vector2(92, 70), Vector2(92, 124), Vector2(86, 130), Vector2(10, 130), Vector2(4, 124)])
 			for i in 6:
 				var y := 72.0 + pow(i, 1.6) * 4.5
-				draw_line(Vector2(5, y), Vector2(91, y), Color("ff3fa4"), 1.5)
+				_clip_line(Vector2(5, y), Vector2(91, y), floor_area, Color("ff3fa4"), 1.5)
 			for i in range(-4, 5):
-				draw_line(Vector2(48 + i * 4, 70), Vector2(48 + i * 22, 130), Color("3ff0ff"), 1.0)
+				_clip_line(Vector2(48 + i * 4, 70), Vector2(48 + i * 22, 130), floor_area, Color("3ff0ff"), 1.0)
 		_:  # classic lattice, red or blue
 			var col := Color("b3202a") if Data.back_style == 4 else Color("1d4e9e")
 			draw_style_box(Data.box(Color("fbf8f0"), 9, Color("2b2f38"), 1), r)
@@ -509,9 +511,14 @@ func _draw_back() -> void:
 			var panel := PackedVector2Array([Vector2(8, 8), Vector2(88, 8), Vector2(88, 126), Vector2(8, 126)])
 			for i in range(-14, 12):
 				for line in [[Vector2(8 + i * 8, 8), Vector2(126 + i * 8, 126)], [Vector2(8 + i * 8, 126), Vector2(126 + i * 8, 8)]]:
-					for seg in Geometry2D.intersect_polyline_with_polygon(PackedVector2Array(line), panel):
-						draw_polyline(seg, Color(1, 1, 1, 0.35), 1.0)
+					_clip_line(line[0], line[1], panel, Color(1, 1, 1, 0.35), 1.0)
 			draw_rect(Rect2(12, 12, 72, 110), Color(1, 1, 1, 0.8), false, 1.5)
+
+
+## Draw the part of the line a-b that lies inside the polygon.
+func _clip_line(a: Vector2, b: Vector2, poly: PackedVector2Array, col: Color, width: float) -> void:
+	for seg in Geometry2D.intersect_polyline_with_polygon(PackedVector2Array([a, b]), poly):
+		draw_polyline(seg, col, width)
 
 
 func _draw_pack() -> void:
