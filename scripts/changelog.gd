@@ -3,6 +3,9 @@ extends RefCounted
 ## Add an entry for every release: deploy_web.sh refuses to release a version without one.
 
 const ENTRIES := [
+	{"version": "1.2.1", "date": "2026-10-10", "items": [
+		"Classic suits and the Classic Red card back are now the default",
+	]},
 	{"version": "1.2.0", "date": "2026-10-10", "items": [
 		"Unique pictures for every mod, garage item and boss race",
 		"Classic King, Queen and Jack are easy to tell apart",

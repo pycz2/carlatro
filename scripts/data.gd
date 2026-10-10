@@ -9,8 +9,8 @@ extends RefCounted
 ## <field>_cards_suits (both). pick() chooses the most specific one; "%s" in a text is the suit name.
 
 static var classic_art := false
-static var classic_suits := false
-static var back_style := 0
+static var classic_suits := true
+static var back_style := 4  # Classic Red
 
 const SUIT_NAMES := ["Muscle", "JDM", "Euro", "Offroad"]
 const SUIT_COLORS := [Color("e2443a"), Color("f08a24"), Color("3b6fd6"), Color("3a9a4a")]

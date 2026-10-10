@@ -1921,8 +1921,11 @@ func _load_settings() -> void:
 	shake_on = cfg.get_value("settings", "shake", true)
 	fullscreen = cfg.get_value("settings", "fullscreen", false)
 	Data.classic_art = cfg.get_value("settings", "classic_art", false)
-	Data.classic_suits = cfg.get_value("settings", "classic_suits", false)
-	Data.back_style = posmod(cfg.get_value("settings", "back", 0), Data.BACKS.size())
+	Data.classic_suits = cfg.get_value("settings", "classic_suits", true)
+	Data.back_style = posmod(cfg.get_value("settings", "back", 4), Data.BACKS.size())
+	if cfg.get_value("settings", "version", 1) < 2:  # v1.2.1: classic suits and back became the default
+		Data.classic_suits = true
+		Data.back_style = 4
 	var loc: String = cfg.get_value("settings", "locale", "")
 	if loc != "":
 		TranslationServer.set_locale(loc)
@@ -1939,6 +1942,7 @@ func _save_settings() -> void:
 	cfg.set_value("settings", "classic_art", Data.classic_art)
 	cfg.set_value("settings", "classic_suits", Data.classic_suits)
 	cfg.set_value("settings", "back", Data.back_style)
+	cfg.set_value("settings", "version", 2)
 	cfg.set_value("settings", "locale", TranslationServer.get_locale())
 	cfg.save(SETTINGS_PATH)
 
