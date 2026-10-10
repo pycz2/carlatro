@@ -15,7 +15,7 @@ def unescape(s):
     return s.encode().decode("unicode_escape").encode("latin-1").decode("utf-8")
 
 out = []
-for f in ["scripts/data.gd", "scripts/game.gd", "scripts/card_view.gd"]:
+for f in ["scripts/data.gd", "scripts/game.gd", "scripts/card_view.gd", "scripts/changelog.gd"]:
     src = (ROOT / f).read_text()
     # join GDScript line continuations of concatenated literals: "a" \ + "b"
     for m in LIT.finditer(src):

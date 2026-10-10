@@ -8,6 +8,8 @@ const Scoring = preload("res://scripts/scoring.gd")
 const CardView = preload("res://scripts/card_view.gd")
 const Sfx = preload("res://scripts/sfx.gd")
 const Music = preload("res://scripts/music.gd")
+const Art = preload("res://scripts/art.gd")
+const Changelog = preload("res://scripts/changelog.gd")
 
 const HAND_CX := 725.0
 const HAND_Y := 492.0
@@ -25,6 +27,9 @@ const PANEL_BG := Color(0.07, 0.09, 0.12, 0.95)
 const SPEEDS := [1.0, 1.6, 2.5]
 const SAVE_PATH := "user://run.save"
 const SETTINGS_PATH := "user://settings.cfg"
+const STATS_PATH := "user://stats.cfg"
+const STAT_KEYS := ["runs_started", "runs_won", "runs_lost", "best_ante", "best_hand", "races_won", "bosses_beaten",
+	"hands_played", "cards_played", "discards", "money_earned", "mods_bought", "packs_opened"]
 const SAVE_STATES := ["blind", "play", "cashout", "shop"]
 const LANGS := [["en", "English"], ["ru", "Русский"], ["es", "Español"], ["de", "Deutsch"], ["fr", "Français"], ["pt_BR", "Português"]]
 var rng := RandomNumberGenerator.new()
@@ -66,6 +71,8 @@ var sort_by_suit := false
 var speed_idx := 0
 var reroll_cost := 5
 var collection_tab := 0
+var stats := {}
+var result_recorded := false  # a run counts once: won, or lost
 var gallery_backs: Array = []
 var cashout_lines: Array = []
 var pack_open: Dictionary = {}
@@ -129,6 +136,7 @@ func _ready() -> void:
 	sfx = Sfx.new()
 	add_child(sfx)
 	_load_settings()
+	_load_stats()
 	music = Music.new()
 	add_child(music)
 	_apply_settings()
@@ -327,12 +335,23 @@ func _build_ui() -> void:
 	# so every layer above the table gets its own z band. Children are relative to it.
 	for z in [[overlay, 200], [fx_layer, 400], [action_box, 450], [title_layer, 500], [modal_layer, 600], [tooltip, 900]]:
 		z[0].z_index = z[1]
-	var ver := _label("v" + str(ProjectSettings.get_setting("application/config/version", "dev")), 12, Color(1, 1, 1, 0.55), 3)
-	ver.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	# version number in the corner; click it to see the changelog
+	var ver := Button.new()
+	ver.text = "v" + str(ProjectSettings.get_setting("application/config/version", "dev"))
+	ver.flat = true
+	ver.focus_mode = Control.FOCUS_NONE
 	ver.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
-	ver.position = Vector2(1080, 0)
-	ver.size = Vector2(194, 16)
+	ver.alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	ver.add_theme_font_size_override("font_size", 12)
+	ver.add_theme_color_override("font_color", Color(1, 1, 1, 0.55))
+	ver.add_theme_color_override("font_hover_color", Color("ffd23f"))
+	ver.add_theme_color_override("font_pressed_color", Color("ffd23f"))
+	ver.add_theme_stylebox_override("focus", StyleBoxEmpty.new())
+	ver.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	ver.position = Vector2(1180, -4)
+	ver.size = Vector2(98, 22)
 	ver.z_index = 950
+	ver.pressed.connect(_show_changelog)
 	add_child(ver)
 
 
@@ -486,7 +505,7 @@ func _build_title() -> void:
 	sub.position = Vector2(0, 222)
 	title_layer.add_child(sub)
 	var bv := _vbox(10)
-	bv.position = Vector2(640 - 130, 450)
+	bv.position = Vector2(640 - 130, 446)
 	bv.custom_minimum_size = Vector2(260, 0)
 	bv.add_theme_constant_override("separation", 8)
 	continue_btn = _button("Continue", Color("2fa65a"), 26, Vector2(260, 56))
@@ -497,9 +516,9 @@ func _build_title() -> void:
 	bv.add_child(play)
 	# two small buttons per row keep the menu below the card fan
 	var rows := [[["How to Play", Color("d9822b"), _show_help], ["Collection", Color("2f8f83"), _show_collection.bind(-1)]],
-		[["Settings", Color("6b5bd6"), _show_settings]]]
+		[["Settings", Color("6b5bd6"), _show_settings], ["Statistics", Color("3a7bd5"), _show_stats]]]
 	if not OS.has_feature("web"):
-		rows[1].append(["Quit", Color("555b66"), func(): get_tree().quit()])
+		rows.append([["Quit", Color("555b66"), func(): get_tree().quit()]])
 	for row in rows:
 		var h := _hbox(8)
 		for spec in row:
@@ -716,9 +735,28 @@ func _layout_row(views: Array, y: float, cx: float, spacing := 108.0) -> void:
 		views[i].z_index = i
 
 
+## Negative mods add a slot each.
+func _mod_slots() -> int:
+	return MAX_MODS + mods.filter(func(m): return m.get("edition", "") == "negative").size()
+
+
+## Maybe give a new mod an edition (foil, holo, polychrome, negative); it costs more.
+func _roll_edition(m: Dictionary) -> Dictionary:
+	var r := rng.randf() * 100.0
+	for e in Data.EDITIONS:
+		r -= Data.EDITIONS[e].weight
+		if r < 0.0:
+			m.edition = e
+			m.cost += Data.EDITIONS[e].extra
+			break
+	return m
+
+
 func _layout_slots() -> void:
+	# squeeze extra (negative) mods into the tray
+	var step := minf(104.0, (MAX_MODS * 104.0 - CardView.SIZE.x) / maxf(mod_views.size() - 1, 1))
 	for i in mod_views.size():
-		mod_views[i].target_pos = MOD_POS + Vector2(i * 104, 0)
+		mod_views[i].target_pos = MOD_POS + Vector2(i * step, 0)
 		mod_views[i].target_rot = 0.0
 		mod_views[i].base_z = i
 	for i in cons_views.size():
@@ -768,7 +806,7 @@ func _update_sidebar() -> void:
 	money_lbl.text = "$%d" % money
 	ante_lbl.text = str(ante) if endless else "%d/8" % ante
 	round_lbl.text = str(round_num)
-	mods_lbl.text = Data.tv("Mods", "Jokers") + " %d/%d" % [mods.size(), MAX_MODS]
+	mods_lbl.text = Data.tv("Mods", "Jokers") + " %d/%d" % [mods.size(), _mod_slots()]
 	cons_lbl.text = Data.tv("Garage", "Items") + " %d/%d" % [consumables.size(), MAX_CONS]
 	deck_view.visible = state == "play"
 	deck_lbl.visible = deck_view.visible
@@ -886,6 +924,9 @@ func _tip_for(cv: Control) -> Array:
 			return ["%s · %s" % [tr(Data.rank_name(rank)), tr(Data.suit_name(d.suit))], "\n".join(lines)]
 		CardView.MOD:
 			var s := Data.text(d, "desc").replace("{val}", _mod_val_str(d))
+			if d.get("edition", "") != "":
+				var ed: Dictionary = Data.EDITIONS[d.edition]
+				s += "\n[g]%s:[/] %s" % [Data.text(ed, "name"), Data.text(ed, "desc")]
 			if cv.price < 0:
 				s += "\n[$]%s $%d[/]" % [tr("Sells for"), _sell_value(d)]
 			return [Data.text(d, "name"), s]
@@ -994,6 +1035,8 @@ func _clear_views() -> void:
 
 
 func _start_run() -> void:
+	_stats_add({"runs_started": 1})
+	result_recorded = false
 	title_layer.visible = false
 	world.visible = true
 	_clear_views()
@@ -1069,7 +1112,7 @@ func _show_blind_select() -> void:
 		var head := _panel(info.color, info.color.lightened(0.3), 2, 6, 8)
 		head.add_child(_label(info.name, 23))
 		v.add_child(head)
-		v.add_child(_flag_icon(info.color, i == 2))
+		v.add_child(_flag_icon(info.color, boss if i == 2 else {}))
 		v.add_child(_label("Score at least", 15, Color(1, 1, 1, 0.7), 3))
 		v.add_child(_label(_fmt(_blind_target(i)), 34, MULT_COL))
 		v.add_child(_label(tr("Reward:") + " " + "$".repeat(info.reward), 18, MONEY_COL))
@@ -1094,7 +1137,7 @@ func _show_blind_select() -> void:
 		tw.tween_property(p, "scale", Vector2.ONE, 0.25).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 
-func _flag_icon(color: Color, is_boss: bool) -> Control:
+func _flag_icon(color: Color, b: Dictionary) -> Control:
 	var c := Control.new()
 	c.custom_minimum_size = Vector2(0, 92)
 	c.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -1102,13 +1145,16 @@ func _flag_icon(color: Color, is_boss: bool) -> Control:
 		var ctr := Vector2(c.size.x / 2, 46)
 		c.draw_circle(ctr, 43, color.darkened(0.5))
 		c.draw_circle(ctr, 37, color)
+		if not b.is_empty():
+			c.draw_circle(ctr, 33, color.darkened(0.35))
+			Art.boss_art(c, b, ctr, 1.15)
+			c.draw_arc(ctr, 40, 0, TAU, 48, Color("ffd23f"), 3.0, true)
+			return
 		for gx in range(-3, 3):
 			for gy in range(-3, 3):
 				var sq := ctr + Vector2(gx * 10 + 5, gy * 10 + 5)
 				if (sq - ctr).length() < 30 and (gx + gy) % 2 == 0:
-					c.draw_rect(Rect2(ctr + Vector2(gx * 10, gy * 10), Vector2(10, 10)), Color(1, 1, 1, 0.85))
-		if is_boss:
-			c.draw_arc(ctr, 40, 0, TAU, 48, Color("ffd23f"), 3.0, true))
+					c.draw_rect(Rect2(ctr + Vector2(gx * 10, gy * 10), Vector2(10, 10)), Color(1, 1, 1, 0.85)))
 	return c
 
 
@@ -1189,6 +1235,8 @@ func play_hand() -> void:
 	hands_played += 1
 	played_types.append(res.type)
 	played_count[res.type] += 1
+	stats.hand_counts[res.type] += 1
+	_stats_add({"hands_played": 1, "cards_played": sel.size()}, {"best_hand": res.total})
 	_update_sidebar()
 	_show_hand_type(res.type, res.base_chips, res.base_mult)
 	for i in res.scoring:
@@ -1311,6 +1359,7 @@ func discard() -> void:
 	busy = true
 	_hide_action()
 	discards_left -= 1
+	_stats_add({"discards": 1})
 	for c in sel:
 		hand.erase(c)
 		c.selected = false
@@ -1336,6 +1385,7 @@ func _remove_from_deck(card: Dictionary) -> void:
 
 func _round_won() -> void:
 	state = "cashout"
+	_stats_add({"races_won": 1, "bosses_beaten": 1 if blind_idx == 2 else 0}, {"best_ante": ante})
 	sfx.play("win")
 	_confetti()
 	_popup("RACE WON!", Vector2(HAND_CX, PLAY_Y + 40), ACCENT, 40)
@@ -1394,6 +1444,7 @@ func _show_cashout(lines: Array) -> void:
 	var b := _button(tr("Cash Out:") + " $%d" % total, ACCENT, 24, Vector2(300, 60))
 	b.pressed.connect(func():
 		money += total
+		_stats_add({"money_earned": total})
 		sfx.play("coin")
 		_open_shop())
 	v.add_child(b)
@@ -1459,8 +1510,9 @@ func _fill_shop(saved_items := []) -> void:
 		if def.is_empty():
 			continue
 		taken.append(def.id)
-		var cv := _make_card(CardView.MOD, def.duplicate(true), shop_panel)
-		cv.price = def.cost
+		var md := _roll_edition(def.duplicate(true))
+		var cv := _make_card(CardView.MOD, md, shop_panel)
+		cv.price = md.cost
 		_shop_place(cv, Vector2(230 + i * 112, 112), i)
 	var pool := Data.consumables()
 	for i in 2:
@@ -1513,7 +1565,7 @@ func _buy(cv: Control) -> void:
 	if money < cv.price:
 		_message("Not enough cash!")
 		return
-	if cv.kind == CardView.MOD and mods.size() >= MAX_MODS:
+	if cv.kind == CardView.MOD and mods.size() >= _mod_slots() and cv.data.get("edition", "") != "negative":
 		_message(Data.tv("Mod slots are full!", "Joker slots are full!"))
 		return
 	if cv.kind == CardView.CONS and consumables.size() >= MAX_CONS:
@@ -1532,6 +1584,7 @@ func _buy(cv: Control) -> void:
 	if cv.kind == CardView.MOD:
 		mods.append(cv.data)
 		mod_views.append(cv)
+		_stats_add({"mods_bought": 1})
 	else:
 		consumables.append(cv.data)
 		cons_views.append(cv)
@@ -1696,13 +1749,14 @@ func _roll_pack(type: String) -> Array:
 				var def := _random_mod(taken)
 				if not def.is_empty():
 					taken.append(def.id)
-					out.append(def.duplicate(true))
+					out.append(_roll_edition(def.duplicate(true)))
 	return out
 
 
 func _open_pack(pack: Dictionary, choices := []) -> void:
 	if choices.is_empty():
 		choices = _roll_pack(pack.type)
+		_stats_add({"packs_opened": 1})
 	pack_open = {"data": pack, "choices": choices}
 	pack_panel = Panel.new()
 	pack_panel.add_theme_stylebox_override("panel", Data.box(Color(0.05, 0.06, 0.09, 0.97), 16, pack.color, 3))
@@ -1753,7 +1807,7 @@ func _take_pack(cv: Control) -> void:
 				consumables.append(cv.data)
 				cons_views.append(cv)
 		CardView.MOD:
-			if mods.size() >= MAX_MODS:
+			if mods.size() >= _mod_slots() and cv.data.get("edition", "") != "negative":
 				_message(Data.tv("Mod slots are full!", "Joker slots are full!"))
 				return
 			mods.append(cv.data)
@@ -1794,7 +1848,7 @@ func _save_run() -> void:
 		"boss": boss, "last_boss_name": last_boss_name, "endless": endless, "best_hand": best_hand, "next_id": next_id,
 		"score": score, "target": target, "hands_left": hands_left, "discards_left": discards_left,
 		"hand_size": hand_size, "hands_played": hands_played, "played_types": played_types,
-		"cashout_lines": cashout_lines, "reroll_cost": reroll_cost, "pack_open": pack_open,
+		"cashout_lines": cashout_lines, "reroll_cost": reroll_cost, "pack_open": pack_open, "result_recorded": result_recorded,
 		"shop_items": shop_views.map(func(cv): return {"kind": cv.kind, "data": cv.data, "price": cv.price, "pos": cv.target_pos}),
 	})
 
@@ -1815,6 +1869,7 @@ func _continue_run(sound := true) -> void:
 			"boss", "last_boss_name", "endless", "best_hand", "next_id", "score", "target", "hands_left",
 			"discards_left", "hand_size", "hands_played", "played_types", "reroll_cost"]:
 		set(k, d[k])
+	result_recorded = d.get("result_recorded", false)
 	var by_id := {}
 	for c in deck:
 		by_id[c.id] = c
@@ -2077,6 +2132,9 @@ func _slider(value: float, cb: Callable) -> HSlider:
 func _show_end(win: bool, lines := []) -> void:
 	state = "end"
 	busy = false
+	if not result_recorded:  # endless mode after a win does not count as a loss later
+		result_recorded = true
+		_stats_add({"runs_won" if win else "runs_lost": 1}, {"best_ante": ante})
 	DirAccess.remove_absolute(SAVE_PATH)
 	_clear(overlay)
 	_update_sidebar()
@@ -2160,6 +2218,9 @@ func _show_menu() -> void:
 	var col := _button("Collection", Color("2f8f83"), 18, Vector2(280, 44))
 	col.pressed.connect(_show_collection.bind(-1))
 	v.add_child(col)
+	var stb := _button("Statistics", Color("3a7bd5"), 18, Vector2(280, 44))
+	stb.pressed.connect(_show_stats)
+	v.add_child(stb)
 	var mm := _button("Main Menu", ACCENT, 18, Vector2(280, 44))
 	mm.disabled = busy  # never tear down the table in the middle of a scoring animation
 	mm.pressed.connect(func():
@@ -2179,19 +2240,6 @@ func _show_menu() -> void:
 
 
 # ================================================================ collection
-
-const HAND_EXAMPLES := [
-	[[14, 2]],
-	[[13, 0], [13, 3]],
-	[[12, 1], [12, 2], [5, 0], [5, 3]],
-	[[7, 0], [7, 1], [7, 2]],
-	[[9, 2], [8, 0], [7, 3], [6, 1], [5, 2]],
-	[[13, 1], [9, 1], [7, 1], [4, 1], [2, 1]],
-	[[11, 0], [11, 2], [11, 3], [4, 1], [4, 2]],
-	[[8, 0], [8, 1], [8, 2], [8, 3]],
-	[[11, 3], [10, 3], [9, 3], [8, 3], [7, 3]],
-]
-
 
 ## Encyclopedia of everything in the game, one tab per kind of thing.
 func _show_collection(tab := -1) -> void:
@@ -2303,7 +2351,24 @@ func _gal_mods(c: Control) -> float:
 			var cv := _gal_card(c, CardView.MOD, list[i].duplicate(true), Vector2((i % 11) * 103, y + (i / 11) * 150), 0.9)
 			cv.price = list[i].cost
 		y += ceili(list.size() / 11.0) * 150 + 6
-	return y
+	_gal_label(c, tr("Editions"), Vector2(0, y), 17, Color("7fe0d0"))
+	y += 56
+	var eds := Data.EDITIONS.keys()
+	for i in eds.size():
+		var ed: Dictionary = Data.EDITIONS[eds[i]]
+		var md: Dictionary = Data.mod_def("supercharger").duplicate(true)
+		md.edition = eds[i]
+		_gal_card(c, CardView.MOD, md, Vector2(i * 280, y), 0.9)
+		var r := RichTextLabel.new()
+		r.bbcode_enabled = true
+		r.fit_content = true
+		r.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		r.position = Vector2(i * 280 + 96, y + 20)
+		r.size = Vector2(170, 90)
+		r.add_theme_font_size_override("normal_font_size", 14)
+		r.text = "[color=#7fe0d0]%s[/color]\n%s\n[color=#aaaaaa]%s[/color]" % [Data.text(ed, "name"), _bb_dark(Data.text(ed, "desc")), tr("Chance: %s%%") % Scoring.num_str(ed.weight)]
+		c.add_child(r)
+	return y + 140
 
 
 func _gal_items(c: Control) -> float:
@@ -2350,16 +2415,26 @@ func _gal_bosses(c: Control) -> float:
 		pnl.custom_minimum_size = Vector2(366, 106)
 		pnl.size = pnl.custom_minimum_size
 		pnl.mouse_filter = Control.MOUSE_FILTER_PASS
+		var hb := _hbox(8)
+		var icon := Control.new()
+		icon.custom_minimum_size = Vector2(70, 80)
+		icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		icon.draw.connect(func():
+			icon.draw_circle(Vector2(35, 42), 33, b.color.darkened(0.6))
+			Art.boss_art(icon, b, Vector2(35, 42), 1.0))
+		hb.add_child(icon)
 		var v := _vbox(2)
+		v.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		v.add_child(_label(Data.text(b, "name"), 19, Color.WHITE, 5))
 		var d := _label(Data.text(b, "desc"), 14, Color(1, 1, 1, 0.9), 3)
 		d.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		d.custom_minimum_size = Vector2(340, 0)
+		d.custom_minimum_size = Vector2(266, 0)
 		v.add_child(d)
 		var note := tr("Final race") if b.id == "grand_prix" else (tr("From ante %d") % b.min_ante if b.get("min_ante", 1) > 1 else "")
 		if note != "":
 			v.add_child(_label(note, 12, Color("ffd23f"), 3))
-		pnl.add_child(v)
+		hb.add_child(v)
+		pnl.add_child(hb)
 		c.add_child(pnl)
 	return ceili(list.size() / 3.0) * 118
 
@@ -2382,7 +2457,7 @@ func _gal_hands(c: Control) -> float:
 		r.add_theme_font_size_override("normal_font_size", 14)
 		r.text = _bb_dark("[c]%d[/] x [m]%d[/]    %s: [c]+%d[/] / [m]+%d[/]" % [h.chips, h.mult, tr("Per level"), h.lc, h.lm])
 		c.add_child(r)
-		var ex: Array = HAND_EXAMPLES[t]
+		var ex: Array = Data.HAND_EXAMPLES[t]
 		for i in ex.size():
 			_gal_card(c, CardView.CAR, {"id": -1, "rank": ex[i][0], "suit": ex[i][1], "enh": ""}, Vector2(470 + i * 58, y + 4), 0.5)
 	return Data.HANDS.size() * row_h
@@ -2398,6 +2473,125 @@ func _gal_backs(c: Control) -> float:
 		gallery_backs.append(cv)
 		_gal_label(c, tr(Data.BACKS[i]), Vector2(x - 20, 270), 15, Color("ffd23f") if i == Data.back_style else Color.WHITE, 165).horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	return 320.0
+
+
+func _show_changelog() -> void:
+	sfx.play("click")
+	var p := _panel(Color(PANEL_BG, 1.0), Color("ffd23f"), 3, 22, 16)
+	p.position = Vector2(290, 50)
+	p.custom_minimum_size = Vector2(700, 0)
+	var v := _vbox(10)
+	p.add_child(v)
+	v.add_child(_label("CHANGELOG", 30, Color("ffd23f"), 8))
+	var r := RichTextLabel.new()
+	r.bbcode_enabled = true
+	r.scroll_active = true
+	r.custom_minimum_size = Vector2(650, 460)
+	r.add_theme_font_size_override("normal_font_size", 16)
+	var t := ""
+	for e in Changelog.ENTRIES:
+		t += "[color=#ffd23f]v%s[/color]   [color=#8fa3b8]%s[/color]\n" % [e.version, e.date]
+		for item in e.items:
+			t += "- %s\n" % tr(item)
+		t += "\n"
+	r.text = t
+	v.add_child(r)
+	var b := _button("Back", ACCENT, 20, Vector2(200, 50))
+	b.pressed.connect(func(): _clear(modal_layer))
+	v.add_child(b)
+	_modal(p)
+
+
+# ================================================================ statistics
+
+func _load_stats() -> void:
+	var cfg := ConfigFile.new()
+	cfg.load(STATS_PATH)
+	for k in STAT_KEYS:
+		stats[k] = int(cfg.get_value("stats", k, 0))
+	var counts: Array = cfg.get_value("stats", "hand_counts", [])
+	counts.resize(Data.HANDS.size())
+	stats.hand_counts = counts.map(func(x): return int(x) if x != null else 0)
+
+
+## Add to counters and raise records, then save.
+func _stats_add(add: Dictionary, best := {}) -> void:
+	for k in add:
+		stats[k] += add[k]
+	for k in best:
+		stats[k] = maxi(stats[k], best[k])
+	var cfg := ConfigFile.new()
+	for k in STAT_KEYS:
+		cfg.set_value("stats", k, stats[k])
+	cfg.set_value("stats", "hand_counts", stats.hand_counts)
+	cfg.save(STATS_PATH)
+
+
+func _show_stats(confirm_reset := false) -> void:
+	var p := _panel(Color(PANEL_BG, 1.0), Color("3a7bd5"), 3, 22, 16)
+	p.position = Vector2(390, 50)
+	p.custom_minimum_size = Vector2(500, 0)
+	var v := _vbox(10)
+	p.add_child(v)
+	v.add_child(_label("STATISTICS", 30, Color("8ec5ff"), 8))
+	var played: int = stats.runs_won + stats.runs_lost
+	var fav := 0
+	for i in stats.hand_counts.size():
+		if stats.hand_counts[i] > stats.hand_counts[fav]:
+			fav = i
+	var rows := [
+		["Runs started", _fmt(stats.runs_started)],
+		["Runs won", _fmt(stats.runs_won)],
+		["Runs lost", _fmt(stats.runs_lost)],
+		["Win rate", "%d%%" % roundi(100.0 * stats.runs_won / played) if played > 0 else "-"],
+		["Best ante", _fmt(stats.best_ante)],
+		["Best hand", _fmt(stats.best_hand)],
+		["Races won", _fmt(stats.races_won)],
+		["Bosses beaten", _fmt(stats.bosses_beaten)],
+		["Hands played", _fmt(stats.hands_played)],
+		[Data.tv("Cars played", "Cards played"), _fmt(stats.cards_played)],
+		["Discards used", _fmt(stats.discards)],
+		["Money earned", "$" + _fmt(stats.money_earned)],
+		[Data.tv("Mods bought", "Jokers bought"), _fmt(stats.mods_bought)],
+		["Packs opened", _fmt(stats.packs_opened)],
+		["Favorite hand", tr(Data.hand_name(fav)) if stats.hand_counts[fav] > 0 else "-"],
+	]
+	var g := GridContainer.new()
+	g.columns = 2
+	g.add_theme_constant_override("h_separation", 24)
+	g.add_theme_constant_override("v_separation", 4)
+	for row in rows:
+		var l := _label(row[0], 16, Color(1, 1, 1, 0.75), 3)
+		l.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+		l.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		g.add_child(l)
+		var val := _label(row[1], 17, Color("ffb347"), 4)
+		val.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+		g.add_child(val)
+	v.add_child(g)
+	var h := _hbox(10)
+	h.alignment = BoxContainer.ALIGNMENT_CENTER
+	var reset := _button("Press again to reset" if confirm_reset else "Reset statistics", MULT_COL if confirm_reset else Color("555b66"), 16, Vector2(210, 46))
+	reset.pressed.connect(func():
+		if confirm_reset:
+			for k in STAT_KEYS:
+				stats[k] = 0
+			stats.hand_counts.fill(0)
+			_stats_add({})
+			sfx.play("break")
+			_show_stats()
+		else:
+			_show_stats(true))
+	h.add_child(reset)
+	var back := _button("Back", ACCENT, 18, Vector2(170, 46))
+	back.pressed.connect(func():
+		if state == "title":
+			_clear(modal_layer)
+		else:
+			_show_menu())
+	h.add_child(back)
+	v.add_child(h)
+	_modal(p)
 
 
 func _close_button() -> Button:
@@ -2490,6 +2684,11 @@ func _help_text() -> String:
 	for e in Data.ENH_INFO:
 		var info: Dictionary = Data.ENH_INFO[e]
 		t += "- [color=%s]%s[/color]: %s\n" % [Data.ENH_COLORS[e].lightened(0.3).to_html(false), Data.text(info, "name"), _bb_dark(tr(info.desc)).replace("\n", " ")]
+	t += hd.call(tr("Editions"))
+	t += Data.tv("Some Mods come with an edition (they cost more):", "Some Jokers come with an edition (they cost more):") + "\n"
+	for e in Data.EDITIONS:
+		var ed: Dictionary = Data.EDITIONS[e]
+		t += "- [color=#7fe0d0]%s[/color]: %s\n" % [Data.text(ed, "name"), _bb_dark(Data.text(ed, "desc"))]
 	t += hd.call(tr("Card statuses"))
 	t += "- [color=#ff4b3e]%s[/color]: %s\n" % [tr("Debuffed"), Data.tv("the boss blocks this car: it gives no chips and no effects.", "the boss blocks this card: it gives no chips and no effects.")]
 	t += "- [color=#ffd23f]%s[/color]: %s\n" % [Data.tv("Face cars", "Face cards"), tr("J, Q and K. Some effects count only them.")]

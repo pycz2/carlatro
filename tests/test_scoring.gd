@@ -61,6 +61,10 @@ func _init() -> void:
 	check("odometer", odo.val, 1)
 	# Gold rims give money
 	check("gold", score([c(2, 0, "gold")]).money, 2)
+	# Editions: foil +50 chips, holo +10 mult, polychrome X1.5 after the mod effect
+	check("foil", score([c(13, 0), c(13, 1)], [{"id": "odd_gears", "edition": "foil"}]).total, 160)
+	check("holo", score([c(13, 0), c(13, 1)], [{"id": "odd_gears", "edition": "holo"}]).total, 360)
+	check("poly after nitro", score([c(13, 0), c(13, 1)], [{"id": "nitro", "edition": "poly"}]).total, 270)
 	check("num_str", S.num_str(1.5), "1.5")
 	check("num_str int", S.num_str(2.0), "2")
 

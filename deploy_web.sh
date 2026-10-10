@@ -19,6 +19,10 @@ NEW="$(echo "$OLD" | awk -F. -v p="$PART" '{
 	else if (p == "minor") { $2++; $3 = 0 }
 	else { $3++ }
 	print $1 "." $2 "." $3 }')"
+if ! grep -q "\"version\": \"$NEW\"" scripts/changelog.gd; then
+	echo "Add a changelog entry for v$NEW to scripts/changelog.gd first." >&2
+	exit 1
+fi
 sed -i '' "s/^config\/version=\".*\"/config\/version=\"$NEW\"/" project.godot
 sed -i '' "s/^application\/short_version=\".*\"/application\/short_version=\"$NEW\"/; s/^application\/version=\".*\"/application\/version=\"$NEW\"/" export_presets.cfg
 git add project.godot export_presets.cfg

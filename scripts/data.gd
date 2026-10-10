@@ -42,6 +42,19 @@ const HANDS := [
 	{"name": "Factory Line", "poker": "Straight Flush", "chips": 100, "mult": 8, "lc": 40, "lm": 4},
 ]
 
+# Example cards for each hand type: [rank, suit].
+const HAND_EXAMPLES := [
+	[[14, 2]],
+	[[13, 0], [13, 3]],
+	[[12, 1], [12, 2], [5, 0], [5, 3]],
+	[[7, 0], [7, 1], [7, 2]],
+	[[9, 2], [8, 0], [7, 3], [6, 1], [5, 2]],
+	[[13, 1], [9, 1], [7, 1], [4, 1], [2, 1]],
+	[[11, 0], [11, 2], [11, 3], [4, 1], [4, 2]],
+	[[8, 0], [8, 1], [8, 2], [8, 3]],
+	[[11, 3], [10, 3], [9, 3], [8, 3], [7, 3]],
+]
+
 # Card upgrades (enhancements).
 const ENH_INFO := {
 	"nitro": {"name": "Nitro", "name_cards": "Bonus", "badge": "NITRO", "badge_cards": "BONUS", "desc": "[c]+30[/] Chips when scored"},
@@ -49,6 +62,14 @@ const ENH_INFO := {
 	"carbon": {"name": "Carbon", "name_cards": "Glass", "badge": "CARBON", "badge_cards": "GLASS", "desc": "[x]X2[/] Mult when scored,\n1 in 4 chance to break"},
 	"gold": {"name": "Gold Rims", "name_cards": "Gold", "badge": "GOLD", "badge_cards": "GOLD", "desc": "[$]+$2[/] when scored"},
 }
+# Mod editions, like the original game. weight = % chance for a mod in the shop or a pack.
+const EDITIONS := {
+	"foil": {"name": "Chrome Wrap", "name_cards": "Foil", "badge": "CHROME", "badge_cards": "FOIL", "desc": "[c]+50[/] Chips", "extra": 2, "weight": 5.0, "mode": 1},
+	"holo": {"name": "Holo Decal", "name_cards": "Holographic", "badge": "HOLO", "badge_cards": "HOLO", "desc": "[m]+10[/] Mult", "extra": 3, "weight": 3.5, "mode": 2},
+	"poly": {"name": "Pearl Paint", "name_cards": "Polychrome", "badge": "PEARL", "badge_cards": "POLY", "desc": "[x]X1.5[/] Mult", "extra": 5, "weight": 1.5, "mode": 3},
+	"negative": {"name": "Matte Black", "name_cards": "Negative", "badge": "MATTE", "badge_cards": "NEGATIVE", "desc": "[g]+1[/] Mod slot", "desc_cards": "[g]+1[/] Joker slot", "extra": 5, "weight": 1.5, "mode": 4},
+}
+
 const ENH_COLORS := {"nitro": Color("2f8cff"), "turbo": Color("ff4b3e"), "carbon": Color("555b66"), "gold": Color("c9971c")}
 
 const CAR_BODIES := [

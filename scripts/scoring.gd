@@ -153,6 +153,9 @@ static func score_hand(played: Array, mods: Array, levels: Array, ctx: Dictionar
 	var has: Dictionary = ev.has
 	for mi in mods.size():
 		var m: Dictionary = mods[mi]
+		match m.get("edition", ""):
+			"foil": _add(s, "mod", mi, "chips", 50)
+			"holo": _add(s, "mod", mi, "mult", 10)
 		match m.id:
 			"nitro": _add(s, "mod", mi, "mult", 4)
 			"twin_turbo":
@@ -181,6 +184,8 @@ static func score_hand(played: Array, mods: Array, levels: Array, ctx: Dictionar
 			"supercharger": _add(s, "mod", mi, "xmult", 1.5)
 			"getaway":
 				if m.get("val", 1.0) > 1.0: _add(s, "mod", mi, "xmult", m.val)
+		if m.get("edition", "") == "poly":
+			_add(s, "mod", mi, "xmult", 1.5)
 	return _finish(res, s)
 
 

@@ -70,6 +70,26 @@ Gold Rims,Золотые диски,Llantas de Oro,Goldfelgen,Jantes Or,Rodas de
 Gold,Золото,Oro,Gold,Or,Ouro
 GOLD,ЗОЛОТО,ORO,GOLD,OR,OURO
 [$]+$2[/] when scored,[$]+$2[/] при подсчёте,[$]+$2[/] al puntuar,[$]+$2[/] beim Werten,[$]+$2[/] au score,[$]+$2[/] ao pontuar
+Chrome Wrap,Хромовая плёнка,Forro Cromado,Chromfolie,Covering Chrome,Envelopamento Cromo
+Foil,Фольга,Laminada,Folie,Brillante,Laminado
+CHROME,ХРОМ,CROMO,CHROM,CHROME,CROMO
+FOIL,ФОЛЬГА,LAMINA,FOLIE,BRILL.,LAMINADO
+[c]+50[/] Chips,Фишки [c]+50[/],[c]+50[/] Fichas,[c]+50[/] Chips,[c]+50[/] Jetons,[c]+50[/] Fichas
+Holo Decal,Голо-наклейка,Vinilo Holo,Holo-Aufkleber,Décal Holo,Adesivo Holo
+Holographic,Голограмма,Holográfica,Holografisch,Holographique,Holográfico
+HOLO,ГОЛО,HOLO,HOLO,HOLO,HOLO
+[m]+10[/] Mult,Множитель [m]+10[/],[m]+10[/] Mult,[m]+10[/] Mult,[m]+10[/] Mult,[m]+10[/] Mult
+Pearl Paint,Жемчужная краска,Pintura Perlada,Perlglanzlack,Peinture Nacrée,Pintura Perolada
+Polychrome,Полихром,Policromática,Polychrom,Polychrome,Policromático
+PEARL,ЖЕМЧУГ,PERLA,PERL,NACRÉ,PÉROLA
+POLY,ПОЛИ,POLI,POLY,POLY,POLI
+[x]X1.5[/] Mult,Множитель [x]X1.5[/],[x]X1.5[/] Mult,[x]X1.5[/] Mult,[x]X1.5[/] Mult,[x]X1.5[/] Mult
+Matte Black,Матовый чёрный,Negro Mate,Mattschwarz,Noir Mat,Preto Fosco
+Negative,Негатив,Negativa,Negativ,Négative,Negativo
+MATTE,МАТОВЫЙ,MATE,MATT,MAT,FOSCO
+NEGATIVE,НЕГАТИВ,NEGATIVA,NEGATIV,NÉGATIF,NEGATIVO
+[g]+1[/] Mod slot,[g]+1[/] слот мода,[g]+1[/] hueco de Mod,[g]+1[/] Mod-Platz,[g]+1[/] emplacement de Mod,[g]+1[/] slot de Mod
+[g]+1[/] Joker slot,[g]+1[/] слот джокера,[g]+1[/] hueco de Joker,[g]+1[/] Joker-Platz,[g]+1[/] emplacement de Joker,[g]+1[/] slot de Coringa
 "Played [g]%s[/] cars give
 [m]+3[/] Mult when scored","Сыгранные машины [g]%s[/]
 при подсчёте: Множитель [m]+3[/]","Los coches [g]%s[/] jugados
@@ -347,7 +367,6 @@ donne [x]X2[/] Mult au score","A primeira figura jogada
 dá [x]X2[/] Mult ao pontuar"
 Supercharger,Компрессор,Sobrealimentador,Kompressor,Compresseur,Compressor
 High Roller,Хайроллер,Gran Apostador,High Roller,Gros Flambeur,Grande Apostador
-[x]X1.5[/] Mult,Множитель [x]X1.5[/],[x]X1.5[/] Mult,[x]X1.5[/] Mult,[x]X1.5[/] Mult,[x]X1.5[/] Mult
 Getaway Driver,Водила-беглец,Piloto de Fuga,Fluchtfahrer,Pilote de Fuite,Piloto de Fuga
 Boss Hunter,Гроза боссов,Cazajefes,Bossjäger,Chasseur de Boss,Caça-Boss
 "Gains [x]X0.25[/] Mult per Boss
@@ -701,6 +720,7 @@ Start Engine,Завести мотор,Arrancar Motor,Motor starten,Démarrer,Li
 How to Play,Как играть,Cómo Jugar,Anleitung,Comment jouer,Como Jogar
 Collection,Коллекция,Colección,Sammlung,Collection,Coleção
 Settings,Настройки,Ajustes,Einstellungen,Options,Configurações
+Statistics,Статистика,Estadísticas,Statistik,Statistiques,Estatísticas
 Quit,Выход,Salir,Beenden,Quitter,Sair
 Choose a Race,Выбери гонку,Elige una Carrera,Wähle ein Rennen,Choisis une course,Escolha a Corrida
 Pick your next race,Выбери следующую гонку,Escoge tu próxima carrera,Such dein nächstes Rennen aus,Choisis ta prochaine course,Escolha a próxima corrida
@@ -849,6 +869,8 @@ Poker hands,Комбинации,Manos,Pokerhände,Mains,Mãos
 Card backs,Рубашки,Reversos,Rückseiten,Dos de carte,Versos
 Hover any card for details,"Наведи на карту, чтобы узнать подробности",Pasa el ratón por una carta para ver detalles,Fahre über eine Karte für Details,Survole une carte pour les détails,Passe o mouse sobre uma carta para detalhes
 Card upgrades,Улучшения,Mejoras de cartas,Karten-Upgrades,Améliorations de cartes,Upgrades de cartas
+Editions,Издания,Ediciones,Editionen,Éditions,Edições
+Chance: %s%%,Шанс: %s%%,Probabilidad: %s%%,Chance: %s%%,Chance : %s%%,Chance: %s%%
 DYNO TUNE,ДИНОСТЕНД,AFINACIÓN DYNO,DYNO-TUNE,TUNE DYNO,DYNO TUNE
 UPGRADE,ПРОКАЧКА,MEJORA,UPGRADE,AMÉLIO.,UPGRADE
 WORKSHOP,МАСТЕРСКАЯ,TALLER,WERKSTATT,ATELIER,OFICINA
@@ -856,6 +878,26 @@ TRICK,ФОКУС,TRUCO,TRICK,ASTUCE,TRUQUE
 Final race,Финальная гонка,Carrera final,Finalrennen,Course finale,Corrida final
 From ante %d,С анте %d,Desde ante %d,Ab Ante %d,Dès ante %d,A partir de fase %d
 Per level,За уровень,Por nivel,Pro Stufe,Par niveau,Por nível
+CHANGELOG,ИЗМЕНЕНИЯ,NOVEDADES,CHANGELOG,HISTORIQUE,NOVIDADES
+STATISTICS,СТАТИСТИКА,ESTADÍSTICAS,STATISTIK,STATISTIQUES,ESTATÍSTICAS
+Runs started,Забегов начато,Partidas iniciadas,Runs gestartet,Parties lancées,Runs iniciadas
+Runs won,Забегов выиграно,Partidas ganadas,Runs gewonnen,Parties gagnées,Runs vencidas
+Runs lost,Забегов проиграно,Partidas perdidas,Runs verloren,Parties perdues,Runs perdidas
+Win rate,Процент побед,% de victorias,Siegquote,Taux de victoire,Taxa de vitória
+Best ante,Лучшее анте,Mejor ante,Beste Ante,Meilleur ante,Melhor fase
+Races won,Гонок выиграно,Carreras ganadas,Rennen gewonnen,Courses gagnées,Corridas vencidas
+Bosses beaten,Боссов побеждено,Jefes derrotados,Bosse besiegt,Boss battus,Bosses derrotados
+Hands played,Сыграно рук,Manos jugadas,Hände gespielt,Mains jouées,Mãos jogadas
+Cars played,Сыграно машин,Coches jugados,Autos gespielt,Voitures jouées,Carros jogados
+Cards played,Сыграно карт,Cartas jugadas,Karten gespielt,Cartes jouées,Cartas jogadas
+Discards used,Использовано сбросов,Descartes usados,Ablagen genutzt,Défausses utilisées,Descartes usados
+Money earned,Заработано денег,Dinero ganado,Geld verdient,Argent gagné,Dinheiro ganho
+Mods bought,Куплено модов,Mods comprados,Mods gekauft,Mods achetés,Mods comprados
+Jokers bought,Куплено джокеров,Jokers comprados,Joker gekauft,Jokers achetés,Coringas comprados
+Packs opened,Открыто паков,Sobres abiertos,Packs geöffnet,Packs ouverts,Pacotes abertos
+Favorite hand,Любимая комбинация,Mano favorita,Lieblingshand,Main préférée,Mão favorita
+Press again to reset,Нажми ещё раз для сброса,Pulsa otra vez,Nochmal drücken zum Zurücksetzen,Rappuie pour réinitialiser,Clique de novo p/ zerar
+Reset statistics,Сбросить статистику,Borrar estadísticas,Statistik zurücksetzen,Réinitialiser les stats,Zerar estatísticas
 HAND LEVELS,УРОВНИ КОМБИНАЦИЙ,NIVELES DE MANO,HAND-STUFEN,NIVEAUX DES MAINS,NÍVEIS DAS MÃOS
 Hand,Комбинация,Mano,Hand,Main,Mão
 Level,Уровень,Nivel,Stufe,Niveau,Nível
@@ -876,6 +918,8 @@ Beat the target score before you run out of hands. [color=#ff4b3e]Discard[/color
 "Spend cash at the [color=#e8572f]Pit Stop[/color]: Jokers change how you score, Upgrades level up hands, Trick cards change your cards.","Трать деньги на [color=#e8572f]Пит-стопе[/color]: Джокеры меняют подсчёт очков, Прокачки улучшают комбинации, Фокусы меняют твои карты.","Gasta dinero en el [color=#e8572f]Pit Stop[/color]: los Jokers cambian cómo puntúas, las Mejoras suben de nivel las manos y las cartas de Truco cambian tus cartas.","Gib Cash im [color=#e8572f]Boxenstopp[/color] aus: Joker ändern deine Wertung, Upgrades leveln Hände auf, Trick-Karten verändern deine Karten.","Dépense ton cash au [color=#e8572f]Pit Stop[/color] : les Jokers changent ton score, les Améliorations font monter les mains en niveau, les cartes Astuce changent tes cartes.","Gaste grana no [color=#e8572f]Pit Stop[/color]: Coringas mudam como você pontua, Upgrades sobem o nível das mãos, cartas de Truque mudam suas cartas."
 Booster packs: open one and take 1 of the choices.,Бустер-паки: открой пак и возьми 1 из предложенного.,Sobres: abre uno y quédate con 1 de las opciones.,Booster-Packs: Öffne eins und nimm 1 der Optionen.,Boosters : ouvre-en un et prends 1 des choix.,Pacotes: abra um e leve 1 das opções.
 Win the Grand Prix at Ante 8 to become Champion.,Выиграй Гран-при на 8-м анте и стань Чемпионом.,Gana el Gran Premio en el Ante 8 para ser Campeón.,"Gewinne den Grand Prix bei Ante 8, um Champion zu werden.",Gagne le Grand Prix à l'Ante 8 pour devenir Champion.,Vença o Grande Prêmio na Fase 8 para virar Campeão.
+Some Mods come with an edition (they cost more):,Некоторые моды бывают в особом издании (они дороже):,Algunos Mods traen una edición (cuestan más):,Manche Mods haben eine Edition (sie kosten mehr):,Certains Mods ont une édition (ils coûtent plus cher) :,Alguns Mods vêm com uma edição (custam mais):
+Some Jokers come with an edition (they cost more):,Некоторые джокеры бывают в особом издании (они дороже):,Algunos Jokers traen una edición (cuestan más):,Manche Joker haben eine Edition (sie kosten mehr):,Certains Jokers ont une édition (ils coûtent plus cher) :,Alguns Coringas vêm com uma edição (custam mais):
 Card statuses,Статусы,Estados de cartas,Karten-Status,Statuts des cartes,Status das cartas
 the boss blocks this car: it gives no chips and no effects.,босс блокирует эту машину: она не даёт фишек и эффектов.,el jefe bloquea este coche: no da fichas ni efectos.,der Boss blockiert dieses Auto: keine Chips und keine Effekte.,le boss bloque cette voiture : elle ne donne ni jetons ni effets.,o boss bloqueia este carro: ele não dá fichas nem efeitos.
 the boss blocks this card: it gives no chips and no effects.,босс блокирует эту карту: она не даёт фишек и эффектов.,el jefe bloquea esta carta: no da fichas ni efectos.,der Boss blockiert diese Karte: keine Chips und keine Effekte.,le boss bloque cette carte : elle ne donne ni jetons ni effets.,o boss bloqueia esta carta: ela não dá fichas nem efeitos.
@@ -890,4 +934,20 @@ a Glass card broke and left your deck.,карта Стекло разбилас�
 "Upgrades and Cash Grab work at once. Trick cards need cards: select them in your hand, then click the item and press Use.","Прокачки и Сорвать куш срабатывают сразу. Фокусам нужны карты: выбери их в руке, затем нажми на предмет и на Применить.","Las Mejoras y Billetazo actúan al instante. Las cartas de Truco necesitan cartas: elígelas en tu mano, luego haz clic en el objeto y pulsa Usar.","Upgrades und Geldregen wirken sofort. Trick-Karten brauchen Karten: Wähle sie in deiner Hand, klicke dann das Item und drücke Nutzen.","Les Améliorations et Coup de Cash agissent tout de suite. Les cartes Astuce ont besoin de cartes : choisis-les en main, clique sur l'objet puis sur Utiliser.","Upgrades e Grana em Dobro funcionam na hora. Cartas de Truque precisam de cartas: selecione-as na mão, clique no item e aperte Usar."
 "Keys: Enter = Play hand, Backspace = Discard, Esc = Menu, M = Music, F11 = Fullscreen. Hover any card for details.","Клавиши: Enter - сыграть руку, Backspace - сброс, Esc - меню, M - музыка, F11 - полный экран. Наведи на любую карту, чтобы узнать подробности.","Teclas: Enter = Jugar mano, Retroceso = Descartar, Esc = Menú, M = Música, F11 = Pantalla completa. Pasa el ratón sobre cualquier carta para ver detalles.","Tasten: Enter = Hand spielen, Backspace = Ablegen, Esc = Menü, M = Musik, F11 = Vollbild. Mit der Maus über Karten für Details.","Touches : Entrée = Jouer la main, Retour arrière = Défausser, Échap = Menu, M = Musique, F11 = Plein écran. Survole une carte pour les détails.","Teclas: Enter = Jogar mão, Backspace = Descartar, Esc = Menu, M = Música, F11 = Tela cheia. Passe o mouse em qualquer carta para ver detalhes."
 HOW TO PLAY,КАК ИГРАТЬ,CÓMO JUGAR,ANLEITUNG,COMMENT JOUER,COMO JOGAR
+"Unique pictures for every mod, garage item and boss race","Уникальные картинки для каждого мода, предмета гаража и гонки босса","Imágenes únicas para cada Mod, objeto del garaje y carrera de Jefe","Einzigartige Bilder für jeden Mod, jedes Garagen-Item und jedes Boss-Rennen","Images uniques pour chaque mod, objet de garage et course de boss","Imagens únicas para cada mod, item da garagem e corrida boss"
+"Classic King, Queen and Jack are easy to tell apart","Классических Короля, Даму и Валета теперь легко различить","En el modo clásico, Rey, Reina y Jota se distinguen fácilmente","Klassische Könige, Damen und Buben sind leicht zu unterscheiden","Roi, Dame et Valet classiques faciles à distinguer","No tema Clássico, Rei, Dama e Valete agora são fáceis de distinguir"
+"Mod editions from the original game: Foil, Holographic, Polychrome and Negative","Издания модов из оригинальной игры: Фольга, Голограмма, Полихром и Негатив","Ediciones de Mods del juego original: Laminada, Holográfica, Policromática y Negativa","Mod-Editionen aus dem Originalspiel: Folie, Holografisch, Polychrom und Negativ","Éditions de Mods du jeu original : Brillante, Holographique, Polychrome et Négative","Edições de Mods do jogo original: Laminado, Holográfico, Policromático e Negativo"
+Changelog: click the version number,Список изменений: нажми на номер версии,Novedades: pulsa el número de versión,Changelog: Klicke auf die Versionsnummer,Historique : clique sur le numéro de version,Novidades: clique no número da versão
+"Statistics of your runs, with a reset button",Статистика забегов с кнопкой сброса,"Estadísticas de tus partidas, con botón para borrarlas","Statistik deiner Runs, mit Zurücksetzen-Knopf","Statistiques de tes parties, avec un bouton de réinitialisation","Estatísticas das suas runs, com botão para zerar"
+Version number in the top-right corner,Номер версии в правом верхнем углу,Número de versión en la esquina superior derecha,Versionsnummer in der oberen rechten Ecke,Numéro de version en haut à droite,Número da versão no canto superior direito
+"Collection: all cards, mods, items, packs, bosses, hands and card backs","Коллекция: все карты, моды, предметы, паки, боссы, комбинации и рубашки","Colección: todas las cartas, Mods, objetos, sobres, jefes, manos y reversos","Sammlung: alle Karten, Mods, Items, Packs, Bosse, Hände und Rückseiten","Collection : toutes les cartes, mods, objets, packs, boss, mains et dos de carte","Coleção: todas as cartas, mods, itens, pacotes, bosses, mãos e versos"
+Classic card art shows the full rank on the 10,На классической десятке ранг теперь виден целиком,El arte clásico muestra el 10 completo,Klassische Kartenbilder zeigen auf der 10 den vollen Rang,Les cartes classiques affichent le 10 en entier,A arte clássica mostra o valor completo no 10
+Easier to read colors on dark panels,Более читаемые цвета на тёмных панелях,Colores más legibles en paneles oscuros,Besser lesbare Farben auf dunklen Feldern,Couleurs plus lisibles sur les panneaux sombres,Cores mais legíveis em painéis escuros
+The Neon Grid card back stays inside the card,Рубашка «Неоновая сетка» больше не выходит за края карты,El reverso Rejilla Neón ya no se sale de la carta,Der Kartenrücken Neon-Gitter bleibt innerhalb der Karte,Le dos Grille Néon reste dans la carte,O verso Grade Neon agora fica dentro da carta
+First release: a Balatro-like deckbuilder where the cards are cars,"Первый релиз: декбилдер в духе Balatro, где карты - это машины",Primera versión: un juego de mazos tipo Balatro donde las cartas son coches,"Erste Version: ein Balatro-ähnlicher Deckbuilder, in dem die Karten Autos sind",Première version : un deckbuilder à la Balatro où les cartes sont des voitures,Primeira versão: um deckbuilder estilo Balatro em que as cartas são carros
+"8 antes of races with boss rules, the Grand Prix and endless mode","8 анте гонок с правилами боссов, Гран-при и бесконечный режим","8 antes de carreras con reglas de Jefe, el Gran Premio y modo infinito","8 Antes voller Rennen mit Boss-Regeln, der Grand Prix und der Endlosmodus","8 antes de courses avec règles de boss, le Grand Prix et le mode infini","8 fases de corridas com regras de boss, o Grande Prêmio e o modo infinito"
+"30 mods, Dyno Tunes, Workshop cards and booster packs","30 модов, настройки диностенда, карты Мастерской и бустер-паки","30 Mods, Afinaciones Dyno, cartas de Taller y sobres","30 Mods, Dyno-Tunes, Werkstatt-Karten und Booster-Packs","30 mods, Dyno Tunes, cartes Atelier et boosters","30 mods, Dyno Tunes, cartas da Oficina e pacotes"
+"Card art and suit themes: cars or classic playing cards, 6 card backs","Темы рисунка и мастей: машины или классические игральные карты, 6 рубашек","Temas de arte y palos: coches o cartas clásicas, 6 reversos","Kartenbilder und Farb-Themes: Autos oder klassische Spielkarten, 6 Rückseiten","Thèmes d'art et de couleurs : voitures ou cartes classiques, 6 dos de carte","Temas de arte e naipes: carros ou cartas clássicas, 6 versos"
+"Procedural music, autosave, settings and 6 languages","Процедурная музыка, автосохранение, настройки и 6 языков","Música procedural, guardado automático, ajustes y 6 idiomas","Prozedurale Musik, Autospeichern, Einstellungen und 6 Sprachen","Musique procédurale, sauvegarde auto, options et 6 langues","Música procedural, salvamento automático, configurações e 6 idiomas"
+Play in the browser on GitHub Pages,Играй в браузере на GitHub Pages,Juega en el navegador desde GitHub Pages,Im Browser auf GitHub Pages spielen,Jouable dans le navigateur sur GitHub Pages,Jogue no navegador pelo GitHub Pages
 Mult,Множитель,Mult,Mult,Mult,Mult

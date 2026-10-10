@@ -3,6 +3,8 @@ extends Control
 ## Moves smoothly toward target_pos; everything is drawn in code.
 
 const Data = preload("res://scripts/data.gd")
+const Art = preload("res://scripts/art.gd")
+const EDITION_SHADER = preload("res://scripts/edition.gdshader")
 
 signal clicked(card)
 signal hover_changed(card, on)
@@ -50,6 +52,11 @@ func _ready() -> void:
 	mouse_entered.connect(_on_hover.bind(true))
 	mouse_exited.connect(_on_hover.bind(false))
 	add_to_group("cards")  # redrawn when the card art, suits or back change
+	if kind == MOD and data.get("edition", "") != "":
+		var mat := ShaderMaterial.new()
+		mat.shader = EDITION_SHADER
+		mat.set_shader_parameter("mode", Data.EDITIONS[data.edition].mode)
+		material = mat
 
 
 func _notification(what: int) -> void:
@@ -257,31 +264,55 @@ func _draw_classic_card() -> void:
 
 
 ## Classic court card: a framed, double-headed figure (J: cap, Q: tiara, K: crown).
+## Classic court card: a framed, double-headed figure.
+## King: big crown, beard, ermine and scepter (gold frame). Queen: long hair, tiara,
+## pearls and a rose (rose frame). Jack: feathered cap, no beard, halberd (teal frame).
 func _draw_court(c: Vector2, suit: int, rank: int, sc: Color) -> void:
-	var frame := Rect2(c - Vector2(24, 42), Vector2(48, 84))
-	draw_style_box(Data.box(sc.lightened(0.82), 4, sc, 2, 0), frame)
+	var accent: Color = {13: Color("c9a227"), 12: Color("c2185b"), 11: Color("2f8f83")}[rank]
+	draw_style_box(Data.box(accent.lightened(0.78), 4, accent, 2, 0), Rect2(c - Vector2(25, 43), Vector2(50, 86)))
+	var skin := Color("f2c9a0")
+	var gold := Color("ffd166")
+	var ink := Color("2b2f38")
 	for half in [false, true]:
 		draw_set_transform(c, PI if half else 0.0, Vector2.ONE)
-		var robe := PackedVector2Array([Vector2(-18, 0), Vector2(-14, -16), Vector2(14, -16), Vector2(18, 0)])
-		draw_colored_polygon(robe, sc)
-		draw_line(Vector2(0, -16), Vector2(0, 0), Color("ffd166"), 3.0)
-		draw_circle(Vector2(0, -24), 7.0, Color("f2c9a0"))
-		draw_circle(Vector2(-2.5, -25), 1.0, Color("2b2f38"))
-		draw_circle(Vector2(2.5, -25), 1.0, Color("2b2f38"))
-		var gold := Color("ffd166")
+		draw_colored_polygon(PackedVector2Array([Vector2(-22, 0), Vector2(-20, -14), Vector2(-8, -19), Vector2(8, -19), Vector2(20, -14), Vector2(22, 0)]), sc)
 		match rank:
-			13:
-				draw_colored_polygon(PackedVector2Array([Vector2(-8, -30), Vector2(-8, -38), Vector2(-4, -33), Vector2(0, -40),
-					Vector2(4, -33), Vector2(8, -38), Vector2(8, -30)]), gold)
-				draw_line(Vector2(0, -17), Vector2(0, -12), Color.WHITE, 1.0)
-			12:
-				draw_colored_polygon(PackedVector2Array([Vector2(-7, -30), Vector2(-5, -36), Vector2(0, -33), Vector2(5, -36), Vector2(7, -30)]), gold)
-				draw_circle(Vector2(0, -36), 2.0, Color("ff4b3e"))
-			11:
-				draw_colored_polygon(PackedVector2Array([Vector2(-9, -29), Vector2(-6, -35), Vector2(7, -35), Vector2(11, -29)]), sc.darkened(0.3))
-		_draw_emblem(Vector2(10, -8), 4.0, suit, Color.WHITE)
+			13:  # King
+				draw_colored_polygon(PackedVector2Array([Vector2(-13, -19), Vector2(13, -19), Vector2(10, -13), Vector2(-10, -13)]), Color.WHITE)
+				for x in [-8, -2, 4, 9]:
+					draw_circle(Vector2(x, -16), 1.0, ink)
+				draw_line(Vector2(15, -1), Vector2(19, -33), gold, 2.5)
+				draw_circle(Vector2(19, -35), 3.0, gold)
+				draw_circle(Vector2(0, -28), 7.0, skin)
+				draw_colored_polygon(PackedVector2Array([Vector2(-7, -27), Vector2(7, -27), Vector2(6, -20), Vector2(0, -16), Vector2(-6, -20)]), Color("8a5a2b"))
+				draw_line(Vector2(-3, -24), Vector2(3, -24), Color("5a3a1a"), 1.5)
+				draw_colored_polygon(PackedVector2Array([Vector2(-9, -33), Vector2(-10, -43), Vector2(-5, -37), Vector2(0, -44),
+					Vector2(5, -37), Vector2(10, -43), Vector2(9, -33)]), gold)
+				draw_circle(Vector2(0, -36), 1.6, Color("ff4b3e"))
+			12:  # Queen
+				draw_colored_polygon(PackedVector2Array([Vector2(-9, -35), Vector2(9, -35), Vector2(12, -17), Vector2(7, -15),
+					Vector2(7, -29), Vector2(-7, -29), Vector2(-7, -15), Vector2(-12, -17)]), Color("c47a2c"))
+				draw_circle(Vector2(0, -28), 6.5, skin)
+				draw_line(Vector2(-2, -24), Vector2(2, -24), Color("d62828"), 1.5)
+				for i in 5:
+					draw_circle(Vector2(-6 + i * 3, -18 + absf(i - 2) * -0.6), 1.2, Color.WHITE)
+				draw_arc(Vector2(0, -35), 6, PI, TAU, 10, gold, 2.0)
+				draw_circle(Vector2(0, -41), 1.8, Color("4cc9f0"))
+				draw_line(Vector2(15, -4), Vector2(15, -14), Color("2f8f3a"), 1.5)
+				draw_circle(Vector2(15, -16), 3.0, Color("d62828"))
+			11:  # Jack
+				draw_circle(Vector2(0, -27), 6.5, skin)
+				draw_colored_polygon(PackedVector2Array([Vector2(-10, -30), Vector2(-7, -36), Vector2(8, -36), Vector2(12, -30)]), sc.darkened(0.35))
+				draw_colored_polygon(PackedVector2Array([Vector2(7, -35), Vector2(17, -45), Vector2(12, -33)]), accent)
+				draw_line(Vector2(-17, 0), Vector2(-17, -40), Color("8fa3b8"), 2.0)
+				draw_colored_polygon(PackedVector2Array([Vector2(-17, -40), Vector2(-11, -35), Vector2(-17, -31)]), Color("c9ccd1"))
+				for x in [-6, 0, 6]:
+					draw_line(Vector2(x, -19), Vector2(x, -14), gold, 1.5)
+		draw_circle(Vector2(-2.5, -29), 0.9, ink)
+		draw_circle(Vector2(2.5, -29), 0.9, ink)
+		_draw_emblem(Vector2(0, -7), 4.0, suit, Color.WHITE)
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
-	draw_line(c + Vector2(-24, 0), c + Vector2(24, 0), sc, 1.0)
+	draw_line(c + Vector2(-25, 0), c + Vector2(25, 0), accent, 1.0)
 
 
 func _draw_car(c: Vector2, w: float, col: Color, suit: int, rank: int, enh: String) -> void:
@@ -334,47 +365,11 @@ func _draw_car(c: Vector2, w: float, col: Color, suit: int, rank: int, enh: Stri
 
 
 func _draw_emblem(c: Vector2, r: float, suit: int, col: Color) -> void:
-	if Data.classic_suits:
-		_draw_classic_suit(c, r, suit, col)
-		return
-	match suit:
-		0:  # star
-			var pts := PackedVector2Array()
-			for i in 10:
-				var rr := r if i % 2 == 0 else r * 0.45
-				pts.append(c + Vector2.from_angle(-PI / 2 + i * TAU / 10) * rr)
-			draw_colored_polygon(pts, col)
-		1:  # rising sun
-			draw_circle(c, r * 0.6, col)
-			for i in 8:
-				var d := Vector2.from_angle(i * TAU / 8)
-				draw_line(c + d * r * 0.8, c + d * r * 1.25, col, 1.5)
-		2:  # shield
-			draw_colored_polygon(PackedVector2Array([c + Vector2(-r, -r) * 0.9, c + Vector2(r, -r) * 0.9,
-				c + Vector2(r, 0.1 * r) * 0.9, c + Vector2(0, 1.15 * r) * 0.9, c + Vector2(-r, 0.1 * r) * 0.9]), col)
-		3:  # mountains
-			draw_colored_polygon(PackedVector2Array([c + Vector2(-1.15, 0.8) * r, c + Vector2(-0.35, -0.85) * r,
-				c + Vector2(0.1, 0.0) * r, c + Vector2(0.45, -0.5) * r, c + Vector2(1.15, 0.8) * r]), col)
+	Art.emblem(self, c, r, suit, col)
 
 
 func _draw_classic_suit(c: Vector2, r: float, suit: int, col: Color) -> void:
-	match suit:
-		0:  # heart
-			draw_circle(c + Vector2(-0.48, -0.25) * r, 0.55 * r, col)
-			draw_circle(c + Vector2(0.48, -0.25) * r, 0.55 * r, col)
-			draw_colored_polygon(PackedVector2Array([c + Vector2(-1.0, -0.1) * r, c + Vector2(1.0, -0.1) * r, c + Vector2(0, 1.0) * r]), col)
-		1:  # diamond
-			draw_colored_polygon(PackedVector2Array([c + Vector2(0, -1.1) * r, c + Vector2(0.75, 0) * r, c + Vector2(0, 1.1) * r, c + Vector2(-0.75, 0) * r]), col)
-		2:  # spade
-			draw_circle(c + Vector2(-0.48, 0.2) * r, 0.52 * r, col)
-			draw_circle(c + Vector2(0.48, 0.2) * r, 0.52 * r, col)
-			draw_colored_polygon(PackedVector2Array([c + Vector2(-0.98, 0.1) * r, c + Vector2(0, -1.05) * r, c + Vector2(0.98, 0.1) * r]), col)
-			draw_colored_polygon(PackedVector2Array([c + Vector2(0, 0.3) * r, c + Vector2(0.35, 1.05) * r, c + Vector2(-0.35, 1.05) * r]), col)
-		3:  # club
-			draw_circle(c + Vector2(0, -0.45) * r, 0.45 * r, col)
-			draw_circle(c + Vector2(-0.5, 0.15) * r, 0.45 * r, col)
-			draw_circle(c + Vector2(0.5, 0.15) * r, 0.45 * r, col)
-			draw_colored_polygon(PackedVector2Array([c + Vector2(0, 0.0) * r, c + Vector2(0.35, 1.05) * r, c + Vector2(-0.35, 1.05) * r]), col)
+	Art.classic_suit(self, c, r, suit, col)
 
 
 func _draw_icon(c: Vector2, k: String, col: Color, bg: Color) -> void:
@@ -438,14 +433,18 @@ func _draw_mod() -> void:
 	draw_style_box(Data.box(inner, 6), Rect2(8, 8, 80, 72))
 	var c := Vector2(48, 44)
 	for i in 12:
-		var d := Vector2.from_angle(i * TAU / 12 + _t * 0.0)
-		draw_line(c + d * 12, c + d * 32, Color(kc, 0.18), 3.0)
-	_draw_icon(c, data.kind, kc, inner)
+		var d := Vector2.from_angle(i * TAU / 12)
+		draw_line(c + d * 14, c + d * 34, Color(kc, 0.12), 3.0)
+	Art.mod_art(self, data.id, c)
 	var font := get_theme_default_font()
 	var name := Data.text(data, "name")
 	draw_multiline_string(font, Vector2(5, 96), name, HORIZONTAL_ALIGNMENT_CENTER, 86, _fit(name, 86, 12), 2, Color.WHITE)
 	var r: int = data.get("rarity", 0)
 	draw_string(font, Vector2(5, 128), tr(Data.RARITY_NAMES[r]), HORIZONTAL_ALIGNMENT_CENTER, 86, 9, [Color("8fa3b8"), Color("3ecf6a"), Color("ff4b3e")][r])
+	if data.get("edition", "") != "":
+		var ed := Data.text(Data.EDITIONS[data.edition], "badge")
+		draw_style_box(Data.box(Color(1, 1, 1, 0.9), 4), Rect2(10, 10, 46, 13))
+		draw_string(font, Vector2(10, 20), ed, HORIZONTAL_ALIGNMENT_CENTER, 46, _fit(ed, 42, 9), Color("1b1f27"))
 
 
 func _draw_cons() -> void:
@@ -457,8 +456,7 @@ func _draw_cons() -> void:
 	var font := get_theme_default_font()
 	var head := Data.tv("DYNO TUNE", "UPGRADE") if tune else Data.tv("WORKSHOP", "TRICK")
 	draw_string(font, Vector2(5, 17), head, HORIZONTAL_ALIGNMENT_CENTER, 86, _fit(head, 86, 10), border)
-	var icon := ("arrow" if tune else "spark") if Data.classic_art else ("gauge" if tune else "util")
-	_draw_icon(Vector2(48, 52), icon, border, bg.lightened(0.08))
+	Art.item_art(self, data, Vector2(48, 52))
 	var label: String = tr(Data.hand_name(data.hand)) if tune else Data.text(data, "name")
 	draw_multiline_string(font, Vector2(5, 100), label, HORIZONTAL_ALIGNMENT_CENTER, 86, _fit(label, 86, 13), 2, Color.WHITE)
 
