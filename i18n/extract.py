@@ -20,7 +20,7 @@ for f in ["scripts/data.gd", "scripts/game.gd", "scripts/card_view.gd"]:
     # join GDScript line continuations of concatenated literals: "a" \ + "b"
     for m in LIT.finditer(src):
         raw = m.group(1)
-        letters = re.sub(r"\[/?color(=#?[0-9a-fA-F]*)?\]|\[/?[a-z$]\]|%[sd]|\\n", "", raw)
+        letters = re.sub(r"\[/?color[^\]]*\]|\[/?[a-z$]\]|%[sd]|\\n", "", raw)
         if raw in KEEP_LOWER or (not SKIP_RE.match(raw) and raw not in SKIP and re.search(r"[A-Za-z]{2}", letters)):
             s = unescape(raw)
             if s not in out:

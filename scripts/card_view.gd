@@ -34,6 +34,7 @@ var price := -1:
 		queue_redraw()
 
 var face_down := false
+var back_style := -1  # -1 = the back chosen in settings
 var flip_x := 1.0  # x-scale factor for the flip animation
 
 var _t := 0.0
@@ -235,7 +236,7 @@ func _draw_classic_card() -> void:
 	for flip in [false, true]:
 		if flip:
 			draw_set_transform(SIZE, PI, Vector2.ONE)
-		draw_string(font, Vector2(6, 25), rs, HORIZONTAL_ALIGNMENT_CENTER, 20, 20, ink)
+		draw_string(font, Vector2(3, 25), rs, HORIZONTAL_ALIGNMENT_CENTER, 26, _fit(rs, 25, 20), ink)
 		_draw_emblem(Vector2(16, 36), 6.0, suit, sc)
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	var c := Vector2(48, 67)
@@ -465,7 +466,8 @@ func _draw_cons() -> void:
 func _draw_back() -> void:
 	var r := Rect2(Vector2.ZERO, SIZE)
 	var font := get_theme_default_font()
-	match Data.back_style:
+	var style := back_style if back_style >= 0 else Data.back_style
+	match style:
 		0:  # checkered flag
 			draw_style_box(Data.box(Color("8c1c13"), 9, Color("f6f0e1"), 3), r)
 			for gy in 8:
@@ -505,7 +507,7 @@ func _draw_back() -> void:
 			for i in range(-4, 5):
 				_clip_line(Vector2(48 + i * 4, 70), Vector2(48 + i * 22, 130), floor_area, Color("3ff0ff"), 1.0)
 		_:  # classic lattice, red or blue
-			var col := Color("b3202a") if Data.back_style == 4 else Color("1d4e9e")
+			var col := Color("b3202a") if style == 4 else Color("1d4e9e")
 			draw_style_box(Data.box(Color("fbf8f0"), 9, Color("2b2f38"), 1), r)
 			draw_style_box(Data.box(col, 5), Rect2(8, 8, 80, 118))
 			var panel := PackedVector2Array([Vector2(8, 8), Vector2(88, 8), Vector2(88, 126), Vector2(8, 126)])

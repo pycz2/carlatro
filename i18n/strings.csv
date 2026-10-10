@@ -699,6 +699,7 @@ Cars instead of cards.,Тачки вместо карт.,Coches en vez de cartas
 Continue,Продолжить,Continuar,Weiter,Continuer,Continuar
 Start Engine,Завести мотор,Arrancar Motor,Motor starten,Démarrer,Ligar Motor
 How to Play,Как играть,Cómo Jugar,Anleitung,Comment jouer,Como Jogar
+Collection,Коллекция,Colección,Sammlung,Collection,Coleção
 Settings,Настройки,Ajustes,Einstellungen,Options,Configurações
 Quit,Выход,Salir,Beenden,Quitter,Sair
 Choose a Race,Выбери гонку,Elige una Carrera,Wähle ein Rennen,Choisis une course,Escolha a Corrida
@@ -755,6 +756,7 @@ Upgrade: %s,Прокачка: %s,Mejora: %s,Upgrade: %s,Amélioration : %s,Upgra
 "Select %s cars in hand, then Use","Выбери машины в руке (%s), затем нажми Применить",Elige %s coches en mano y pulsa Usar,"Wähle %s Autos in der Hand, dann Nutzen","Choisis %s voitures en main, puis Utiliser",Selecione %s carros na mão e use
 "Select %s cards in hand, then Use","Выбери карты в руке (%s), затем нажми Применить",Elige %s cartas en mano y pulsa Usar,"Wähle %s Karten in der Hand, dann Nutzen","Choisis %s cartes en main, puis Utiliser",Selecione %s cartas na mão e use
 Use any time,Можно применить в любой момент,Úsalo en cualquier momento,Jederzeit nutzbar,Utilisable à tout moment,Use a qualquer momento
+Click a back to use it,"Нажми на рубашку, чтобы выбрать её",Haz clic en un reverso para usarlo,"Klicke auf eine Rückseite, um sie zu nutzen",Clique sur un dos pour l’utiliser,Clique num verso para usá-lo
 Your Garage,Твой гараж,Tu Garaje,Deine Garage,Ton Garage,Sua Garagem
 Your Deck,Твоя колода,Tu Mazo,Dein Deck,Ton Deck,Seu Baralho
 Cars in garage: %d,Машин в гараже: %d,Coches en el garaje: %d,Autos in Garage: %d,Voitures au garage : %d,Carros na garagem: %d
@@ -838,6 +840,22 @@ Main Menu,Главное меню,Menú Principal,Hauptmenü,Menu principal,Menu
 MENU,МЕНЮ,MENÚ,MENÜ,MENU,MENU
 Resume,Продолжить,Continuar,Weiter,Reprendre,Continuar
 Your run is saved,Забег сохранён,Partida guardada,Lauf gespeichert,Partie sauvegardée,Corrida salva
+COLLECTION,КОЛЛЕКЦИЯ,COLECCIÓN,SAMMLUNG,COLLECTION,COLEÇÃO
+Cards,Карты,Cartas,Karten,Cartes,Cartas
+Garage cards,Карты гаража,Cartas del Garaje,Garagenkarten,Cartes Garage,Cartas da Garagem
+Packs,Паки,Sobres,Packs,Packs,Pacotes
+Bosses,Боссы,Jefes,Bosse,Boss,Chefes
+Poker hands,Комбинации,Manos,Pokerhände,Mains,Mãos
+Card backs,Рубашки,Reversos,Rückseiten,Dos de carte,Versos
+Hover any card for details,"Наведи на карту, чтобы узнать подробности",Pasa el ratón por una carta para ver detalles,Fahre über eine Karte für Details,Survole une carte pour les détails,Passe o mouse sobre uma carta para detalhes
+Card upgrades,Улучшения,Mejoras de cartas,Karten-Upgrades,Améliorations de cartes,Upgrades de cartas
+DYNO TUNE,ДИНОСТЕНД,AFINACIÓN DYNO,DYNO-TUNE,TUNE DYNO,DYNO TUNE
+UPGRADE,ПРОКАЧКА,MEJORA,UPGRADE,AMÉLIO.,UPGRADE
+WORKSHOP,МАСТЕРСКАЯ,TALLER,WERKSTATT,ATELIER,OFICINA
+TRICK,ФОКУС,TRUCO,TRICK,ASTUCE,TRUQUE
+Final race,Финальная гонка,Carrera final,Finalrennen,Course finale,Corrida final
+From ante %d,С анте %d,Desde ante %d,Ab Ante %d,Dès ante %d,A partir de fase %d
+Per level,За уровень,Por nivel,Pro Stufe,Par niveau,Por nível
 HAND LEVELS,УРОВНИ КОМБИНАЦИЙ,NIVELES DE MANO,HAND-STUFEN,NIVEAUX DES MAINS,NÍVEIS DAS MÃOS
 Hand,Комбинация,Mano,Hand,Main,Mão
 Level,Уровень,Nivel,Stufe,Niveau,Nível
@@ -858,7 +876,6 @@ Beat the target score before you run out of hands. [color=#ff4b3e]Discard[/color
 "Spend cash at the [color=#e8572f]Pit Stop[/color]: Jokers change how you score, Upgrades level up hands, Trick cards change your cards.","Трать деньги на [color=#e8572f]Пит-стопе[/color]: Джокеры меняют подсчёт очков, Прокачки улучшают комбинации, Фокусы меняют твои карты.","Gasta dinero en el [color=#e8572f]Pit Stop[/color]: los Jokers cambian cómo puntúas, las Mejoras suben de nivel las manos y las cartas de Truco cambian tus cartas.","Gib Cash im [color=#e8572f]Boxenstopp[/color] aus: Joker ändern deine Wertung, Upgrades leveln Hände auf, Trick-Karten verändern deine Karten.","Dépense ton cash au [color=#e8572f]Pit Stop[/color] : les Jokers changent ton score, les Améliorations font monter les mains en niveau, les cartes Astuce changent tes cartes.","Gaste grana no [color=#e8572f]Pit Stop[/color]: Coringas mudam como você pontua, Upgrades sobem o nível das mãos, cartas de Truque mudam suas cartas."
 Booster packs: open one and take 1 of the choices.,Бустер-паки: открой пак и возьми 1 из предложенного.,Sobres: abre uno y quédate con 1 de las opciones.,Booster-Packs: Öffne eins und nimm 1 der Optionen.,Boosters : ouvre-en un et prends 1 des choix.,Pacotes: abra um e leve 1 das opções.
 Win the Grand Prix at Ante 8 to become Champion.,Выиграй Гран-при на 8-м анте и стань Чемпионом.,Gana el Gran Premio en el Ante 8 para ser Campeón.,"Gewinne den Grand Prix bei Ante 8, um Champion zu werden.",Gagne le Grand Prix à l'Ante 8 pour devenir Champion.,Vença o Grande Prêmio na Fase 8 para virar Campeão.
-Card upgrades,Улучшения,Mejoras de cartas,Karten-Upgrades,Améliorations de cartes,Upgrades de cartas
 Card statuses,Статусы,Estados de cartas,Karten-Status,Statuts des cartes,Status das cartas
 the boss blocks this car: it gives no chips and no effects.,босс блокирует эту машину: она не даёт фишек и эффектов.,el jefe bloquea este coche: no da fichas ni efectos.,der Boss blockiert dieses Auto: keine Chips und keine Effekte.,le boss bloque cette voiture : elle ne donne ni jetons ni effets.,o boss bloqueia este carro: ele não dá fichas nem efeitos.
 the boss blocks this card: it gives no chips and no effects.,босс блокирует эту карту: она не даёт фишек и эффектов.,el jefe bloquea esta carta: no da fichas ni efectos.,der Boss blockiert diese Karte: keine Chips und keine Effekte.,le boss bloque cette carte : elle ne donne ni jetons ni effets.,o boss bloqueia esta carta: ela não dá fichas nem efeitos.
@@ -869,13 +886,8 @@ the car scores one more time.,машина засчитывается ещё р�
 the card scores one more time.,карта засчитывается ещё раз.,la carta puntúa una vez más.,die Karte wird einmal mehr gewertet.,la carte marque une fois de plus.,a carta pontua mais uma vez.
 a Carbon car broke and left your garage.,машина с Карбоном сломалась и покинула гараж.,un coche de Carbono se rompió y salió de tu garaje.,ein Carbon-Auto ist kaputtgegangen und hat deine Garage verlassen.,une voiture Carbone a cassé et a quitté ton garage.,um carro Carbono quebrou e saiu da sua garagem.
 a Glass card broke and left your deck.,карта Стекло разбилась и покинула колоду.,una carta de Cristal se rompió y salió de tu mazo.,eine Glas-Karte ist zerbrochen und hat dein Deck verlassen.,une carte Verre s'est brisée et a quitté ton deck.,uma carta de Vidro quebrou e saiu do seu baralho.
-Garage cards,Карты гаража,Cartas del Garaje,Garagenkarten,Cartes Garage,Cartas da Garagem
 "Dyno Tunes and Cash Grab work at once. Workshop cards need cars: select them in your hand, then click the card and press Use.","Диностенд и Сорвать куш срабатывают сразу. Картам Мастерской нужны машины: выбери их в руке, затем нажми на карту и на Применить.","Las Afinaciones Dyno y Billetazo actúan al instante. Las cartas de Taller necesitan coches: elígelos en tu mano, luego haz clic en la carta y pulsa Usar.","Dyno-Tunes und Geldregen wirken sofort. Werkstatt-Karten brauchen Autos: Wähle sie in deiner Hand, klicke dann die Karte und drücke Nutzen.","Les Tunes Dyno et Coup de Cash agissent tout de suite. Les cartes Atelier ont besoin de voitures : choisis-les en main, clique sur la carte puis sur Utiliser.","Dyno Tunes e Grana em Dobro funcionam na hora. Cartas da Oficina precisam de carros: selecione-os na mão, clique na carta e aperte Usar."
 "Upgrades and Cash Grab work at once. Trick cards need cards: select them in your hand, then click the item and press Use.","Прокачки и Сорвать куш срабатывают сразу. Фокусам нужны карты: выбери их в руке, затем нажми на предмет и на Применить.","Las Mejoras y Billetazo actúan al instante. Las cartas de Truco necesitan cartas: elígelas en tu mano, luego haz clic en el objeto y pulsa Usar.","Upgrades und Geldregen wirken sofort. Trick-Karten brauchen Karten: Wähle sie in deiner Hand, klicke dann das Item und drücke Nutzen.","Les Améliorations et Coup de Cash agissent tout de suite. Les cartes Astuce ont besoin de cartes : choisis-les en main, clique sur l'objet puis sur Utiliser.","Upgrades e Grana em Dobro funcionam na hora. Cartas de Truque precisam de cartas: selecione-as na mão, clique no item e aperte Usar."
 "Keys: Enter = Play hand, Backspace = Discard, Esc = Menu, M = Music, F11 = Fullscreen. Hover any card for details.","Клавиши: Enter - сыграть руку, Backspace - сброс, Esc - меню, M - музыка, F11 - полный экран. Наведи на любую карту, чтобы узнать подробности.","Teclas: Enter = Jugar mano, Retroceso = Descartar, Esc = Menú, M = Música, F11 = Pantalla completa. Pasa el ratón sobre cualquier carta para ver detalles.","Tasten: Enter = Hand spielen, Backspace = Ablegen, Esc = Menü, M = Musik, F11 = Vollbild. Mit der Maus über Karten für Details.","Touches : Entrée = Jouer la main, Retour arrière = Défausser, Échap = Menu, M = Musique, F11 = Plein écran. Survole une carte pour les détails.","Teclas: Enter = Jogar mão, Backspace = Descartar, Esc = Menu, M = Música, F11 = Tela cheia. Passe o mouse em qualquer carta para ver detalhes."
 HOW TO PLAY,КАК ИГРАТЬ,CÓMO JUGAR,ANLEITUNG,COMMENT JOUER,COMO JOGAR
-DYNO TUNE,ДИНОСТЕНД,AFINACIÓN DYNO,DYNO-TUNE,TUNE DYNO,DYNO TUNE
-UPGRADE,ПРОКАЧКА,MEJORA,UPGRADE,AMÉLIO.,UPGRADE
-WORKSHOP,МАСТЕРСКАЯ,TALLER,WERKSTATT,ATELIER,OFICINA
-TRICK,ФОКУС,TRUCO,TRICK,ASTUCE,TRUQUE
 Mult,Множитель,Mult,Mult,Mult,Mult

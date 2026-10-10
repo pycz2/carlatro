@@ -65,6 +65,8 @@ var busy := false
 var sort_by_suit := false
 var speed_idx := 0
 var reroll_cost := 5
+var collection_tab := 0
+var gallery_backs: Array = []
 var cashout_lines: Array = []
 var pack_open: Dictionary = {}
 var shake := 0.0
@@ -486,16 +488,20 @@ func _build_title() -> void:
 	var play := _button("Start Engine", CHIP_COL, 26, Vector2(260, 56))
 	play.pressed.connect(_start_run)
 	bv.add_child(play)
-	var how := _button("How to Play", Color("d9822b"), 18, Vector2(260, 40))
-	how.pressed.connect(_show_help)
-	bv.add_child(how)
-	var settings := _button("Settings", Color("6b5bd6"), 18, Vector2(260, 40))
-	settings.pressed.connect(_show_settings)
-	bv.add_child(settings)
+	# two small buttons per row keep the menu below the card fan
+	var rows := [[["How to Play", Color("d9822b"), _show_help], ["Collection", Color("2f8f83"), _show_collection.bind(-1)]],
+		[["Settings", Color("6b5bd6"), _show_settings]]]
 	if not OS.has_feature("web"):
-		var quit := _button("Quit", Color("555b66"), 18, Vector2(260, 40))
-		quit.pressed.connect(func(): get_tree().quit())
-		bv.add_child(quit)
+		rows[1].append(["Quit", Color("555b66"), func(): get_tree().quit()])
+	for row in rows:
+		var h := _hbox(8)
+		for spec in row:
+			var b := _button(spec[0], spec[1], 17, Vector2(126 if row.size() > 1 else 260, 40))
+			b.clip_text = true
+			b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+			b.pressed.connect(spec[2])
+			h.add_child(b)
+		bv.add_child(h)
 	title_layer.add_child(bv)
 
 
@@ -574,6 +580,12 @@ func _fmt_mult(m: float) -> String:
 func _bb(s: String) -> String:
 	return s.replace("[c]", "[color=#1f6fe0]").replace("[m]", "[color=#e8332a]").replace("[x]", "[color=#b02ad8]") \
 		.replace("[$]", "[color=#c98f00]").replace("[g]", "[color=#1f8a45]").replace("[/]", "[/color]")
+
+
+## Same markup as _bb, with brighter colors for dark panels.
+func _bb_dark(s: String) -> String:
+	return _bb(s).replace("#1f6fe0", "#4aa3ff").replace("#e8332a", "#ff5d52").replace("#b02ad8", "#d77cff") \
+		.replace("#c98f00", "#ffc93c").replace("#1f8a45", "#5fd38a")
 
 
 func _mod_val_str(m: Dictionary) -> String:
@@ -821,6 +833,12 @@ func _on_card_clicked(cv: Control) -> void:
 		_show_action(cv, [["Take", _take_pack.bind(cv), Color("3ecf6a").darkened(0.15)]])
 	elif cv == deck_view and state != "title":
 		_show_deck()
+	elif gallery_backs.has(cv):
+		Data.back_style = cv.back_style
+		_save_settings()
+		get_tree().call_group("cards", "queue_redraw")
+		sfx.play("card")
+		_show_collection()
 
 
 func _on_card_hover(cv: Control, on: bool) -> void:
@@ -888,6 +906,8 @@ func _tip_for(cv: Control) -> Array:
 		CardView.PACK:
 			return [Data.text(d, "name"), Data.text(d, "desc")]
 		CardView.BACK:
+			if gallery_backs.has(cv):
+				return [tr(Data.BACKS[cv.back_style]), tr("Click a back to use it")]
 			if state == "title":
 				return []
 			return [Data.tv("Your Garage", "Your Deck"), Data.tv("Cars in garage: %d", "Cards in deck: %d") % deck.size() + "\n" + tr("Left to draw: %d") % draw_pile.size() + "\n[g]" + tr("Click to view") + "[/]"]
@@ -2130,6 +2150,9 @@ func _show_menu() -> void:
 	var st := _button("Settings", Color("6b5bd6"), 18, Vector2(280, 44))
 	st.pressed.connect(_show_settings)
 	v.add_child(st)
+	var col := _button("Collection", Color("2f8f83"), 18, Vector2(280, 44))
+	col.pressed.connect(_show_collection.bind(-1))
+	v.add_child(col)
 	var mm := _button("Main Menu", ACCENT, 18, Vector2(280, 44))
 	mm.disabled = busy  # never tear down the table in the middle of a scoring animation
 	mm.pressed.connect(func():
@@ -2146,6 +2169,228 @@ func _show_menu() -> void:
 			get_tree().quit())
 		v.add_child(quit)
 	_modal(p)
+
+
+# ================================================================ collection
+
+const HAND_EXAMPLES := [
+	[[14, 2]],
+	[[13, 0], [13, 3]],
+	[[12, 1], [12, 2], [5, 0], [5, 3]],
+	[[7, 0], [7, 1], [7, 2]],
+	[[9, 2], [8, 0], [7, 3], [6, 1], [5, 2]],
+	[[13, 1], [9, 1], [7, 1], [4, 1], [2, 1]],
+	[[11, 0], [11, 2], [11, 3], [4, 1], [4, 2]],
+	[[8, 0], [8, 1], [8, 2], [8, 3]],
+	[[11, 3], [10, 3], [9, 3], [8, 3], [7, 3]],
+]
+
+
+## Encyclopedia of everything in the game, one tab per kind of thing.
+func _show_collection(tab := -1) -> void:
+	if tab >= 0:
+		collection_tab = tab
+	gallery_backs.clear()
+	var p := Panel.new()
+	p.add_theme_stylebox_override("panel", Data.box(Color(PANEL_BG, 1.0), 16, Color("2f8f83"), 3))
+	p.position = Vector2(40, 20)
+	p.size = Vector2(1200, 680)
+	var t := _label("COLLECTION", 30, Color("7fe0d0"), 8)
+	t.size = Vector2(1200, 40)
+	t.position = Vector2(0, 10)
+	p.add_child(t)
+	var tabs := _hbox(6)
+	tabs.position = Vector2(24, 58)
+	tabs.size = Vector2(1152, 40)
+	tabs.alignment = BoxContainer.ALIGNMENT_CENTER
+	var names := [Data.tv("Cars", "Cards"), Data.tv("Mods", "Jokers"), Data.tv("Garage cards", "Items"), tr("Packs"), tr("Bosses"), tr("Poker hands"), tr("Card backs")]
+	for i in names.size():
+		var b := _button(names[i], Color("2f8f83") if i == collection_tab else Color("3a3f4b"), 15, Vector2(150, 38))
+		b.clip_text = true
+		b.pressed.connect(_show_collection.bind(i))
+		tabs.add_child(b)
+	p.add_child(tabs)
+	var scroll := ScrollContainer.new()
+	scroll.position = Vector2(20, 108)
+	scroll.size = Vector2(1160, 500)
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	p.add_child(scroll)
+	var c := Control.new()
+	c.mouse_filter = Control.MOUSE_FILTER_PASS
+	var h := 0.0
+	match collection_tab:
+		0: h = _gal_cards(c)
+		1: h = _gal_mods(c)
+		2: h = _gal_items(c)
+		3: h = _gal_packs(c)
+		4: h = _gal_bosses(c)
+		5: h = _gal_hands(c)
+		6: h = _gal_backs(c)
+	c.custom_minimum_size = Vector2(1140, h)
+	scroll.add_child(c)
+	var back := _button("Back", ACCENT, 20, Vector2(200, 50))
+	back.position = Vector2(500, 618)
+	back.pressed.connect(func():
+		if state == "title":
+			_clear(modal_layer)
+		else:
+			_show_menu())
+	p.add_child(back)
+	_modal(p)
+
+
+## A card in the gallery; pos is the visible top-left corner after scaling.
+func _gal_card(parent: Control, kind: int, data: Dictionary, pos: Vector2, s := 0.8) -> Control:
+	var cv := _make_card(kind, data, parent)
+	cv.base_scale = s
+	cv.scale = Vector2(s, s)
+	cv.target_pos = pos - CardView.SIZE * (1.0 - s) / 2.0
+	cv.position = cv.target_pos
+	cv.mouse_filter = Control.MOUSE_FILTER_PASS  # let the mouse wheel reach the scroll container
+	return cv
+
+
+func _gal_label(parent: Control, text: String, pos: Vector2, size := 18, color := Color("ffd23f"), width := 1140.0) -> Label:
+	var l := _label(text, size, color, 5)
+	l.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	l.position = pos
+	l.size = Vector2(width, size + 8)
+	parent.add_child(l)
+	return l
+
+
+func _gal_cards(c: Control) -> float:
+	_gal_label(c, tr("Hover any card for details"), Vector2(0, 0), 14, Color(1, 1, 1, 0.6))
+	for s in 4:
+		var y := 30.0 + s * 112
+		_gal_label(c, tr(Data.suit_name(s)), Vector2(0, y + 38), 17, Data.suit_color(s).lightened(0.35), 110)
+		for i in 13:
+			_gal_card(c, CardView.CAR, {"id": -1, "rank": 14 - i, "suit": s, "enh": ""}, Vector2(110 + i * 79, y), 0.75)
+	var y2 := 30.0 + 4 * 112 + 10
+	_gal_label(c, tr("Card upgrades"), Vector2(0, y2))
+	var enhs := Data.ENH_INFO.keys()
+	for i in enhs.size():
+		var x := 110.0 + i * 250
+		_gal_card(c, CardView.CAR, {"id": -1, "rank": 13, "suit": i, "enh": enhs[i]}, Vector2(x, y2 + 34), 0.75)
+		var info: Dictionary = Data.ENH_INFO[enhs[i]]
+		var r := RichTextLabel.new()
+		r.bbcode_enabled = true
+		r.fit_content = true
+		r.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		r.position = Vector2(x + 82, y2 + 50)
+		r.size = Vector2(160, 80)
+		r.add_theme_font_size_override("normal_font_size", 14)
+		r.text = "[color=%s]%s[/color]\n%s" % [Data.ENH_COLORS[enhs[i]].lightened(0.35).to_html(false), Data.text(info, "name"), _bb_dark(tr(info.desc))]
+		c.add_child(r)
+	return y2 + 150
+
+
+func _gal_mods(c: Control) -> float:
+	var y := 0.0
+	for r in 3:
+		var list := Data.MODS.filter(func(m): return m.get("rarity", 0) == r)
+		list.sort_custom(func(a, b): return a.cost < b.cost)
+		_gal_label(c, "%s (%d)" % [tr(Data.RARITY_NAMES[r]), list.size()], Vector2(0, y), 17, [Color("8fa3b8"), Color("3ecf6a"), Color("ff4b3e")][r])
+		y += 56
+		for i in list.size():
+			var cv := _gal_card(c, CardView.MOD, list[i].duplicate(true), Vector2((i % 11) * 103, y + (i / 11) * 150), 0.9)
+			cv.price = list[i].cost
+		y += ceili(list.size() / 11.0) * 150 + 6
+	return y
+
+
+func _gal_items(c: Control) -> float:
+	var all := Data.consumables()
+	var groups := [[Data.tv("DYNO TUNE", "UPGRADE"), all.filter(func(x): return x.id == "tune")],
+		[Data.tv("WORKSHOP", "TRICK"), all.filter(func(x): return x.id != "tune")]]
+	var y := 0.0
+	for g in groups:
+		_gal_label(c, "%s (%d)" % [g[0], g[1].size()], Vector2(0, y), 17)
+		y += 56
+		for i in g[1].size():
+			var cv := _gal_card(c, CardView.CONS, g[1][i], Vector2((i % 11) * 103, y + (i / 11) * 150), 0.9)
+			cv.price = g[1][i].cost
+		y += ceili(g[1].size() / 11.0) * 150 + 6
+	return y
+
+
+func _gal_packs(c: Control) -> float:
+	_gal_label(c, tr("BOOSTER PACKS"), Vector2(0, 0), 17)
+	for i in Data.PACKS.size():
+		var pk: Dictionary = Data.PACKS[i]
+		var x := (i % 2) * 570.0
+		var y := 56.0 + (i / 2) * 190
+		var cv := _gal_card(c, CardView.PACK, pk, Vector2(x, y), 1.0)
+		cv.price = pk.cost
+		var r := RichTextLabel.new()
+		r.bbcode_enabled = true
+		r.fit_content = true
+		r.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		r.position = Vector2(x + 115, y + 20)
+		r.size = Vector2(420, 120)
+		r.add_theme_font_size_override("normal_font_size", 16)
+		r.text = "[color=%s]%s[/color]\n%s" % [pk.color.lightened(0.35).to_html(false), Data.text(pk, "name"), _bb_dark(Data.text(pk, "desc"))]
+		c.add_child(r)
+	return 56.0 + 2 * 190
+
+
+func _gal_bosses(c: Control) -> float:
+	var list := Data.BOSSES + [Data.FINAL_BOSS]
+	for i in list.size():
+		var b: Dictionary = list[i]
+		var pnl := _panel(b.color.darkened(0.35), b.color.lightened(0.25), 2, 10, 10)
+		pnl.position = Vector2((i % 3) * 380, (i / 3) * 118)
+		pnl.custom_minimum_size = Vector2(366, 106)
+		pnl.size = pnl.custom_minimum_size
+		pnl.mouse_filter = Control.MOUSE_FILTER_PASS
+		var v := _vbox(2)
+		v.add_child(_label(Data.text(b, "name"), 19, Color.WHITE, 5))
+		var d := _label(Data.text(b, "desc"), 14, Color(1, 1, 1, 0.9), 3)
+		d.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		d.custom_minimum_size = Vector2(340, 0)
+		v.add_child(d)
+		var note := tr("Final race") if b.id == "grand_prix" else (tr("From ante %d") % b.min_ante if b.get("min_ante", 1) > 1 else "")
+		if note != "":
+			v.add_child(_label(note, 12, Color("ffd23f"), 3))
+		pnl.add_child(v)
+		c.add_child(pnl)
+	return ceili(list.size() / 3.0) * 118
+
+
+func _gal_hands(c: Control) -> float:
+	var row_h := 76.0
+	for t in range(Data.HANDS.size() - 1, -1, -1):
+		var h = Data.HANDS[t]
+		var y := (Data.HANDS.size() - 1 - t) * row_h
+		var name := tr(Data.hand_name(t))
+		if not Data.classic_art:
+			name += "  (%s)" % tr(h.poker)
+		_gal_label(c, name, Vector2(0, y + 10), 18, Color.WHITE, 420)
+		var r := RichTextLabel.new()
+		r.bbcode_enabled = true
+		r.fit_content = true
+		r.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		r.position = Vector2(0, y + 38)
+		r.size = Vector2(440, 30)
+		r.add_theme_font_size_override("normal_font_size", 14)
+		r.text = _bb_dark("[c]%d[/] x [m]%d[/]    %s: [c]+%d[/] / [m]+%d[/]" % [h.chips, h.mult, tr("Per level"), h.lc, h.lm])
+		c.add_child(r)
+		var ex: Array = HAND_EXAMPLES[t]
+		for i in ex.size():
+			_gal_card(c, CardView.CAR, {"id": -1, "rank": ex[i][0], "suit": ex[i][1], "enh": ""}, Vector2(470 + i * 58, y + 4), 0.5)
+	return Data.HANDS.size() * row_h
+
+
+func _gal_backs(c: Control) -> float:
+	_gal_label(c, tr("Click a back to use it"), Vector2(0, 0), 14, Color(1, 1, 1, 0.6))
+	for i in Data.BACKS.size():
+		var x := 20.0 + i * 186
+		var cv := _gal_card(c, CardView.BACK, {}, Vector2(x, 70), 1.3)
+		cv.back_style = i
+		cv.selected = i == Data.back_style
+		gallery_backs.append(cv)
+		_gal_label(c, tr(Data.BACKS[i]), Vector2(x - 20, 270), 15, Color("ffd23f") if i == Data.back_style else Color.WHITE, 165).horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	return 320.0
 
 
 func _close_button() -> Button:
@@ -2237,7 +2482,7 @@ func _help_text() -> String:
 	t += hd.call(tr("Card upgrades"))
 	for e in Data.ENH_INFO:
 		var info: Dictionary = Data.ENH_INFO[e]
-		t += "- [color=%s]%s[/color]: %s\n" % [Data.ENH_COLORS[e].lightened(0.3).to_html(false), Data.text(info, "name"), _bb(tr(info.desc)).replace("\n", " ")]
+		t += "- [color=%s]%s[/color]: %s\n" % [Data.ENH_COLORS[e].lightened(0.3).to_html(false), Data.text(info, "name"), _bb_dark(tr(info.desc)).replace("\n", " ")]
 	t += hd.call(tr("Card statuses"))
 	t += "- [color=#ff4b3e]%s[/color]: %s\n" % [tr("Debuffed"), Data.tv("the boss blocks this car: it gives no chips and no effects.", "the boss blocks this card: it gives no chips and no effects.")]
 	t += "- [color=#ffd23f]%s[/color]: %s\n" % [Data.tv("Face cars", "Face cards"), tr("J, Q and K. Some effects count only them.")]

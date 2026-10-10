@@ -433,5 +433,17 @@
  "Keys: Enter = Play hand, Backspace = Discard, Esc = Menu, M = Music, F11 = Fullscreen. Hover any card for details.": "Touches : Entrée = Jouer la main, Retour arrière = Défausser, Échap = Menu, M = Musique, F11 = Plein écran. Survole une carte pour les détails.",
  "UPGRADE": "AMÉLIO.",
  "TRICK": "ASTUCE",
- "Class": "Classe"
+ "Class": "Classe",
+ "Collection": "Collection",
+ "Click a back to use it": "Clique sur un dos pour l’utiliser",
+ "COLLECTION": "COLLECTION",
+ "Cards": "Cartes",
+ "Packs": "Packs",
+ "Bosses": "Boss",
+ "Poker hands": "Mains",
+ "Card backs": "Dos de carte",
+ "Hover any card for details": "Survole une carte pour les détails",
+ "Final race": "Course finale",
+ "From ante %d": "Dès ante %d",
+ "Per level": "Par niveau"
 }

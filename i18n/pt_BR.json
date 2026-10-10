@@ -433,5 +433,17 @@
  "Keys: Enter = Play hand, Backspace = Discard, Esc = Menu, M = Music, F11 = Fullscreen. Hover any card for details.": "Teclas: Enter = Jogar mão, Backspace = Descartar, Esc = Menu, M = Música, F11 = Tela cheia. Passe o mouse em qualquer carta para ver detalhes.",
  "UPGRADE": "UPGRADE",
  "TRICK": "TRUQUE",
- "Class": "Classe"
+ "Class": "Classe",
+ "Collection": "Coleção",
+ "Click a back to use it": "Clique num verso para usá-lo",
+ "COLLECTION": "COLEÇÃO",
+ "Cards": "Cartas",
+ "Packs": "Pacotes",
+ "Bosses": "Chefes",
+ "Poker hands": "Mãos",
+ "Card backs": "Versos",
+ "Hover any card for details": "Passe o mouse sobre uma carta para detalhes",
+ "Final race": "Corrida final",
+ "From ante %d": "A partir de fase %d",
+ "Per level": "Por nível"
 }

@@ -433,5 +433,17 @@
  "Keys: Enter = Play hand, Backspace = Discard, Esc = Menu, M = Music, F11 = Fullscreen. Hover any card for details.": "Клавиши: Enter - сыграть руку, Backspace - сброс, Esc - меню, M - музыка, F11 - полный экран. Наведи на любую карту, чтобы узнать подробности.",
  "UPGRADE": "ПРОКАЧКА",
  "TRICK": "ФОКУС",
- "Class": "Класс"
+ "Class": "Класс",
+ "Collection": "Коллекция",
+ "Click a back to use it": "Нажми на рубашку, чтобы выбрать её",
+ "COLLECTION": "КОЛЛЕКЦИЯ",
+ "Cards": "Карты",
+ "Packs": "Паки",
+ "Bosses": "Боссы",
+ "Poker hands": "Комбинации",
+ "Card backs": "Рубашки",
+ "Hover any card for details": "Наведи на карту, чтобы узнать подробности",
+ "Final race": "Финальная гонка",
+ "From ante %d": "С анте %d",
+ "Per level": "За уровень"
 }
