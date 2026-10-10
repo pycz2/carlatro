@@ -57,5 +57,15 @@
  "meta_title": "Carlatro — Carros no lugar de cartas",
  "meta_desc": "Um roguelike deckbuilder no estilo Balatro em que cada carta é um carro. Jogue grátis no navegador.",
  "nav_changelog": "Changelog",
- "language": "Idioma"
+ "language": "Idioma",
+ "nav_install": "Instalar",
+ "install_title": "Instale no <span class=\"hl\">celular</span>",
+ "install_lead": "Carlatro é um app web instalável: tem ícone próprio, abre em tela cheia e funciona offline depois da primeira vez.",
+ "install_android_t": "Android (Chrome)",
+ "install_android_d": "Abra o jogo, toque no menu ⋮ e escolha “Instalar app” ou “Adicionar à tela inicial”.",
+ "install_ios_t": "iPhone e iPad (Safari)",
+ "install_ios_d": "Abra o jogo, toque em Compartilhar e escolha “Adicionar à Tela de Início”.",
+ "install_pc_t": "Computador (Chrome, Edge)",
+ "install_pc_d": "Abra o jogo e clique no ícone de instalação na barra de endereço.",
+ "install_open": "Abrir o jogo"
 }

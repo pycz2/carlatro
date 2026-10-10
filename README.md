@@ -1,3 +1,5 @@
+<p align="center"><img src="icons/app_512.png" alt="Carlatro icon" width="160"></p>
+
 # CARLATRO — Cars instead of cards.
 
 A Balatro-like roguelike deckbuilder made in Godot 4.7, where every card is a car.
@@ -21,6 +23,8 @@ A Balatro-like roguelike deckbuilder made in Godot 4.7, where every card is a ca
 - Sponsors (car theme) / Vouchers (classic theme): permanent bonuses for the run, one offer per ante in the Pit Stop.
 - Unique pictures for every mod, item, voucher and boss, drawn for the chosen card art (cars or playing cards);
   Collection encyclopedia; statistics with reset; changelog (click the version).
+- Installable web app (PWA): add it to the home screen on Android, iPhone or a computer; full screen, landscape,
+  works offline after the first start. Touch works like the mouse (tap, drag mods); portrait asks to rotate.
 - Autosave: quit any time (Menu → Main Menu, or close the game) and press Continue on the title screen.
 - Settings (persist between launches): language, music on/off and volume, sound volume, game speed, screen shake, fullscreen,
   card art (Cars or Classic playing cards), suits (car brands or Hearts/Diamonds/Spades/Clubs) and 6 card backs.
@@ -80,6 +84,7 @@ Click a Mod or a Garage card to sell or use it. Click the deck to see your whole
 | `i18n/` | Translations (`strings.csv` is imported by Godot) |
 | `site/` | Landing page of the website (cards rendered by `tools/site_cards.gd`) |
 | `docs/screenshots/` | Screenshots for this README and the website (`tools/readme_shots.gd`) |
+| `icons/` | The one app icon: window, macOS app, loading screen, PWA, website (`tools/app_icons.gd`) |
 
 Save files: `~/Library/Application Support/Godot/app_userdata/Carlatro/` (`run.save`, `settings.cfg`).
 

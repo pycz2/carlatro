@@ -10,7 +10,8 @@
 <meta property="og:description" content="A Balatro-like roguelike deckbuilder where every card is a car. Play free in your browser.">
 <meta property="og:image" content="screenshots/race_cars.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="play/index.icon.png">
+<link rel="icon" type="image/png" href="icons/app_144.png">
+<link rel="apple-touch-icon" href="icons/app_180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
@@ -92,11 +93,13 @@ nav {
 	border-bottom: 1px solid var(--line);
 }
 nav .wrap { display: flex; align-items: center; gap: 20px; height: 60px; }
-nav .logo { color: var(--gold); font-size: 22px; text-decoration: none; text-shadow: 2px 2px 0 #000; letter-spacing: 1px; }
+nav .logo { display: flex; align-items: center; gap: 10px; color: var(--gold); font-size: 22px; text-decoration: none; text-shadow: 2px 2px 0 #000; letter-spacing: 1px; }
+nav .logo img { border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); }
 nav .links { display: flex; gap: 18px; margin-left: auto; font-size: 14px; }
 nav .links a { color: var(--muted); text-decoration: none; }
 nav .links a:hover { color: var(--text); }
-@media (max-width: 640px) { nav .links a.opt { display: none; } }
+@media (max-width: 760px) { nav .links a.opt { display: none; } }
+@media (max-width: 420px) { nav .logo span { display: none; } nav .links { gap: 12px; } }
 
 /* buttons */
 .btn {
@@ -227,6 +230,16 @@ h2 .hl { color: var(--gold); }
 .player-bar { display: flex; gap: 10px; justify-content: flex-end; margin-top: 12px; flex-wrap: wrap; }
 .player-bar .hint { margin-right: auto; color: var(--muted); font-size: 14px; align-self: center; }
 
+/* install */
+.install { display: grid; grid-template-columns: 220px 1fr; gap: 30px; align-items: center; }
+.install .app-icon { width: 220px; border-radius: 48px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6); animation: float 6s ease-in-out infinite; --r: -4deg; }
+.install-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; align-items: start; }
+.istep { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; }
+.istep h3 { margin: 0 0 6px; font-weight: 400; font-size: 17px; color: var(--gold); }
+.istep p { margin: 0; color: var(--muted); font-size: 15px; }
+#open-game { justify-self: start; }
+@media (max-width: 700px) { .install { grid-template-columns: 1fr; justify-items: center; } .install .app-icon { width: 150px; border-radius: 34px; } }
+
 /* features */
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; }
 .feature {
@@ -344,11 +357,12 @@ footer .ver { color: var(--gold); }
 
 <nav>
 	<div class="wrap">
-		<a class="logo" href="#top">CARLATRO</a>
+		<a class="logo" href="#top"><img src="icons/app_144.png" alt="" width="34" height="34"><span>CARLATRO</span></a>
 		<div class="links">
-			<a data-i18n="nav_play" href="#play">Play</a>
+			<a class="opt" data-i18n="nav_play" href="#play">Play</a>
 			<a data-i18n="nav_features" class="opt" href="#features">Features</a>
 			<a data-i18n="nav_screens" class="opt" href="#screens">Screenshots</a>
+			<a class="opt" href="#install" data-i18n="nav_install">Install</a>
 			<a href="#changelog" id="open-changelog" data-i18n="nav_changelog">Changelog</a>
 			<a class="opt" href="https://github.com/pycz2/carlatro">GitHub</a>
 			<select id="lang" aria-label="Language" data-i18n-label="language">
@@ -404,6 +418,22 @@ footer .ver { color: var(--gold); }
 			<span data-i18n="play_hint" class="hint">Best with a mouse and keyboard. Enter plays a hand, Esc opens the menu.</span>
 			<button data-i18n="fullscreen" class="btn dark small" id="fs" type="button">Fullscreen</button>
 			<a data-i18n="new_tab" class="btn orange small" href="play/" target="_blank" rel="noopener">Open in a new tab</a>
+		</div>
+	</div>
+</section>
+
+<section id="install">
+	<div class="wrap reveal">
+		<h2 data-i18n="install_title">Install on your <span class="hl">phone</span></h2>
+		<p class="lead" data-i18n="install_lead">Carlatro is an installable web app: it gets its own icon, opens in full screen and works offline after the first start.</p>
+		<div class="install">
+			<img class="app-icon" src="icons/app_512.png" alt="Carlatro app icon">
+			<div class="install-steps">
+				<div class="istep"><h3 data-i18n="install_android_t">Android (Chrome)</h3><p data-i18n="install_android_d">Open the game, tap the ⋮ menu and choose “Install app” or “Add to Home screen”.</p></div>
+				<div class="istep"><h3 data-i18n="install_ios_t">iPhone and iPad (Safari)</h3><p data-i18n="install_ios_d">Open the game, tap Share and choose “Add to Home Screen”.</p></div>
+				<div class="istep"><h3 data-i18n="install_pc_t">Computer (Chrome, Edge)</h3><p data-i18n="install_pc_d">Open the game and click the install icon in the address bar.</p></div>
+				<a class="btn blue" id="open-game" href="play/" data-i18n="install_open">Open the game</a>
+			</div>
 		</div>
 	</div>
 </section>
@@ -483,7 +513,12 @@ footer .ver { color: var(--gold); }
 <script>
 // start the game inside the page only when asked (the engine is about 40 MB)
 const player = document.getElementById("player");
+const smallScreen = () => matchMedia("(pointer: coarse)").matches || innerWidth < 900;
 function startGame() {
+	if (smallScreen()) {
+		location.href = "play/?lang=" + currentLang;
+		return;
+	}
 	if (player.querySelector("iframe")) return;
 	const frame = document.createElement("iframe");
 	frame.src = "play/?lang=" + currentLang;
@@ -495,6 +530,7 @@ function startGame() {
 	frame.focus();
 }
 document.getElementById("start").addEventListener("click", startGame);
+document.getElementById("open-game").addEventListener("click", (e) => { e.preventDefault(); location.href = "play/?lang=" + currentLang; });
 document.getElementById("fs").addEventListener("click", () => {
 	startGame();
 	(player.requestFullscreen || player.webkitRequestFullscreen || (() => {})).call(player);

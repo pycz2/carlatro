@@ -137,6 +137,7 @@ var tip_text: RichTextLabel
 var music_btn: Button
 var sound_btn: Button
 var fps_lbl: Label
+var rotate_layer: Control
 var sort_suit_btn: Button
 var continue_btn: Button
 var pack_panel: Panel
@@ -162,6 +163,10 @@ func _process(delta: float) -> void:
 	_time += delta
 	if fps_lbl.visible:
 		fps_lbl.text = "FPS %d" % Engine.get_frames_per_second()
+	var win := DisplayServer.window_get_size()
+	rotate_layer.visible = win.y > win.x * 1.1
+	if rotate_layer.visible:
+		rotate_layer.get_child(1).queue_redraw()
 	shake = move_toward(shake, 0.0, delta * 30.0)
 	var sh := shake if shake_on else 0.0
 	world.position = Vector2(randf_range(-sh, sh), randf_range(-sh, sh))
@@ -380,6 +385,7 @@ func _build_ui() -> void:
 	fps_lbl.z_index = 950
 	fps_lbl.visible = show_fps
 	add_child(fps_lbl)
+	_build_rotate_hint()
 
 
 func _build_sidebar() -> void:
@@ -563,6 +569,36 @@ func _build_title() -> void:
 			h.add_child(b)
 		bv.add_child(h)
 	title_layer.add_child(bv)
+
+
+## Phones in portrait: the game is landscape, so ask to rotate the device.
+func _build_rotate_hint() -> void:
+	rotate_layer = Control.new()
+	rotate_layer.set_anchors_preset(Control.PRESET_FULL_RECT)
+	rotate_layer.z_index = 1000
+	rotate_layer.visible = false
+	add_child(rotate_layer)
+	var dim := ColorRect.new()
+	dim.color = Color(0.03, 0.04, 0.06, 0.97)
+	dim.set_anchors_preset(Control.PRESET_FULL_RECT)
+	rotate_layer.add_child(dim)
+	var icon := Control.new()
+	icon.position = Vector2(560, 150)
+	icon.size = Vector2(160, 200)
+	icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	icon.draw.connect(func():
+		var t := fmod(_time, 2.0)
+		var a := clampf(t - 0.5, 0.0, 1.0) * PI / 2  # the phone turns sideways and back
+		icon.draw_set_transform(Vector2(80, 100), -a, Vector2.ONE)
+		icon.draw_style_box(Data.box(Color("1b1f27"), 14, Color("ffd23f"), 5, 0), Rect2(-42, -78, 84, 156))
+		icon.draw_rect(Rect2(-32, -62, 64, 118), Color("2f8cff"))
+		icon.draw_circle(Vector2(0, 66), 5, Color("ffd23f"))
+		icon.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE))
+	rotate_layer.add_child(icon)
+	var l := _label("Rotate your phone to landscape", 36, Color.WHITE, 8)
+	l.size = Vector2(1280, 60)
+	l.position = Vector2(0, 400)
+	rotate_layer.add_child(l)
 
 
 func _build_tooltip() -> void:

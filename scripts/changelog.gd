@@ -3,6 +3,11 @@ extends RefCounted
 ## Add an entry for every release: deploy_web.sh refuses to release a version without one.
 
 const ENTRIES := [
+	{"version": "1.5.0", "date": "2026-10-11", "items": [
+		"Install the game as an app on Android, iPhone or a computer; it works offline after the first start",
+		"Touch-friendly: on phones the game opens in full screen and asks to rotate to landscape",
+		"One new icon everywhere: the app, the loading screen and the website",
+	]},
 	{"version": "1.4.0", "date": "2026-10-11", "items": [
 		"Drag mods (jokers) to change their order: they work from left to right",
 		"Cards are played and scored in the order you pick them",
