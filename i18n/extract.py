@@ -8,7 +8,7 @@ SKIP_RE = re.compile(r'^[a-z0-9_./:%]*$|^#?[0-9a-fA-F]{6}$|^res://|^\[/?[a-z$]\]
 SKIP = {"CARLATRO", "Carlatro", "JDM", "English", "Русский", "Español", "Deutsch", "Français", "Português",
         "$%d", "+$%d", "-$%d %s", "+%d", "+%d %s", "X%s %s", "%s  %s%d", "%s  (%s)", "%s %s", "%s %s%d!",
         "[c]+%d[/] %s", "\\n[g]%s:[/] %s", "\\n[m]%s[/]", "\\n[$]%s $%d[/]", "\\n[g]", "%.3e", "%.1f", "%.2f",
-        "%d/8", "%d/%d", "- [color=%s]%s[/color]: %s\\n", "J", "Q", "K", "A", "pt_BR", "{val}", "\\n", " %d", " %d/%d", " $%d", " (%d)", " %sx", "1-%d", "$%d", "X", "Mult"}
+        "%d/8", "%d/%d", "FPS %d", "- [color=%s]%s[/color]: %s\\n", "J", "Q", "K", "A", "pt_BR", "{val}", "\\n", " %d", " %d/%d", " $%d", " (%d)", " %sx", "1-%d", "$%d", "X", "Mult"}
 KEEP_LOWER = {"lvl."}
 
 def unescape(s):

@@ -3,6 +3,10 @@ extends RefCounted
 ## Add an entry for every release: deploy_web.sh refuses to release a version without one.
 
 const ENTRIES := [
+	{"version": "1.3.4", "date": "2026-10-11", "items": [
+		"Card tooltips no longer jump from above the card to below it",
+		"Optional FPS counter in the top-left corner (Settings)",
+	]},
 	{"version": "1.3.3", "date": "2026-10-11", "items": [
 		"Music and sound effects have separate on/off switches that work independently",
 	]},

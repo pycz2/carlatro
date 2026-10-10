@@ -40,6 +40,7 @@ var sfx_on := true
 var music_vol := 0.8
 var sfx_vol := 1.0
 var shake_on := true
+var show_fps := false
 var fullscreen := false
 
 # run state
@@ -91,6 +92,8 @@ var pack_views: Array = []
 var deck_view: Control
 var action_card: Control = null
 var tip_card: Control = null
+var tip_above := true  # chosen once per hover, so the tooltip never flips sides
+var tip_frames := 0
 
 # ui nodes
 var world: Control
@@ -130,6 +133,7 @@ var tip_title: Label
 var tip_text: RichTextLabel
 var music_btn: Button
 var sound_btn: Button
+var fps_lbl: Label
 var sort_suit_btn: Button
 var continue_btn: Button
 var pack_panel: Panel
@@ -153,6 +157,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	_time += delta
+	if fps_lbl.visible:
+		fps_lbl.text = "FPS %d" % Engine.get_frames_per_second()
 	shake = move_toward(shake, 0.0, delta * 30.0)
 	var sh := shake if shake_on else 0.0
 	world.position = Vector2(randf_range(-sh, sh), randf_range(-sh, sh))
@@ -162,8 +168,14 @@ func _process(delta: float) -> void:
 	if tooltip.visible and is_instance_valid(tip_card):
 		tooltip.reset_size()
 		var gp := tip_card.global_position
-		var y := gp.y - tooltip.size.y - 14 if gp.y > 300 else gp.y + CardView.SIZE.y + 16
+		var card_h := CardView.SIZE.y * tip_card.scale.y
+		var y := gp.y - tooltip.size.y - 14 if tip_above else gp.y + card_h + 16
+		y = clampf(y, 4, 716 - tooltip.size.y)  # slide inside the screen instead of flipping
 		tooltip.position = Vector2(clampf(gp.x + CardView.SIZE.x / 2 - tooltip.size.x / 2, 8, 1272 - tooltip.size.x), y)
+		# the rich text knows its height only after a frame: stay invisible until then
+		tip_frames += 1
+		if tip_frames >= 2:
+			tooltip.modulate.a = 1.0
 	elif tooltip.visible:
 		tooltip.hide()
 	if action_box.visible:
@@ -357,6 +369,14 @@ func _build_ui() -> void:
 	ver.z_index = 950
 	ver.pressed.connect(_show_changelog)
 	add_child(ver)
+	fps_lbl = _label("", 12, Color("7fe0d0"), 3)
+	fps_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	fps_lbl.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	fps_lbl.position = Vector2(4, -2)
+	fps_lbl.size = Vector2(90, 16)
+	fps_lbl.z_index = 950
+	fps_lbl.visible = show_fps
+	add_child(fps_lbl)
 
 
 func _build_sidebar() -> void:
@@ -931,6 +951,9 @@ func _on_card_hover(cv: Control, on: bool) -> void:
 	tip_title.text = info[0]
 	tip_text.text = _bb(info[1])
 	tip_card = cv
+	tip_above = cv.global_position.y + CardView.SIZE.y * cv.scale.y / 2 > 360
+	tip_frames = 0
+	tooltip.modulate.a = 0.0
 	tooltip.reset_size()
 	tooltip.show()
 
@@ -1992,6 +2015,7 @@ func _load_settings() -> void:
 		return
 	music_on = cfg.get_value("settings", "music", true)
 	sfx_on = cfg.get_value("settings", "sfx", true)
+	show_fps = cfg.get_value("settings", "fps", false)
 	music_vol = cfg.get_value("settings", "music_volume", 0.8)
 	sfx_vol = cfg.get_value("settings", "sfx_volume", 1.0)
 	speed_idx = clampi(cfg.get_value("settings", "speed", 0), 0, SPEEDS.size() - 1)
@@ -2023,6 +2047,7 @@ func _save_settings() -> void:
 	var cfg := ConfigFile.new()
 	cfg.set_value("settings", "music", music_on)
 	cfg.set_value("settings", "sfx", sfx_on)
+	cfg.set_value("settings", "fps", show_fps)
 	cfg.set_value("settings", "music_volume", music_vol)
 	cfg.set_value("settings", "sfx_volume", sfx_vol)
 	cfg.set_value("settings", "speed", speed_idx)
@@ -2151,6 +2176,11 @@ func _show_settings() -> void:
 		_show_settings()))
 	_settings_row(g, "Fullscreen", _toggle(fullscreen, func():
 		_toggle_fullscreen()
+		_show_settings()))
+	_settings_row(g, "Show FPS", _toggle(show_fps, func():
+		show_fps = not show_fps
+		fps_lbl.visible = show_fps
+		_save_settings()
 		_show_settings()))
 
 	var right := _vbox(12)

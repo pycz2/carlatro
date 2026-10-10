@@ -558,5 +558,8 @@
  "The game starts in the language chosen on the website": "Игра запускается на языке, выбранном на сайте",
  "Sound: On": "Звуки: вкл",
  "Sound: Off": "Звуки: выкл",
- "Music and sound effects have separate on/off switches that work independently": "У музыки и звуков теперь отдельные выключатели, которые работают независимо"
+ "Music and sound effects have separate on/off switches that work independently": "У музыки и звуков теперь отдельные выключатели, которые работают независимо",
+ "Show FPS": "Показывать FPS",
+ "Card tooltips no longer jump from above the card to below it": "Подсказки к картам больше не прыгают сверху вниз",
+ "Optional FPS counter in the top-left corner (Settings)": "Счётчик FPS в левом верхнем углу (включается в настройках)"
 }

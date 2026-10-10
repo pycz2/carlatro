@@ -558,5 +558,8 @@
  "The game starts in the language chosen on the website": "Le jeu démarre dans la langue choisie sur le site",
  "Sound: On": "Sons : oui",
  "Sound: Off": "Sons : non",
- "Music and sound effects have separate on/off switches that work independently": "La musique et les effets sonores ont des interrupteurs séparés et indépendants"
+ "Music and sound effects have separate on/off switches that work independently": "La musique et les effets sonores ont des interrupteurs séparés et indépendants",
+ "Show FPS": "Afficher les FPS",
+ "Card tooltips no longer jump from above the card to below it": "Les infobulles des cartes ne sautent plus du haut vers le bas",
+ "Optional FPS counter in the top-left corner (Settings)": "Compteur de FPS optionnel en haut à gauche (Options)"
 }
