@@ -9,7 +9,7 @@ const EDITION_SHADER = preload("res://scripts/edition.gdshader")
 signal clicked(card)
 signal hover_changed(card, on)
 
-enum { CAR, MOD, CONS, BACK, PACK }
+enum { CAR, MOD, CONS, BACK, PACK, VOUCHER }
 const SIZE := Vector2(96, 134)
 
 var kind := CAR
@@ -128,6 +128,7 @@ func _draw() -> void:
 		CONS: _draw_cons()
 		BACK: _draw_back()
 		PACK: _draw_pack()
+		VOUCHER: _draw_voucher()
 	if dimmed:
 		draw_style_box(Data.box(Color(0, 0, 0, 0.55), 9), Rect2(Vector2.ZERO, SIZE))
 	if price >= 0:
@@ -546,3 +547,20 @@ func _draw_pack() -> void:
 	var font := get_theme_default_font()
 	var label := Data.text(data, "name")
 	draw_multiline_string(font, Vector2(5, 102), label, HORIZONTAL_ALIGNMENT_CENTER, 86, _fit(label, 86, 13), 2, Color.WHITE)
+
+
+## Voucher / sponsor deal: a coupon with notched sides.
+func _draw_voucher() -> void:
+	var ink := Color("5a3a12")
+	draw_style_box(Data.box(Color("f3e6c4"), 9, Color("b58a2a"), 3), Rect2(Vector2.ZERO, SIZE))
+	for y in range(10, 126, 8):
+		draw_line(Vector2(9, y), Vector2(9, y + 4), Color("c9a24a"), 1.5)
+		draw_line(Vector2(87, y), Vector2(87, y + 4), Color("c9a24a"), 1.5)
+	draw_circle(Vector2(0, 67), 7, Color(0.07, 0.09, 0.12))
+	draw_circle(Vector2(96, 67), 7, Color(0.07, 0.09, 0.12))
+	var font := get_theme_default_font()
+	var head := Data.tv("SPONSOR", "VOUCHER")
+	draw_string(font, Vector2(5, 18), head, HORIZONTAL_ALIGNMENT_CENTER, 86, _fit(head, 80, 10), ink)
+	Art.voucher_art(self, data.id, Vector2(48, 54))
+	var name := Data.text(data, "name")
+	draw_multiline_string(font, Vector2(8, 104), name, HORIZONTAL_ALIGNMENT_CENTER, 80, _fit(name, 80, 12), 2, ink)

@@ -183,6 +183,22 @@ const WORKSHOP := [
 	{"id": "cash", "name": "Cash Grab", "desc": "Double your money\n(max [$]$20[/])"},
 ]
 
+# Permanent run upgrades (vouchers in the original game). One offer per ante in the shop.
+const VOUCHER_COST := 10
+const VOUCHERS := [
+	{"id": "clearance", "name": "Dealer Discount", "name_cards": "Clearance Sale", "desc": "Everything in the shop\ncosts [g]25%[/] less"},
+	{"id": "reroll_surplus", "name": "Car Wash Card", "name_cards": "Reroll Surplus", "desc": "Rerolls cost [$]$2[/] less"},
+	{"id": "crystal_ball", "name": "Glovebox", "name_cards": "Crystal Ball", "desc": "[g]+1[/] Garage slot", "desc_cards": "[g]+1[/] item slot"},
+	{"id": "antimatter", "name": "Roof Rack", "name_cards": "Antimatter", "desc": "[g]+1[/] Mod slot", "desc_cards": "[g]+1[/] Joker slot"},
+	{"id": "grabber", "name": "Spare Fuel Tank", "name_cards": "Grabber", "desc": "[c]+1[/] hand each race"},
+	{"id": "wasteful", "name": "Extra Tires", "name_cards": "Wasteful", "desc": "[m]+1[/] discard each race"},
+	{"id": "paint_brush", "name": "Bigger Trailer", "name_cards": "Paint Brush", "desc": "[g]+1[/] hand size"},
+	{"id": "seed_money", "name": "Savings Account", "name_cards": "Seed Money", "desc": "Interest cap rises\nto [$]$10[/]"},
+	{"id": "hone", "name": "Detailing Studio", "name_cards": "Hone", "desc": "Mod editions appear\n[g]twice[/] as often", "desc_cards": "Joker editions appear\n[g]twice[/] as often"},
+	{"id": "tune_merchant", "name": "Dyno Contract", "name_cards": "Upgrade Dealer", "desc": "Dyno Tunes appear\nmore often in the shop", "desc_cards": "Upgrades appear\nmore often in the shop"},
+	{"id": "workshop_merchant", "name": "Workshop Contract", "name_cards": "Trick Dealer", "desc": "Workshop cards appear\nmore often in the shop", "desc_cards": "Trick cards appear\nmore often in the shop"},
+]
+
 # Booster packs: open one in the pit stop, then take 1 of the choices.
 const PACKS := [
 	{"id": "pack", "type": "cars", "name": "Garage Pack", "name_cards": "Card Pack", "cost": 4, "weight": 30, "color": Color("d64545"),

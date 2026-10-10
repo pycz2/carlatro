@@ -586,6 +586,88 @@ Cash Grab,Сорвать куш,Billetazo,Geldregen,Coup de Cash,Grana em Dobro
 (max. [$]$20[/])","Double ton argent
 (max [$]$20[/])","Dobra seu dinheiro
 (máx. [$]$20[/])"
+Dealer Discount,Скидка дилера,Descuento del Concesionario,Händlerrabatt,Remise Concession,Desconto da Concessionária
+Clearance Sale,Распродажа,Liquidación,Räumungsverkauf,Liquidation,Liquidação
+"Everything in the shop
+costs [g]25%[/] less","Всё в магазине
+дешевле на [g]25%[/]","Todo en la tienda
+cuesta un [g]25%[/] menos","Alles im Shop
+kostet [g]25%[/] weniger","Tout dans la boutique
+coûte [g]25%[/] de moins","Tudo na loja
+custa [g]25%[/] menos"
+Car Wash Card,Абонемент на мойку,Tarjeta de Lavadero,Waschanlagen-Karte,Carte Lavage,Cartão Lava-Rápido
+Reroll Surplus,Избыток обновлений,Excedente de Renovación,Mischüberschuss,Relance Surplus,Rerrolagem Barata
+Rerolls cost [$]$2[/] less,Обновление дешевле на [$]$2[/],Renovar cuesta [$]$2[/] menos,"Neu mischen kostet
+[$]$2[/] weniger",Les relances coûtent [$]$2[/] de moins,Rerrolagens custam [$]$2[/] a menos
+Glovebox,Бардачок,Guantera,Handschuhfach,Boîte à gants,Porta-luvas
+Crystal Ball,Хрустальный шар,Bola de Cristal,Kristallkugel,Boule de cristal,Bola de Cristal
+[g]+1[/] Garage slot,[g]+1[/] слот гаража,[g]+1[/] hueco de Garaje,[g]+1[/] Garagen-Platz,[g]+1[/] emplacement de Garage,[g]+1[/] slot de Garagem
+[g]+1[/] item slot,[g]+1[/] слот предмета,[g]+1[/] hueco de objeto,[g]+1[/] Item-Platz,[g]+1[/] emplacement d'objet,[g]+1[/] slot de Item
+Roof Rack,Багажник на крышу,Baca,Dachträger,Barres de toit,Bagageiro
+Antimatter,Антиматерия,Antimateria,Antimaterie,Antimatière,Antimatéria
+Spare Fuel Tank,Запасной бак,Depósito de Reserva,Ersatztank,Jerrican de secours,Tanque Reserva
+Grabber,Хват,Agarrador,Greifer,Grappin,Garra
+Extra Tires,Запасные шины,Neumáticos Extra,Zusatzreifen,Pneus Neufs,Pneus Extras
+Wasteful,Расточительство,Derrochador,Verschwender,Gaspilleur,Esbanjador
+Bigger Trailer,Прицеп побольше,Remolque Más Grande,Größerer Anhänger,Grande Remorque,Trailer Maior
+Paint Brush,Кисть,Pincel,Pinsel,Pinceau,Pincel
+Savings Account,Сберегательный счёт,Cuenta de Ahorros,Sparkonto,Compte Épargne,Conta Poupança
+Seed Money,Стартовый капитал,Capital Inicial,Startkapital,Capital de départ,Capital Inicial
+"Interest cap rises
+to [$]$10[/]","Потолок процентов
+растёт до [$]$10[/]","El tope de intereses
+sube a [$]$10[/]","Zinsobergrenze steigt
+auf [$]$10[/]","Le plafond des intérêts
+passe à [$]$10[/]","O teto dos juros sobe
+para [$]$10[/]"
+Detailing Studio,Детейлинг-студия,Estudio de Detallado,Aufbereitungsstudio,Atelier Esthétique,Estúdio de Estética
+Hone,Заточка,Pulido,Feinschliff,Affûtage,Afinar
+"Mod editions appear
+[g]twice[/] as often","Особые издания модов
+встречаются [g]вдвое[/] чаще","Las ediciones de Mods salen
+[g]el doble[/] de a menudo","Mod-Editionen erscheinen
+[g]doppelt[/] so oft","Les éditions de Mods apparaissent
+[g]deux fois[/] plus souvent","Edições de Mods aparecem
+[g]2x[/] mais vezes"
+"Joker editions appear
+[g]twice[/] as often","Особые издания джокеров
+встречаются [g]вдвое[/] чаще","Las ediciones de Jokers salen
+[g]el doble[/] de a menudo","Joker-Editionen erscheinen
+[g]doppelt[/] so oft","Les éditions de Jokers apparaissent
+[g]deux fois[/] plus souvent","Edições de Coringas aparecem
+[g]2x[/] mais vezes"
+Dyno Contract,Контракт диностенда,Contrato Dyno,Dyno-Vertrag,Contrat Dyno,Contrato Dyno
+Upgrade Dealer,Торговец прокачками,Vendedor de Mejoras,Upgrade-Händler,Revendeur d'Améliorations,Vendedor de Upgrades
+"Dyno Tunes appear
+more often in the shop","Настройки диностенда
+чаще бывают в магазине","Las Afinaciones Dyno salen
+más a menudo en la tienda","Dyno-Tunes erscheinen
+öfter im Shop","Les Tunes Dyno apparaissent
+plus souvent dans la boutique","Dyno Tunes aparecem
+mais vezes na loja"
+"Upgrades appear
+more often in the shop","Прокачки чаще
+бывают в магазине","Las Mejoras salen
+más a menudo en la tienda","Upgrades erscheinen
+öfter im Shop","Les Améliorations apparaissent
+plus souvent dans la boutique","Upgrades aparecem
+mais vezes na loja"
+Workshop Contract,Контракт мастерской,Contrato de Taller,Werkstatt-Vertrag,Contrat Atelier,Contrato da Oficina
+Trick Dealer,Торговец фокусами,Vendedor de Trucos,Trick-Händler,Marchand d'Astuces,Vendedor de Truques
+"Workshop cards appear
+more often in the shop","Карты мастерской
+чаще бывают в магазине","Las cartas de Taller salen
+más a menudo en la tienda","Werkstatt-Karten erscheinen
+öfter im Shop","Les cartes Atelier apparaissent
+plus souvent dans la boutique","Cartas da Oficina aparecem
+mais vezes na loja"
+"Trick cards appear
+more often in the shop","Фокусы чаще
+бывают в магазине","Las cartas Truco salen
+más a menudo en la tienda","Trick-Karten erscheinen
+öfter im Shop","Les cartes Astuce apparaissent
+plus souvent dans la boutique","Cartas de Truque aparecem
+mais vezes na loja"
 Garage Pack,Гаражный пак,Pack Garaje,Garagen-Pack,Pack Garage,Pacote Garagem
 Card Pack,Пак карт,Pack de Cartas,Karten-Pack,Pack de Cartes,Pacote de Cartas
 "Choose [g]1[/] of [g]3[/] cars
@@ -776,6 +858,7 @@ Upgrade: %s,Прокачка: %s,Mejora: %s,Upgrade: %s,Amélioration : %s,Upgra
 "Select %s cars in hand, then Use","Выбери машины в руке (%s), затем нажми Применить",Elige %s coches en mano y pulsa Usar,"Wähle %s Autos in der Hand, dann Nutzen","Choisis %s voitures en main, puis Utiliser",Selecione %s carros na mão e use
 "Select %s cards in hand, then Use","Выбери карты в руке (%s), затем нажми Применить",Elige %s cartas en mano y pulsa Usar,"Wähle %s Karten in der Hand, dann Nutzen","Choisis %s cartes en main, puis Utiliser",Selecione %s cartas na mão e use
 Use any time,Можно применить в любой момент,Úsalo en cualquier momento,Jederzeit nutzbar,Utilisable à tout moment,Use a qualquer momento
+Lasts for the whole run,Действует до конца забега,Dura toda la partida,Gilt für den ganzen Run,Dure toute la partie,Vale até o fim da run
 Click a back to use it,"Нажми на рубашку, чтобы выбрать её",Haz clic en un reverso para usarlo,"Klicke auf eine Rückseite, um sie zu nutzen",Clique sur un dos pour l’utiliser,Clique num verso para usá-lo
 Your Garage,Твой гараж,Tu Garaje,Deine Garage,Ton Garage,Sua Garagem
 Your Deck,Твоя колода,Tu Mazo,Dein Deck,Ton Deck,Seu Baralho
@@ -806,7 +889,7 @@ Already played!,Уже сыграно!,¡Ya jugada!,Schon gespielt!,Déjà joué
 RACE WON!,ГОНКА ВЫИГРАНА!,¡CARRERA GANADA!,RENNEN GEWONNEN!,COURSE GAGNÉE !,CORRIDA VENCIDA!
 %s won,%s: победа,Ganada: %s,%s gewonnen,%s gagnée,%s vencida
 Remaining hands,Оставшиеся руки,Manos restantes,Übrige Hände,Mains restantes,Mãos restantes
-"Interest ($1 per $5, max $5)","Проценты ($1 за $5, макс. $5)","Intereses ($1 por cada $5, máx. $5)","Zinsen ($1 pro $5, max $5)","Intérêts ($1 par $5, max $5)","Juros ($1 por $5, máx. $5)"
+"Interest ($1 per $5, max $%d)","Проценты ($1 за $5, макс. $%d)","Intereses ($1 por cada $5, máx. $%d)","Zinsen ($1 pro $5, max $%d)","Intérêts ($1 par $5, max $%d)","Juros ($1 por $5, máx. $%d)"
 Cash Out:,Забрать:,Cobrar:,Auszahlung:,Encaisser :,Resgatar:
 PIT STOP,ПИТ-СТОП,PIT STOP,BOXENSTOPP,PIT STOP,PIT STOP
 Next Race,На старт,Próx. Carrera,Nächstes Rennen,Course suivante,Próx. Corrida
@@ -815,6 +898,8 @@ JOKERS,ДЖОКЕРЫ,JOKERS,JOKER,JOKERS,CORINGAS
 GARAGE,ГАРАЖ,GARAJE,GARAGE,GARAGE,GARAGEM
 ITEMS,ПРЕДМЕТЫ,OBJETOS,ITEMS,OBJETS,ITENS
 BOOSTER PACKS,БУСТЕР-ПАКИ,SOBRES,BOOSTER-PACKS,BOOSTERS,PACOTES
+SPONSOR,СПОНСОР,PATROC.,SPONSOR,SPONSOR,PATROCÍNIO
+VOUCHER,ВАУЧЕР,CUPÓN,GUTSCHEIN,BON,VOUCHER
 Reroll,Обновить,Renovar,Neu mischen,Relancer,Rerrolar
 Not enough cash!,Не хватает денег!,¡No hay dinero suficiente!,Zu wenig Cash!,Pas assez de cash !,Grana insuficiente!
 Mod slots are full!,Слоты модов заняты!,¡No quedan huecos de Mod!,Mod-Plätze voll!,Emplacements de Mods pleins !,Slots de Mods cheios!
@@ -864,6 +949,8 @@ COLLECTION,КОЛЛЕКЦИЯ,COLECCIÓN,SAMMLUNG,COLLECTION,COLEÇÃO
 Cards,Карты,Cartas,Karten,Cartes,Cartas
 Garage cards,Карты гаража,Cartas del Garaje,Garagenkarten,Cartes Garage,Cartas da Garagem
 Packs,Паки,Sobres,Packs,Packs,Pacotes
+Sponsors,Спонсоры,Patrocinadores,Sponsoren,Sponsors,Patrocínios
+Vouchers,Ваучеры,Cupones,Gutscheine,Bons,Vouchers
 Bosses,Боссы,Jefes,Bosse,Boss,Chefes
 Poker hands,Комбинации,Manos,Pokerhände,Mains,Mãos
 Card backs,Рубашки,Reversos,Rückseiten,Dos de carte,Versos
@@ -875,6 +962,9 @@ DYNO TUNE,ДИНОСТЕНД,AFINACIÓN DYNO,DYNO-TUNE,TUNE DYNO,DYNO TUNE
 UPGRADE,ПРОКАЧКА,MEJORA,UPGRADE,AMÉLIO.,UPGRADE
 WORKSHOP,МАСТЕРСКАЯ,TALLER,WERKSTATT,ATELIER,OFICINA
 TRICK,ФОКУС,TRUCO,TRICK,ASTUCE,TRUQUE
+Sponsors give a permanent bonus for the whole run. The Pit Stop offers one each ante.,Спонсоры дают постоянный бонус до конца забега. Пит-стоп предлагает одного в каждом анте.,Los Patrocinadores dan un bono permanente durante toda la partida. El Pit Stop ofrece uno en cada Ante.,Sponsoren geben einen dauerhaften Bonus für den ganzen Run. Der Boxenstopp bietet jede Ante einen an.,Les Sponsors donnent un bonus permanent pour toute la partie. Le Pit Stop en propose un à chaque ante.,Patrocínios dão um bônus permanente até o fim da run. O Pit Stop oferece um por fase.
+Vouchers give a permanent bonus for the whole run. The Pit Stop offers one each ante.,Ваучеры дают постоянный бонус до конца забега. Пит-стоп предлагает один в каждом анте.,Los Cupones dan un bono permanente durante toda la partida. El Pit Stop ofrece uno en cada Ante.,Gutscheine geben einen dauerhaften Bonus für den ganzen Run. Der Boxenstopp bietet jede Ante einen an.,Les Bons donnent un bonus permanent pour toute la partie. Le Pit Stop en propose un à chaque ante.,Vouchers dão um bônus permanente até o fim da run. O Pit Stop oferece um por fase.
+Owned,Куплено,Adquirido,Im Besitz,Possédé,Adquirido
 Final race,Финальная гонка,Carrera final,Finalrennen,Course finale,Corrida final
 From ante %d,С анте %d,Desde ante %d,Ab Ante %d,Dès ante %d,A partir de fase %d
 Per level,За уровень,Por nivel,Pro Stufe,Par niveau,Por nível
@@ -934,6 +1024,9 @@ a Glass card broke and left your deck.,карта Стекло разбилас�
 "Upgrades and Cash Grab work at once. Trick cards need cards: select them in your hand, then click the item and press Use.","Прокачки и Сорвать куш срабатывают сразу. Фокусам нужны карты: выбери их в руке, затем нажми на предмет и на Применить.","Las Mejoras y Billetazo actúan al instante. Las cartas de Truco necesitan cartas: elígelas en tu mano, luego haz clic en el objeto y pulsa Usar.","Upgrades und Geldregen wirken sofort. Trick-Karten brauchen Karten: Wähle sie in deiner Hand, klicke dann das Item und drücke Nutzen.","Les Améliorations et Coup de Cash agissent tout de suite. Les cartes Astuce ont besoin de cartes : choisis-les en main, clique sur l'objet puis sur Utiliser.","Upgrades e Grana em Dobro funcionam na hora. Cartas de Truque precisam de cartas: selecione-as na mão, clique no item e aperte Usar."
 "Keys: Enter = Play hand, Backspace = Discard, Esc = Menu, M = Music, F11 = Fullscreen. Hover any card for details.","Клавиши: Enter - сыграть руку, Backspace - сброс, Esc - меню, M - музыка, F11 - полный экран. Наведи на любую карту, чтобы узнать подробности.","Teclas: Enter = Jugar mano, Retroceso = Descartar, Esc = Menú, M = Música, F11 = Pantalla completa. Pasa el ratón sobre cualquier carta para ver detalles.","Tasten: Enter = Hand spielen, Backspace = Ablegen, Esc = Menü, M = Musik, F11 = Vollbild. Mit der Maus über Karten für Details.","Touches : Entrée = Jouer la main, Retour arrière = Défausser, Échap = Menu, M = Musique, F11 = Plein écran. Survole une carte pour les détails.","Teclas: Enter = Jogar mão, Backspace = Descartar, Esc = Menu, M = Música, F11 = Tela cheia. Passe o mouse em qualquer carta para ver detalhes."
 HOW TO PLAY,КАК ИГРАТЬ,CÓMO JUGAR,ANLEITUNG,COMMENT JOUER,COMO JOGAR
+"With car art, every picture is about cars: mods, items and mini cards","С темой машин все картинки про машины: моды, предметы и миниатюры","Con arte de coches, todas las imágenes son de coches: Mods, objetos y minicartas","Mit Autobildern dreht sich jedes Bild um Autos: Mods, Items und Minikarten","Avec l'art voitures, chaque image parle de voitures : mods, objets et mini-voitures","Com a arte de carros, toda imagem é sobre carros: mods, itens e minicartas"
+"With classic art, every picture is about playing cards",С классической темой все картинки про игральные карты,"Con arte clásico, todas las imágenes son de cartas de juego",Mit klassischen Bildern dreht sich jedes Bild um Spielkarten,"Avec l'art classique, chaque image parle de cartes à jouer","Com a arte clássica, toda imagem é sobre cartas de baralho"
+"Sponsors (car theme) or Vouchers (classic theme): permanent bonuses for the whole run, one offer per ante","Спонсоры (тема машин) или Ваучеры (классическая тема): постоянные бонусы на весь забег, одно предложение за анте","Patrocinadores (tema de coches) o Cupones (tema clásico): bonos permanentes durante toda la partida, una oferta por Ante","Sponsoren (Auto-Theme) oder Gutscheine (klassisches Theme): dauerhafte Boni für den ganzen Run, ein Angebot pro Ante","Sponsors (thème voitures) ou Bons (thème classique) : bonus permanents pour toute la partie, une offre par ante","Patrocínios (tema de carros) ou Vouchers (tema clássico): bônus permanentes até o fim da run, uma oferta por fase"
 Classic suits and the Classic Red card back are now the default,Классические масти и рубашка «Красная классика» теперь по умолчанию,Los palos clásicos y el reverso Rojo Clásico ahora vienen por defecto,Klassische Farben und die Rückseite „Klassisch Rot“ sind jetzt Standard,Les couleurs classiques et le dos Rouge classique sont désormais par défaut,Naipes clássicos e o verso Vermelho Clássico agora são o padrão
 "Unique pictures for every mod, garage item and boss race","Уникальные картинки для каждого мода, предмета гаража и гонки босса","Imágenes únicas para cada Mod, objeto del garaje y carrera de Jefe","Einzigartige Bilder für jeden Mod, jedes Garagen-Item und jedes Boss-Rennen","Images uniques pour chaque mod, objet de garage et course de boss","Imagens únicas para cada mod, item da garagem e corrida boss"
 "Classic King, Queen and Jack are easy to tell apart","Классических Короля, Даму и Валета теперь легко различить","En el modo clásico, Rey, Reina y Jota se distinguen fácilmente","Klassische Könige, Damen und Buben sind leicht zu unterscheiden","Roi, Dame et Valet classiques faciles à distinguer","No tema Clássico, Rei, Dama e Valete agora são fáceis de distinguir"

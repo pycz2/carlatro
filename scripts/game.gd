@@ -71,6 +71,8 @@ var sort_by_suit := false
 var speed_idx := 0
 var reroll_cost := 5
 var collection_tab := 0
+var vouchers: Array = []  # ids of bought vouchers (permanent for the run)
+var voucher_offer := ""
 var stats := {}
 var result_recorded := false  # a run counts once: won, or lost
 var gallery_backs: Array = []
@@ -737,14 +739,33 @@ func _layout_row(views: Array, y: float, cx: float, spacing := 108.0) -> void:
 
 ## Negative mods add a slot each.
 func _mod_slots() -> int:
-	return MAX_MODS + mods.filter(func(m): return m.get("edition", "") == "negative").size()
+	return MAX_MODS + mods.filter(func(m): return m.get("edition", "") == "negative").size() + int(_voucher("antimatter"))
+
+
+func _cons_slots() -> int:
+	return MAX_CONS + int(_voucher("crystal_ball"))
+
+
+func _voucher(id: String) -> bool:
+	return vouchers.has(id)
+
+
+## Shop price after the Clearance Sale voucher.
+func _price(cost: int) -> int:
+	return maxi(1, int(cost * 0.75)) if _voucher("clearance") else cost
+
+
+## A new voucher offer every ante, from the ones not bought yet.
+func _roll_voucher() -> void:
+	var pool := Data.VOUCHERS.filter(func(v): return not vouchers.has(v.id))
+	voucher_offer = "" if pool.is_empty() else pool[rng.randi() % pool.size()].id
 
 
 ## Maybe give a new mod an edition (foil, holo, polychrome, negative); it costs more.
 func _roll_edition(m: Dictionary) -> Dictionary:
 	var r := rng.randf() * 100.0
 	for e in Data.EDITIONS:
-		r -= Data.EDITIONS[e].weight
+		r -= Data.EDITIONS[e].weight * (2.0 if _voucher("hone") else 1.0)
 		if r < 0.0:
 			m.edition = e
 			m.cost += Data.EDITIONS[e].extra
@@ -759,8 +780,9 @@ func _layout_slots() -> void:
 		mod_views[i].target_pos = MOD_POS + Vector2(i * step, 0)
 		mod_views[i].target_rot = 0.0
 		mod_views[i].base_z = i
+	var cstep := minf(104.0, (MAX_CONS * 104.0 - CardView.SIZE.x) / maxf(cons_views.size() - 1, 1))
 	for i in cons_views.size():
-		cons_views[i].target_pos = CONS_POS + Vector2(i * 104, 0)
+		cons_views[i].target_pos = CONS_POS + Vector2(i * cstep, 0)
 		cons_views[i].target_rot = 0.0
 
 
@@ -807,7 +829,7 @@ func _update_sidebar() -> void:
 	ante_lbl.text = str(ante) if endless else "%d/8" % ante
 	round_lbl.text = str(round_num)
 	mods_lbl.text = Data.tv("Mods", "Jokers") + " %d/%d" % [mods.size(), _mod_slots()]
-	cons_lbl.text = Data.tv("Garage", "Items") + " %d/%d" % [consumables.size(), MAX_CONS]
+	cons_lbl.text = Data.tv("Garage", "Items") + " %d/%d" % [consumables.size(), _cons_slots()]
 	deck_view.visible = state == "play"
 	deck_lbl.visible = deck_view.visible
 	deck_lbl.text = "%d/%d" % [draw_pile.size(), deck.size()]
@@ -953,6 +975,8 @@ func _tip_for(cv: Control) -> Array:
 			return [title, s]
 		CardView.PACK:
 			return [Data.text(d, "name"), Data.text(d, "desc")]
+		CardView.VOUCHER:
+			return [Data.text(d, "name"), Data.text(d, "desc") + "\n[g]%s[/]" % tr("Lasts for the whole run")]
 		CardView.BACK:
 			if gallery_backs.has(cv):
 				return [tr(Data.BACKS[cv.back_style]), tr("Click a back to use it")]
@@ -1061,12 +1085,14 @@ func _start_run() -> void:
 	played_count.fill(0)
 	mods = []
 	consumables = []
+	vouchers = []
 	last_boss_name = ""
 	_pick_boss()
 	_show_blind_select()
 
 
 func _pick_boss() -> void:
+	_roll_voucher()
 	if ante % 8 == 0:
 		boss = Data.FINAL_BOSS
 		return
@@ -1168,9 +1194,9 @@ func _start_race() -> void:
 	target = _blind_target(blind_idx)
 	hands_played = 0
 	played_types = []
-	hands_left = 4 + (1 if _has("pit_crew") else 0)
-	discards_left = 3 + (1 if _has("tow_truck") else 0)
-	hand_size = 8 + (1 if _has("big_trunk") else 0)
+	hands_left = 4 + int(_has("pit_crew")) + int(_voucher("grabber"))
+	discards_left = 3 + int(_has("tow_truck")) + int(_voucher("wasteful"))
+	hand_size = 8 + int(_has("big_trunk")) + int(_voucher("paint_brush"))
 	match _active_boss().get("id", ""):
 		"rain": discards_left = 0
 		"flat_tire": hand_size -= 1
@@ -1400,9 +1426,10 @@ func _round_won() -> void:
 	var lines := [[tr("%s won") % tr(info.name), info.reward]]
 	if hands_left > 0:
 		lines.append([tr("Remaining hands") + " (%d)" % hands_left, hands_left])
-	var interest := mini(floori(money / 5.0), 5)
+	var cap := 10 if _voucher("seed_money") else 5
+	var interest := mini(floori(money / 5.0), cap)
 	if interest > 0:
-		lines.append(["Interest ($1 per $5, max $5)", interest])
+		lines.append([tr("Interest ($1 per $5, max $%d)") % cap, interest])
 	for m in mods:
 		if m.id == "gas_station":
 			lines.append([Data.text(m, "name"), 4])
@@ -1460,7 +1487,7 @@ func _show_cashout(lines: Array) -> void:
 
 func _open_shop(saved := {}) -> void:
 	state = "shop"
-	reroll_cost = saved.get("reroll_cost", 5)
+	reroll_cost = saved.get("reroll_cost", 3 if _voucher("reroll_surplus") else 5)
 	_clear(overlay)
 	shop_panel = Panel.new()
 	shop_panel.add_theme_stylebox_override("panel", Data.box(PANEL_BG, 16, ACCENT, 3))
@@ -1481,21 +1508,28 @@ func _open_shop(saved := {}) -> void:
 	reroll_btn.clip_text = true
 	reroll_btn.pressed.connect(_reroll)
 	shop_panel.add_child(reroll_btn)
-	for s in [[Data.tv("MODS", "JOKERS"), 230.0, 50.0, 3], [Data.tv("GARAGE", "ITEMS"), 622.0, 50.0, 2], [tr("BOOSTER PACKS"), 230.0, 250.0, 2]]:
+	for s in [[Data.tv("MODS", "JOKERS"), 230.0, 50.0, 3], [Data.tv("GARAGE", "ITEMS"), 622.0, 50.0, 2], [tr("BOOSTER PACKS"), 230.0, 250.0, 2],
+			[Data.tv("SPONSOR", "VOUCHER"), 622.0, 250.0, 2]]:
 		var l := _label(s[0], 14, Color(1, 1, 1, 0.6), 3)
 		l.size = Vector2(s[3] * 112 - 16, 20)
 		l.position = Vector2(s[1], s[2])
 		shop_panel.add_child(l)
 	_fill_shop(saved.get("shop_items", []))
+	if not saved.has("shop_items") and voucher_offer != "":
+		var vd: Dictionary = Data.VOUCHERS.filter(func(v): return v.id == voucher_offer)[0].duplicate(true)
+		var vcv := _make_card(CardView.VOUCHER, vd, shop_panel)
+		vcv.price = _price(Data.VOUCHER_COST)
+		_shop_place(vcv, Vector2(678, 300), 7)
 	if saved.get("pack_open", {}).has("data"):
 		_open_pack(saved.pack_open.data, saved.pack_open.choices)
 	_update_sidebar()
 
 
 func _fill_shop(saved_items := []) -> void:
-	for cv in shop_views:
+	# a reroll replaces everything except the voucher
+	for cv in shop_views.filter(func(v): return v.kind != CardView.VOUCHER):
 		cv.queue_free()
-	shop_views.clear()
+		shop_views.erase(cv)
 	reroll_btn.text = tr("Reroll") + " $%d" % reroll_cost
 	if not saved_items.is_empty():
 		for i in saved_items.size():
@@ -1511,19 +1545,24 @@ func _fill_shop(saved_items := []) -> void:
 			continue
 		taken.append(def.id)
 		var md := _roll_edition(def.duplicate(true))
+		md.cost = _price(md.cost)
 		var cv := _make_card(CardView.MOD, md, shop_panel)
 		cv.price = md.cost
 		_shop_place(cv, Vector2(230 + i * 112, 112), i)
-	var pool := Data.consumables()
+	var all := Data.consumables()
+	var tunes := all.filter(func(x): return x.id == "tune")
+	var work := all.filter(func(x): return x.id != "tune")
+	var p_tune := float(tunes.size()) / all.size() + 0.3 * int(_voucher("tune_merchant")) - 0.3 * int(_voucher("workshop_merchant"))
 	for i in 2:
+		var pool: Array = tunes if rng.randf() < p_tune else work
 		var c: Dictionary = pool[rng.randi() % pool.size()]
 		var cv := _make_card(CardView.CONS, c, shop_panel)
-		cv.price = c.cost
+		cv.price = _price(c.cost)
 		_shop_place(cv, Vector2(622 + i * 112, 112), i + 3)
 	for i in 2:
 		var pk := _random_pack()
 		var cv := _make_card(CardView.PACK, pk.duplicate(true), shop_panel)
-		cv.price = pk.cost
+		cv.price = _price(pk.cost)
 		_shop_place(cv, Vector2(230 + i * 112, 300), i + 5)
 
 
@@ -1568,12 +1607,21 @@ func _buy(cv: Control) -> void:
 	if cv.kind == CardView.MOD and mods.size() >= _mod_slots() and cv.data.get("edition", "") != "negative":
 		_message(Data.tv("Mod slots are full!", "Joker slots are full!"))
 		return
-	if cv.kind == CardView.CONS and consumables.size() >= MAX_CONS:
+	if cv.kind == CardView.CONS and consumables.size() >= _cons_slots():
 		_message(Data.tv("Garage is full!", "Item slots are full!"))
 		return
 	money -= cv.price
 	cv.price = -1
 	shop_views.erase(cv)
+	if cv.kind == CardView.VOUCHER:
+		vouchers.append(cv.data.id)
+		voucher_offer = ""
+		_popup(Data.text(cv.data, "name"), cv.global_position + Vector2(48, -20), Color("b58a2a"), 20)
+		sfx.play("win")
+		_vanish(cv)
+		_layout_slots()
+		_update_sidebar()
+		return
 	if cv.kind == CardView.PACK:
 		sfx.play("break", 1.4)
 		_vanish(cv)
@@ -1800,7 +1848,7 @@ func _take_pack(cv: Control) -> void:
 		CardView.CONS:
 			if cv.data.id == "tune":
 				_level_up(cv.data.hand)
-			elif consumables.size() >= MAX_CONS:
+			elif consumables.size() >= _cons_slots():
 				_message(Data.tv("Garage is full!", "Item slots are full!"))
 				return
 			else:
@@ -1848,7 +1896,7 @@ func _save_run() -> void:
 		"boss": boss, "last_boss_name": last_boss_name, "endless": endless, "best_hand": best_hand, "next_id": next_id,
 		"score": score, "target": target, "hands_left": hands_left, "discards_left": discards_left,
 		"hand_size": hand_size, "hands_played": hands_played, "played_types": played_types,
-		"cashout_lines": cashout_lines, "reroll_cost": reroll_cost, "pack_open": pack_open, "result_recorded": result_recorded,
+		"cashout_lines": cashout_lines, "reroll_cost": reroll_cost, "pack_open": pack_open, "result_recorded": result_recorded, "vouchers": vouchers, "voucher_offer": voucher_offer,
 		"shop_items": shop_views.map(func(cv): return {"kind": cv.kind, "data": cv.data, "price": cv.price, "pos": cv.target_pos}),
 	})
 
@@ -1870,6 +1918,8 @@ func _continue_run(sound := true) -> void:
 			"discards_left", "hand_size", "hands_played", "played_types", "reroll_cost"]:
 		set(k, d[k])
 	result_recorded = d.get("result_recorded", false)
+	vouchers = d.get("vouchers", [])
+	voucher_offer = d.get("voucher_offer", "")
 	var by_id := {}
 	for c in deck:
 		by_id[c.id] = c
@@ -2262,9 +2312,10 @@ func _show_collection(tab := -1) -> void:
 	tabs.position = Vector2(24, 58)
 	tabs.size = Vector2(1152, 40)
 	tabs.alignment = BoxContainer.ALIGNMENT_CENTER
-	var names := [Data.tv("Cars", "Cards"), Data.tv("Mods", "Jokers"), Data.tv("Garage cards", "Items"), tr("Packs"), tr("Bosses"), tr("Poker hands"), tr("Card backs")]
+	var names := [Data.tv("Cars", "Cards"), Data.tv("Mods", "Jokers"), Data.tv("Garage cards", "Items"), tr("Packs"),
+		Data.tv("Sponsors", "Vouchers"), tr("Bosses"), tr("Poker hands"), tr("Card backs")]
 	for i in names.size():
-		var b := _button(names[i], Color("2f8f83") if i == collection_tab else Color("3a3f4b"), 15, Vector2(150, 38))
+		var b := _button(names[i], Color("2f8f83") if i == collection_tab else Color("3a3f4b"), 14, Vector2(136, 38))
 		b.clip_text = true
 		b.pressed.connect(_show_collection.bind(i))
 		tabs.add_child(b)
@@ -2282,9 +2333,10 @@ func _show_collection(tab := -1) -> void:
 		1: h = _gal_mods(c)
 		2: h = _gal_items(c)
 		3: h = _gal_packs(c)
-		4: h = _gal_bosses(c)
-		5: h = _gal_hands(c)
-		6: h = _gal_backs(c)
+		4: h = _gal_vouchers(c)
+		5: h = _gal_bosses(c)
+		6: h = _gal_hands(c)
+		7: h = _gal_backs(c)
 	c.custom_minimum_size = Vector2(1140, h)
 	scroll.add_child(c)
 	var back := _button("Back", ACCENT, 20, Vector2(200, 50))
@@ -2408,6 +2460,28 @@ func _gal_packs(c: Control) -> float:
 		r.text = "[color=%s]%s[/color]\n%s" % [pk.color.lightened(0.35).to_html(false), Data.text(pk, "name"), _bb_dark(Data.text(pk, "desc"))]
 		c.add_child(r)
 	return 56.0 + 2 * 190
+
+
+func _gal_vouchers(c: Control) -> float:
+	_gal_label(c, Data.tv("Sponsors give a permanent bonus for the whole run. The Pit Stop offers one each ante.",
+		"Vouchers give a permanent bonus for the whole run. The Pit Stop offers one each ante."), Vector2(0, 0), 14, Color(1, 1, 1, 0.7))
+	for i in Data.VOUCHERS.size():
+		var v: Dictionary = Data.VOUCHERS[i]
+		var x := (i % 3) * 380.0
+		var y := 46.0 + (i / 3) * 164
+		var cv := _gal_card(c, CardView.VOUCHER, v, Vector2(x, y), 0.95)
+		cv.price = Data.VOUCHER_COST
+		var r := RichTextLabel.new()
+		r.bbcode_enabled = true
+		r.fit_content = true
+		r.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		r.position = Vector2(x + 104, y + 20)
+		r.size = Vector2(260, 100)
+		r.add_theme_font_size_override("normal_font_size", 15)
+		var owned := "\n[color=#5fd38a]%s[/color]" % tr("Owned") if vouchers.has(v.id) and state != "title" else ""
+		r.text = "[color=#ffd23f]%s[/color]\n%s%s" % [Data.text(v, "name"), _bb_dark(Data.text(v, "desc")), owned]
+		c.add_child(r)
+	return 46.0 + ceili(Data.VOUCHERS.size() / 3.0) * 164
 
 
 func _gal_bosses(c: Control) -> float:
@@ -2630,6 +2704,11 @@ func _show_info() -> void:
 		g.add_child(_label(str(h.mult + h.lm * (lvl - 1)), 16, MULT_COL, 3))
 		g.add_child(_label(str(played_count[i]), 16, Color.WHITE, 3))
 	v.add_child(g)
+	if not vouchers.is_empty():
+		var owned := _label(Data.tv("Sponsors", "Vouchers") + ": " + ", ".join(vouchers.map(func(id): return Data.text(Data.VOUCHERS.filter(func(x): return x.id == id)[0], "name"))), 15, Color("ffd23f"), 3)
+		owned.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		owned.custom_minimum_size = Vector2(580, 0)
+		v.add_child(owned)
 	v.add_child(_close_button())
 	_modal(p)
 
@@ -2683,6 +2762,8 @@ func _help_text() -> String:
 	t += "\n- " + Data.tv("Spend cash at the [color=#e8572f]Pit Stop[/color]: Mods change how you score, Dyno Tunes level up hands, Workshop cards upgrade your cars.",
 		"Spend cash at the [color=#e8572f]Pit Stop[/color]: Jokers change how you score, Upgrades level up hands, Trick cards change your cards.")
 	t += "\n- " + tr("Booster packs: open one and take 1 of the choices.")
+	t += "\n- " + Data.tv("Sponsors give a permanent bonus for the whole run. The Pit Stop offers one each ante.",
+		"Vouchers give a permanent bonus for the whole run. The Pit Stop offers one each ante.")
 	t += "\n- " + tr("Win the Grand Prix at Ante 8 to become Champion.") + "\n"
 	t += hd.call(tr("Card upgrades"))
 	for e in Data.ENH_INFO:

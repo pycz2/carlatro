@@ -154,7 +154,10 @@ static func mini_card(ci: Control, c: Vector2, rank: String, suit: int, w := 18.
 	var f := ci.get_theme_default_font()
 	var size := int(maxf(7.0, w * 0.42))
 	ci.draw_string(f, Vector2(-w / 2 + 2, -h / 2 + size), rank, HORIZONTAL_ALIGNMENT_LEFT, -1, size, col)
-	emblem(ci, Vector2(w * 0.08, h * 0.12), w * 0.24, suit, col)
+	if Data.classic_art:
+		emblem(ci, Vector2(w * 0.08, h * 0.12), w * 0.24, suit, col)
+	else:
+		_car_shape(ci, Vector2(0, h * 0.18), w * 0.4, col, suit)
 	ci.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 
 
@@ -181,11 +184,19 @@ static func rank_text(r: int) -> String:
 
 ## Picture and effect badge of a mod, centered at c (art area about 76 x 70).
 static func mod_art(ci: Control, id: String, c: Vector2) -> void:
+	if Data.classic_art:
+		_mod_art_classic(ci, id, c)
+	elif id in ["v8", "rising_sun", "autobahn", "mud_tires"] and Data.classic_suits:
+		_mod_art_classic(ci, id, c)  # classic suits: the suit emblem tells the effect
+	else:
+		_mod_art_car(ci, id, c)
+
+
+## Card-table pictures for the classic card art.
+static func _mod_art_classic(ci: Control, id: String, c: Vector2) -> void:
 	match id:
 		"nitro":
-			flame(ci, c + Vector2(0, -4), 1.15)
-			ci.draw_line(c + Vector2(-6, 6), c + Vector2(6, 6), Color.WHITE, 4.0)
-			ci.draw_line(c + Vector2(0, 0), c + Vector2(0, 12), Color.WHITE, 4.0)
+			jester(ci, c + Vector2(-2, -4), 1.1)
 			badge(ci, c, "+4", RED)
 		"v8", "rising_sun", "autobahn", "mud_tires":
 			var suit: int = Data.mod_def(id).suit
@@ -247,8 +258,10 @@ static func mod_art(ci: Control, id: String, c: Vector2) -> void:
 			fan(ci, c + Vector2(0, -6), [["A", 2], ["3", 0], ["7", 3], ["9", 1]], 18, 0.3, 24)
 			badge(ci, c, "+31", BLUE)
 		"car_show":
-			poly(ci, c, [Vector2(-4, -32), Vector2(4, -32), Vector2(28, 14), Vector2(-28, 14)], Color(1, 0.95, 0.6, 0.25))
-			ci.draw_circle(c + Vector2(0, -31), 4, Color("fff3a0"))
+			ci.draw_set_transform(c + Vector2(0, 4), 0.0, Vector2(1, 0.5))
+			ci.draw_circle(Vector2.ZERO, 34, Color("5a3a1a"))
+			ci.draw_circle(Vector2.ZERO, 30, Color("1e6b3a"))
+			ci.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 			for i in 3:
 				var r := Rect2(c + Vector2(-24 + i * 17, -4), Vector2(14, 20))
 				ci.draw_style_box(Data.box(Color("20242e"), 3, [RED, BLUE, PURPLE][i], 1, 0), r)
@@ -273,12 +286,8 @@ static func mod_art(ci: Control, id: String, c: Vector2) -> void:
 				ci.draw_arc(c + Vector2(0, -2), 8.0 + i * 7, -0.8, 0.8, 12, ORANGE.lightened(i * 0.15), 3.0, true)
 			badge(ci, c, "2-5", ORANGE)
 		"launch_control":
-			ci.draw_style_box(Data.box(INK, 5, Color("55585e"), 2, 0), Rect2(c + Vector2(-10, -30), Vector2(20, 50)))
-			ci.draw_circle(c + Vector2(0, -20), 6, Color(RED, 0.3))
-			ci.draw_circle(c + Vector2(0, -5), 6, Color(GOLD, 0.3))
-			ci.draw_circle(c + Vector2(0, 10), 9, Color(GREEN, 0.35))
-			ci.draw_circle(c + Vector2(0, 10), 6, GREEN)
-			text(ci, c + Vector2(-22, -6), "1", 18, Color.WHITE, 3)
+			chip_stack(ci, c + Vector2(-4, 6), 3)
+			text(ci, c + Vector2(-22, -14), "1", 20, Color.WHITE, 3)
 			badge(ci, c, "X2", PURPLE)
 		"final_lap":
 			var wood := Color("c08a4a")
@@ -289,12 +298,11 @@ static func mod_art(ci: Control, id: String, c: Vector2) -> void:
 			poly(ci, c, [Vector2(-10, 13), Vector2(10, 13), Vector2(0, 2)], GOLD)
 			badge(ci, c, "X3", PURPLE)
 		"photo_finish":
-			ci.draw_style_box(Data.box(Color("3a3f4b"), 5, Color("8fa3b8"), 2, 0), Rect2(c + Vector2(-24, -16), Vector2(48, 30)))
-			ci.draw_rect(Rect2(c + Vector2(-18, -21), Vector2(10, 6)), Color("8fa3b8"))
-			ci.draw_circle(c + Vector2(2, -1), 12, Color("1b1f27"))
-			ci.draw_circle(c + Vector2(2, -1), 9, Color("3b6fd6"))
-			crown(ci, c + Vector2(2, 0), 0.38)
-			sparkle(ci, c + Vector2(19, -24), 6, Color("fff3a0"))
+			ci.draw_style_box(Data.box(Color("8a5a2b"), 3, Color("c9a227"), 3, 0), Rect2(c + Vector2(-18, -26), Vector2(36, 44)))
+			ci.draw_rect(Rect2(c + Vector2(-13, -21), Vector2(26, 34)), Color("e8dcc0"))
+			ci.draw_circle(c + Vector2(0, -6), 6, Color("f2c9a0"))
+			poly(ci, c, [Vector2(-10, 13), Vector2(-8, 3), Vector2(8, 3), Vector2(10, 13)], RED)
+			crown(ci, c + Vector2(0, -15), 0.35)
 			badge(ci, c, "X2", PURPLE)
 		"supercharger":
 			ci.draw_circle(c + Vector2(0, -4), 25, Color(PURPLE, 0.2))
@@ -357,6 +365,8 @@ static func mod_art(ci: Control, id: String, c: Vector2) -> void:
 
 ## Picture of a garage item (Dyno Tune / Workshop card), centered at c (about 76 x 56).
 static func item_art(ci: Control, d: Dictionary, c: Vector2) -> void:
+	if not Data.classic_art and _item_art_car(ci, d, c):
+		return
 	match d.id:
 		"tune":
 			var ex: Array = Data.HAND_EXAMPLES[d.hand]
@@ -469,3 +479,453 @@ static func boss_art(ci: Control, b: Dictionary, c: Vector2, s := 1.0) -> void:
 			ci.draw_rect(Rect2(o + Vector2(-11, 12), Vector2(22, 6)), GOLD.darkened(0.35))
 			sparkle(ci, o + Vector2(0, -12), 5, Color.WHITE)
 	ci.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+
+
+# ---------------------------------------------------------------- car pictures
+
+## Car silhouette in local coordinates (no transform change), w = half length.
+static func _car_shape(ci: Control, c: Vector2, w: float, col: Color, suit := 0) -> void:
+	var body := PackedVector2Array()
+	for p in Data.CAR_BODIES[suit]:
+		body.append(c + p * w)
+	ci.draw_colored_polygon(body, col)
+	var win := PackedVector2Array()
+	for p in Data.CAR_WINDOWS[suit]:
+		win.append(c + p * w)
+	ci.draw_colored_polygon(win, Color("bfe3ff"))
+	var wr := (0.27 if suit == 3 else 0.21) * w
+	for x in [-0.6, 0.6]:
+		ci.draw_circle(c + Vector2(x, 0.2) * w, wr, Color("17171b"))
+		ci.draw_circle(c + Vector2(x, 0.2) * w, wr * 0.5, Color("c9ccd1"))
+
+
+static func car_side(ci: Control, c: Vector2, w: float, col: Color, suit := 0, rot := 0.0) -> void:
+	ci.draw_set_transform(c, rot, Vector2.ONE)
+	_car_shape(ci, Vector2.ZERO, w, col, suit)
+	ci.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+
+
+static func tire(ci: Control, c: Vector2, r: float, knobby := false, rim := Color("c9ccd1")) -> void:
+	if knobby:
+		for i in 12:
+			var d := Vector2.from_angle(i * TAU / 12)
+			ci.draw_circle(c + d * r * 0.95, r * 0.2, Color("2a2a2e"))
+	ci.draw_circle(c, r, Color("17171b"))
+	ci.draw_arc(c, r * 0.82, 0, TAU, 32, Color("2e2e34"), r * 0.12, true)
+	ci.draw_circle(c, r * 0.5, rim)
+	ci.draw_circle(c, r * 0.18, Color("55585e"))
+
+
+static func turbo(ci: Control, c: Vector2, r: float) -> void:
+	ci.draw_rect(Rect2(c + Vector2(r * 0.4, -r * 1.05), Vector2(r * 0.9, r * 0.6)), Color("9aa3ad"))
+	ci.draw_circle(c, r, Color("aab4c3"))
+	ci.draw_arc(c, r * 0.65, 0.3, TAU - 0.3, 24, Color("5f6a7a"), 2.0, true)
+	ci.draw_arc(c, r * 0.35, 0.8, TAU + 0.4, 16, Color("5f6a7a"), 2.0, true)
+	ci.draw_circle(c, r * 0.15, Color("3a3f4b"))
+
+
+static func gauge(ci: Control, c: Vector2, r: float, needle: float, red_zone := false) -> void:
+	ci.draw_circle(c, r, Color("1b1f27"))
+	ci.draw_arc(c, r, 0, TAU, 32, Color("8fa3b8"), 2.0, true)
+	ci.draw_arc(c, r * 0.8, PI * 0.75, PI * 2.25, 24, Color(1, 1, 1, 0.6), 2.0, true)
+	if red_zone:
+		ci.draw_arc(c, r * 0.8, PI * 1.85, PI * 2.25, 10, RED, 3.0, true)
+	for i in 7:
+		var d := Vector2.from_angle(PI * 0.75 + i * PI * 0.25)
+		ci.draw_line(c + d * r * 0.62, c + d * r * 0.78, Color.WHITE, 1.5)
+	ci.draw_line(c, c + Vector2.from_angle(needle) * r * 0.75, RED, 2.5, true)
+	ci.draw_circle(c, r * 0.12, RED)
+
+
+static func checker_flag(ci: Control, c: Vector2, size := 1.0) -> void:
+	ci.draw_line(c + Vector2(-16, 26) * size, c + Vector2(-16, -26) * size, Color("8fa3b8"), 3.0 * size)
+	for gy in 4:
+		for gx in 5:
+			var p := c + Vector2(-15 + gx * 7, -26 + gy * 7 + sin(gx * 0.9) * 2) * size
+			ci.draw_rect(Rect2(p, Vector2(7, 7) * size), INK if (gx + gy) % 2 == 0 else Color.WHITE)
+
+
+static func engine_block(ci: Control, c: Vector2, label := "V8") -> void:
+	for side in [-1, 1]:
+		for i in 4:
+			ci.draw_set_transform(c + Vector2(side * (6 + i * 1.5), -14 + i * 2.5), side * 0.5, Vector2.ONE)
+			ci.draw_rect(Rect2(-4, -9, 8, 9), Color("aab4c3"))
+			ci.draw_rect(Rect2(-4, -11, 8, 3), Color("5f6a7a"))
+	ci.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	ci.draw_style_box(Data.box(Color("6b7686"), 4, Color("3a3f4b"), 2, 0), Rect2(c + Vector2(-18, -8), Vector2(36, 22)))
+	text(ci, c + Vector2(0, 3), label, 13, Color.WHITE)
+
+
+static func bottle(ci: Control, c: Vector2, rot := -0.35) -> void:
+	ci.draw_set_transform(c, rot, Vector2.ONE)
+	ci.draw_style_box(Data.box(Color("2f6fd6"), 7, Color("1d3f80"), 2, 0), Rect2(-8, -18, 16, 36))
+	ci.draw_rect(Rect2(-8, -4, 16, 8), RED)
+	ci.draw_rect(Rect2(-3, -24, 6, 6), Color("aab4c3"))
+	ci.draw_rect(Rect2(-6, -27, 12, 3), Color("5f6a7a"))
+	ci.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+
+
+static func helmet(ci: Control, c: Vector2, col: Color, letter := "A") -> void:
+	ci.draw_circle(c, 19, col)
+	ci.draw_rect(Rect2(c + Vector2(-19, 0), Vector2(30, 13)), col)
+	ci.draw_style_box(Data.box(Color("1b1f27"), 5), Rect2(c + Vector2(-2, -8), Vector2(22, 11)))
+	ci.draw_line(c + Vector2(-17, 6), c + Vector2(10, 6), Color.WHITE, 2.5)
+	text(ci, c + Vector2(-9, -6), letter, 14, Color.WHITE, 2)
+
+
+static func shifter(ci: Control, c: Vector2, lit: Array) -> void:
+	var pos := {1: Vector2(-16, -18), 2: Vector2(-16, 14), 3: Vector2(0, -18), 4: Vector2(0, 14), 5: Vector2(16, -18), 6: Vector2(16, 14)}
+	ci.draw_line(c + Vector2(-16, -2), c + Vector2(16, -2), Color("8fa3b8"), 3.0)
+	for x in [-16, 0, 16]:
+		ci.draw_line(c + Vector2(x, -18), c + Vector2(x, 14), Color("8fa3b8"), 3.0)
+	for g in pos:
+		var on: bool = lit.has(g)
+		ci.draw_circle(c + pos[g], 7, GREEN if on else Color("3a3f4b"))
+		text(ci, c + pos[g], str(g), 10, Color.WHITE)
+
+
+static func jester(ci: Control, c: Vector2, s := 1.0) -> void:
+	poly(ci, c, [Vector2(-18, 12), Vector2(-20, -14), Vector2(-6, 2), Vector2(0, -20), Vector2(6, 2), Vector2(20, -14), Vector2(18, 12)], PURPLE, s)
+	poly(ci, c, [Vector2(-18, 12), Vector2(-6, 2), Vector2(0, 12)], RED, s)
+	poly(ci, c, [Vector2(18, 12), Vector2(6, 2), Vector2(0, 12)], GREEN, s)
+	for p in [Vector2(-20, -16), Vector2(0, -22), Vector2(20, -16)]:
+		ci.draw_circle(c + p * s, 4 * s, GOLD)
+	ci.draw_rect(Rect2(c + Vector2(-20, 12) * s, Vector2(40, 6) * s), GOLD.darkened(0.2))
+
+
+static func chip_stack(ci: Control, c: Vector2, n: int) -> void:
+	for i in n:
+		var p := c + Vector2(0, -i * 7)
+		ci.draw_set_transform(p, 0.0, Vector2(1, 0.45))
+		ci.draw_circle(Vector2.ZERO, 16, RED.darkened(0.3))
+		ci.draw_circle(Vector2(0, -3), 16, RED)
+		ci.draw_arc(Vector2(0, -3), 11, 0, TAU, 16, Color.WHITE, 3.0)
+		ci.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+
+
+static func _mod_art_car(ci: Control, id: String, c: Vector2) -> void:
+	match id:
+		"nitro":
+			bottle(ci, c + Vector2(-6, -2))
+			flame(ci, c + Vector2(16, 6), 0.55, BLUE.lightened(0.2))
+			badge(ci, c, "+4", RED)
+		"v8":
+			engine_block(ci, c + Vector2(0, 0), "V8")
+			badge(ci, c, "+3", RED)
+		"rising_sun":
+			for i in 12:
+				var a := i * TAU / 12
+				poly(ci, c + Vector2(0, -4), [Vector2.ZERO, Vector2.from_angle(a - 0.13) * 30, Vector2.from_angle(a + 0.13) * 30], RED if i % 2 == 0 else Color.WHITE)
+			ci.draw_circle(c + Vector2(0, -4), 11, RED)
+			badge(ci, c, "+3", RED)
+		"autobahn":
+			poly(ci, c, [Vector2(-32, 18), Vector2(32, 18), Vector2(6, -18), Vector2(-6, -18)], Color("3a3f4b"))
+			for i in 4:
+				var y := -14.0 + i * 9
+				ci.draw_line(c + Vector2(0, y), c + Vector2(0, y + 4 + i), Color.WHITE, 1.5 + i * 0.6)
+			ci.draw_style_box(Data.box(Color("2a4d8f"), 3, Color.WHITE, 2, 0), Rect2(c + Vector2(10, -30), Vector2(22, 16)))
+			text(ci, c + Vector2(21, -22), "A", 12, Color.WHITE)
+			badge(ci, c, "+3", RED)
+		"mud_tires":
+			tire(ci, c + Vector2(-2, -4), 20, true)
+			for p in [Vector2(-22, 12), Vector2(18, -18), Vector2(20, 10), Vector2(-20, -20)]:
+				ci.draw_circle(c + p, 4, Color("7a4a1d"))
+			badge(ci, c, "+3", RED)
+		"twin_turbo":
+			turbo(ci, c + Vector2(-13, -2), 12)
+			turbo(ci, c + Vector2(13, -2), 12)
+			badge(ci, c, "+8", RED)
+		"wide_body":
+			car_side(ci, c + Vector2(0, 2), 30, Color("e2443a"), 2)
+			for x in [-18, 18]:
+				ci.draw_arc(c + Vector2(x, 9), 10, PI, TAU, 12, Color("ffd23f"), 2.5, true)
+			chip(ci, c + Vector2(22, -22), 8)
+			badge(ci, c, "+50", BLUE)
+		"convoy_leader":
+			for i in 3:
+				car_side(ci, c + Vector2(-22 + i * 22, 4 - i * 3), 12 - i, [Color("e2443a"), Color("f08a24"), Color("3b6fd6")][i], 3)
+			badge(ci, c, "+12", RED)
+		"drift_king":
+			for p in [[Vector2(-22, 8), 9.0], [Vector2(-28, -2), 7.0], [Vector2(-16, 14), 6.0]]:
+				ci.draw_circle(c + p[0], p[1], Color(0.85, 0.85, 0.9, 0.7))
+			ci.draw_arc(c + Vector2(0, 30), 30, PI * 1.15, PI * 1.6, 12, Color("2b2f38"), 3.0)
+			car_side(ci, c + Vector2(6, -4), 22, Color("f08a24"), 1, 0.35)
+			badge(ci, c, "+12", RED)
+		"brand_loyalty":
+			poly(ci, c, [Vector2(-28, -6), Vector2(0, -28), Vector2(28, -6)], Color("8a5a2b"))
+			ci.draw_rect(Rect2(c + Vector2(-24, -6), Vector2(48, 26)), Color("c9b48a"))
+			ci.draw_rect(Rect2(c + Vector2(-18, 0), Vector2(36, 20)), Color("2b2f38"))
+			car_side(ci, c + Vector2(0, 12), 14, Color("3b6fd6"), 2)
+			emblem(ci, c + Vector2(0, -15), 5, 2, Color.WHITE)
+			badge(ci, c, "+10", RED)
+		"lightweight":
+			car_side(ci, c + Vector2(-2, 8), 24, Color("3ecf6a"), 2)
+			poly(ci, c, [Vector2(-8, -12), Vector2(0, -22), Vector2(14, -28), Vector2(8, -18), Vector2(-2, -10)], Color("eef3ff"))
+			ci.draw_line(c + Vector2(-10, -10), c + Vector2(14, -28), Color("9aa8c0"), 1.5)
+			badge(ci, c, "+20", RED)
+		"odometer":
+			gauge(ci, c + Vector2(0, -8), 22, PI * 1.5)
+			ci.draw_style_box(Data.box(INK, 2, Color("8fa3b8"), 1, 0), Rect2(c + Vector2(-14, 2), Vector2(28, 10)))
+			text(ci, c + Vector2(0, 7), "0427", 9, Color.WHITE)
+			badge(ci, c, "+1", RED)
+		"chrome_bumper":
+			ci.draw_style_box(Data.box(Color("aab4c3"), 6, Color("5f6a7a"), 2, 0), Rect2(c + Vector2(-32, 0), Vector2(64, 14)))
+			ci.draw_rect(Rect2(c + Vector2(-28, 2), Vector2(56, 3)), Color(1, 1, 1, 0.8))
+			for x in [-20, 20]:
+				ci.draw_circle(c + Vector2(x, 9), 2.5, Color("3a3f4b"))
+			crown(ci, c + Vector2(0, -14), 0.9)
+			badge(ci, c, "+30", BLUE)
+		"ace_driver":
+			helmet(ci, c + Vector2(-2, -2), Color("e2443a"), "A")
+			badge(ci, c, "+4", RED)
+		"even_gears":
+			shifter(ci, c + Vector2(-2, 0), [2, 4, 6])
+			badge(ci, c, "+4", RED)
+		"odd_gears":
+			shifter(ci, c + Vector2(-2, 0), [1, 3, 5])
+			badge(ci, c, "+31", BLUE)
+		"car_show":
+			for x in [-26, 26]:
+				poly(ci, c, [Vector2(x * 0.9, -32), Vector2(x * 0.9 + 4, -32), Vector2(4, 12), Vector2(-4, 12)], Color(1, 0.95, 0.6, 0.22))
+			ci.draw_set_transform(c + Vector2(0, 14), 0.0, Vector2(1, 0.3))
+			ci.draw_circle(Vector2.ZERO, 30, Color("5f6a7a"))
+			ci.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+			car_side(ci, c + Vector2(0, 4), 24, Color("c13cff"), 2)
+			badge(ci, c, "+4", RED)
+		"scrap_collector":
+			ci.draw_line(c + Vector2(0, -32), c + Vector2(0, -18), Color("8fa3b8"), 2.0)
+			ci.draw_rect(Rect2(c + Vector2(-12, -20), Vector2(24, 6)), RED)
+			poly(ci, c, [Vector2(-16, -10), Vector2(14, -12), Vector2(18, 14), Vector2(-14, 16)], Color("b5541a"))
+			for i in 4:
+				ci.draw_line(c + Vector2(-14, -6 + i * 6), c + Vector2(16, -8 + i * 6 + (i % 2) * 3), Color("6b2f12"), 2.0)
+			badge(ci, c, "+3", RED)
+		"rev_limiter":
+			gauge(ci, c + Vector2(0, -2), 26, PI * 2.15, true)
+			badge(ci, c, "+2", ORANGE)
+		"echo_exhaust":
+			ci.draw_rect(Rect2(c + Vector2(-32, -6), Vector2(26, 10)), Color("8fa3b8"))
+			ci.draw_rect(Rect2(c + Vector2(-8, -9), Vector2(8, 16)), Color("aab4c3"))
+			for i in 3:
+				ci.draw_arc(c + Vector2(2, -1), 8.0 + i * 7, -0.8, 0.8, 12, ORANGE.lightened(i * 0.15), 3.0, true)
+			badge(ci, c, "2-5", ORANGE)
+		"launch_control":
+			ci.draw_style_box(Data.box(INK, 5, Color("55585e"), 2, 0), Rect2(c + Vector2(-10, -30), Vector2(20, 50)))
+			ci.draw_circle(c + Vector2(0, -20), 6, Color(RED, 0.3))
+			ci.draw_circle(c + Vector2(0, -5), 6, Color(GOLD, 0.3))
+			ci.draw_circle(c + Vector2(0, 10), 9, Color(GREEN, 0.35))
+			ci.draw_circle(c + Vector2(0, 10), 6, GREEN)
+			text(ci, c + Vector2(-22, -6), "1", 18, Color.WHITE, 3)
+			badge(ci, c, "X2", PURPLE)
+		"final_lap":
+			checker_flag(ci, c + Vector2(2, -2))
+			badge(ci, c, "X3", PURPLE)
+		"photo_finish":
+			for gy in 8:
+				ci.draw_rect(Rect2(c + Vector2(4, -30 + gy * 7), Vector2(5, 7)), INK if gy % 2 == 0 else Color.WHITE)
+				ci.draw_rect(Rect2(c + Vector2(9, -30 + gy * 7), Vector2(5, 7)), Color.WHITE if gy % 2 == 0 else INK)
+			car_side(ci, c + Vector2(-8, 8), 18, Color("e2443a"), 2)
+			sparkle(ci, c + Vector2(22, -20), 8, Color("fff3a0"))
+			badge(ci, c, "X2", PURPLE)
+		"supercharger":
+			ci.draw_rect(Rect2(c + Vector2(-20, -6), Vector2(40, 20)), Color("6b7686"))
+			for i in 6:
+				ci.draw_rect(Rect2(c + Vector2(-18 + i * 7, -14), Vector2(4, 8)), Color("aab4c3"))
+			ci.draw_circle(c + Vector2(-24, 4), 8, Color("3a3f4b"))
+			ci.draw_circle(c + Vector2(-24, 4), 3, Color("aab4c3"))
+			poly(ci, c + Vector2(12, -18), BOLT, Color("ffd23f"), 0.5)
+			badge(ci, c, "X1.5", PURPLE)
+		"getaway":
+			for i in 3:
+				ci.draw_line(c + Vector2(-34, -2 + i * 6), c + Vector2(-20, -2 + i * 6), Color(1, 1, 1, 0.5), 2.0)
+			car_side(ci, c + Vector2(2, 6), 22, Color("1b1f27"), 0)
+			ci.draw_circle(c + Vector2(4, -14), 7, Color("c9a227"))
+			text(ci, c + Vector2(4, -14), "$", 9, Color("5a3a1a"))
+			badge(ci, c, "+X", PURPLE)
+		"gas_station":
+			ci.draw_style_box(Data.box(RED, 4, RED.darkened(0.4), 2, 0), Rect2(c + Vector2(-16, -26), Vector2(24, 44)))
+			ci.draw_rect(Rect2(c + Vector2(-12, -21), Vector2(16, 10)), Color("bfe3ff"))
+			ci.draw_arc(c + Vector2(12, -4), 8, -PI / 2, PI / 2, 10, INK, 3.0)
+			ci.draw_rect(Rect2(c + Vector2(10, 2), Vector2(8, 4)), INK)
+			badge(ci, c, "$4", GOLD)
+		"street_cred":
+			ci.draw_set_transform(c + Vector2(-10, 0), -0.4, Vector2.ONE)
+			ci.draw_style_box(Data.box(Color("3ecf6a"), 4), Rect2(-7, -14, 14, 28))
+			ci.draw_rect(Rect2(-3, -19, 6, 5), Color("aab4c3"))
+			ci.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+			for p in [Vector2(2, -22), Vector2(6, -18), Vector2(0, -16)]:
+				ci.draw_circle(c + p, 2.5, Color(GREEN, 0.6))
+			coin(ci, c + Vector2(16, -2), 10)
+			badge(ci, c, "$1", GOLD)
+		"pit_crew":
+			tire(ci, c + Vector2(-2, -2), 18)
+			ci.draw_line(c + Vector2(-20, -20), c + Vector2(16, 16), Color("aab4c3"), 4.0, true)
+			ci.draw_line(c + Vector2(16, -20), c + Vector2(-20, 16), Color("aab4c3"), 4.0, true)
+			badge(ci, c, "+1", BLUE)
+		"tow_truck":
+			ci.draw_line(c + Vector2(0, -32), c + Vector2(0, -8), Color("8fa3b8"), 2.0)
+			ci.draw_arc(c + Vector2(4, -2), 7, PI * 0.1, PI * 1.1, 10, Color("ffd23f"), 4.0)
+			mini_card(ci, c + Vector2(10, 12), "4", 2, 18, 0.3)
+			badge(ci, c, "+1", RED)
+		"big_trunk":
+			car_side(ci, c + Vector2(4, 8), 24, Color("3b6fd6"), 0)
+			mini_card(ci, c + Vector2(-16, -12), "A", 0, 14, -0.5)
+			mini_card(ci, c + Vector2(-8, -16), "K", 2, 14, -0.2)
+			poly(ci, c, [Vector2(-26, -2), Vector2(-30, -16), Vector2(-24, -18), Vector2(-18, -2)], Color("3b6fd6").darkened(0.2))
+			badge(ci, c, "+1", GREEN)
+
+
+## Car pictures for some garage items; returns false to use the default picture.
+static func _item_art_car(ci: Control, d: Dictionary, c: Vector2) -> bool:
+	match d.id:
+		"enh":
+			mini_card(ci, c + Vector2(-10, 2), "K", 0, 26, -0.1, {"nitro": Color("e1f0ff"), "turbo": Color("ffe4de"), "carbon": Color("2a2d34"), "gold": Color("f7d774")}[d.enh])
+			match d.enh:
+				"nitro": bottle(ci, c + Vector2(18, -4), 0.3)
+				"turbo": turbo(ci, c + Vector2(18, -4), 11)
+				"carbon":
+					for gy in 4:
+						for gx in 4:
+							ci.draw_rect(Rect2(c + Vector2(8 + gx * 5, -16 + gy * 5), Vector2(5, 5)), Color("1b1d22") if (gx + gy) % 2 == 0 else Color("4a4f5a"))
+				"gold": tire(ci, c + Vector2(18, -4), 11, false, GOLD)
+		"respray":
+			ci.draw_set_transform(c + Vector2(-16, 2), -0.3, Vector2.ONE)
+			ci.draw_style_box(Data.box(Data.suit_color(d.suit), 4, Color.WHITE, 1, 0), Rect2(-8, -16, 16, 30))
+			ci.draw_rect(Rect2(-3, -21, 6, 5), Color("aab4c3"))
+			ci.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+			for i in 6:
+				ci.draw_circle(c + Vector2(-2 + i * 3, -16 + (i % 3) * 3), 2.5, Color(Data.suit_color(d.suit), 0.7))
+			car_side(ci, c + Vector2(16, 8), 15, Data.suit_color(d.suit), d.suit if not Data.classic_suits else 0)
+		"scrap":
+			ci.draw_rect(Rect2(c + Vector2(-30, -24), Vector2(60, 6)), Color("5f6a7a"))
+			ci.draw_rect(Rect2(c + Vector2(-30, 16), Vector2(60, 6)), Color("5f6a7a"))
+			poly(ci, c, [Vector2(-18, -16), Vector2(16, -14), Vector2(20, 14), Vector2(-16, 14)], Color("e2443a"))
+			for i in 3:
+				ci.draw_line(c + Vector2(-16, -8 + i * 8), c + Vector2(18, -6 + i * 8), Color("8a1c1c"), 2.0)
+		"swap":
+			engine_block(ci, c + Vector2(-8, 4), "+1")
+			arrow(ci, c + Vector2(16, 14), c + Vector2(16, -22), GREEN, 4.0)
+		_:
+			return false
+	return true
+
+
+
+static func price_tag(ci: Control, c: Vector2, label: String) -> void:
+	poly(ci, c, [Vector2(-22, -12), Vector2(14, -12), Vector2(26, 0), Vector2(14, 12), Vector2(-22, 12)], RED)
+	ci.draw_circle(c + Vector2(15, 0), 3, Color("f3e6c4"))
+	text(ci, c + Vector2(-5, 0), label, 13, Color.WHITE)
+
+
+static func piggy(ci: Control, c: Vector2) -> void:
+	var pink := Color("f08ab0")
+	ci.draw_set_transform(c, 0.0, Vector2(1, 0.8))
+	ci.draw_circle(Vector2.ZERO, 18, pink)
+	ci.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	ci.draw_circle(c + Vector2(16, -2), 7, pink.darkened(0.1))
+	ci.draw_circle(c + Vector2(18, -2), 1.5, INK)
+	poly(ci, c, [Vector2(-6, -14), Vector2(-2, -22), Vector2(2, -13)], pink.darkened(0.1))
+	for x in [-10, 8]:
+		ci.draw_rect(Rect2(c + Vector2(x, 10), Vector2(5, 7)), pink.darkened(0.15))
+	ci.draw_rect(Rect2(c + Vector2(-6, -15), Vector2(10, 2)), INK)
+	ci.draw_circle(c + Vector2(6, -5), 1.6, INK)
+
+
+static func document(ci: Control, c: Vector2) -> void:
+	ci.draw_style_box(Data.box(Color.WHITE, 2, Color("8fa3b8"), 1, 0), Rect2(c + Vector2(-14, -18), Vector2(28, 36)))
+	for i in 4:
+		ci.draw_line(c + Vector2(-9, -11 + i * 6), c + Vector2(9, -11 + i * 6), Color("aab4c3"), 1.5)
+	ci.draw_line(c + Vector2(-8, 12), c + Vector2(0, 10), Color("2f6fd6"), 1.5)
+	ci.draw_line(c + Vector2(0, 10), c + Vector2(8, 13), Color("2f6fd6"), 1.5)
+
+
+## Picture of a voucher (sponsor deal) centered at c, drawn on a light coupon.
+static func voucher_art(ci: Control, id: String, c: Vector2) -> void:
+	var classic := Data.classic_art
+	match id:
+		"clearance":
+			price_tag(ci, c, "-25%")
+		"reroll_surplus":
+			if classic:
+				ci.draw_arc(c, 18, 0.3, PI * 1.6, 20, Color("2f8f83"), 4.0, true)
+				ci.draw_arc(c, 18, PI + 0.3, PI * 2.6, 20, Color("2f8f83"), 4.0, true)
+				text(ci, c, "$", 18, Color("8a5a00"))
+			else:
+				car_side(ci, c + Vector2(0, 8), 22, Color("3b6fd6"), 2)
+				for p in [Vector2(-16, -14), Vector2(-4, -20), Vector2(10, -16), Vector2(20, -8)]:
+					ci.draw_arc(c + p, 5, 0, TAU, 12, Color("4aa3ff"), 2.0, true)
+		"crystal_ball":
+			if classic:
+				ci.draw_circle(c + Vector2(0, -4), 18, Color("8ec5ff"))
+				ci.draw_circle(c + Vector2(-6, -10), 5, Color(1, 1, 1, 0.7))
+				ci.draw_rect(Rect2(c + Vector2(-12, 12), Vector2(24, 6)), Color("8a5a2b"))
+			else:
+				ci.draw_style_box(Data.box(Color("3a3f4b"), 4, INK, 2, 0), Rect2(c + Vector2(-24, -6), Vector2(48, 22)))
+				poly(ci, c, [Vector2(-24, -6), Vector2(24, -6), Vector2(20, -18), Vector2(-20, -18)], Color("5f6a7a"))
+				mini_card(ci, c + Vector2(0, -8), "+1", 1, 16)
+		"antimatter":
+			if classic:
+				ci.draw_circle(c, 18, INK)
+				ci.draw_arc(c, 20, 0, TAU, 32, PURPLE, 3.0, true)
+				text(ci, c, "+1", 14, Color.WHITE)
+			else:
+				car_side(ci, c + Vector2(0, 10), 24, Color("e2443a"), 0)
+				ci.draw_rect(Rect2(c + Vector2(-14, -12), Vector2(28, 3)), INK)
+				ci.draw_style_box(Data.box(Color("8a5a2b"), 2), Rect2(c + Vector2(-10, -22), Vector2(20, 10)))
+				text(ci, c + Vector2(0, -17), "+1", 9, Color.WHITE)
+		"grabber":
+			if classic:
+				var glove := Color("e8eef8")
+				ci.draw_style_box(Data.box(glove, 6, Color("8fa3b8"), 1, 0), Rect2(c + Vector2(-12, -4), Vector2(24, 20)))
+				for i in 4:
+					ci.draw_style_box(Data.box(glove, 3, Color("8fa3b8"), 1, 0), Rect2(c + Vector2(-12 + i * 6.5, -22), Vector2(5.5, 20)))
+			else:
+				ci.draw_style_box(Data.box(RED, 4, RED.darkened(0.4), 2, 0), Rect2(c + Vector2(-14, -16), Vector2(28, 34)))
+				ci.draw_rect(Rect2(c + Vector2(-4, -22), Vector2(8, 6)), Color("5f6a7a"))
+				ci.draw_line(c + Vector2(-8, -10), c + Vector2(8, 10), RED.darkened(0.3), 3.0)
+				ci.draw_line(c + Vector2(8, -10), c + Vector2(-8, 10), RED.darkened(0.3), 3.0)
+			text(ci, c + Vector2(22, 14), "+1", 13, BLUE, 2)
+		"wasteful":
+			if classic:
+				poly(ci, c, [Vector2(-14, -8), Vector2(14, -8), Vector2(11, 18), Vector2(-11, 18)], Color("8a96a8"))
+				ci.draw_rect(Rect2(c + Vector2(-17, -13), Vector2(34, 5)), Color("5f6a7a"))
+				mini_card(ci, c + Vector2(4, -20), "3", 0, 14, 0.5)
+			else:
+				tire(ci, c + Vector2(-8, 4), 13)
+				tire(ci, c + Vector2(10, -6), 13)
+			text(ci, c + Vector2(22, 14), "+1", 13, RED, 2)
+		"paint_brush":
+			if classic:
+				ci.draw_line(c + Vector2(-18, 18), c + Vector2(6, -6), Color("8a5a2b"), 5.0, true)
+				poly(ci, c, [Vector2(4, -4), Vector2(14, -18), Vector2(20, -12), Vector2(8, 0)], Color("aab4c3"))
+				poly(ci, c, [Vector2(14, -18), Vector2(22, -26), Vector2(26, -20), Vector2(20, -12)], RED)
+			else:
+				car_side(ci, c + Vector2(-14, 8), 12, Color("3b6fd6"), 0)
+				ci.draw_rect(Rect2(c + Vector2(-2, -8), Vector2(28, 18)), Color("aab4c3"))
+				ci.draw_line(c + Vector2(-4, 6), c + Vector2(-2, 6), INK, 2.0)
+				ci.draw_circle(c + Vector2(12, 12), 4, Color("17171b"))
+			text(ci, c + Vector2(-16, -16), "+1", 13, GREEN.darkened(0.2), 2)
+		"seed_money":
+			piggy(ci, c + Vector2(-2, 0))
+			coin(ci, c + Vector2(14, -16), 8, "10")
+		"hone":
+			if classic:
+				ci.draw_style_box(Data.box(Color("8a96a8"), 3, Color("5f6a7a"), 1, 0), Rect2(c + Vector2(-24, 4), Vector2(48, 10)))
+				mini_card(ci, c + Vector2(0, -8), "J", 3, 18, -0.2)
+			else:
+				car_side(ci, c + Vector2(0, 6), 24, Color("c13cff"), 2)
+			for p in [Vector2(-18, -16), Vector2(16, -18), Vector2(22, 4)]:
+				sparkle(ci, c + p, 6, Color("c13cff"))
+		"tune_merchant":
+			document(ci, c + Vector2(-8, 0))
+			if classic:
+				arrow(ci, c + Vector2(16, 14), c + Vector2(16, -16), GREEN, 4.0)
+			else:
+				gauge(ci, c + Vector2(14, 6), 12, PI * 1.9)
+		"workshop_merchant":
+			document(ci, c + Vector2(-8, 0))
+			if classic:
+				sparkle(ci, c + Vector2(16, 0), 12, ORANGE)
+			else:
+				ci.draw_line(c + Vector2(6, 14), c + Vector2(20, -2), ORANGE, 5.0, true)
+				ci.draw_circle(c + Vector2(21, -4), 6, ORANGE)
+				ci.draw_circle(c + Vector2(24, -7), 3, Color("f3e6c4"))
