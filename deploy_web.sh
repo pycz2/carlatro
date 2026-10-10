@@ -1,6 +1,6 @@
 #!/bin/sh
 # Make a release: bump the version, commit and tag it, push, then publish the
-# web build to the gh-pages branch (served by GitHub Pages).
+# website (site/ landing page + the web build in /play/) to the gh-pages branch.
 # Usage: ./deploy_web.sh [patch|minor|major]   (default: patch)
 set -e
 cd "$(dirname "$0")"
@@ -35,9 +35,15 @@ echo "Released v$OLD -> v$NEW"
 
 mkdir -p build/web
 "$GODOT" --headless --path . --export-release "Web" build/web/index.html
+# site layout: landing page at the root, the game in /play/
 TMP="$(mktemp -d)"
-cp -R build/web/. "$TMP"
-rm -f "$TMP"/*.import
+cp -R site/. "$TMP"
+rm -f "$TMP/.gdignore"
+sed -i '' "s/{{VERSION}}/$NEW/g" "$TMP/index.html"
+mkdir -p "$TMP/screenshots" "$TMP/play"
+cp docs/screenshots/*.png "$TMP/screenshots/"
+cp -R build/web/. "$TMP/play"
+rm -f "$TMP"/play/*.import
 touch "$TMP/.nojekyll"
 REMOTE="$(git remote get-url origin)"
 cd "$TMP"

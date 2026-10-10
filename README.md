@@ -2,7 +2,15 @@
 
 A Balatro-like roguelike deckbuilder made in Godot 4.7, where every card is a car.
 
-**Play in the browser: https://pycz2.github.io/carlatro/**
+**Website and play in the browser: https://pycz2.github.io/carlatro/** (the game alone: [/play/](https://pycz2.github.io/carlatro/play/))
+
+![Race in the car theme](docs/screenshots/race_cars.png)
+
+| | |
+|---|---|
+| ![Classic theme](docs/screenshots/race_classic.png) | ![Pit stop](docs/screenshots/pit_stop.png) |
+| ![Collection of mods](docs/screenshots/collection_mods.png) | ![Vouchers](docs/screenshots/collection_vouchers.png) |
+| ![Title screen](docs/screenshots/title.png) | ![Settings](docs/screenshots/settings.png) |
 
 - 52 cars: 4 brands (Muscle, JDM, Euro, Offroad) × 13 ranks.
 - Poker hands with car names: Tandem (Pair), Convoy (Three of a Kind), Gear Shift (Straight), Same Garage (Flush), Factory Line (Straight Flush)...
@@ -46,6 +54,7 @@ python3 -m http.server 8000 -d build/web   # then open http://localhost:8000
 The web build is single-threaded, so any static hosting works (itch.io, GitHub Pages).
 
 Release and publish to GitHub Pages: `./deploy_web.sh [patch|minor|major]`.
+The website is the landing page in `site/` (at the root) with the web build in `/play/`.
 The script needs a clean working tree and an entry for the new version in `scripts/changelog.gd`. It bumps `config/version` in `project.godot` (shown in the top-right
 corner of the game), commits and tags `vX.Y.Z`, pushes, and publishes the web build to the `gh-pages` branch.
 
@@ -69,6 +78,8 @@ Click a Mod or a Garage card to sell or use it. Click the deck to see your whole
 | `scripts/changelog.gd` | Release notes shown in the game |
 | `scripts/bg.gdshader` | Swirling background |
 | `i18n/` | Translations (`strings.csv` is imported by Godot) |
+| `site/` | Landing page of the website (cards rendered by `tools/site_cards.gd`) |
+| `docs/screenshots/` | Screenshots for this README and the website (`tools/readme_shots.gd`) |
 
 Save files: `~/Library/Application Support/Godot/app_userdata/Carlatro/` (`run.save`, `settings.cfg`).
 
