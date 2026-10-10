@@ -36,6 +36,7 @@ var rng := RandomNumberGenerator.new()
 var sfx: Node
 var music: AudioStreamPlayer
 var music_on := true
+var sfx_on := true
 var music_vol := 0.8
 var sfx_vol := 1.0
 var shake_on := true
@@ -128,6 +129,7 @@ var tooltip: PanelContainer
 var tip_title: Label
 var tip_text: RichTextLabel
 var music_btn: Button
+var sound_btn: Button
 var sort_suit_btn: Button
 var continue_btn: Button
 var pack_panel: Panel
@@ -470,13 +472,20 @@ func _build_sidebar() -> void:
 	var br2 := _hbox(8)
 	var menu_btn := _button("Menu", Color("555b66"), 14, Vector2(118, 36))
 	menu_btn.pressed.connect(_show_menu)
+	menu_btn.clip_text = true
+	menu_btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	br2.add_child(menu_btn)
+	v.add_child(br2)
+	var br3 := _hbox(8)
 	music_btn = _button("", Color("2f8f83"), 14, Vector2(118, 36))
 	music_btn.pressed.connect(_toggle_music)
-	for b in [menu_btn, music_btn]:
+	sound_btn = _button("", Color("2f8f83"), 14, Vector2(118, 36))
+	sound_btn.pressed.connect(_toggle_sfx)
+	for b in [music_btn, sound_btn]:
 		b.clip_text = true
 		b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		br2.add_child(b)
-	v.add_child(br2)
+		br3.add_child(b)
+	v.add_child(br3)
 
 
 func _build_title() -> void:
@@ -1022,6 +1031,13 @@ func _lang_idx() -> int:
 
 func _refresh_texts() -> void:
 	music_btn.text = tr("Music: On") if music_on else tr("Music: Off")
+	sound_btn.text = tr("Sound: On") if sfx_on else tr("Sound: Off")
+	for spec in [[music_btn, music_on], [sound_btn, sfx_on]]:
+		var col := Color("2f8f83") if spec[1] else Color("3a3f4b")
+		for k in ["normal", "hover", "pressed"]:
+			var sb: StyleBoxFlat = spec[0].get_theme_stylebox(k).duplicate()
+			sb.bg_color = col.lightened(0.12) if k == "hover" else (col.darkened(0.15) if k == "pressed" else col)
+			spec[0].add_theme_stylebox_override(k, sb)
 	sort_suit_btn.text = tr("Suit") if Data.classic_suits else tr("Class")
 	_update_speed_text()
 	_update_sidebar()
@@ -1953,6 +1969,15 @@ func _continue_run(sound := true) -> void:
 		sfx.play("engine")
 
 
+func _toggle_sfx() -> void:
+	sfx_on = not sfx_on
+	_apply_settings()
+	if sfx_on:
+		sfx.play("click")
+	_refresh_texts()
+	_save_settings()
+
+
 func _toggle_music() -> void:
 	music_on = not music_on
 	_apply_settings()
@@ -1966,6 +1991,7 @@ func _load_settings() -> void:
 		_apply_url_lang()
 		return
 	music_on = cfg.get_value("settings", "music", true)
+	sfx_on = cfg.get_value("settings", "sfx", true)
 	music_vol = cfg.get_value("settings", "music_volume", 0.8)
 	sfx_vol = cfg.get_value("settings", "sfx_volume", 1.0)
 	speed_idx = clampi(cfg.get_value("settings", "speed", 0), 0, SPEEDS.size() - 1)
@@ -1996,6 +2022,7 @@ func _apply_url_lang() -> void:
 func _save_settings() -> void:
 	var cfg := ConfigFile.new()
 	cfg.set_value("settings", "music", music_on)
+	cfg.set_value("settings", "sfx", sfx_on)
 	cfg.set_value("settings", "music_volume", music_vol)
 	cfg.set_value("settings", "sfx_volume", sfx_vol)
 	cfg.set_value("settings", "speed", speed_idx)
@@ -2012,7 +2039,7 @@ func _save_settings() -> void:
 func _apply_settings() -> void:
 	music.set_muted(not music_on)
 	music.set_volume(music_vol)
-	sfx.volume = sfx_vol
+	sfx.volume = sfx_vol if sfx_on else 0.0
 
 
 func _apply_fullscreen() -> void:
@@ -2101,10 +2128,17 @@ func _show_settings() -> void:
 		music_vol = x
 		music.set_volume(x)))
 	_settings_row(g, "Music", mus)
-	_settings_row(g, "Sound effects", _slider(sfx_vol, func(x):
+	var snd := _hbox(10)
+	var st := _button(tr("Sound: On") if sfx_on else tr("Sound: Off"), Color("2f8f83") if sfx_on else Color("3a3f4b"), 15, Vector2(130, 36))
+	st.pressed.connect(func():
+		_toggle_sfx()
+		_show_settings())
+	snd.add_child(st)
+	snd.add_child(_slider(sfx_vol, func(x):
 		sfx_vol = x
-		sfx.volume = x
+		sfx.volume = x if sfx_on else 0.0
 		sfx.play("chips")))
+	_settings_row(g, "Sound effects", snd)
 	_settings_row(g, "Game speed", _choice(SPEEDS.map(func(x): return "%sx" % Scoring.num_str(x)), speed_idx, func(i):
 		speed_idx = i
 		_update_speed_text()

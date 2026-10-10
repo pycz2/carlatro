@@ -13,31 +13,45 @@ const ARP_STEPS := [0, 1, 2, 1]  # chord tone index per 16th note
 
 var _buf := PackedFloat32Array()
 var _bus_idx := -1
+var _muted := false
+var _volume := 0.8
 
 
 func _ready() -> void:
-	_bus_idx = AudioServer.bus_count
-	AudioServer.add_bus(_bus_idx)
-	AudioServer.set_bus_name(_bus_idx, "Music")
-	var lp := AudioEffectLowPassFilter.new()
-	lp.cutoff_hz = 650.0
-	AudioServer.add_bus_effect(_bus_idx, lp)
-	AudioServer.set_bus_effect_enabled(_bus_idx, 0, false)
-	bus = "Music"
-	volume_db = -10.0
+	# The web build plays audio as Web Audio samples, where runtime buses and bus
+	# effects are unreliable; there the music stays on Master without the muffle effect.
+	if not OS.has_feature("web"):
+		_bus_idx = AudioServer.bus_count
+		AudioServer.add_bus(_bus_idx)
+		AudioServer.set_bus_name(_bus_idx, "Music")
+		var lp := AudioEffectLowPassFilter.new()
+		lp.cutoff_hz = 650.0
+		AudioServer.add_bus_effect(_bus_idx, lp)
+		AudioServer.set_bus_effect_enabled(_bus_idx, 0, false)
+		bus = "Music"
+	_apply()
 	_render()
 
 
 func set_muffled(on: bool) -> void:
-	AudioServer.set_bus_effect_enabled(_bus_idx, 0, on)
+	if _bus_idx >= 0:
+		AudioServer.set_bus_effect_enabled(_bus_idx, 0, on)
 
 
 func set_volume(v: float) -> void:
-	AudioServer.set_bus_volume_db(_bus_idx, linear_to_db(maxf(v, 0.0001)))
+	_volume = v
+	_apply()
 
 
+## Music on/off only pauses this player, so sound effects are never affected.
 func set_muted(on: bool) -> void:
-	AudioServer.set_bus_mute(_bus_idx, on)
+	_muted = on
+	_apply()
+
+
+func _apply() -> void:
+	volume_db = -80.0 if _muted else -10.0 + linear_to_db(maxf(_volume, 0.0001))
+	stream_paused = _muted
 
 
 static func _freq(midi: float) -> float:
@@ -90,6 +104,7 @@ func _render() -> void:
 	s.loop_end = n
 	stream = s
 	play()
+	stream_paused = _muted
 
 
 # Each voice adds into _buf; indices wrap so note tails continue at the loop start.

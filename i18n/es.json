@@ -555,5 +555,8 @@
  "New website with screenshots; you can play right on the page": "Nueva web con capturas: puedes jugar directamente en la página",
  "The website speaks all 6 languages and picks your system language": "La web habla los 6 idiomas y elige el de tu sistema",
  "The website has the same changelog as the game": "La web tiene las mismas novedades que el juego",
- "The game starts in the language chosen on the website": "El juego se inicia en el idioma elegido en la web"
+ "The game starts in the language chosen on the website": "El juego se inicia en el idioma elegido en la web",
+ "Sound: On": "Sonido: Sí",
+ "Sound: Off": "Sonido: No",
+ "Music and sound effects have separate on/off switches that work independently": "La música y los efectos tienen interruptores separados e independientes"
 }
