@@ -41,7 +41,9 @@ python3 -m http.server 8000 -d build/web   # then open http://localhost:8000
 
 The web build is single-threaded, so any static hosting works (itch.io, GitHub Pages).
 
-Publish the web build to GitHub Pages (branch `gh-pages`): `./deploy_web.sh`
+Release and publish to GitHub Pages: `./deploy_web.sh [patch|minor|major]`.
+The script needs a clean working tree. It bumps `config/version` in `project.godot` (shown in the top-right
+corner of the game), commits and tags `vX.Y.Z`, pushes, and publishes the web build to the `gh-pages` branch.
 
 ## Controls
 

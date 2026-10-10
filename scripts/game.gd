@@ -327,6 +327,13 @@ func _build_ui() -> void:
 	# so every layer above the table gets its own z band. Children are relative to it.
 	for z in [[overlay, 200], [fx_layer, 400], [action_box, 450], [title_layer, 500], [modal_layer, 600], [tooltip, 900]]:
 		z[0].z_index = z[1]
+	var ver := _label("v" + str(ProjectSettings.get_setting("application/config/version", "dev")), 12, Color(1, 1, 1, 0.55), 3)
+	ver.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	ver.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	ver.position = Vector2(1080, 0)
+	ver.size = Vector2(194, 16)
+	ver.z_index = 950
+	add_child(ver)
 
 
 func _build_sidebar() -> void:
