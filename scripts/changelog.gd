@@ -3,6 +3,10 @@ extends RefCounted
 ## Add an entry for every release: deploy_web.sh refuses to release a version without one.
 
 const ENTRIES := [
+	{"version": "1.4.0", "date": "2026-10-11", "items": [
+		"Drag mods (jokers) to change their order: they work from left to right",
+		"Cards are played and scored in the order you pick them",
+	]},
 	{"version": "1.3.4", "date": "2026-10-11", "items": [
 		"Card tooltips no longer jump from above the card to below it",
 		"Optional FPS counter in the top-left corner (Settings)",

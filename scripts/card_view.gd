@@ -8,6 +8,9 @@ const EDITION_SHADER = preload("res://scripts/edition.gdshader")
 
 signal clicked(card)
 signal hover_changed(card, on)
+signal drag_started(card)
+signal drag_moved(card, mouse_pos)
+signal drag_ended(card)
 
 enum { CAR, MOD, CONS, BACK, PACK, VOUCHER }
 const SIZE := Vector2(96, 134)
@@ -22,6 +25,11 @@ var base_z := 0
 var base_scale := 1.0
 var interactive := true
 var hovered := false
+var draggable := false  # mods can be dragged to change their order
+var dragging := false
+var sel_order := 0  # when the card was selected: cards are played in this order
+var _pressing := false
+var _press_pos := Vector2.ZERO
 var debuffed := false:
 	set(v):
 		debuffed = v
@@ -71,8 +79,30 @@ func _on_hover(on: bool) -> void:
 
 
 func _gui_input(e: InputEvent) -> void:
-	if e is InputEventMouseButton and e.pressed and e.button_index == MOUSE_BUTTON_LEFT:
-		clicked.emit(self)
+	if e is InputEventMouseButton and e.button_index == MOUSE_BUTTON_LEFT:
+		if not draggable:
+			if e.pressed:
+				clicked.emit(self)
+				accept_event()
+			return
+		# draggable: a click is a press and release without moving
+		if e.pressed:
+			_pressing = true
+			_press_pos = e.global_position
+		elif _pressing:
+			_pressing = false
+			if dragging:
+				dragging = false
+				drag_ended.emit(self)
+			else:
+				clicked.emit(self)
+		accept_event()
+	elif e is InputEventMouseMotion and _pressing:
+		if not dragging and e.global_position.distance_to(_press_pos) > 8.0:
+			dragging = true
+			drag_started.emit(self)
+		if dragging:
+			drag_moved.emit(self, e.global_position)
 		accept_event()
 
 
@@ -102,11 +132,11 @@ func punch(amount := 0.25) -> void:
 
 func _process(delta: float) -> void:
 	_t += delta
-	var k := 1.0 - exp(-delta * 12.0)
+	var k := 1.0 - exp(-delta * (30.0 if dragging else 12.0))
 	var off := Vector2(0, -lift)
 	if selected:
 		off.y -= 34
-	if hovered and interactive:
+	if hovered and interactive and not dragging:
 		off.y -= 4
 	position = position.lerp(target_pos + off, k)
 	rotation = lerp_angle(rotation, target_rot + _wob + sin(_t * 1.6) * 0.015, k)

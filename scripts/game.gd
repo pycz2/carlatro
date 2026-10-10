@@ -92,6 +92,9 @@ var pack_views: Array = []
 var deck_view: Control
 var action_card: Control = null
 var tip_card: Control = null
+var drag_card: Control = null
+var drag_offset := Vector2.ZERO
+var sel_counter := 0
 var tip_above := true  # chosen once per hover, so the tooltip never flips sides
 var tip_frames := 0
 
@@ -591,6 +594,9 @@ func _make_card(kind: int, data: Dictionary, parent: Node = null) -> Control:
 	cv.data = data
 	cv.clicked.connect(_on_card_clicked)
 	cv.hover_changed.connect(_on_card_hover)
+	cv.drag_started.connect(_on_drag_start)
+	cv.drag_moved.connect(_on_drag_move)
+	cv.drag_ended.connect(_on_drag_end)
 	(parent if parent else cards_layer).add_child(cv)
 	return cv
 
@@ -806,6 +812,9 @@ func _layout_slots() -> void:
 	# squeeze extra (negative) mods into the tray
 	var step := minf(104.0, (MAX_MODS * 104.0 - CardView.SIZE.x) / maxf(mod_views.size() - 1, 1))
 	for i in mod_views.size():
+		mod_views[i].draggable = true
+		if mod_views[i].dragging:
+			continue
 		mod_views[i].target_pos = MOD_POS + Vector2(i * step, 0)
 		mod_views[i].target_rot = 0.0
 		mod_views[i].base_z = i
@@ -912,6 +921,8 @@ func _on_card_clicked(cv: Control) -> void:
 			cv.selected = false
 		elif _selected().size() < 5:
 			cv.selected = true
+			sel_counter += 1
+			cv.sel_order = sel_counter
 		else:
 			cv.punch(0.08)
 			sfx.play("error", 1.0, -6.0)
@@ -938,6 +949,8 @@ func _on_card_clicked(cv: Control) -> void:
 
 
 func _on_card_hover(cv: Control, on: bool) -> void:
+	if drag_card != null:
+		return
 	if on:
 		sfx.play("tick", randf_range(0.9, 1.1), -10.0)
 	if not on:
@@ -1016,6 +1029,52 @@ func _tip_for(cv: Control) -> Array:
 				return []
 			return [Data.tv("Your Garage", "Your Deck"), Data.tv("Cars in garage: %d", "Cards in deck: %d") % deck.size() + "\n" + tr("Left to draw: %d") % draw_pile.size() + "\n[g]" + tr("Click to view") + "[/]"]
 	return []
+
+
+# ---------------------------------------------------------------- dragging mods
+
+func _on_drag_start(cv: Control) -> void:
+	if busy or not mod_views.has(cv):  # never reorder in the middle of scoring
+		cv.dragging = false
+		return
+	drag_card = cv
+	drag_offset = cv._press_pos - cv.global_position
+	cv.z_index = 200
+	_hide_action()
+	tip_card = null
+	tooltip.hide()
+	sfx.play("card", 1.2)
+
+
+func _on_drag_move(cv: Control, mouse: Vector2) -> void:
+	if cv != drag_card:
+		return
+	var p := mouse - drag_offset
+	cv.target_pos = Vector2(clampf(p.x, MOD_POS.x - 20, MOD_POS.x + MAX_MODS * 104 - 76), clampf(p.y, MOD_POS.y - 20, MOD_POS.y + 40))
+	# the mod goes before every mod whose center is to the right of its own center
+	var cx: float = cv.target_pos.x + CardView.SIZE.x / 2
+	var others := mod_views.filter(func(v): return v != cv)
+	var idx := others.filter(func(v): return v.target_pos.x + CardView.SIZE.x / 2 < cx).size()
+	var old := mod_views.find(cv)
+	if idx != old:
+		var m = mods[old]
+		mod_views.remove_at(old)
+		mods.remove_at(old)
+		mod_views.insert(idx, cv)
+		mods.insert(idx, m)
+		sfx.play("tick", 1.3, -6.0)
+		_layout_slots()
+
+
+func _on_drag_end(cv: Control) -> void:
+	if cv != drag_card:
+		return
+	drag_card = null
+	cv.z_index = cv.base_z
+	_layout_slots()
+	cv.punch(0.12)
+	sfx.play("card", 0.9)
+	_update_sidebar()  # saves the new order with the run
 
 
 func _show_action(cv: Control, actions: Array) -> void:
@@ -1279,7 +1338,7 @@ func play_hand() -> void:
 		return
 	busy = true
 	_hide_action()
-	sel.sort_custom(func(a, b): return hand.find(a) < hand.find(b))
+	sel.sort_custom(func(a, b): return a.sel_order < b.sel_order)  # play in the order the cards were picked
 	for c in sel:
 		hand.erase(c)
 		c.selected = false
@@ -2837,6 +2896,8 @@ func _help_text() -> String:
 	t += "\n- " + tr("Each Ante has a Street Race, a Circuit Race and a [color=#ff4b3e]Boss Race[/color] with a nasty rule.")
 	t += "\n- " + Data.tv("Spend cash at the [color=#e8572f]Pit Stop[/color]: Mods change how you score, Dyno Tunes level up hands, Workshop cards upgrade your cars.",
 		"Spend cash at the [color=#e8572f]Pit Stop[/color]: Jokers change how you score, Upgrades level up hands, Trick cards change your cards.")
+	t += "\n- " + Data.tv("Drag Mods to change their order: they work from left to right. Cars score in the order you pick them.",
+		"Drag Jokers to change their order: they work from left to right. Cards score in the order you pick them.")
 	t += "\n- " + tr("Booster packs: open one and take 1 of the choices.")
 	t += "\n- " + Data.tv("Sponsors give a permanent bonus for the whole run. The Pit Stop offers one each ante.",
 		"Vouchers give a permanent bonus for the whole run. The Pit Stop offers one each ante.")

@@ -561,5 +561,9 @@
  "Music and sound effects have separate on/off switches that work independently": "Musik und Soundeffekte haben eigene, unabhängige Schalter",
  "Show FPS": "FPS anzeigen",
  "Card tooltips no longer jump from above the card to below it": "Karten-Tooltips springen nicht mehr von oben nach unten",
- "Optional FPS counter in the top-left corner (Settings)": "Optionaler FPS-Zähler oben links (Einstellungen)"
+ "Optional FPS counter in the top-left corner (Settings)": "Optionaler FPS-Zähler oben links (Einstellungen)",
+ "Drag Mods to change their order: they work from left to right. Cars score in the order you pick them.": "Ziehe Mods, um ihre Reihenfolge zu ändern: Sie wirken von links nach rechts. Autos werten in der Reihenfolge, in der du sie wählst.",
+ "Drag Jokers to change their order: they work from left to right. Cards score in the order you pick them.": "Ziehe Joker, um ihre Reihenfolge zu ändern: Sie wirken von links nach rechts. Karten werten in der Reihenfolge, in der du sie wählst.",
+ "Drag mods (jokers) to change their order: they work from left to right": "Mods (Joker) per Ziehen umsortieren: Sie wirken von links nach rechts",
+ "Cards are played and scored in the order you pick them": "Karten werden in der Reihenfolge gespielt und gewertet, in der du sie wählst"
 }
