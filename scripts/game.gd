@@ -1963,6 +1963,7 @@ func _toggle_music() -> void:
 func _load_settings() -> void:
 	var cfg := ConfigFile.new()
 	if cfg.load(SETTINGS_PATH) != OK:
+		_apply_url_lang()
 		return
 	music_on = cfg.get_value("settings", "music", true)
 	music_vol = cfg.get_value("settings", "music_volume", 0.8)
@@ -1979,6 +1980,17 @@ func _load_settings() -> void:
 	var loc: String = cfg.get_value("settings", "locale", "")
 	if loc != "":
 		TranslationServer.set_locale(loc)
+	else:
+		_apply_url_lang()
+
+
+## Web build: the website passes its language as ?lang=xx; used until the player picks one in the game.
+func _apply_url_lang() -> void:
+	if not OS.has_feature("web"):
+		return
+	var lang = JavaScriptBridge.eval("new URLSearchParams(window.location.search).get('lang') || ''", true)
+	if typeof(lang) == TYPE_STRING and LANGS.any(func(l): return l[0] == lang):
+		TranslationServer.set_locale(lang)
 
 
 func _save_settings() -> void:

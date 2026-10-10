@@ -78,6 +78,10 @@ img { display: block; max-width: 100%; }
 
 .wrap { width: min(1160px, 100% - 32px); margin: 0 auto; }
 
+/* cards flying around while you scroll (parallax layer under the content) */
+.sky { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+.sky img { position: absolute; left: 0; top: 0; will-change: transform; }
+
 /* nav */
 nav {
 	position: sticky;
@@ -282,6 +286,44 @@ h2 .hl { color: var(--gold); }
 .lightbox.open { display: grid; }
 .lightbox img { max-height: 90vh; border-radius: 12px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7); }
 
+/* language select */
+nav select {
+	font: inherit;
+	font-size: 14px;
+	color: var(--text);
+	background: #3a3f4b;
+	border: 0;
+	border-bottom: 3px solid rgba(0, 0, 0, 0.35);
+	border-radius: 8px;
+	padding: 6px 8px;
+	cursor: pointer;
+}
+
+/* changelog, styled like the one in the game */
+.modal { position: fixed; inset: 0; z-index: 60; display: none; place-items: center; background: rgba(0, 0, 0, 0.7); padding: 16px; }
+.modal.open { display: grid; }
+.modal-box {
+	width: min(700px, 100%);
+	max-height: 86vh;
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	background: var(--panel);
+	border: 3px solid var(--gold);
+	border-radius: 16px;
+	padding: 22px;
+	box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+}
+.modal-box h2 { text-align: center; color: var(--gold); margin: 0; }
+.cl-list { overflow-y: auto; padding-right: 6px; }
+.cl-list h4 { margin: 14px 0 4px; font-weight: 400; color: var(--gold); font-size: 17px; }
+.cl-list h4 span { color: #8fa3b8; margin-left: 12px; }
+.cl-list ul { margin: 0; padding-left: 20px; }
+.cl-list li { margin: 2px 0; }
+.cl-back { align-self: stretch; justify-content: center; }
+footer a.ver { text-decoration: none; }
+footer a.ver:hover { text-decoration: underline; }
+
 footer { border-top: 1px solid var(--line); padding: 30px 0 40px; color: var(--muted); font-size: 14px; }
 footer .wrap { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
 footer .ver { color: var(--gold); }
@@ -298,15 +340,25 @@ footer .ver { color: var(--gold); }
 </head>
 <body>
 <div class="bg"><span></span><span></span><span></span></div>
+<div class="sky" aria-hidden="true"></div>
 
 <nav>
 	<div class="wrap">
 		<a class="logo" href="#top">CARLATRO</a>
 		<div class="links">
-			<a href="#play">Play</a>
-			<a class="opt" href="#features">Features</a>
-			<a class="opt" href="#screens">Screenshots</a>
-			<a href="https://github.com/pycz2/carlatro">GitHub</a>
+			<a data-i18n="nav_play" href="#play">Play</a>
+			<a data-i18n="nav_features" class="opt" href="#features">Features</a>
+			<a data-i18n="nav_screens" class="opt" href="#screens">Screenshots</a>
+			<a href="#changelog" id="open-changelog" data-i18n="nav_changelog">Changelog</a>
+			<a class="opt" href="https://github.com/pycz2/carlatro">GitHub</a>
+			<select id="lang" aria-label="Language" data-i18n-label="language">
+				<option value="en">English</option>
+				<option value="ru">Русский</option>
+				<option value="es">Español</option>
+				<option value="de">Deutsch</option>
+				<option value="fr">Français</option>
+				<option value="pt_BR">Português</option>
+			</select>
 		</div>
 	</div>
 </nav>
@@ -321,11 +373,11 @@ footer .ver { color: var(--gold); }
 		<img src="cards/joker.png" alt="" style="right:15%; top:76%; --r:-8deg; animation-delay:-6s">
 	</div>
 	<h1 class="title">CARLATRO</h1>
-	<p class="tagline">Cars instead of cards.</p>
-	<p class="sub">A Balatro-like roguelike deckbuilder. Build poker hands from a garage of 52 cars, stack mods, beat the boss races and win the Grand Prix.</p>
+	<p data-i18n="tagline" class="tagline">Cars instead of cards.</p>
+	<p data-i18n="sub" class="sub">A Balatro-like roguelike deckbuilder. Build poker hands from a garage of 52 cars, stack mods, beat the boss races and win the Grand Prix.</p>
 	<div class="cta">
-		<a class="btn blue" href="#play">&#9654; Play free in your browser</a>
-		<a class="btn dark" href="https://github.com/pycz2/carlatro">Source on GitHub</a>
+		<a data-i18n="cta_play" class="btn blue" href="#play">&#9654; Play free in your browser</a>
+		<a data-i18n="cta_github" class="btn dark" href="https://github.com/pycz2/carlatro">Source on GitHub</a>
 	</div>
 	<div class="fan" aria-hidden="true">
 		<img src="cards/car_jdm.png" alt="">
@@ -338,87 +390,95 @@ footer .ver { color: var(--gold); }
 
 <section id="play">
 	<div class="wrap reveal">
-		<h2>Start your <span class="hl">engine</span></h2>
-		<p class="lead">The full game runs right here. Your run, settings and statistics are saved in your browser.</p>
+		<h2 data-i18n="play_title">Start your <span class="hl">engine</span></h2>
+		<p data-i18n="play_lead" class="lead">The full game runs right here. Your run, settings and statistics are saved in your browser.</p>
 		<div class="player" id="player">
 			<img class="poster" src="screenshots/title.png" alt="Carlatro title screen">
 			<button class="start" id="start" type="button">
 				<span class="ring"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M6 4l15 8-15 8z"/></svg></span>
-				<b>Play now</b>
-				<small>First start downloads about 40 MB</small>
+				<b data-i18n="play_now">Play now</b>
+				<small data-i18n="play_size">First start downloads about 40 MB</small>
 			</button>
 		</div>
 		<div class="player-bar">
-			<span class="hint">Best with a mouse and keyboard. Enter plays a hand, Esc opens the menu.</span>
-			<button class="btn dark small" id="fs" type="button">Fullscreen</button>
-			<a class="btn orange small" href="play/" target="_blank" rel="noopener">Open in a new tab</a>
+			<span data-i18n="play_hint" class="hint">Best with a mouse and keyboard. Enter plays a hand, Esc opens the menu.</span>
+			<button data-i18n="fullscreen" class="btn dark small" id="fs" type="button">Fullscreen</button>
+			<a data-i18n="new_tab" class="btn orange small" href="play/" target="_blank" rel="noopener">Open in a new tab</a>
 		</div>
 	</div>
 </section>
 
 <section id="features">
 	<div class="wrap reveal">
-		<h2>Everything in the <span class="hl">garage</span></h2>
-		<p class="lead">All the depth of a deckbuilder, drawn and composed entirely in code.</p>
+		<h2 data-i18n="features_title">Everything in the <span class="hl">garage</span></h2>
+		<p data-i18n="features_lead" class="lead">All the depth of a deckbuilder, drawn and composed entirely in code.</p>
 		<div class="grid">
-			<div class="feature"><img src="cards/car_king.png" alt=""><h3>Poker hands with cars</h3><p>Pair up a Tandem, line up a Gear Shift, park a Same Garage. Score = Chips × Mult.</p></div>
-			<div class="feature"><img src="cards/mod_drift.png" alt=""><h3>30 mods</h3><p>Turbos, drift kings, odometers and more. Each one changes how you score.</p></div>
-			<div class="feature"><img src="cards/mod_nitro.png" alt=""><h3>Editions</h3><p>Foil, Holographic, Polychrome and Negative mods, just like the original game.</p></div>
-			<div class="feature"><img src="cards/voucher.png" alt=""><h3>Sponsors</h3><p>Permanent bonuses for the whole run: more slots, more hands, cheaper shopping.</p></div>
-			<div class="feature"><img src="cards/pack.png" alt=""><h3>Booster packs</h3><p>Open Garage, Dyno, Workshop and Mod packs and take the best card.</p></div>
-			<div class="feature"><img src="cards/back.png" alt=""><h3>Boss races</h3><p>8 antes, 12 nasty boss rules, the Grand Prix, then endless mode.</p></div>
+			<div class="feature"><img src="cards/car_king.png" alt=""><h3 data-i18n="f1_t">Poker hands with cars</h3><p data-i18n="f1_d">Pair up a Tandem, line up a Gear Shift, park a Same Garage. Score = Chips × Mult.</p></div>
+			<div class="feature"><img src="cards/mod_drift.png" alt=""><h3 data-i18n="f2_t">30 mods</h3><p data-i18n="f2_d">Turbos, drift kings, odometers and more. Each one changes how you score.</p></div>
+			<div class="feature"><img src="cards/mod_nitro.png" alt=""><h3 data-i18n="f3_t">Editions</h3><p data-i18n="f3_d">Foil, Holographic, Polychrome and Negative mods, just like the original game.</p></div>
+			<div class="feature"><img src="cards/voucher.png" alt=""><h3 data-i18n="f4_t">Sponsors</h3><p data-i18n="f4_d">Permanent bonuses for the whole run: more slots, more hands, cheaper shopping.</p></div>
+			<div class="feature"><img src="cards/pack.png" alt=""><h3 data-i18n="f5_t">Booster packs</h3><p data-i18n="f5_d">Open Garage, Dyno, Workshop and Mod packs and take the best card.</p></div>
+			<div class="feature"><img src="cards/back.png" alt=""><h3 data-i18n="f6_t">Boss races</h3><p data-i18n="f6_d">8 antes, 12 nasty boss rules, the Grand Prix, then endless mode.</p></div>
 		</div>
 	</div>
 </section>
 
 <section id="themes">
 	<div class="wrap reveal">
-		<h2>Two <span class="hl">looks</span>, one game</h2>
-		<p class="lead">Switch the card art and the suits in the settings. Every name and picture follows your choice.</p>
+		<h2 data-i18n="themes_title">Two <span class="hl">looks</span>, one game</h2>
+		<p data-i18n="themes_lead" class="lead">Switch the card art and the suits in the settings. Every name and picture follows your choice.</p>
 		<div class="themes">
-			<div class="theme"><img src="screenshots/race_cars.png" alt="Car theme" data-zoom><div><h3>Cars</h3><p>Muscle, JDM, Euro and Offroad cars. Mods are nitro, turbos and gear shifters.</p></div></div>
-			<div class="theme"><img src="screenshots/race_classic.png" alt="Classic theme" data-zoom><div><h3>Classic</h3><p>Hearts, Diamonds, Spades and Clubs. Kings, Queens, Jacks and Jokers.</p></div></div>
+			<div class="theme"><img src="screenshots/race_cars.png" alt="Car theme" data-zoom><div><h3 data-i18n="theme_cars_t">Cars</h3><p data-i18n="theme_cars_d">Muscle, JDM, Euro and Offroad cars. Mods are nitro, turbos and gear shifters.</p></div></div>
+			<div class="theme"><img src="screenshots/race_classic.png" alt="Classic theme" data-zoom><div><h3 data-i18n="theme_classic_t">Classic</h3><p data-i18n="theme_classic_d">Hearts, Diamonds, Spades and Clubs. Kings, Queens, Jacks and Jokers.</p></div></div>
 		</div>
 	</div>
 </section>
 
 <section id="screens">
 	<div class="wrap reveal">
-		<h2>Screen<span class="hl">shots</span></h2>
-		<p class="lead">Click any picture to see it in full size.</p>
+		<h2 data-i18n="screens_title">Screen<span class="hl">shots</span></h2>
+		<p data-i18n="screens_lead" class="lead">Click any picture to see it in full size.</p>
 		<div class="gallery">
-			<figure><img src="screenshots/pit_stop.png" alt="Pit stop shop" data-zoom loading="lazy"><figcaption>The Pit Stop: mods, garage cards, booster packs and a sponsor deal</figcaption></figure>
-			<figure><img src="screenshots/collection_mods.png" alt="Collection of mods" data-zoom loading="lazy"><figcaption>The Collection shows every mod, item, pack, boss and card back</figcaption></figure>
-			<figure><img src="screenshots/collection_vouchers.png" alt="Vouchers" data-zoom loading="lazy"><figcaption>Vouchers in the classic theme</figcaption></figure>
-			<figure><img src="screenshots/settings.png" alt="Settings" data-zoom loading="lazy"><figcaption>Settings: 6 languages, card art, suits, card backs, music and more</figcaption></figure>
+			<figure><img src="screenshots/pit_stop.png" alt="Pit stop shop" data-zoom loading="lazy"><figcaption data-i18n="cap1">The Pit Stop: mods, garage cards, booster packs and a sponsor deal</figcaption></figure>
+			<figure><img src="screenshots/collection_mods.png" alt="Collection of mods" data-zoom loading="lazy"><figcaption data-i18n="cap2">The Collection shows every mod, item, pack, boss and card back</figcaption></figure>
+			<figure><img src="screenshots/collection_vouchers.png" alt="Vouchers" data-zoom loading="lazy"><figcaption data-i18n="cap3">Vouchers in the classic theme</figcaption></figure>
+			<figure><img src="screenshots/settings.png" alt="Settings" data-zoom loading="lazy"><figcaption data-i18n="cap4">Settings: 6 languages, card art, suits, card backs, music and more</figcaption></figure>
 		</div>
 	</div>
 </section>
 
 <section id="how">
 	<div class="wrap reveal">
-		<h2>How to <span class="hl">play</span></h2>
-		<p class="lead">Easy to learn, hard to put down.</p>
+		<h2 data-i18n="how_title">How to <span class="hl">play</span></h2>
+		<p data-i18n="how_lead" class="lead">Easy to learn, hard to put down.</p>
 		<div class="steps">
-			<div class="step"><h3>Pick up to 5 cars</h3><p>Make the best poker hand you can from the 8 cars in your hand.</p></div>
-			<div class="step"><h3>Score big</h3><p>Every scored car adds chips. Mods add Mult.</p><div class="chips"><span style="background:var(--blue)">Chips</span>×<span style="background:var(--red)">Mult</span></div></div>
-			<div class="step"><h3>Beat the race</h3><p>Reach the target score before you run out of hands. Watch out for the boss rule.</p></div>
-			<div class="step"><h3>Upgrade your ride</h3><p>Spend your winnings at the Pit Stop and build an unstoppable combo.</p></div>
+			<div class="step"><h3 data-i18n="s1_t">Pick up to 5 cars</h3><p data-i18n="s1_d">Make the best poker hand you can from the 8 cars in your hand.</p></div>
+			<div class="step"><h3 data-i18n="s2_t">Score big</h3><p data-i18n="s2_d">Every scored car adds chips. Mods add Mult.</p><div class="chips"><span data-i18n="chips" style="background:var(--blue)">Chips</span>×<span data-i18n="mult" style="background:var(--red)">Mult</span></div></div>
+			<div class="step"><h3 data-i18n="s3_t">Beat the race</h3><p data-i18n="s3_d">Reach the target score before you run out of hands. Watch out for the boss rule.</p></div>
+			<div class="step"><h3 data-i18n="s4_t">Upgrade your ride</h3><p data-i18n="s4_d">Spend your winnings at the Pit Stop and build an unstoppable combo.</p></div>
 		</div>
 	</div>
 </section>
 
 <footer>
 	<div class="wrap">
-		<span>Carlatro <span class="ver">v{{VERSION}}</span></span>
-		<span>Made with Godot 4.7</span>
-		<span>Font: Russo One (OFL)</span>
-		<span>A fan parody inspired by Balatro</span>
+		<span>Carlatro <a class="ver" href="#changelog" id="foot-changelog">v{{VERSION}}</a></span>
+		<span data-i18n="foot_made">Made with Godot 4.7</span>
+		<span data-i18n="foot_font">Font: Russo One (OFL)</span>
+		<span data-i18n="foot_parody">A fan parody inspired by Balatro</span>
 		<a href="https://github.com/pycz2/carlatro" style="margin-left:auto">github.com/pycz2/carlatro</a>
 	</div>
 </footer>
 
 <div class="lightbox" id="lightbox"><img alt=""></div>
+
+<div class="modal" id="changelog" role="dialog" aria-modal="true" aria-labelledby="cl-title">
+	<div class="modal-box">
+		<h2 id="cl-title">CHANGELOG</h2>
+		<div class="cl-list" id="cl-list"></div>
+		<button class="btn orange cl-back" id="cl-back" type="button">Back</button>
+	</div>
+</div>
 
 <script>
 // start the game inside the page only when asked (the engine is about 40 MB)
@@ -426,7 +486,7 @@ const player = document.getElementById("player");
 function startGame() {
 	if (player.querySelector("iframe")) return;
 	const frame = document.createElement("iframe");
-	frame.src = "play/";
+	frame.src = "play/?lang=" + currentLang;
 	frame.title = "Carlatro";
 	frame.allow = "autoplay; fullscreen; gamepad";
 	frame.allowFullscreen = true;
@@ -440,6 +500,123 @@ document.getElementById("fs").addEventListener("click", () => {
 	(player.requestFullscreen || player.webkitRequestFullscreen || (() => {})).call(player);
 });
 
+// ---------------------------------------------------------------- flying cards
+// Near cards are bigger, sharper and faster; far ones are small, blurred and slow.
+// Scrolling moves them up with parallax, spins and sways them; they wrap around the screen.
+if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+	const names = ["car_ace", "mod_nitro", "classic_king", "voucher", "pack", "joker",
+		"car_king", "classic_queen", "mod_drift", "car_jdm", "classic_ace", "back"];
+	const sky = document.querySelector(".sky");
+	const count = innerWidth < 700 ? 6 : 12;
+	const flyers = [];
+	for (let i = 0; i < count; i++) {
+		const depth = 0.3 + 0.7 * ((i * 0.618) % 1);
+		const img = new Image();
+		img.src = "cards/" + names[i % names.length] + ".png";
+		img.alt = "";
+		img.style.width = Math.round(46 + depth * 74) + "px";
+		img.style.opacity = (0.22 + depth * 0.4).toFixed(2);
+		img.style.filter = (depth < 0.55 ? "blur(1.5px) " : "") + "drop-shadow(0 10px 14px rgba(0,0,0,0.5))";
+		sky.appendChild(img);
+		flyers.push({ img, depth, x: (i + 0.5) / count, y: (i * 0.37) % 1, rot: i * 47 % 360,
+			spin: (i % 2 ? 1 : -1) * (0.08 + depth * 0.12), phase: i * 1.7 });
+	}
+	flyers.sort((a, b) => a.depth - b.depth).forEach((f) => sky.appendChild(f.img));
+	let smooth = scrollY;
+	const frame = (now) => {
+		smooth += (scrollY - smooth) * 0.1;
+		const t = now / 1000;
+		const h = innerHeight + 280;
+		for (const f of flyers) {
+			const y = (((f.y * h - smooth * f.depth * 0.8 + Math.sin(t * 0.6 + f.phase) * 10) % h) + h) % h - 140;
+			const x = f.x * innerWidth + Math.sin(smooth * 0.003 + f.phase) * 60 * f.depth - 50;
+			f.img.style.transform = "translate(" + x.toFixed(1) + "px," + y.toFixed(1) + "px) rotate(" + (f.rot + smooth * f.spin + Math.sin(t + f.phase) * 4).toFixed(1) + "deg)";
+		}
+		requestAnimationFrame(frame);
+	};
+	requestAnimationFrame(frame);
+}
+
+// ---------------------------------------------------------------- languages
+const LANGS = ["en", "ru", "es", "de", "fr", "pt_BR"];
+const select = document.getElementById("lang");
+let currentLang = "en";
+let changelog = null;
+
+function detectLang() {
+	try {
+		const saved = localStorage.getItem("carlatro-lang");
+		if (LANGS.includes(saved)) return saved;
+	} catch (e) {}
+	for (const l of navigator.languages || [navigator.language || "en"]) {
+		const two = l.slice(0, 2).toLowerCase();
+		if (two === "pt") return "pt_BR";
+		if (LANGS.includes(two)) return two;
+	}
+	return "en";
+}
+
+async function setLang(lang) {
+	let dict = {};
+	if (lang !== "en") {
+		try { dict = await (await fetch("i18n/" + lang + ".json")).json(); } catch (e) {}
+	}
+	currentLang = lang;
+	document.querySelectorAll("[data-i18n]").forEach((el) => {
+		if (el.dataset.en === undefined) el.dataset.en = el.innerHTML;
+		el.innerHTML = dict[el.dataset.i18n] ?? el.dataset.en;
+	});
+	if (document.body.dataset.title === undefined) document.body.dataset.title = document.title;
+	document.title = dict.meta_title ?? document.body.dataset.title;
+	select.setAttribute("aria-label", dict.language ?? "Language");
+	document.documentElement.lang = lang.replace("_", "-");
+	select.value = lang;
+	if (document.getElementById("changelog").classList.contains("open")) renderChangelog();
+}
+
+select.addEventListener("change", () => {
+	try { localStorage.setItem("carlatro-lang", select.value); } catch (e) {}
+	setLang(select.value);
+});
+setLang(detectLang());
+
+// ---------------------------------------------------------------- changelog (same data as in the game)
+async function renderChangelog() {
+	if (!changelog) {
+		try { changelog = await (await fetch("changelog.json")).json(); } catch (e) { changelog = { entries: [] }; }
+	}
+	const pick = (o) => (o && (o[currentLang] ?? o.en)) || "";
+	document.getElementById("cl-title").textContent = pick(changelog.title) || "CHANGELOG";
+	document.getElementById("cl-back").textContent = pick(changelog.back) || "Back";
+	const list = document.getElementById("cl-list");
+	list.innerHTML = "";
+	for (const e of changelog.entries) {
+		const h = document.createElement("h4");
+		h.textContent = "v" + e.version;
+		const date = document.createElement("span");
+		date.textContent = e.date;
+		h.appendChild(date);
+		const ul = document.createElement("ul");
+		for (const item of pick(e.items) || []) {
+			const li = document.createElement("li");
+			li.textContent = item;
+			ul.appendChild(li);
+		}
+		list.append(h, ul);
+	}
+}
+const clModal = document.getElementById("changelog");
+function openChangelog(ev) {
+	ev.preventDefault();
+	renderChangelog();
+	clModal.classList.add("open");
+}
+document.getElementById("open-changelog").addEventListener("click", openChangelog);
+document.getElementById("foot-changelog").addEventListener("click", openChangelog);
+document.getElementById("cl-back").addEventListener("click", () => clModal.classList.remove("open"));
+clModal.addEventListener("click", (e) => { if (e.target === clModal) clModal.classList.remove("open"); });
+if (location.hash === "#changelog") { renderChangelog(); clModal.classList.add("open"); }
+
 // full-size screenshots
 const box = document.getElementById("lightbox");
 document.querySelectorAll("[data-zoom]").forEach((img) => img.addEventListener("click", () => {
@@ -448,7 +625,9 @@ document.querySelectorAll("[data-zoom]").forEach((img) => img.addEventListener("
 	box.classList.add("open");
 }));
 box.addEventListener("click", () => box.classList.remove("open"));
-document.addEventListener("keydown", (e) => { if (e.key === "Escape") box.classList.remove("open"); });
+document.addEventListener("keydown", (e) => {
+	if (e.key === "Escape") { box.classList.remove("open"); clModal.classList.remove("open"); }
+});
 
 // sections slide in when they reach the screen (?static shows everything at once)
 const sections = document.querySelectorAll(".reveal");

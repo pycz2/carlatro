@@ -3,6 +3,11 @@ extends RefCounted
 ## Add an entry for every release: deploy_web.sh refuses to release a version without one.
 
 const ENTRIES := [
+	{"version": "1.3.2", "date": "2026-10-11", "items": [
+		"The website speaks all 6 languages and picks your system language",
+		"The website has the same changelog as the game",
+		"The game starts in the language chosen on the website",
+	]},
 	{"version": "1.3.1", "date": "2026-10-11", "items": [
 		"New website with screenshots; you can play right on the page",
 	]},

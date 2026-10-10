@@ -21,6 +21,8 @@ for f in ["scripts/data.gd", "scripts/game.gd", "scripts/card_view.gd", "scripts
     for m in LIT.finditer(src):
         raw = m.group(1)
         letters = re.sub(r"\[/?color[^\]]*\]|\[/?[a-z$]\]|%[sd]|\\n", "", raw)
+        if "window." in raw:  # JavaScript passed to the browser, not UI text
+            continue
         if raw in KEEP_LOWER or (not SKIP_RE.match(raw) and raw not in SKIP and re.search(r"[A-Za-z]{2}", letters)):
             s = unescape(raw)
             if s not in out:
