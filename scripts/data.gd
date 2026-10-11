@@ -9,7 +9,7 @@ extends RefCounted
 ## <field>_cards_suits (both). pick() chooses the most specific one; "%s" in a text is the suit name.
 ## The Doctor Who theme (a fan tribute) adds <field>_who and <field>_whosuits on top of the classic ones.
 
-static var classic_art := false  # true for the classic AND the Doctor Who card art (card-like vocabulary)
+static var classic_art := true  # true for the classic AND the Doctor Who card art (card-like vocabulary)
 static var classic_suits := true  # true for the classic AND the Doctor Who suits
 static var who_art := false  # Doctor Who card art: overrides on top of the classic texts (<field>_who)
 static var who_suits := false  # Doctor Who suits: TARDIS, Daleks, Cybermen, Gallifrey (<field>_whosuits)

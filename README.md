@@ -6,6 +6,8 @@ A Balatro-like roguelike deckbuilder made in Godot 4.7, where every card is a ca
 
 **Website and play in the browser: https://pycz2.github.io/carlatro/** (the game alone: [/play/](https://pycz2.github.io/carlatro/play/))
 
+Made just for fun. The idea comes from the video [“Game Dev Has A Claude Problem” by Tim Ruswick (at 9:06)](https://www.youtube.com/watch?v=pJV_gqYCT1c&t=546s).
+
 ![Race in the car theme](docs/screenshots/race_cars.png)
 
 | | |
@@ -25,9 +27,12 @@ A Balatro-like roguelike deckbuilder made in Godot 4.7, where every card is a ca
   Collection encyclopedia; statistics with reset; changelog (click the version).
 - Installable web app (PWA): add it to the home screen on Android, iPhone or a computer; full screen, landscape,
   works offline after the first start. Touch works like the mouse (tap, drag mods); portrait asks to rotate.
+- First launch: a short setup (language, music and sound, card look, card back) that you can skip, then an offer to play the tutorial.
+- Interactive tutorial (main menu → Tutorial): a guided first race with pop-up hints that point at the table; it never touches your saved run or statistics.
+- How to Play: 10 steps with animated pictures (goal, hand, poker hands, scoring, discards, mods, Pit Stop, bosses, upgrades) and a full rules page.
 - Autosave: quit any time (Menu → Main Menu, or close the game) and press Continue on the title screen.
 - Settings (persist between launches): language, music on/off and volume, sound volume, game speed, screen shake, fullscreen,
-  card art (Cars, Classic playing cards or Doctor Who), suits (car brands, Hearts/Diamonds/Spades/Clubs or
+  card art (Classic playing cards by default, Cars or Doctor Who), suits (car brands, Hearts/Diamonds/Spades/Clubs or
   TARDIS/Daleks/Cybermen/Gallifrey) and 8 card backs.
   The card vocabulary follows the art: classic cards use "cards", Jack/Queen/King, Bonus/Power/Glass/Gold, Jokers, Upgrades, Tricks;
   the Doctor Who theme uses Companion/Time Lady/Doctor, Allies, Adventures, Gadgets and Favours.

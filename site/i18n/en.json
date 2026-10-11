@@ -67,5 +67,7 @@
  "install_ios_d": "Open the game, tap Share and choose “Add to Home Screen”.",
  "install_pc_t": "Computer (Chrome, Edge)",
  "install_pc_d": "Open the game and click the install icon in the address bar.",
- "install_open": "Open the game"
+ "install_open": "Open the game",
+ "origin_title": "Just for <span class=\"hl\">fun</span>",
+ "origin_d": "This game is a joke made just for fun. The idea comes from this video:"
 }

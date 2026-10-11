@@ -8,14 +8,14 @@ SKIP_RE = re.compile(r'^[a-z0-9_./:%]*$|^#?[0-9a-fA-F]{6}$|^res://|^\[/?[a-z$]\]
 SKIP = {"CARLATRO", "Carlatro", "JDM", "English", "Русский", "Español", "Deutsch", "Français", "Português",
         "$%d", "+$%d", "-$%d %s", "+%d", "+%d %s", "X%s %s", "%s  %s%d", "%s  (%s)", "%s %s", "%s %s%d!",
         "[c]+%d[/] %s", "\\n[g]%s:[/] %s", "\\n[m]%s[/]", "\\n[$]%s $%d[/]", "\\n[g]", "%.3e", "%.1f", "%.2f",
-        "%d/8", "%d/%d", "POLICE BOX", "FPS %d", "- [color=%s]%s[/color]: %s\\n", "J", "Q", "K", "A", "pt_BR", "{val}", "\\n", " %d", " %d/%d", " $%d", " (%d)", " %sx", "1-%d", "$%d", "X", "Mult"}
+        "%d/8", "%d/%d", "POLICE BOX", "FPS %d", "- [color=%s]%s[/color]: %s\\n", "J", "Q", "K", "A", "pt_BR", "{val}", "\\n", " %d", " %d/%d", " $%d", " (%d)", " %sx", "1-%d", "$%d", "X", "Mult", "[center]", "[/center]"}
 KEEP_LOWER = {"lvl."}
 
 def unescape(s):
     return s.encode().decode("unicode_escape").encode("latin-1").decode("utf-8")
 
 out = []
-for f in ["scripts/data.gd", "scripts/game.gd", "scripts/card_view.gd", "scripts/changelog.gd"]:
+for f in ["scripts/data.gd", "scripts/game.gd", "scripts/card_view.gd", "scripts/changelog.gd", "scripts/tutorial.gd", "scripts/help_demo.gd"]:
     src = (ROOT / f).read_text()
     # join GDScript line continuations of concatenated literals: "a" \ + "b"
     for m in LIT.finditer(src):

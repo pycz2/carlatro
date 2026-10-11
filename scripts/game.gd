@@ -10,6 +10,8 @@ const Sfx = preload("res://scripts/sfx.gd")
 const Music = preload("res://scripts/music.gd")
 const Art = preload("res://scripts/art.gd")
 const Changelog = preload("res://scripts/changelog.gd")
+const Tutorial = preload("res://scripts/tutorial.gd")
+const HelpDemo = preload("res://scripts/help_demo.gd")
 
 const HAND_CX := 725.0
 const HAND_Y := 492.0
@@ -80,6 +82,9 @@ var result_recorded := false  # a run counts once: won, or lost
 var gallery_backs: Array = []
 var cashout_lines: Array = []
 var pack_open: Dictionary = {}
+var tutorial_on := false  # the tutorial run never saves and never counts in the statistics
+var tutorial_node: Control = null
+var setup_done := true  # false until the player finishes (or skips) the first-launch setup
 var shake := 0.0
 var _time := 0.0
 
@@ -157,6 +162,8 @@ func _ready() -> void:
 	_build_ui()
 	_show_title()
 	_refresh_texts()
+	if not setup_done:
+		_show_setup(0)
 
 
 func _process(delta: float) -> void:
@@ -555,10 +562,11 @@ func _build_title() -> void:
 	play.pressed.connect(_start_run)
 	bv.add_child(play)
 	# two small buttons per row keep the menu below the card fan
-	var rows := [[["How to Play", Color("d9822b"), _show_help], ["Collection", Color("2f8f83"), _show_collection.bind(-1)]],
-		[["Settings", Color("6b5bd6"), _show_settings], ["Statistics", Color("3a7bd5"), _show_stats]]]
+	var rows := [[["Tutorial", Color("2fa65a"), _start_run.bind(true)], ["How to Play", Color("d9822b"), _show_help.bind(0)]],
+		[["Collection", Color("2f8f83"), _show_collection.bind(-1)], ["Settings", Color("6b5bd6"), _show_settings]],
+		[["Statistics", Color("3a7bd5"), _show_stats]]]
 	if not OS.has_feature("web"):
-		rows.append([["Quit", Color("555b66"), func(): get_tree().quit()]])
+		rows[2].append(["Quit", Color("555b66"), func(): get_tree().quit()])
 	for row in rows:
 		var h := _hbox(8)
 		for spec in row:
@@ -1169,6 +1177,7 @@ func _hide_action() -> void:
 # ================================================================ run flow
 
 func _show_title() -> void:
+	_stop_tutorial()
 	state = "title"
 	_clear_views()
 	_clear(overlay)
@@ -1192,7 +1201,9 @@ func _clear_views() -> void:
 	_hide_action()
 
 
-func _start_run() -> void:
+func _start_run(tut := false) -> void:
+	_stop_tutorial()
+	tutorial_on = tut
 	_stats_add({"runs_started": 1})
 	result_recorded = false
 	title_layer.visible = false
@@ -1223,6 +1234,27 @@ func _start_run() -> void:
 	last_boss_name = ""
 	_pick_boss()
 	_show_blind_select()
+	if tut:
+		tutorial_node = Tutorial.new()
+		tutorial_node.g = self
+		add_child(tutorial_node)
+
+
+func _stop_tutorial() -> void:
+	tutorial_on = false
+	if is_instance_valid(tutorial_node):
+		tutorial_node.queue_free()
+	tutorial_node = null
+
+
+## The first tutorial race: a Pair of Kings in the first hand, then Aces for every card you draw.
+func _tutorial_pile() -> Array:
+	var order := [[13, 0], [13, 1], [7, 2], [4, 3], [2, 0], [9, 1], [11, 2], [5, 3], [14, 0], [14, 1], [14, 2], [14, 3]]
+	var rigged := order.map(func(rs): return deck.filter(func(c): return c.rank == rs[0] and c.suit == rs[1])[0])
+	var rest := deck.filter(func(c): return not rigged.has(c))
+	rest.shuffle()
+	rigged.reverse()  # cards are drawn from the back
+	return rest + rigged
 
 
 func _pick_boss() -> void:
@@ -1236,6 +1268,8 @@ func _pick_boss() -> void:
 
 
 func _blind_target(i: int) -> int:
+	if tutorial_on and ante == 1 and i == 0:
+		return 200
 	var m: float = [1.0, 1.5, boss.get("mult", 2.0)][i]
 	return int(Data.ante_base(ante) * m)
 
@@ -1337,6 +1371,8 @@ func _start_race() -> void:
 		"time_trial": hands_left = 1
 	draw_pile = deck.duplicate()
 	draw_pile.shuffle()
+	if tutorial_on and round_num == 1:
+		draw_pile = _tutorial_pile()
 	_set_hand_info(" ", " ", 0, 0)
 	_update_sidebar()
 	sfx.play("engine")
@@ -1395,7 +1431,8 @@ func play_hand() -> void:
 	hands_played += 1
 	played_types.append(res.type)
 	played_count[res.type] += 1
-	stats.hand_counts[res.type] += 1
+	if not tutorial_on:
+		stats.hand_counts[res.type] += 1
 	_stats_add({"hands_played": 1, "cards_played": sel.size()}, {"best_hand": res.total})
 	_update_sidebar()
 	_show_hand_type(res.type, res.base_chips, res.base_mult)
@@ -2018,7 +2055,7 @@ func _close_pack() -> void:
 # ================================================================ save / settings
 
 func _save_run() -> void:
-	if busy or not SAVE_STATES.has(state):
+	if tutorial_on or busy or not SAVE_STATES.has(state):
 		return
 	var f := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if f == null:
@@ -2106,8 +2143,10 @@ func _toggle_music() -> void:
 func _load_settings() -> void:
 	var cfg := ConfigFile.new()
 	if cfg.load(SETTINGS_PATH) != OK:
+		setup_done = false
 		_apply_url_lang()
 		return
+	setup_done = cfg.get_value("settings", "setup_done", false)
 	music_on = cfg.get_value("settings", "music", true)
 	sfx_on = cfg.get_value("settings", "sfx", true)
 	show_fps = cfg.get_value("settings", "fps", false)
@@ -2117,13 +2156,15 @@ func _load_settings() -> void:
 	shake_on = cfg.get_value("settings", "shake", true)
 	fullscreen = cfg.get_value("settings", "fullscreen", false)
 	# themes: "cars" / "classic" / "who"; older settings stored two booleans
-	var art: String = cfg.get_value("settings", "art", "classic" if cfg.get_value("settings", "classic_art", false) else "cars")
+	var art: String = cfg.get_value("settings", "art", "cars" if cfg.get_value("settings", "classic_art", true) == false else "classic")
 	var suits: String = cfg.get_value("settings", "suits", "classic" if cfg.get_value("settings", "classic_suits", true) else "cars")
 	Data.set_themes(art, suits)
 	Data.back_style = posmod(cfg.get_value("settings", "back", 4), Data.BACKS.size())
 	if cfg.get_value("settings", "version", 1) < 2:  # v1.2.1: classic suits and back became the default
 		Data.set_themes(Data.art_mode(), "classic")
 		Data.back_style = 4
+	if cfg.get_value("settings", "version", 1) < 3 and art == "cars":  # v1.7.0: classic card art became the default too
+		Data.set_themes("classic", Data.suit_mode())
 	var loc: String = cfg.get_value("settings", "locale", "")
 	if loc != "":
 		TranslationServer.set_locale(loc)
@@ -2153,7 +2194,8 @@ func _save_settings() -> void:
 	cfg.set_value("settings", "art", Data.art_mode())
 	cfg.set_value("settings", "suits", Data.suit_mode())
 	cfg.set_value("settings", "back", Data.back_style)
-	cfg.set_value("settings", "version", 2)
+	cfg.set_value("settings", "version", 3)
+	cfg.set_value("settings", "setup_done", setup_done)
 	cfg.set_value("settings", "locale", TranslationServer.get_locale())
 	cfg.save(SETTINGS_PATH)
 
@@ -2327,6 +2369,163 @@ func _show_settings() -> void:
 	_modal(p)
 
 
+## First launch: language, sound, card look and card back, then the offer to play the tutorial.
+## Every page can be skipped; "Skip Setup" goes straight to the tutorial offer.
+func _show_setup(step: int) -> void:
+	_clear(modal_layer)
+	var dim := ColorRect.new()
+	dim.color = Color(0, 0, 0, 0.75)
+	dim.set_anchors_preset(Control.PRESET_FULL_RECT)
+	modal_layer.add_child(dim)  # no click-to-close here: the setup has its own buttons
+	var p := _panel(Color(PANEL_BG, 0.98), Color("ffd23f"), 3, 24, 16)
+	p.position = Vector2(240, 70)
+	p.custom_minimum_size = Vector2(800, 560)
+	var v := _vbox(16)
+	p.add_child(v)
+	var pages := 4
+	var titles := ["Choose your language", "Music and sound", "Card look", "Card back", "Play the tutorial?"]
+	var top := _label(tr("WELCOME TO CARLATRO!") if step == 0 else tr("SETUP") + "  %d/%d" % [step + 1, pages] if step < pages else tr("ALMOST READY"), 18, Color("ffd23f"), 4)
+	v.add_child(top)
+	v.add_child(_label(titles[step], 32, Color.WHITE, 8))
+	var body := _vbox(14)
+	body.alignment = BoxContainer.ALIGNMENT_CENTER
+	body.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	v.add_child(body)
+	match step:
+		0:
+			var langs := GridContainer.new()
+			langs.columns = 3
+			langs.add_theme_constant_override("h_separation", 12)
+			langs.add_theme_constant_override("v_separation", 12)
+			var cur := _lang_idx()
+			for i in LANGS.size():
+				var b := _button(LANGS[i][1], CHIP_COL if i == cur else Color("3a3f4b"), 22, Vector2(220, 64))
+				b.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+				b.pressed.connect(func():
+					TranslationServer.set_locale(LANGS[i][0])
+					_save_settings()
+					_rebuild_screen()
+					_show_setup(0))
+				langs.add_child(b)
+			var c := CenterContainer.new()
+			c.add_child(langs)
+			body.add_child(c)
+		1:
+			var g := GridContainer.new()
+			g.columns = 2
+			g.add_theme_constant_override("h_separation", 24)
+			g.add_theme_constant_override("v_separation", 22)
+			var mus := _hbox(12)
+			mus.add_child(_toggle(music_on, func():
+				_toggle_music()
+				_show_setup(1)))
+			mus.add_child(_slider(music_vol, func(x):
+				music_vol = x
+				music.set_volume(x)))
+			_settings_row(g, "Music", mus)
+			var snd := _hbox(12)
+			snd.add_child(_toggle(sfx_on, func():
+				_toggle_sfx()
+				_show_setup(1)))
+			snd.add_child(_slider(sfx_vol, func(x):
+				sfx_vol = x
+				sfx.volume = x if sfx_on else 0.0
+				sfx.play("chips")))
+			_settings_row(g, "Sound effects", snd)
+			var c := CenterContainer.new()
+			c.add_child(g)
+			body.add_child(c)
+			body.add_child(_label("You can change this later in Settings.", 16, Color(1, 1, 1, 0.6), 3))
+		2:
+			var g := GridContainer.new()
+			g.columns = 2
+			g.add_theme_constant_override("h_separation", 24)
+			g.add_theme_constant_override("v_separation", 14)
+			var themes := ["cars", "classic", "who"]
+			var set_theme := func(art: String, suits: String):
+				Data.set_themes(art, suits)
+				_save_settings()
+				_rebuild_screen()
+				_show_setup(2)
+			_settings_row(g, "Card art", _choice([tr("Cars"), tr("Classic"), tr("Doctor Who")], themes.find(Data.art_mode()), func(i): set_theme.call(themes[i], Data.suit_mode()), 150.0))
+			_settings_row(g, "Suits", _choice([tr("Car brands"), tr("Classic"), tr("Doctor Who")], themes.find(Data.suit_mode()), func(i): set_theme.call(Data.art_mode(), themes[i]), 150.0))
+			var c := CenterContainer.new()
+			c.add_child(g)
+			body.add_child(c)
+			body.add_child(_setup_cards([{"rank": 14, "suit": 0, "enh": ""}, {"rank": 13, "suit": 1, "enh": ""}, {"rank": 12, "suit": 2, "enh": ""},
+				{"rank": 11, "suit": 3, "enh": ""}, {"rank": 10, "suit": 0, "enh": ""}], -1))
+		3:
+			body.add_child(_setup_cards(range(Data.BACKS.size()), Data.back_style))
+			body.add_child(_label(Data.BACKS[Data.back_style], 20, Color("ffd23f"), 4))
+		4:
+			var t := _label("The tutorial shows the basics in one short race. You can start it again at any time from the main menu.", 20, Color(1, 1, 1, 0.85), 4)
+			t.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+			t.custom_minimum_size = Vector2(700, 0)
+			body.add_child(t)
+			var h := _hbox(20)
+			h.alignment = BoxContainer.ALIGNMENT_CENTER
+			var go := _button("Start Tutorial", Color("2fa65a"), 24, Vector2(280, 64))
+			go.pressed.connect(func():
+				_finish_setup()
+				_start_run(true))
+			h.add_child(go)
+			var no := _button("Skip Tutorial", Color("555b66"), 20, Vector2(240, 64))
+			no.pressed.connect(_finish_setup)
+			h.add_child(no)
+			body.add_child(h)
+	if step < pages:
+		var nav := _hbox(12)
+		var skip := _button("Skip Setup", Color("555b66"), 17, Vector2(170, 48))
+		skip.pressed.connect(_show_setup.bind(pages))
+		nav.add_child(skip)
+		var gap := Control.new()
+		gap.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		nav.add_child(gap)
+		if step > 0:
+			var back := _button("< Back", Color("3a3f4b"), 18, Vector2(140, 48))
+			back.pressed.connect(_show_setup.bind(step - 1))
+			nav.add_child(back)
+		var next := _button("Next >", Color("2fa65a"), 20, Vector2(160, 48))
+		next.pressed.connect(_show_setup.bind(step + 1))
+		nav.add_child(next)
+		v.add_child(nav)
+	modal_layer.add_child(p)
+
+
+## A row of sample cards (dictionaries) or card backs (ints, clickable) for the setup pages.
+func _setup_cards(items: Array, chosen: int) -> Control:
+	var row := Control.new()
+	var backs := chosen >= 0
+	var s := 0.8 if backs else 1.0
+	var gap := 92.0 if backs else 112.0
+	row.custom_minimum_size = Vector2(752, 140 * s + 16)
+	var x0 := 376.0 - (items.size() * gap - (gap - 96.0 * s)) / 2
+	for i in items.size():
+		var cv := CardView.new()
+		cv.kind = CardView.BACK if backs else CardView.CAR
+		cv.data = {} if backs else items[i]
+		cv.interactive = backs
+		cv.base_scale = s * (1.1 if i == chosen else 1.0)
+		cv.target_pos = Vector2(x0 + i * gap, 8 - (10 if i == chosen else 0))
+		cv.position = cv.target_pos
+		cv.target_rot = 0.0 if backs else (i - 2) * 0.05
+		if backs:
+			cv.back_style = items[i]
+			cv.clicked.connect(func(_c):
+				Data.back_style = items[i]
+				_save_settings()
+				get_tree().call_group("cards", "queue_redraw")
+				_show_setup(3))
+		row.add_child(cv)
+	return row
+
+
+func _finish_setup() -> void:
+	setup_done = true
+	_save_settings()
+	_clear(modal_layer)
+
+
 func _settings_row(g: GridContainer, name: String, control: Control) -> void:
 	var l := _label(name, 17, Color(1, 1, 1, 0.85), 4)
 	l.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
@@ -2362,7 +2561,8 @@ func _show_end(win: bool, lines := []) -> void:
 	if not result_recorded:  # endless mode after a win does not count as a loss later
 		result_recorded = true
 		_stats_add({"runs_won" if win else "runs_lost": 1}, {"best_ante": ante})
-	DirAccess.remove_absolute(SAVE_PATH)
+	if not tutorial_on:
+		DirAccess.remove_absolute(SAVE_PATH)
 	_clear(overlay)
 	_update_sidebar()
 	if win:
@@ -2437,7 +2637,7 @@ func _show_menu() -> void:
 	resume.pressed.connect(func(): _clear(modal_layer))
 	v.add_child(resume)
 	var how := _button("How to Play", Color("d9822b"), 18, Vector2(280, 44))
-	how.pressed.connect(_show_help)
+	how.pressed.connect(_show_help.bind(0))
 	v.add_child(how)
 	var st := _button("Settings", Color("6b5bd6"), 18, Vector2(280, 44))
 	st.pressed.connect(_show_settings)
@@ -2769,6 +2969,8 @@ func _load_stats() -> void:
 
 ## Add to counters and raise records, then save.
 func _stats_add(add: Dictionary, best := {}) -> void:
+	if tutorial_on:
+		return
 	for k in add:
 		stats[k] += add[k]
 	for k in best:
@@ -2972,19 +3174,71 @@ func _help_text() -> String:
 	return t
 
 
-func _show_help() -> void:
-	var p := _panel(PANEL_BG, Color("d9822b"), 3, 22, 16)
-	p.position = Vector2(290, 50)
-	p.custom_minimum_size = Vector2(700, 0)
-	var v := _vbox(10)
-	p.add_child(v)
-	v.add_child(_label("HOW TO PLAY", 30, Color("ffb347"), 8))
+## How to Play: steps on the left; each step has an animated picture and a few short points.
+func _show_help(page := 0) -> void:
+	var titles := HelpDemo.titles()
+	var p := Panel.new()
+	p.add_theme_stylebox_override("panel", Data.box(Color(PANEL_BG, 0.98), 16, Color("d9822b"), 3))
+	p.position = Vector2(60, 26)
+	p.size = Vector2(1160, 668)
+	p.mouse_filter = Control.MOUSE_FILTER_STOP
+	var t := _label("HOW TO PLAY", 30, Color("ffb347"), 8)
+	t.size = Vector2(1160, 44)
+	t.position = Vector2(0, 8)
+	p.add_child(t)
+	var steps := _vbox(6)
+	steps.position = Vector2(20, 64)
+	for i in titles.size():
+		var b := _button("%d. %s" % [i + 1, titles[i]], Color("d9822b") if i == page else Color("3a3f4b"), 16, Vector2(220, 44))
+		b.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+		b.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		b.clip_text = true
+		b.pressed.connect(_show_help.bind(i))
+		steps.add_child(b)
+	p.add_child(steps)
+	var close := _close_button()
+	close.custom_minimum_size = Vector2(220, 48)
+	close.position = Vector2(20, 604)
+	p.add_child(close)
+	var head := _label(titles[page], 28, Color.WHITE, 6)
+	head.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	head.position = Vector2(260, 58)
+	head.size = Vector2(880, 40)
+	p.add_child(head)
 	var r := RichTextLabel.new()
 	r.bbcode_enabled = true
-	r.scroll_active = true
-	r.custom_minimum_size = Vector2(650, 430)
-	r.add_theme_font_size_override("normal_font_size", 16)
-	r.text = _help_text()
-	v.add_child(r)
-	v.add_child(_close_button())
+	r.add_theme_font_size_override("normal_font_size", 18)
+	if page < titles.size() - 1:
+		var demo := HelpDemo.new()
+		demo.g = self
+		demo.page = page
+		demo.position = Vector2(290, 102)
+		p.add_child(demo)
+		r.position = Vector2(280, 446)
+		r.size = Vector2(840, 146)
+		r.scroll_active = false
+		r.text = "\n".join(HelpDemo.bullets(page).map(func(x): return "[color=#ffd23f]>[/color] " + x))
+	else:
+		r.position = Vector2(270, 102)
+		r.size = Vector2(870, 490)
+		r.scroll_active = true
+		r.add_theme_font_size_override("normal_font_size", 16)
+		r.text = _help_text()
+	p.add_child(r)
+	var nav := _hbox(16)
+	nav.position = Vector2(260, 604)
+	nav.size = Vector2(880, 48)
+	nav.alignment = BoxContainer.ALIGNMENT_CENTER
+	var prev := _button("< Back", Color("3a3f4b"), 18, Vector2(160, 46))
+	prev.disabled = page == 0
+	prev.pressed.connect(_show_help.bind(page - 1))
+	nav.add_child(prev)
+	var dots := _label("%d / %d" % [page + 1, titles.size()], 18, Color(1, 1, 1, 0.7), 4)
+	dots.custom_minimum_size = Vector2(90, 40)
+	nav.add_child(dots)
+	var next := _button("Next >", Color("2fa65a"), 18, Vector2(160, 46))
+	next.disabled = page == titles.size() - 1
+	next.pressed.connect(_show_help.bind(page + 1))
+	nav.add_child(next)
+	p.add_child(nav)
 	_modal(p)

@@ -67,5 +67,7 @@
  "install_ios_d": "Abre el juego, toca Compartir y elige «Añadir a pantalla de inicio».",
  "install_pc_t": "Ordenador (Chrome, Edge)",
  "install_pc_d": "Abre el juego y haz clic en el icono de instalación de la barra de direcciones.",
- "install_open": "Abrir el juego"
+ "install_open": "Abrir el juego",
+ "origin_title": "Solo por <span class=\"hl\">diversión</span>",
+ "origin_d": "Este juego es una broma hecha solo por diversión. La idea viene de este video:"
 }

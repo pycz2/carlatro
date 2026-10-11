@@ -67,5 +67,7 @@
  "install_ios_d": "Abra o jogo, toque em Compartilhar e escolha “Adicionar à Tela de Início”.",
  "install_pc_t": "Computador (Chrome, Edge)",
  "install_pc_d": "Abra o jogo e clique no ícone de instalação na barra de endereço.",
- "install_open": "Abrir o jogo"
+ "install_open": "Abrir o jogo",
+ "origin_title": "Só por <span class=\"hl\">diversão</span>",
+ "origin_d": "Este jogo é uma brincadeira feita só por diversão. A ideia vem deste vídeo:"
 }

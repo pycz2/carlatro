@@ -3,6 +3,12 @@ extends RefCounted
 ## Add an entry for every release: deploy_web.sh refuses to release a version without one.
 
 const ENTRIES := [
+	{"version": "1.7.0", "date": "2026-10-11", "items": [
+		"Interactive tutorial: a guided first race with hints; start it at any time from the main menu",
+		"First launch: choose the language, sound, card look and card back, or skip it",
+		"How to Play is now 10 short steps with animated pictures",
+		"Classic card art and classic suits are the default",
+	]},
 	{"version": "1.6.0", "date": "2026-10-11", "items": [
 		"New theme: Doctor Who (a fan tribute) for the card art and the suits",
 		"TARDIS, Daleks, Cybermen and Gallifrey suits; the Doctor, a Time Lady and a Companion on the face cards",

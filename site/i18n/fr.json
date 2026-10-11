@@ -67,5 +67,7 @@
  "install_ios_d": "Ouvre le jeu, touche Partager et choisis « Sur l’écran d’accueil ».",
  "install_pc_t": "Ordinateur (Chrome, Edge)",
  "install_pc_d": "Ouvre le jeu et clique sur l’icône d’installation dans la barre d’adresse.",
- "install_open": "Ouvrir le jeu"
+ "install_open": "Ouvrir le jeu",
+ "origin_title": "Juste pour <span class=\"hl\">rire</span>",
+ "origin_d": "Ce jeu est une blague, fait juste pour s'amuser. L'idée vient de cette vidéo :"
 }

@@ -67,5 +67,7 @@
  "install_ios_d": "Öffne das Spiel, tippe auf Teilen und wähle „Zum Home-Bildschirm“.",
  "install_pc_t": "Computer (Chrome, Edge)",
  "install_pc_d": "Öffne das Spiel und klicke auf das Installieren-Symbol in der Adressleiste.",
- "install_open": "Spiel öffnen"
+ "install_open": "Spiel öffnen",
+ "origin_title": "Einfach zum <span class=\"hl\">Spaß</span>",
+ "origin_d": "Dieses Spiel ist ein Scherz, einfach zum Spaß gemacht. Die Idee stammt aus diesem Video:"
 }
