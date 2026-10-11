@@ -1,0 +1,590 @@
+{
+ "title": {
+  "en": "CHANGELOG",
+  "ru": "ИЗМЕНЕНИЯ",
+  "es": "NOVEDADES",
+  "de": "CHANGELOG",
+  "fr": "HISTORIQUE",
+  "pt_BR": "NOVIDADES"
+ },
+ "back": {
+  "en": "Back",
+  "ru": "Назад",
+  "es": "Volver",
+  "de": "Zurück",
+  "fr": "Retour",
+  "pt_BR": "Voltar"
+ },
+ "entries": [
+  {
+   "version": "1.8.0",
+   "date": "2026-10-11",
+   "items": {
+    "en": [
+     "Chips and Mult catch fire at the moment one hand passes the race target",
+     "The hand score that beats the target flies out in flames, with a new fire sound"
+    ],
+    "ru": [
+     "Фишки и Множитель загораются в момент, когда одна рука превышает цель гонки",
+     "Очки руки, которые побили цель, вылетают в огне, с новым звуком пламени"
+    ],
+    "es": [
+     "Las Fichas y el Mult arden en el momento en que una mano supera el objetivo de la carrera",
+     "La puntuación de la mano que supera el objetivo sale en llamas, con un nuevo sonido de fuego"
+    ],
+    "de": [
+     "Chips und Mult fangen Feuer, sobald eine Hand das Rennziel übertrifft",
+     "Die Punkte einer Hand, die das Ziel schlägt, fliegen in Flammen heraus, mit neuem Feuersound"
+    ],
+    "fr": [
+     "Les Jetons et le Mult s'enflamment dès qu'une main dépasse l'objectif de la course",
+     "Le score de la main qui bat l'objectif s'envole en flammes, avec un nouveau son de feu"
+    ],
+    "pt_BR": [
+     "Fichas e Mult pegam fogo no momento em que uma mão passa a meta da corrida",
+     "A pontuação da mão que bate a meta sai em chamas, com um novo som de fogo"
+    ]
+   }
+  },
+  {
+   "version": "1.7.1",
+   "date": "2026-10-11",
+   "items": {
+    "en": [
+     "How to Play: the pointer is above the cards and easier to see",
+     "Doctor Who theme: the tutorial asks for the two Doctors and counts ranks up to the TARDIS",
+     "New screenshots on the website and in the README"
+    ],
+    "ru": [
+     "«Как играть»: курсор теперь поверх карт и лучше виден",
+     "Тема «Доктор Кто»: обучение просит выбрать двух Докторов, а ранги идут до ТАРДИС",
+     "Новые скриншоты на сайте и в README"
+    ],
+    "es": [
+     "Cómo jugar: el puntero está sobre las cartas y se ve mejor",
+     "Tema Doctor Who: el tutorial pide los dos Doctores y los valores llegan hasta la TARDIS",
+     "Nuevas capturas en la web y en el README"
+    ],
+    "de": [
+     "Spielanleitung: Der Zeiger liegt über den Karten und ist besser zu sehen",
+     "Doctor-Who-Thema: Das Tutorial verlangt die zwei Doktoren, die Ränge gehen bis zur TARDIS",
+     "Neue Screenshots auf der Website und in der README"
+    ],
+    "fr": [
+     "Comment jouer : le pointeur est au-dessus des cartes et plus visible",
+     "Thème Doctor Who : le tutoriel demande les deux Docteurs et les rangs vont jusqu'au TARDIS",
+     "Nouvelles captures sur le site et dans le README"
+    ],
+    "pt_BR": [
+     "Como jogar: o ponteiro fica acima das cartas e é mais fácil de ver",
+     "Tema Doctor Who: o tutorial pede os dois Doutores e os valores vão até a TARDIS",
+     "Novas capturas no site e no README"
+    ]
+   }
+  },
+  {
+   "version": "1.7.0",
+   "date": "2026-10-11",
+   "items": {
+    "en": [
+     "Interactive tutorial: a guided first race with hints; start it at any time from the main menu",
+     "First launch: choose the language, sound, card look and card back, or skip it",
+     "How to Play is now 10 short steps with animated pictures",
+     "Classic card art and classic suits are the default"
+    ],
+    "ru": [
+     "Интерактивное обучение: первая гонка с подсказками; запускается в любой момент из главного меню",
+     "Первый запуск: выбор языка, звука, вида карт и рубашки (можно пропустить)",
+     "«Как играть» теперь состоит из 10 коротких шагов с анимацией",
+     "Классический рисунок карт и классические масти выбраны по умолчанию"
+    ],
+    "es": [
+     "Tutorial interactivo: una primera carrera guiada con consejos; empiézalo cuando quieras desde el menú principal",
+     "Primer inicio: elige el idioma, el sonido, el aspecto de las cartas y el dorso, o sáltalo",
+     "Cómo jugar ahora tiene 10 pasos cortos con imágenes animadas",
+     "El arte clásico de cartas y los palos clásicos son los predeterminados"
+    ],
+    "de": [
+     "Interaktives Tutorial: ein geführtes erstes Rennen mit Hinweisen; jederzeit im Hauptmenü startbar",
+     "Erster Start: wähle Sprache, Sound, Kartenlook und Kartenrücken oder überspringe es",
+     "Wie man spielt hat jetzt 10 kurze Schritte mit animierten Bildern",
+     "Klassische Kartenmotive und klassische Kartenfarben sind der Standard"
+    ],
+    "fr": [
+     "Tutoriel interactif : une première course guidée avec des conseils ; lance-le à tout moment depuis le menu principal",
+     "Premier lancement : choisis la langue, le son, le style et le dos des cartes, ou passe cette étape",
+     "Comment jouer compte désormais 10 courtes étapes avec des images animées",
+     "Les cartes et les couleurs classiques sont maintenant par défaut"
+    ],
+    "pt_BR": [
+     "Tutorial interativo: uma primeira corrida guiada com dicas; inicie quando quiser no menu principal",
+     "Primeira abertura: escolha idioma, som, visual das cartas e verso, ou pule tudo",
+     "Como Jogar agora tem 10 passos curtos com imagens animadas",
+     "A arte clássica das cartas e os naipes clássicos são o padrão"
+    ]
+   }
+  },
+  {
+   "version": "1.6.0",
+   "date": "2026-10-11",
+   "items": {
+    "en": [
+     "New theme: Doctor Who (a fan tribute) for the card art and the suits",
+     "TARDIS, Daleks, Cybermen and Gallifrey suits; the Doctor, a Time Lady and a Companion on the face cards",
+     "Allies, Adventures, Gadgets and Favours with their own names and pictures; two new card backs"
+    ],
+    "ru": [
+     "Новая тема: «Доктор Кто» (фанатский трибьют) для рисунка карт и мастей",
+     "Масти ТАРДИС, Далеки, Киберлюди и Галлифрей; Доктор, Повелительница времени и Спутник на фигурах",
+     "Союзники, Вылазки, Гаджеты и Услуги со своими названиями и картинками; две новые рубашки"
+    ],
+    "es": [
+     "Nuevo tema: Doctor Who (un homenaje de fans) para el arte de las cartas y los palos",
+     "Palos TARDIS, Daleks, Cybermen y Gallifrey; el Doctor, una Señora del Tiempo y un Acompañante en las figuras",
+     "Aliados, Aventuras, Gadgets y Favores con nombres e imágenes propios; dos reversos nuevos"
+    ],
+    "de": [
+     "Neues Theme: Doctor Who (eine Fan-Hommage) für Kartenbilder und Farben",
+     "TARDIS-, Dalek-, Cybermen- und Gallifrey-Farben; der Doktor, eine Time Lady und ein Begleiter auf den Bildkarten",
+     "Verbündete, Abenteuer, Gadgets und Gefallen mit eigenen Namen und Bildern; zwei neue Kartenrücken"
+    ],
+    "fr": [
+     "Nouveau thème : Doctor Who (un hommage de fans) pour l'art des cartes et les couleurs",
+     "Couleurs TARDIS, Daleks, Cybermen et Gallifrey ; le Docteur, une Dame du Temps et un Compagnon sur les figures",
+     "Alliés, Aventures, Gadgets et Faveurs avec leurs propres noms et images ; deux nouveaux dos de cartes"
+    ],
+    "pt_BR": [
+     "Novo tema: Doctor Who (homenagem de fã) para a arte das cartas e os naipes",
+     "Naipes TARDIS, Daleks, Cybermen e Gallifrey; o Doutor, uma Senhora do Tempo e um Acompanhante nas figuras",
+     "Aliados, Aventuras, Gadgets e Favores com nomes e imagens próprios; dois novos versos de carta"
+    ]
+   }
+  },
+  {
+   "version": "1.5.0",
+   "date": "2026-10-11",
+   "items": {
+    "en": [
+     "Install the game as an app on Android, iPhone or a computer; it works offline after the first start",
+     "Touch-friendly: on phones the game opens in full screen and asks to rotate to landscape",
+     "One new icon everywhere: the app, the loading screen and the website"
+    ],
+    "ru": [
+     "Игру можно установить как приложение на Android, iPhone или компьютер; после первого запуска она работает без интернета",
+     "Удобно на сенсорном экране: на телефоне игра открывается на весь экран и просит повернуть его горизонтально",
+     "Одна новая иконка везде: у приложения, на экране загрузки и на сайте"
+    ],
+    "es": [
+     "Instala el juego como app en Android, iPhone u ordenador; funciona sin conexión tras el primer inicio",
+     "Pensado para pantallas táctiles: en el móvil se abre a pantalla completa y pide girarlo en horizontal",
+     "Un nuevo icono en todas partes: la app, la pantalla de carga y la web"
+    ],
+    "de": [
+     "Installiere das Spiel als App auf Android, iPhone oder Computer; nach dem ersten Start läuft es offline",
+     "Touch-freundlich: Auf dem Handy öffnet sich das Spiel im Vollbild und bittet ums Querformat",
+     "Ein neues Icon überall: App, Ladebildschirm und Website"
+    ],
+    "fr": [
+     "Installe le jeu comme une appli sur Android, iPhone ou ordinateur ; il fonctionne hors ligne après le premier lancement",
+     "Adapté au tactile : sur téléphone, le jeu s’ouvre en plein écran et demande de passer en paysage",
+     "Une nouvelle icône partout : l’appli, l’écran de chargement et le site"
+    ],
+    "pt_BR": [
+     "Instale o jogo como app no Android, iPhone ou computador; funciona offline depois da primeira vez",
+     "Feito para toque: no celular o jogo abre em tela cheia e pede para girar na horizontal",
+     "Um novo ícone em todo lugar: o app, a tela de carregamento e o site"
+    ]
+   }
+  },
+  {
+   "version": "1.4.0",
+   "date": "2026-10-11",
+   "items": {
+    "en": [
+     "Drag mods (jokers) to change their order: they work from left to right",
+     "Cards are played and scored in the order you pick them"
+    ],
+    "ru": [
+     "Моды (джокеров) можно перетаскивать, чтобы менять порядок: они срабатывают слева направо",
+     "Карты разыгрываются и засчитываются в том порядке, в котором их выбрали"
+    ],
+    "es": [
+     "Arrastra los mods (jokers) para cambiar su orden: funcionan de izquierda a derecha",
+     "Las cartas se juegan y puntúan en el orden en que las eliges"
+    ],
+    "de": [
+     "Mods (Joker) per Ziehen umsortieren: Sie wirken von links nach rechts",
+     "Karten werden in der Reihenfolge gespielt und gewertet, in der du sie wählst"
+    ],
+    "fr": [
+     "Fais glisser les mods (jokers) pour changer leur ordre : ils agissent de gauche à droite",
+     "Les cartes sont jouées et comptées dans l'ordre où tu les choisis"
+    ],
+    "pt_BR": [
+     "Arraste os mods (coringas) para mudar a ordem: eles funcionam da esquerda para a direita",
+     "As cartas são jogadas e pontuadas na ordem em que você as escolhe"
+    ]
+   }
+  },
+  {
+   "version": "1.3.4",
+   "date": "2026-10-11",
+   "items": {
+    "en": [
+     "Card tooltips no longer jump from above the card to below it",
+     "Optional FPS counter in the top-left corner (Settings)"
+    ],
+    "ru": [
+     "Подсказки к картам больше не прыгают сверху вниз",
+     "Счётчик FPS в левом верхнем углу (включается в настройках)"
+    ],
+    "es": [
+     "Las descripciones de las cartas ya no saltan de arriba abajo",
+     "Contador de FPS opcional en la esquina superior izquierda (Ajustes)"
+    ],
+    "de": [
+     "Karten-Tooltips springen nicht mehr von oben nach unten",
+     "Optionaler FPS-Zähler oben links (Einstellungen)"
+    ],
+    "fr": [
+     "Les infobulles des cartes ne sautent plus du haut vers le bas",
+     "Compteur de FPS optionnel en haut à gauche (Options)"
+    ],
+    "pt_BR": [
+     "As dicas das cartas não pulam mais de cima para baixo",
+     "Contador de FPS opcional no canto superior esquerdo (Configurações)"
+    ]
+   }
+  },
+  {
+   "version": "1.3.3",
+   "date": "2026-10-11",
+   "items": {
+    "en": [
+     "Music and sound effects have separate on/off switches that work independently"
+    ],
+    "ru": [
+     "У музыки и звуков теперь отдельные выключатели, которые работают независимо"
+    ],
+    "es": [
+     "La música y los efectos tienen interruptores separados e independientes"
+    ],
+    "de": [
+     "Musik und Soundeffekte haben eigene, unabhängige Schalter"
+    ],
+    "fr": [
+     "La musique et les effets sonores ont des interrupteurs séparés et indépendants"
+    ],
+    "pt_BR": [
+     "Música e efeitos sonoros têm botões separados e independentes"
+    ]
+   }
+  },
+  {
+   "version": "1.3.2",
+   "date": "2026-10-11",
+   "items": {
+    "en": [
+     "The website speaks all 6 languages and picks your system language",
+     "The website has the same changelog as the game",
+     "The game starts in the language chosen on the website"
+    ],
+    "ru": [
+     "Сайт говорит на всех 6 языках и выбирает язык системы",
+     "На сайте тот же список изменений, что и в игре",
+     "Игра запускается на языке, выбранном на сайте"
+    ],
+    "es": [
+     "La web habla los 6 idiomas y elige el de tu sistema",
+     "La web tiene las mismas novedades que el juego",
+     "El juego se inicia en el idioma elegido en la web"
+    ],
+    "de": [
+     "Die Website spricht alle 6 Sprachen und wählt deine Systemsprache",
+     "Die Website zeigt dasselbe Changelog wie das Spiel",
+     "Das Spiel startet in der auf der Website gewählten Sprache"
+    ],
+    "fr": [
+     "Le site parle les 6 langues et choisit celle de ton système",
+     "Le site affiche le même historique que le jeu",
+     "Le jeu démarre dans la langue choisie sur le site"
+    ],
+    "pt_BR": [
+     "O site fala os 6 idiomas e escolhe o idioma do sistema",
+     "O site tem as mesmas novidades do jogo",
+     "O jogo abre no idioma escolhido no site"
+    ]
+   }
+  },
+  {
+   "version": "1.3.1",
+   "date": "2026-10-11",
+   "items": {
+    "en": [
+     "New website with screenshots; you can play right on the page"
+    ],
+    "ru": [
+     "Новый сайт со скриншотами: играть можно прямо на странице"
+    ],
+    "es": [
+     "Nueva web con capturas: puedes jugar directamente en la página"
+    ],
+    "de": [
+     "Neue Website mit Screenshots: direkt auf der Seite spielen"
+    ],
+    "fr": [
+     "Nouveau site avec captures : jouez directement sur la page"
+    ],
+    "pt_BR": [
+     "Novo site com capturas de tela: jogue direto na página"
+    ]
+   }
+  },
+  {
+   "version": "1.3.0",
+   "date": "2026-10-11",
+   "items": {
+    "en": [
+     "With car art, every picture is about cars: mods, items and mini cards",
+     "With classic art, every picture is about playing cards",
+     "Sponsors (car theme) or Vouchers (classic theme): permanent bonuses for the whole run, one offer per ante"
+    ],
+    "ru": [
+     "С темой машин все картинки про машины: моды, предметы и миниатюры",
+     "С классической темой все картинки про игральные карты",
+     "Спонсоры (тема машин) или Ваучеры (классическая тема): постоянные бонусы на весь забег, одно предложение за анте"
+    ],
+    "es": [
+     "Con arte de coches, todas las imágenes son de coches: Mods, objetos y minicartas",
+     "Con arte clásico, todas las imágenes son de cartas de juego",
+     "Patrocinadores (tema de coches) o Cupones (tema clásico): bonos permanentes durante toda la partida, una oferta por Ante"
+    ],
+    "de": [
+     "Mit Autobildern dreht sich jedes Bild um Autos: Mods, Items und Minikarten",
+     "Mit klassischen Bildern dreht sich jedes Bild um Spielkarten",
+     "Sponsoren (Auto-Theme) oder Gutscheine (klassisches Theme): dauerhafte Boni für den ganzen Run, ein Angebot pro Ante"
+    ],
+    "fr": [
+     "Avec l'art voitures, chaque image parle de voitures : mods, objets et mini-voitures",
+     "Avec l'art classique, chaque image parle de cartes à jouer",
+     "Sponsors (thème voitures) ou Bons (thème classique) : bonus permanents pour toute la partie, une offre par ante"
+    ],
+    "pt_BR": [
+     "Com a arte de carros, toda imagem é sobre carros: mods, itens e minicartas",
+     "Com a arte clássica, toda imagem é sobre cartas de baralho",
+     "Patrocínios (tema de carros) ou Vouchers (tema clássico): bônus permanentes até o fim da run, uma oferta por fase"
+    ]
+   }
+  },
+  {
+   "version": "1.2.1",
+   "date": "2026-10-10",
+   "items": {
+    "en": [
+     "Classic suits and the Classic Red card back are now the default"
+    ],
+    "ru": [
+     "Классические масти и рубашка «Красная классика» теперь по умолчанию"
+    ],
+    "es": [
+     "Los palos clásicos y el reverso Rojo Clásico ahora vienen por defecto"
+    ],
+    "de": [
+     "Klassische Farben und die Rückseite „Klassisch Rot“ sind jetzt Standard"
+    ],
+    "fr": [
+     "Les couleurs classiques et le dos Rouge classique sont désormais par défaut"
+    ],
+    "pt_BR": [
+     "Naipes clássicos e o verso Vermelho Clássico agora são o padrão"
+    ]
+   }
+  },
+  {
+   "version": "1.2.0",
+   "date": "2026-10-10",
+   "items": {
+    "en": [
+     "Unique pictures for every mod, garage item and boss race",
+     "Classic King, Queen and Jack are easy to tell apart",
+     "Mod editions from the original game: Foil, Holographic, Polychrome and Negative",
+     "Changelog: click the version number",
+     "Statistics of your runs, with a reset button"
+    ],
+    "ru": [
+     "Уникальные картинки для каждого мода, предмета гаража и гонки босса",
+     "Классических Короля, Даму и Валета теперь легко различить",
+     "Издания модов из оригинальной игры: Фольга, Голограмма, Полихром и Негатив",
+     "Список изменений: нажми на номер версии",
+     "Статистика забегов с кнопкой сброса"
+    ],
+    "es": [
+     "Imágenes únicas para cada Mod, objeto del garaje y carrera de Jefe",
+     "En el modo clásico, Rey, Reina y Jota se distinguen fácilmente",
+     "Ediciones de Mods del juego original: Laminada, Holográfica, Policromática y Negativa",
+     "Novedades: pulsa el número de versión",
+     "Estadísticas de tus partidas, con botón para borrarlas"
+    ],
+    "de": [
+     "Einzigartige Bilder für jeden Mod, jedes Garagen-Item und jedes Boss-Rennen",
+     "Klassische Könige, Damen und Buben sind leicht zu unterscheiden",
+     "Mod-Editionen aus dem Originalspiel: Folie, Holografisch, Polychrom und Negativ",
+     "Changelog: Klicke auf die Versionsnummer",
+     "Statistik deiner Runs, mit Zurücksetzen-Knopf"
+    ],
+    "fr": [
+     "Images uniques pour chaque mod, objet de garage et course de boss",
+     "Roi, Dame et Valet classiques faciles à distinguer",
+     "Éditions de Mods du jeu original : Brillante, Holographique, Polychrome et Négative",
+     "Historique : clique sur le numéro de version",
+     "Statistiques de tes parties, avec un bouton de réinitialisation"
+    ],
+    "pt_BR": [
+     "Imagens únicas para cada mod, item da garagem e corrida boss",
+     "No tema Clássico, Rei, Dama e Valete agora são fáceis de distinguir",
+     "Edições de Mods do jogo original: Laminado, Holográfico, Policromático e Negativo",
+     "Novidades: clique no número da versão",
+     "Estatísticas das suas runs, com botão para zerar"
+    ]
+   }
+  },
+  {
+   "version": "1.1.1",
+   "date": "2026-10-10",
+   "items": {
+    "en": [
+     "Version number in the top-right corner"
+    ],
+    "ru": [
+     "Номер версии в правом верхнем углу"
+    ],
+    "es": [
+     "Número de versión en la esquina superior derecha"
+    ],
+    "de": [
+     "Versionsnummer in der oberen rechten Ecke"
+    ],
+    "fr": [
+     "Numéro de version en haut à droite"
+    ],
+    "pt_BR": [
+     "Número da versão no canto superior direito"
+    ]
+   }
+  },
+  {
+   "version": "1.1.0",
+   "date": "2026-10-10",
+   "items": {
+    "en": [
+     "Collection: all cards, mods, items, packs, bosses, hands and card backs",
+     "Classic card art shows the full rank on the 10",
+     "Easier to read colors on dark panels"
+    ],
+    "ru": [
+     "Коллекция: все карты, моды, предметы, паки, боссы, комбинации и рубашки",
+     "На классической десятке ранг теперь виден целиком",
+     "Более читаемые цвета на тёмных панелях"
+    ],
+    "es": [
+     "Colección: todas las cartas, Mods, objetos, sobres, jefes, manos y reversos",
+     "El arte clásico muestra el 10 completo",
+     "Colores más legibles en paneles oscuros"
+    ],
+    "de": [
+     "Sammlung: alle Karten, Mods, Items, Packs, Bosse, Hände und Rückseiten",
+     "Klassische Kartenbilder zeigen auf der 10 den vollen Rang",
+     "Besser lesbare Farben auf dunklen Feldern"
+    ],
+    "fr": [
+     "Collection : toutes les cartes, mods, objets, packs, boss, mains et dos de carte",
+     "Les cartes classiques affichent le 10 en entier",
+     "Couleurs plus lisibles sur les panneaux sombres"
+    ],
+    "pt_BR": [
+     "Coleção: todas as cartas, mods, itens, pacotes, bosses, mãos e versos",
+     "A arte clássica mostra o valor completo no 10",
+     "Cores mais legíveis em painéis escuros"
+    ]
+   }
+  },
+  {
+   "version": "1.0.1",
+   "date": "2026-10-10",
+   "items": {
+    "en": [
+     "The Neon Grid card back stays inside the card"
+    ],
+    "ru": [
+     "Рубашка «Неоновая сетка» больше не выходит за края карты"
+    ],
+    "es": [
+     "El reverso Rejilla Neón ya no se sale de la carta"
+    ],
+    "de": [
+     "Der Kartenrücken Neon-Gitter bleibt innerhalb der Karte"
+    ],
+    "fr": [
+     "Le dos Grille Néon reste dans la carte"
+    ],
+    "pt_BR": [
+     "O verso Grade Neon agora fica dentro da carta"
+    ]
+   }
+  },
+  {
+   "version": "1.0.0",
+   "date": "2026-10-10",
+   "items": {
+    "en": [
+     "First release: a Balatro-like deckbuilder where the cards are cars",
+     "8 antes of races with boss rules, the Grand Prix and endless mode",
+     "30 mods, Dyno Tunes, Workshop cards and booster packs",
+     "Card art and suit themes: cars or classic playing cards, 6 card backs",
+     "Procedural music, autosave, settings and 6 languages",
+     "Play in the browser on GitHub Pages"
+    ],
+    "ru": [
+     "Первый релиз: декбилдер в духе Balatro, где карты - это машины",
+     "8 анте гонок с правилами боссов, Гран-при и бесконечный режим",
+     "30 модов, настройки диностенда, карты Мастерской и бустер-паки",
+     "Темы рисунка и мастей: машины или классические игральные карты, 6 рубашек",
+     "Процедурная музыка, автосохранение, настройки и 6 языков",
+     "Играй в браузере на GitHub Pages"
+    ],
+    "es": [
+     "Primera versión: un juego de mazos tipo Balatro donde las cartas son coches",
+     "8 antes de carreras con reglas de Jefe, el Gran Premio y modo infinito",
+     "30 Mods, Afinaciones Dyno, cartas de Taller y sobres",
+     "Temas de arte y palos: coches o cartas clásicas, 6 reversos",
+     "Música procedural, guardado automático, ajustes y 6 idiomas",
+     "Juega en el navegador desde GitHub Pages"
+    ],
+    "de": [
+     "Erste Version: ein Balatro-ähnlicher Deckbuilder, in dem die Karten Autos sind",
+     "8 Antes voller Rennen mit Boss-Regeln, der Grand Prix und der Endlosmodus",
+     "30 Mods, Dyno-Tunes, Werkstatt-Karten und Booster-Packs",
+     "Kartenbilder und Farb-Themes: Autos oder klassische Spielkarten, 6 Rückseiten",
+     "Prozedurale Musik, Autospeichern, Einstellungen und 6 Sprachen",
+     "Im Browser auf GitHub Pages spielen"
+    ],
+    "fr": [
+     "Première version : un deckbuilder à la Balatro où les cartes sont des voitures",
+     "8 antes de courses avec règles de boss, le Grand Prix et le mode infini",
+     "30 mods, Dyno Tunes, cartes Atelier et boosters",
+     "Thèmes d'art et de couleurs : voitures ou cartes classiques, 6 dos de carte",
+     "Musique procédurale, sauvegarde auto, options et 6 langues",
+     "Jouable dans le navigateur sur GitHub Pages"
+    ],
+    "pt_BR": [
+     "Primeira versão: um deckbuilder estilo Balatro em que as cartas são carros",
+     "8 fases de corridas com regras de boss, o Grande Prêmio e o modo infinito",
+     "30 mods, Dyno Tunes, cartas da Oficina e pacotes",
+     "Temas de arte e naipes: carros ou cartas clássicas, 6 versos",
+     "Música procedural, salvamento automático, configurações e 6 idiomas",
+     "Jogue no navegador pelo GitHub Pages"
+    ]
+   }
+  }
+ ]
+}
