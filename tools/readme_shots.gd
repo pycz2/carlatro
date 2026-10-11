@@ -29,10 +29,14 @@ func _initialize():
 	seed(7)
 	g = load("res://main.tscn").instantiate(); root.add_child(g)
 	g.rng.seed = 7
-	D.classic_art = false; D.classic_suits = false; D.back_style = 0
+	await t(0.3)
+	g._show_setup(2); await t(0.8); await shot("setup")  # first launch: card look
+	g._finish_setup()
 	get_root_redraw()
-	await t(1.4); await shot("title")
+	await t(1.0); await shot("title")  # the default look: classic cards
 
+	D.set_themes("cars", "cars"); D.back_style = 0
+	get_root_redraw()
 	# race, car theme, mid-scoring
 	g._start_run(); g._start_race(); await t(1.8)
 	add_mod("nitro", "poly"); add_mod("twin_turbo"); add_mod("drift_king", "foil"); add_mod("v8"); add_mod("final_lap")
@@ -59,7 +63,7 @@ func _initialize():
 	g._clear(g.modal_layer)
 
 	# classic theme race with a tooltip
-	D.classic_art = true; D.classic_suits = true; D.back_style = 4
+	D.set_themes("classic", "classic"); D.back_style = 4
 	g.busy = false; g.state = "blind"; g.blind_idx = 0; g._start_race(); await t(0.1)
 	get_root_redraw(); g._update_sidebar(); await t(1.8)
 	var court = null
@@ -72,8 +76,35 @@ func _initialize():
 
 	g._show_collection(4); await t(0.6); await shot("collection_vouchers")
 	g._clear(g.modal_layer)
+
+	# Doctor Who theme race with a tooltip on the Doctor
+	D.set_themes("who", "who"); D.back_style = 6
+	g.hand.map(func(c): c.queue_free()); g.hand.clear()
+	g.busy = false; g.state = "blind"; g._start_race(); await t(0.1)
+	get_root_redraw(); g._update_sidebar(); await t(1.8)
+	var doc = g.hand[0]
+	doc.data.rank = 13; doc.queue_redraw()
+	g._sort_hand(); g._layout_hand(); await t(0.5)
+	g._on_card_hover(doc, true); await t(0.4); await shot("race_who")
+	g._on_card_hover(doc, false)
+	D.set_themes("classic", "classic"); D.back_style = 4
+	get_root_redraw()
+
 	g._show_settings(); await t(0.6); await shot("settings")
+	g._clear(g.modal_layer)
+
+	# How to Play, mid-animation on the Jokers step
+	g._show_help(5); await t(3.4); await shot("how_to_play")
+	g._clear(g.modal_layer)
+
+	# interactive tutorial: the hint that asks for the two Kings
+	g._start_run(true); await t(0.6)
+	g.tutorial_node._go(1); await t(0.3)
+	g._start_race(); await t(2.0)
+	g.tutorial_node._go(5); await t(0.6); await shot("tutorial")
+	g._show_title()
 	quit()
+
 
 func get_root_redraw():
 	call_group("cards", "queue_redraw")

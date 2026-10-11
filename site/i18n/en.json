@@ -27,7 +27,7 @@
  "f5_d": "Open Garage, Dyno, Workshop and Mod packs and take the best card.",
  "f6_t": "Boss races",
  "f6_d": "8 antes, 12 nasty boss rules, the Grand Prix, then endless mode.",
- "themes_title": "Two <span class=\"hl\">looks</span>, one game",
+ "themes_title": "Three <span class=\"hl\">looks</span>, one game",
  "themes_lead": "Switch the card art and the suits in the settings. Every name and picture follows your choice.",
  "theme_cars_t": "Cars",
  "theme_cars_d": "Muscle, JDM, Euro and Offroad cars. Mods are nitro, turbos and gear shifters.",
@@ -69,5 +69,10 @@
  "install_pc_d": "Open the game and click the install icon in the address bar.",
  "install_open": "Open the game",
  "origin_title": "Just for <span class=\"hl\">fun</span>",
- "origin_d": "This game is a joke made just for fun. The idea comes from this video:"
+ "origin_d": "This game is a joke made just for fun. The idea comes from this video:",
+ "theme_who_t": "Doctor Who",
+ "theme_who_d": "TARDIS, Daleks, Cybermen and Gallifrey. The Doctor, a Time Lady and a Companion. A fan tribute.",
+ "cap5": "Interactive tutorial: hints point at what to do next",
+ "cap6": "How to Play: 10 steps with animated pictures",
+ "cap7": "First launch: pick the language, sound, card look and card back"
 }

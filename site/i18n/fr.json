@@ -27,7 +27,7 @@
  "f5_d": "Ouvrez des packs Garage, Dyno, Atelier et Mod, et gardez la meilleure carte.",
  "f6_t": "Boss Races",
  "f6_d": "8 antes, 12 règles de boss vicieuses, le Grand Prix, puis le mode infini.",
- "themes_title": "Deux <span class=\"hl\">styles</span>, un seul jeu",
+ "themes_title": "Trois <span class=\"hl\">styles</span>, un seul jeu",
  "themes_lead": "Changez les illustrations et les enseignes dans les options. Chaque nom et chaque image suit votre choix.",
  "theme_cars_t": "Voitures",
  "theme_cars_d": "Des voitures Muscle, JDM, Euro et Offroad. Les mods sont des nitros, des turbos et des leviers de vitesse.",
@@ -69,5 +69,10 @@
  "install_pc_d": "Ouvre le jeu et clique sur l’icône d’installation dans la barre d’adresse.",
  "install_open": "Ouvrir le jeu",
  "origin_title": "Juste pour <span class=\"hl\">rire</span>",
- "origin_d": "Ce jeu est une blague, fait juste pour s'amuser. L'idée vient de cette vidéo :"
+ "origin_d": "Ce jeu est une blague, fait juste pour s'amuser. L'idée vient de cette vidéo :",
+ "theme_who_t": "Doctor Who",
+ "theme_who_d": "TARDIS, Daleks, Cybermen et Gallifrey. Le Docteur, une Dame du Temps et un Compagnon. Un hommage de fans.",
+ "cap5": "Tutoriel interactif : des indices montrent quoi faire ensuite",
+ "cap6": "Comment jouer : 10 étapes avec des images animées",
+ "cap7": "Premier lancement : choisis la langue, le son, le style des cartes et le dos"
 }

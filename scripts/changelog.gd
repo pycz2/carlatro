@@ -3,6 +3,11 @@ extends RefCounted
 ## Add an entry for every release: deploy_web.sh refuses to release a version without one.
 
 const ENTRIES := [
+	{"version": "1.7.1", "date": "2026-10-11", "items": [
+		"How to Play: the pointer is above the cards and easier to see",
+		"Doctor Who theme: the tutorial asks for the two Doctors and counts ranks up to the TARDIS",
+		"New screenshots on the website and in the README",
+	]},
 	{"version": "1.7.0", "date": "2026-10-11", "items": [
 		"Interactive tutorial: a guided first race with hints; start it at any time from the main menu",
 		"First launch: choose the language, sound, card look and card back, or skip it",

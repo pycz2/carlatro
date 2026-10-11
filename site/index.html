@@ -257,8 +257,8 @@ h2 .hl { color: var(--gold); }
 .feature p { margin: 0; color: var(--muted); font-size: 15px; }
 
 /* themes */
-.themes { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
-@media (max-width: 820px) { .themes { grid-template-columns: 1fr; } }
+.themes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+@media (max-width: 1000px) { .themes { grid-template-columns: 1fr; } }
 .theme { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
 .theme img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; cursor: zoom-in; transition: transform 0.4s; }
 .theme:hover img { transform: scale(1.03); }
@@ -455,11 +455,12 @@ footer .ver { color: var(--gold); }
 
 <section id="themes">
 	<div class="wrap reveal">
-		<h2 data-i18n="themes_title">Two <span class="hl">looks</span>, one game</h2>
+		<h2 data-i18n="themes_title">Three <span class="hl">looks</span>, one game</h2>
 		<p data-i18n="themes_lead" class="lead">Switch the card art and the suits in the settings. Every name and picture follows your choice.</p>
 		<div class="themes">
 			<div class="theme"><img src="screenshots/race_cars.png" alt="Car theme" data-zoom><div><h3 data-i18n="theme_cars_t">Cars</h3><p data-i18n="theme_cars_d">Muscle, JDM, Euro and Offroad cars. Mods are nitro, turbos and gear shifters.</p></div></div>
 			<div class="theme"><img src="screenshots/race_classic.png" alt="Classic theme" data-zoom><div><h3 data-i18n="theme_classic_t">Classic</h3><p data-i18n="theme_classic_d">Hearts, Diamonds, Spades and Clubs. Kings, Queens, Jacks and Jokers.</p></div></div>
+			<div class="theme"><img src="screenshots/race_who.png" alt="Doctor Who theme" data-zoom><div><h3 data-i18n="theme_who_t">Doctor Who</h3><p data-i18n="theme_who_d">TARDIS, Daleks, Cybermen and Gallifrey. The Doctor, a Time Lady and a Companion. A fan tribute.</p></div></div>
 		</div>
 	</div>
 </section>
@@ -469,9 +470,11 @@ footer .ver { color: var(--gold); }
 		<h2 data-i18n="screens_title">Screen<span class="hl">shots</span></h2>
 		<p data-i18n="screens_lead" class="lead">Click any picture to see it in full size.</p>
 		<div class="gallery">
+			<figure><img src="screenshots/tutorial.png" alt="Interactive tutorial" data-zoom loading="lazy"><figcaption data-i18n="cap5">Interactive tutorial: hints point at what to do next</figcaption></figure>
+			<figure><img src="screenshots/how_to_play.png" alt="How to Play" data-zoom loading="lazy"><figcaption data-i18n="cap6">How to Play: 10 steps with animated pictures</figcaption></figure>
+			<figure><img src="screenshots/setup.png" alt="First launch setup" data-zoom loading="lazy"><figcaption data-i18n="cap7">First launch: pick the language, sound, card look and card back</figcaption></figure>
 			<figure><img src="screenshots/pit_stop.png" alt="Pit stop shop" data-zoom loading="lazy"><figcaption data-i18n="cap1">The Pit Stop: mods, garage cards, booster packs and a sponsor deal</figcaption></figure>
 			<figure><img src="screenshots/collection_mods.png" alt="Collection of mods" data-zoom loading="lazy"><figcaption data-i18n="cap2">The Collection shows every mod, item, pack, boss and card back</figcaption></figure>
-			<figure><img src="screenshots/collection_vouchers.png" alt="Vouchers" data-zoom loading="lazy"><figcaption data-i18n="cap3">Vouchers in the classic theme</figcaption></figure>
 			<figure><img src="screenshots/settings.png" alt="Settings" data-zoom loading="lazy"><figcaption data-i18n="cap4">Settings: 6 languages, card art, suits, card backs, music and more</figcaption></figure>
 		</div>
 	</div>

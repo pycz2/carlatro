@@ -12,9 +12,11 @@ Made just for fun. The idea comes from the video [“Game Dev Has A Claude Probl
 
 | | |
 |---|---|
-| ![Classic theme](docs/screenshots/race_classic.png) | ![Pit stop](docs/screenshots/pit_stop.png) |
-| ![Collection of mods](docs/screenshots/collection_mods.png) | ![Vouchers](docs/screenshots/collection_vouchers.png) |
-| ![Title screen](docs/screenshots/title.png) | ![Settings](docs/screenshots/settings.png) |
+| ![Classic theme](docs/screenshots/race_classic.png) | ![Doctor Who theme](docs/screenshots/race_who.png) |
+| ![Interactive tutorial](docs/screenshots/tutorial.png) | ![How to Play](docs/screenshots/how_to_play.png) |
+| ![Pit stop](docs/screenshots/pit_stop.png) | ![Collection of mods](docs/screenshots/collection_mods.png) |
+| ![First launch setup](docs/screenshots/setup.png) | ![Settings](docs/screenshots/settings.png) |
+| ![Title screen](docs/screenshots/title.png) | ![Vouchers](docs/screenshots/collection_vouchers.png) |
 
 - 52 cars: 4 brands (Muscle, JDM, Euro, Offroad) × 13 ranks.
 - Poker hands with car names: Tandem (Pair), Convoy (Three of a Kind), Gear Shift (Straight), Same Garage (Flush), Factory Line (Straight Flush)...

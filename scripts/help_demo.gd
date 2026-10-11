@@ -18,6 +18,7 @@ var ptr_ring := 0.0
 var bar := 0.0  # page 0: score bar fill, 0..1
 var ante_at := -1  # page 0: the reached ante
 var boxes := {}  # chips/mult boxes: {"chips": Label, "mult": Label, ...}
+var ptr_layer: Control  # the pointer draws in its own child, above the cards
 
 
 ## Page titles; the game builds the list of steps from them.
@@ -77,11 +78,17 @@ func _ready() -> void:
 	size = Vector2(W, H)
 	clip_contents = true
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	ptr_layer = Control.new()
+	ptr_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	ptr_layer.z_index = 200
+	ptr_layer.draw.connect(_draw_ptr)
+	add_child(ptr_layer)
 	_loop()
 
 
 func _process(_d: float) -> void:
 	queue_redraw()
+	ptr_layer.queue_redraw()
 
 
 func _loop() -> void:
@@ -103,7 +110,8 @@ func _loop() -> void:
 
 func _reset() -> void:
 	for c in get_children():
-		c.queue_free()
+		if c != ptr_layer:
+			c.queue_free()
 	boxes = {}
 	ptr = Vector2(-100, -100)
 	bar = 0.0
@@ -510,10 +518,20 @@ func _draw() -> void:
 					Color("1b1f27") if done else Color(1, 1, 1, 0.6))
 				for k in 3:
 					draw_circle(c + Vector2(-10 + k * 10, 32), 3.5, (MULT_COL if k == 2 else Color.WHITE) if done else Color(1, 1, 1, 0.15))
-	if ptr.x >= 0:
-		if ptr_ring > 0.0:
-			draw_arc(ptr, 10 + (1.0 - ptr_ring) * 22, 0, TAU, 32, Color(1, 1, 1, ptr_ring), 3.0)
-		var arrow := PackedVector2Array([ptr, ptr + Vector2(0, 26), ptr + Vector2(7, 20), ptr + Vector2(12, 31),
-			ptr + Vector2(17, 29), ptr + Vector2(12, 18), ptr + Vector2(21, 18)])
-		draw_colored_polygon(arrow, Color.WHITE)
-		draw_polyline(arrow + PackedVector2Array([ptr]), Color("1b1f27"), 2.0)
+
+
+func _draw_ptr() -> void:
+	var ci := ptr_layer
+	if ptr.x < 0:
+		return
+	if ptr_ring > 0.0:
+		ci.draw_arc(ptr, 12 + (1.0 - ptr_ring) * 30, 0, TAU, 32, Color(1, 0.82, 0.25, ptr_ring), 4.0)
+	var shape := [Vector2(0, 0), Vector2(0, 26), Vector2(7, 20), Vector2(12, 31), Vector2(17, 29), Vector2(12, 18), Vector2(21, 18)]
+	var arrow := PackedVector2Array()
+	var shadow := PackedVector2Array()
+	for v in shape:
+		arrow.append(ptr + v * 1.6)
+		shadow.append(ptr + v * 1.6 + Vector2(3, 4))
+	ci.draw_colored_polygon(shadow, Color(0, 0, 0, 0.5))
+	ci.draw_colored_polygon(arrow, Color.WHITE)
+	ci.draw_polyline(arrow + PackedVector2Array([arrow[0]]), Color("1b1f27"), 3.0)

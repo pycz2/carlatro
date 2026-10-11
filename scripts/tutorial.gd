@@ -48,19 +48,21 @@ func _ready() -> void:
 ## One step: text, the rect to point at (Callable -> Rect2, or null), and when to move on:
 ## "wait" (Callable -> bool) moves on by itself; without it the step has a Next button.
 func _steps() -> Array:
-	var cars := not Data.classic_art
 	return [
 		{"text": tr("[b]Goal of the game[/b]: win races. In each race, reach the target score before you run out of hands.") + "\n\n" + tr("Every ante has 3 races. Win the Grand Prix at Ante 8 to become Champion.")},
 		{"text": tr("This is the first race. The panel shows the target score and the reward.") + "\n\n" + tr("Press [color=#e8572f]Race![/color] to start."),
 			"rect": func(): return Rect2(352, 232, 270, 400), "wait": func(): return g.state == "play"},
 		{"text": Data.tv("This is your hand: 8 cars from your garage. Every car is a playing card with a rank (2 to Ace) and a suit.",
-			"This is your hand: 8 cards from your deck. Every card has a rank (2 to Ace) and a suit."),
+			"This is your hand: 8 cards from your deck. Every card has a rank (2 to Ace) and a suit.",
+			"This is your hand: 8 cards from your deck. Every card has a rank (2 to TARDIS) and a suit."),
 			"rect": _hand_rect},
 		{"text": tr("Here is the target score of the race and your current score. Every hand you play adds to your score."),
 			"rect": func(): return g.blind_box.get_global_rect().merge(g.score_lbl.get_parent().get_parent().get_global_rect())},
 		{"text": tr("In every race you have [color=#2f8cff]4 hands[/color] and [color=#ff4b3e]3 discards[/color]. Use them well."),
 			"rect": func(): return g.hands_lbl.get_parent().get_parent().get_parent().get_global_rect()},
-		{"text": (tr("Click the two Kings to select them. Two cars of the same rank make the hand “%s”.") if cars else tr("Click the two Kings to select them. Two cards of the same rank make the hand “%s”.")) % tr(Data.hand_name(Scoring.PAIR)),
+		{"text": Data.tv("Click the two Kings to select them. Two cars of the same rank make the hand “%s”.",
+			"Click the two Kings to select them. Two cards of the same rank make the hand “%s”.",
+			"Click the two Doctors to select them. Two cards of the same rank make the hand “%s”.") % tr(Data.hand_name(Scoring.PAIR)),
 			"rect": _kings_rect, "wait": func(): return _selected_type() >= Scoring.PAIR},
 		{"text": tr("The game shows the hand and its score: [color=#2f8cff]Chips[/color] x [color=#ff4b3e]Mult[/color]. Every scored card adds its chips."),
 			"rect": func(): return g.hand_name_lbl.get_parent().get_parent().get_global_rect()},

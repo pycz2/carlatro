@@ -27,7 +27,7 @@
  "f5_d": "Öffne Garagen-, Dyno-, Werkstatt- und Mod-Packs und schnapp dir die beste Karte.",
  "f6_t": "Boss-Rennen",
  "f6_d": "8 Antes, 12 fiese Boss-Regeln, der Grand Prix und danach der Endlosmodus.",
- "themes_title": "Zwei <span class=\"hl\">Looks</span>, ein Spiel",
+ "themes_title": "Drei <span class=\"hl\">Looks</span>, ein Spiel",
  "themes_lead": "Wechsle in den Einstellungen Kartenmotiv und Farben. Jeder Name und jedes Bild folgt deiner Wahl.",
  "theme_cars_t": "Autos",
  "theme_cars_d": "Muscle-, JDM-, Euro- und Offroad-Autos. Mods sind Nitro, Turbos und Schaltknüppel.",
@@ -69,5 +69,10 @@
  "install_pc_d": "Öffne das Spiel und klicke auf das Installieren-Symbol in der Adressleiste.",
  "install_open": "Spiel öffnen",
  "origin_title": "Einfach zum <span class=\"hl\">Spaß</span>",
- "origin_d": "Dieses Spiel ist ein Scherz, einfach zum Spaß gemacht. Die Idee stammt aus diesem Video:"
+ "origin_d": "Dieses Spiel ist ein Scherz, einfach zum Spaß gemacht. Die Idee stammt aus diesem Video:",
+ "theme_who_t": "Doctor Who",
+ "theme_who_d": "TARDIS, Daleks, Cybermen und Gallifrey. Der Doktor, eine Time Lady und ein Begleiter. Eine Fan-Hommage.",
+ "cap5": "Interaktives Tutorial: Hinweise zeigen, was als Nächstes zu tun ist",
+ "cap6": "Spielanleitung: 10 Schritte mit animierten Bildern",
+ "cap7": "Erster Start: Sprache, Sound, Kartenlook und Kartenrücken wählen"
 }

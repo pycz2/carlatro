@@ -27,7 +27,7 @@
  "f5_d": "Abra pacotes de Garagem, Dyno, Oficina e Mods e leve a melhor carta.",
  "f6_t": "Corridas de chefe",
  "f6_d": "8 fases, 12 regras de chefe malvadas, o Grande Prêmio e depois o modo infinito.",
- "themes_title": "Dois <span class=\"hl\">visuais</span>, um jogo",
+ "themes_title": "Três <span class=\"hl\">visuais</span>, um jogo",
  "themes_lead": "Troque a arte das cartas e os naipes nas configurações. Cada nome e imagem acompanha sua escolha.",
  "theme_cars_t": "Carros",
  "theme_cars_d": "Carros Muscle, JDM, Euro e Offroad. Os mods são nitro, turbos e câmbios.",
@@ -69,5 +69,10 @@
  "install_pc_d": "Abra o jogo e clique no ícone de instalação na barra de endereço.",
  "install_open": "Abrir o jogo",
  "origin_title": "Só por <span class=\"hl\">diversão</span>",
- "origin_d": "Este jogo é uma brincadeira feita só por diversão. A ideia vem deste vídeo:"
+ "origin_d": "Este jogo é uma brincadeira feita só por diversão. A ideia vem deste vídeo:",
+ "theme_who_t": "Doctor Who",
+ "theme_who_d": "TARDIS, Daleks, Cybermen e Gallifrey. O Doutor, uma Senhora do Tempo e um Companheiro. Uma homenagem de fã.",
+ "cap5": "Tutorial interativo: dicas mostram o que fazer em seguida",
+ "cap6": "Como jogar: 10 passos com imagens animadas",
+ "cap7": "Primeira abertura: escolha idioma, som, visual das cartas e verso"
 }

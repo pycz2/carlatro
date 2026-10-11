@@ -27,7 +27,7 @@
  "f5_d": "Abre packs de Garaje, Dyno, Taller y Mods y quédate con la mejor carta.",
  "f6_t": "Carreras de Jefe",
  "f6_d": "8 antes, 12 reglas de jefe traicioneras, el Gran Premio y después el modo infinito.",
- "themes_title": "Dos <span class=\"hl\">estilos</span>, un solo juego",
+ "themes_title": "Tres <span class=\"hl\">estilos</span>, un juego",
  "themes_lead": "Cambia el arte de las cartas y los palos en los ajustes. Cada nombre e imagen sigue tu elección.",
  "theme_cars_t": "Coches",
  "theme_cars_d": "Coches Muscle, JDM, Euro y Offroad. Los mods son nitro, turbos y palancas de cambio.",
@@ -69,5 +69,10 @@
  "install_pc_d": "Abre el juego y haz clic en el icono de instalación de la barra de direcciones.",
  "install_open": "Abrir el juego",
  "origin_title": "Solo por <span class=\"hl\">diversión</span>",
- "origin_d": "Este juego es una broma hecha solo por diversión. La idea viene de este video:"
+ "origin_d": "Este juego es una broma hecha solo por diversión. La idea viene de este video:",
+ "theme_who_t": "Doctor Who",
+ "theme_who_d": "TARDIS, Daleks, Cybermen y Gallifrey. El Doctor, una Señora del Tiempo y un Acompañante. Un homenaje de fans.",
+ "cap5": "Tutorial interactivo: las pistas señalan qué hacer después",
+ "cap6": "Cómo jugar: 10 pasos con imágenes animadas",
+ "cap7": "Primer inicio: elige idioma, sonido, aspecto de las cartas y reverso"
 }

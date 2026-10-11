@@ -771,5 +771,10 @@
  "Gadgets upgrade your cards: they get a special effect.": "Gadgets werten deine Karten auf: Sie bekommen einen Spezialeffekt.",
  "Hover any card in the game to read its effect.": "Fahre im Spiel über eine Karte, um ihren Effekt zu lesen.",
  "Click the two Kings to select them. Two cars of the same rank make the hand “%s”.": "Klicke die zwei Könige an, um sie zu wählen. Zwei Autos mit gleichem Rang ergeben die Hand „%s“.",
- "Click the two Kings to select them. Two cards of the same rank make the hand “%s”.": "Klicke die zwei Könige an, um sie zu wählen. Zwei Karten mit gleichem Rang ergeben die Hand „%s“."
+ "Click the two Kings to select them. Two cards of the same rank make the hand “%s”.": "Klicke die zwei Könige an, um sie zu wählen. Zwei Karten mit gleichem Rang ergeben die Hand „%s“.",
+ "Click the two Doctors to select them. Two cards of the same rank make the hand “%s”.": "Klicke die zwei Doktoren an, um sie zu wählen. Zwei Karten mit gleichem Rang ergeben die Hand „%s“.",
+ "This is your hand: 8 cards from your deck. Every card has a rank (2 to TARDIS) and a suit.": "Das ist deine Hand: 8 Karten aus deinem Deck. Jede Karte hat einen Rang (2 bis TARDIS) und eine Farbe.",
+ "How to Play: the pointer is above the cards and easier to see": "Spielanleitung: Der Zeiger liegt über den Karten und ist besser zu sehen",
+ "Doctor Who theme: the tutorial asks for the two Doctors and counts ranks up to the TARDIS": "Doctor-Who-Thema: Das Tutorial verlangt die zwei Doktoren, die Ränge gehen bis zur TARDIS",
+ "New screenshots on the website and in the README": "Neue Screenshots auf der Website und in der README"
 }
