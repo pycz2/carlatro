@@ -23,6 +23,7 @@ Made just for fun. The idea comes from the video [“Game Dev Has A Claude Probl
 - 8 antes × 3 races (Street, Circuit, Boss with a nasty rule) → Grand Prix → endless mode.
 - 30 Mods (jokers), Dyno Tunes (level up hands), Workshop cards (Nitro / Turbo / Carbon / Gold Rims, respray, clone, scrap...).
 - Booster packs in the Pit Stop: Garage, Dyno, Workshop and Mod packs — open one, take 1 of the choices.
+- When one hand passes the race target during scoring, Chips × Mult catch fire, like in the original game.
 - Mod editions from the original game: Foil (+50 Chips), Holographic (+10 Mult), Polychrome (X1.5 Mult), Negative (+1 slot).
 - Sponsors (car theme) / Vouchers (classic theme): permanent bonuses for the run, one offer per ante in the Pit Stop.
 - Unique pictures for every mod, item, voucher and boss, drawn for the chosen card art (cars or playing cards);

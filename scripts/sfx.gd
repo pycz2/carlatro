@@ -35,6 +35,9 @@ func _ready() -> void:
 		return (sin(TAU * notes[i] * t) * 0.3 + _saw(notes[i] * t) * 0.06) * exp(-lt * 6.0))
 	_streams.lose = _gen(1.0, func(t: float, d: float): return _saw(_sweep(t, 300.0, 60.0, d)) * 0.25 * (1.0 - t / d))
 	_streams.error = _gen(0.18, func(t: float, _d: float): return signf(sin(TAU * 110.0 * t)) * 0.18 * (1.0 - t / 0.18))
+	_streams.fire = _gen(0.7, func(t: float, d: float):  # a whoosh of flame
+		var env := minf(t * 10.0, 1.0) * pow(1.0 - t / d, 1.5)
+		return (_noise() * 0.32 + sin(TAU * _sweep(t, 80.0, 220.0, d)) * 0.12) * env)
 	_streams["break"] = _gen(0.35, func(t: float, _d: float): return (_noise() * 0.4 + sin(TAU * 3100.0 * t) * 0.2) * exp(-t * 11.0))
 
 

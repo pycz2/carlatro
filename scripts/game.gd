@@ -12,6 +12,7 @@ const Art = preload("res://scripts/art.gd")
 const Changelog = preload("res://scripts/changelog.gd")
 const Tutorial = preload("res://scripts/tutorial.gd")
 const HelpDemo = preload("res://scripts/help_demo.gd")
+const Fire = preload("res://scripts/fire.gd")
 
 const HAND_CX := 725.0
 const HAND_Y := 492.0
@@ -84,6 +85,7 @@ var cashout_lines: Array = []
 var pack_open: Dictionary = {}
 var tutorial_on := false  # the tutorial run never saves and never counts in the statistics
 var tutorial_node: Control = null
+var hand_fire: Control = null  # flames on Chips x Mult while the hand beats the race target
 var setup_done := true  # false until the player finishes (or skips) the first-launch setup
 var shake := 0.0
 var _time := 0.0
@@ -133,6 +135,7 @@ var mods_lbl: Label
 var cons_lbl: Label
 var deck_lbl: Label
 var hand_bar: HBoxContainer
+var score_row: HBoxContainer  # the Chips x Mult boxes
 var play_btn: Button
 var discard_btn: Button
 var action_box: HBoxContainer
@@ -436,6 +439,7 @@ func _build_sidebar() -> void:
 	hv.add_child(hand_name_lbl)
 	hv.add_child(hand_poker_lbl)
 	var cm := _hbox(6)
+	score_row = cm
 	cm.alignment = BoxContainer.ALIGNMENT_CENTER
 	var cp := _panel(CHIP_COL, Color(0, 0, 0, 0), 0, 4, 8)
 	cp.custom_minimum_size = Vector2(100, 46)
@@ -710,7 +714,7 @@ func _punch_label(l: Label, amount := 0.25) -> void:
 	tw.tween_property(l, "scale", Vector2.ONE, 0.18).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 
-func _popup(text: String, pos: Vector2, color: Color, size := 22) -> void:
+func _popup(text: String, pos: Vector2, color: Color, size := 22) -> Control:
 	var p := _panel(color, color.darkened(0.45), 2, 6, 8)
 	p.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var l := _label(text, size, Color.WHITE, 5)
@@ -726,6 +730,33 @@ func _popup(text: String, pos: Vector2, color: Color, size := 22) -> void:
 	tw.parallel().tween_property(p, "position:y", p.position.y - 34, 0.8)
 	tw.tween_property(p, "modulate:a", 0.0, 0.25)
 	tw.tween_callback(p.queue_free)
+	return p
+
+
+## Called when Chips x Mult of the hand being scored passes the race target: the boxes catch fire.
+func _ignite() -> void:
+	if is_instance_valid(hand_fire):
+		return
+	hand_fire = Fire.new()
+	var r := score_row.get_global_rect()
+	hand_fire.position = r.position - Vector2(8, 72)
+	hand_fire.size = r.size + Vector2(16, 76)
+	hand_fire.spawn = Vector2(68.0, 84.0) / hand_fire.size.y  # along the top edge of the boxes, rising above them
+	hand_fire.heat = 0.15
+	fx_layer.add_child(hand_fire)
+	# the moment the hand passes the target: a flash, then the flames grow to full size
+	create_tween().tween_property(hand_fire, "heat", 1.25, 0.6).set_ease(Tween.EASE_OUT)
+	_sparks(r.get_center(), Color("ff8a1f"), 34)
+	sfx.play("fire")
+	shake = maxf(shake, 6.0)
+	_punch_label(chips_lbl, 0.4)
+	_punch_label(mult_lbl, 0.4)
+
+
+func _extinguish() -> void:
+	if is_instance_valid(hand_fire):
+		hand_fire.stop()
+	hand_fire = null
 
 
 func _message(text: String, color := ACCENT) -> void:
@@ -1193,6 +1224,7 @@ func _show_title() -> void:
 
 
 func _clear_views() -> void:
+	_extinguish()
 	pack_open = {}
 	for arr in [hand, mod_views, cons_views, shop_views, pack_views]:
 		for cv in arr:
@@ -1448,7 +1480,16 @@ func play_hand() -> void:
 
 	var total: int = res.total
 	best_hand = maxi(best_hand, total)
-	_popup("+" + _fmt(total), Vector2(HAND_CX, PLAY_Y - 34), Color("1b1f27"), 34)
+	var on_fire := total >= target
+	var pop := _popup("+" + _fmt(total), Vector2(HAND_CX, PLAY_Y - 34), Color("c2410c") if on_fire else Color("1b1f27"), 40 if on_fire else 34)
+	if on_fire:
+		_ignite()
+		var f := Fire.new()
+		f.show_behind_parent = true  # flames rise from behind the number
+		f.heat = 1.3
+		f.position = Vector2(-12, -56)
+		f.size = pop.size + Vector2(24, 56)
+		pop.add_child(f)
 	sfx.play("score")
 	if total >= target / 2:
 		shake = 8.0
@@ -1484,6 +1525,7 @@ func play_hand() -> void:
 	await wait(0.35)
 	for cv in keep:
 		cv.queue_free()
+	_extinguish()
 	_set_hand_info(" ", " ", 0, 0)
 	_update_sidebar()
 
@@ -1546,6 +1588,8 @@ func _animate_event(e: Dictionary, sel: Array, step: int) -> void:
 			sfx.play("error")
 	chips_lbl.text = _fmt(e.c)
 	mult_lbl.text = _fmt_mult(e.m)
+	if e.c * e.m >= target:
+		_ignite()
 	await wait(0.18 if e.kind == "again" else 0.34)
 
 

@@ -776,5 +776,7 @@
  "This is your hand: 8 cards from your deck. Every card has a rank (2 to TARDIS) and a suit.": "Это твоя рука: 8 карт из колоды. У каждой карты есть ранг (от 2 до ТАРДИС) и масть.",
  "How to Play: the pointer is above the cards and easier to see": "«Как играть»: курсор теперь поверх карт и лучше виден",
  "Doctor Who theme: the tutorial asks for the two Doctors and counts ranks up to the TARDIS": "Тема «Доктор Кто»: обучение просит выбрать двух Докторов, а ранги идут до ТАРДИС",
- "New screenshots on the website and in the README": "Новые скриншоты на сайте и в README"
+ "New screenshots on the website and in the README": "Новые скриншоты на сайте и в README",
+ "Chips and Mult catch fire at the moment one hand passes the race target": "Фишки и Множитель загораются в момент, когда одна рука превышает цель гонки",
+ "The hand score that beats the target flies out in flames, with a new fire sound": "Очки руки, которые побили цель, вылетают в огне, с новым звуком пламени"
 }

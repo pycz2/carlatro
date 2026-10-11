@@ -656,6 +656,8 @@
  "Keys: Enter = Play hand, Backspace = Discard, Esc = Menu, M = Music, F11 = Fullscreen. Hover any card for details.",
  "The Doctor Who theme is a fan tribute. Doctor Who, TARDIS and Daleks are trademarks of the BBC; this game is not affiliated with the BBC.",
  "HOW TO PLAY",
+ "Chips and Mult catch fire at the moment one hand passes the race target",
+ "The hand score that beats the target flies out in flames, with a new fire sound",
  "How to Play: the pointer is above the cards and easier to see",
  "Doctor Who theme: the tutorial asks for the two Doctors and counts ranks up to the TARDIS",
  "New screenshots on the website and in the README",

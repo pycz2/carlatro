@@ -776,5 +776,7 @@
  "This is your hand: 8 cards from your deck. Every card has a rank (2 to TARDIS) and a suit.": "Voici ta main : 8 cartes de ton deck. Chaque carte a un rang (2 à TARDIS) et une couleur.",
  "How to Play: the pointer is above the cards and easier to see": "Comment jouer : le pointeur est au-dessus des cartes et plus visible",
  "Doctor Who theme: the tutorial asks for the two Doctors and counts ranks up to the TARDIS": "Thème Doctor Who : le tutoriel demande les deux Docteurs et les rangs vont jusqu'au TARDIS",
- "New screenshots on the website and in the README": "Nouvelles captures sur le site et dans le README"
+ "New screenshots on the website and in the README": "Nouvelles captures sur le site et dans le README",
+ "Chips and Mult catch fire at the moment one hand passes the race target": "Les Jetons et le Mult s'enflamment dès qu'une main dépasse l'objectif de la course",
+ "The hand score that beats the target flies out in flames, with a new fire sound": "Le score de la main qui bat l'objectif s'envole en flammes, avec un nouveau son de feu"
 }
