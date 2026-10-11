@@ -27,9 +27,12 @@ A Balatro-like roguelike deckbuilder made in Godot 4.7, where every card is a ca
   works offline after the first start. Touch works like the mouse (tap, drag mods); portrait asks to rotate.
 - Autosave: quit any time (Menu → Main Menu, or close the game) and press Continue on the title screen.
 - Settings (persist between launches): language, music on/off and volume, sound volume, game speed, screen shake, fullscreen,
-  card art (Cars or Classic playing cards), suits (car brands or Hearts/Diamonds/Spades/Clubs) and 6 card backs.
-  The card vocabulary follows the art: classic cards use "cards", Jack/Queen/King, Bonus/Power/Glass/Gold, Jokers, Upgrades, Tricks.
+  card art (Cars, Classic playing cards or Doctor Who), suits (car brands, Hearts/Diamonds/Spades/Clubs or
+  TARDIS/Daleks/Cybermen/Gallifrey) and 8 card backs.
+  The card vocabulary follows the art: classic cards use "cards", Jack/Queen/King, Bonus/Power/Glass/Gold, Jokers, Upgrades, Tricks;
+  the Doctor Who theme uses Companion/Time Lady/Doctor, Allies, Adventures, Gadgets and Favours.
 - Languages: English, Русский, Español, Deutsch, Français, Português (auto-detected from the system).
+- The Doctor Who theme is an unofficial fan tribute. Doctor Who, TARDIS and Daleks are trademarks of the BBC; this project is not affiliated with the BBC.
 - No external assets except the Russo One font (OFL). Card art, music, sounds and background are generated in code.
 
 ## Run on Mac

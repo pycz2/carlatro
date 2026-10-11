@@ -10,6 +10,13 @@ Jack,Валет,Jota,Bube,Valet,Valete
 Queen,Дама,Reina,Dame,Dame,Dama
 King,Король,Rey,König,Roi,Rei
 Ace,Туз,As,Ass,As,Ás
+TARDIS,ТАРДИС,TARDIS,TARDIS,TARDIS,TARDIS
+Daleks,Далеки,Daleks,Daleks,Daleks,Daleks
+Cybermen,Киберлюди,Cybermen,Cybermen,Cybermen,Cybermen
+Gallifrey,Галлифрей,Gallifrey,Gallifrey,Gallifrey,Gallifrey
+Companion,Спутник,Acompañante,Begleiter,Compagnon,Acompanhante
+Time Lady,Повелительница времени,Señora del Tiempo,Time Lady,Dame du Temps,Senhora do Tempo
+Doctor,Доктор,Doctor,Doktor,Docteur,Doutor
 Sport,Спорт,Sport,Sport,Sport,Sport
 Super,Супер,Super,Super,Super,Super
 Hyper,Гипер,Hyper,Hyper,Hyper,Hyper
@@ -24,37 +31,54 @@ Carbon Fiber,Углеволокно,Fibra de Carbono,Carbonfaser,Fibre de carbon
 Neon Grid,Неоновая сетка,Rejilla Neón,Neon-Gitter,Grille Néon,Grade Neon
 Classic Red,Красная классика,Rojo Clásico,Klassisch Rot,Rouge classique,Vermelho Clássico
 Classic Blue,Синяя классика,Azul Clásico,Klassisch Blau,Bleu classique,Azul Clássico
+Blue Box,Синяя будка,Caja Azul,Blaue Box,Boîte Bleue,Caixa Azul
+Time Vortex,Вихрь времени,Vórtice del Tiempo,Zeitvortex,Vortex Temporel,Vórtice do Tempo
 COMMON,ОБЫЧНЫЙ,COMÚN,NORMAL,COMMUN,COMUM
 UNCOMMON,НЕОБЫЧНЫЙ,POCO COMÚN,UNÜBLICH,PEU COMMUN,INCOMUM
 RARE,РЕДКИЙ,RARO,SELTEN,RARE,RARO
 Solo Drive,Соло-заезд,Coche Solitario,Solofahrt,Conduite Solo,Carro Solo
+Lone Time Lord,Одинокий Повелитель,Señor Solitario,Einsamer Time Lord,Seigneur du Temps Seul,Senhor do Tempo Solo
 High Card,Старшая карта,Carta Alta,Hohe Karte,Carte haute,Carta Alta
 Tandem,Тандем,Tándem,Tandem,Tandem,Tandem
+Companions,Спутники,Acompañantes,Begleiter,Compagnons,Acompanhantes
 Pair,Пара,Pareja,Paar,Paire,Par
 Double Tandem,Двойной тандем,Doble Tándem,Doppeltandem,Double Tandem,Duplo Tandem
+Two Hearts,Два сердца,Dos Corazones,Zwei Herzen,Deux Cœurs,Dois Corações
 Two Pair,Две пары,Doble Pareja,Zwei Paare,Double paire,Dois Pares
 Convoy,Конвой,Convoy,Konvoi,Convoi,Comboio
+Three Doctors,Три Доктора,Tres Doctores,Drei Doktoren,Trois Docteurs,Três Doutores
 Three of a Kind,Сет,Trío,Drilling,Brelan,Trinca
 Gear Shift,Смена передач,Cambio de Marcha,Gangwechsel,Passage de vitesse,Troca de Marcha
+Timeline,Линия времени,Línea Temporal,Zeitlinie,Ligne Temporelle,Linha do Tempo
 Straight,Стрит,Escalera,Straße,Suite,Sequência
 Same Garage,Один гараж,Mismo Garaje,Gleiche Garage,Même Garage,Mesma Garagem
+Home Planet,Родная планета,Planeta Natal,Heimatplanet,Planète Natale,Planeta Natal
 Flush,Флеш,Color,Flush,Couleur,Flush
 Full Garage,Полный гараж,Garaje Lleno,Volle Garage,Garage Plein,Garagem Cheia
+Full TARDIS,Полная ТАРДИС,TARDIS Llena,Volle TARDIS,TARDIS Plein,TARDIS Cheia
 Full House,Фулл-хаус,Full,Full House,Full,Full House
 Fleet,Автопарк,Flota,Flotte,Flotte,Frota
+Four Doctors,Четыре Доктора,Cuatro Doctores,Vier Doktoren,Quatre Docteurs,Quatro Doutores
 Four of a Kind,Каре,Póker,Vierling,Carré,Quadra
 Factory Line,Конвейер,Línea de Montaje,Fließband,Chaîne de montage,Linha de Montagem
+Fixed Point in Time,Фиксированная точка,Punto Fijo en el Tiempo,Fixpunkt in der Zeit,Point Fixe dans le Temps,Ponto Fixo no Tempo
 Straight Flush,Стрит-флеш,Escalera de Color,Straight Flush,Quinte flush,Straight Flush
+Sonic,Звук,Sónico,Schall,Sonique,Sônico
+SONIC,ЗВУК,SÓNICO,SCHALL,SONIQUE,SÔNICO
 Nitro,Нитро,Nitro,Nitro,Nitro,Nitro
 Bonus,Бонус,Bono,Bonus,Bonus,Bônus
 NITRO,НИТРО,NITRO,NITRO,NITRO,NITRO
 BONUS,БОНУС,BONO,BONUS,BONUS,BÔNUS
 [c]+30[/] Chips when scored,Фишки [c]+30[/] при подсчёте,[c]+30[/] Fichas al puntuar,[c]+30[/] Chips beim Werten,[c]+30[/] Jetons au score,[c]+30[/] Fichas ao pontuar
+Energy,Энергия,Energía,Energie,Énergie,Energia
+ENERGY,ЭНЕРГИЯ,ENERGÍA,ENERGIE,ÉNERGIE,ENERGIA
 Turbo,Турбо,Turbo,Turbo,Turbo,Turbo
 Power,Сила,Poder,Power,Puissance,Poder
 TURBO,ТУРБО,TURBO,TURBO,TURBO,TURBO
 POWER,СИЛА,PODER,POWER,PUISS.,PODER
 [m]+4[/] Mult when scored,Множитель [m]+4[/] при подсчёте,[m]+4[/] Mult al puntuar,[m]+4[/] Mult beim Werten,[m]+4[/] Mult au score,[m]+4[/] Mult ao pontuar
+Paradox,Парадокс,Paradoja,Paradox,Paradoxe,Paradoxo
+PARADOX,ПАРАДОКС,PARADOJA,PARADOX,PARADOXE,PARADOXO
 Carbon,Карбон,Carbono,Carbon,Carbone,Carbono
 Glass,Стекло,Cristal,Glas,Verre,Vidro
 CARBON,КАРБОН,CARBONO,CARBON,CARBONE,CARBONO
@@ -66,30 +90,40 @@ GLASS,СТЕКЛО,CRISTAL,GLAS,VERRE,VIDRO
 1 zu 4 Bruchchance","[x]X2[/] Mult au score,
 1 chance sur 4 de casser","[x]X2[/] Mult ao pontuar,
 1 em 4 de quebrar"
+Jelly Baby,Мармеладка,Gominola,Geleebaby,Jelly Baby,Bala de Goma
+JELLY,МАРМЕЛАД,GOMINOLA,GELEE,JELLY,GOMA
 Gold Rims,Золотые диски,Llantas de Oro,Goldfelgen,Jantes Or,Rodas de Ouro
 Gold,Золото,Oro,Gold,Or,Ouro
 GOLD,ЗОЛОТО,ORO,GOLD,OR,OURO
 [$]+$2[/] when scored,[$]+$2[/] при подсчёте,[$]+$2[/] al puntuar,[$]+$2[/] beim Werten,[$]+$2[/] au score,[$]+$2[/] ao pontuar
+Psychic Shine,Психоблеск,Brillo Psíquico,Telepath-Glanz,Éclat Psychique,Brilho Psíquico
+SHINE,БЛЕСК,BRILLO,GLANZ,ÉCLAT,BRILHO
 Chrome Wrap,Хромовая плёнка,Forro Cromado,Chromfolie,Covering Chrome,Envelopamento Cromo
 Foil,Фольга,Laminada,Folie,Brillante,Laminado
 CHROME,ХРОМ,CROMO,CHROM,CHROME,CROMO
 FOIL,ФОЛЬГА,LAMINA,FOLIE,BRILL.,LAMINADO
 [c]+50[/] Chips,Фишки [c]+50[/],[c]+50[/] Fichas,[c]+50[/] Chips,[c]+50[/] Jetons,[c]+50[/] Fichas
+Hologram,Голограмма,Holograma,Hologramm,Hologramme,Holograma
+HOLO,ГОЛО,HOLO,HOLO,HOLO,HOLO
 Holo Decal,Голо-наклейка,Vinilo Holo,Holo-Aufkleber,Décal Holo,Adesivo Holo
 Holographic,Голограмма,Holográfica,Holografisch,Holographique,Holográfico
-HOLO,ГОЛО,HOLO,HOLO,HOLO,HOLO
 [m]+10[/] Mult,Множитель [m]+10[/],[m]+10[/] Mult,[m]+10[/] Mult,[m]+10[/] Mult,[m]+10[/] Mult
+Vortex,Вихрь,Vórtice,Vortex,Vortex,Vórtice
+VORTEX,ВИХРЬ,VÓRTICE,VORTEX,VORTEX,VÓRTICE
 Pearl Paint,Жемчужная краска,Pintura Perlada,Perlglanzlack,Peinture Nacrée,Pintura Perolada
 Polychrome,Полихром,Policromática,Polychrom,Polychrome,Policromático
 PEARL,ЖЕМЧУГ,PERLA,PERL,NACRÉ,PÉROLA
 POLY,ПОЛИ,POLI,POLY,POLY,POLI
 [x]X1.5[/] Mult,Множитель [x]X1.5[/],[x]X1.5[/] Mult,[x]X1.5[/] Mult,[x]X1.5[/] Mult,[x]X1.5[/] Mult
+Pocket Dimension,Карманное измерение,Dimensión Bolsillo,Taschendimension,Dimension de Poche,Dimensão de Bolso
+POCKET,КАРМАН,BOLSILLO,TASCHE,POCHE,BOLSO
 Matte Black,Матовый чёрный,Negro Mate,Mattschwarz,Noir Mat,Preto Fosco
 Negative,Негатив,Negativa,Negativ,Négative,Negativo
 MATTE,МАТОВЫЙ,MATE,MATT,MAT,FOSCO
 NEGATIVE,НЕГАТИВ,NEGATIVA,NEGATIV,NÉGATIF,NEGATIVO
 [g]+1[/] Mod slot,[g]+1[/] слот мода,[g]+1[/] hueco de Mod,[g]+1[/] Mod-Platz,[g]+1[/] emplacement de Mod,[g]+1[/] slot de Mod
 [g]+1[/] Joker slot,[g]+1[/] слот джокера,[g]+1[/] hueco de Joker,[g]+1[/] Joker-Platz,[g]+1[/] emplacement de Joker,[g]+1[/] slot de Coringa
+[g]+1[/] Ally slot,[g]+1[/] слот союзника,[g]+1[/] hueco de Aliado,[g]+1[/] Verbündeten-Platz,[g]+1[/] emplacement d'Allié,[g]+1[/] slot de Aliado
 "Played [g]%s[/] cars give
 [m]+3[/] Mult when scored","Сыгранные машины [g]%s[/]
 при подсчёте: Множитель [m]+3[/]","Los coches [g]%s[/] jugados
@@ -111,15 +145,19 @@ dão [m]+3[/] Mult ao pontuar"
 gibt [m]+3[/] Mult beim Werten","Les [g]%s[/] joués
 donnent [m]+3[/] Mult au score","Jogar [g]%s[/] dá
 [m]+3[/] Mult ao pontuar"
+Sonic Screwdriver,Звуковая отвёртка,Destornill. Sónico,Schallschrauber,Tournevis Sonique,Chave Sônica
 Nitro Boost,Нитро-буст,Impulso Nitro,Nitro-Boost,Boost Nitro,Impulso Nitro
 Joker,Джокер,Joker,Joker,Joker,Coringa
 [m]+4[/] Mult,Множитель [m]+4[/],[m]+4[/] Mult,[m]+4[/] Mult,[m]+4[/] Mult,[m]+4[/] Mult
 V8 Heart,Сердце V8,Corazón V8,V8-Herz,Cœur V8,Coração V8
 Heart Throb,Сердцеед,Rompecorazones,Herzensbrecher,Coup de Cœur,Paixão de Copas
+Exterminate!,Уничтожить!,¡Exterminar!,Exterminieren!,Exterminer !,Exterminar!
 Rising Sun,Страна восхода,Sol Naciente,Aufgehende Sonne,Soleil Levant,Sol Nascente
 Diamond Ring,Бубновый звон,Anillo Diamante,Diamantring,Bague Diamant,Anel de Diamante
+Delete!,Удалить!,¡Eliminar!,Löschen!,Supprimer !,Deletar!
 Autobahn,Автобан,Autobahn,Autobahn,Autobahn,Autobahn
 Spade Digger,Пиковый землекоп,Pala de Picas,Pik-Gräber,Fossoyeur,Pá de Espadas
+Seal of Rassilon,Печать Рассилона,Sello de Rassilon,Siegel Rassilons,Sceau de Rassilon,Selo de Rassilon
 Mud Tires,Грязевая резина,Ruedas de Barro,Matschreifen,Pneus Boue,Pneus de Lama
 Club Regular,Трефовый гость,Socio del Club,Kreuz-Stammgast,Habitué du Club,Sócio do Clube
 Twin Turbo,Твин-турбо,Doble Turbo,Biturbo,Twin Turbo,Turbo Duplo
@@ -138,6 +176,7 @@ tiene una [g]Pareja[/]","[m]+8[/] Mult, wenn die Hand
 ein [g]Paar[/] enthält","[m]+8[/] Mult si la main
 contient une [g]Paire[/]","[m]+8[/] Mult se a mão
 tiver um [g]Par[/]"
+Bow Tie,Галстук-бабочка,Pajarita,Fliege,Nœud Papillon,Gravata-Borboleta
 Wide Body,Широкий кузов,Carrocería Ancha,Breitbau,Wide Body,Wide Body
 Twin Peaks,Твин Пикс,Picos Gemelos,Zwillingsgipfel,Jumeaux,Picos Gêmeos
 "[c]+50[/] Chips if hand contains
@@ -154,6 +193,7 @@ tiene una [g]Pareja[/]","[c]+50[/] Chips, wenn die Hand
 ein [g]Paar[/] enthält","[c]+50[/] Jetons si la main
 contient une [g]Paire[/]","[c]+50[/] Fichas se a mão
 tiver um [g]Par[/]"
+UNIT,ЮНИТ,UNIT,UNIT,UNIT,UNIT
 Convoy Leader,Лидер конвоя,Líder de Convoy,Konvoi-Chef,Chef de Convoi,Líder do Comboio
 Triple Threat,Тройная угроза,Triple Amenaza,Dreifachgefahr,Triple Menace,Ameaça Tripla
 "[m]+12[/] Mult if hand contains
@@ -170,6 +210,7 @@ un [g]Trío[/]","[m]+12[/] Mult, wenn die Hand
 einen [g]Drilling[/] enthält","[m]+12[/] Mult si la main contient
 un [g]Brelan[/]","[m]+12[/] Mult se a mão tiver
 uma [g]Trinca[/]"
+Timey-Wimey,Время-шмемя,Timey-Wimey,Zeit-Wirrwarr,Bazar Temporel,Bagunça Temporal
 Drift King,Король дрифта,Rey del Drift,Drift-König,Roi du Drift,Rei do Drift
 Straight Shooter,Меткий стрелок,Tirador Certero,Scharfschütze,Tireur d'Élite,Tiro Certeiro
 "[m]+12[/] Mult if hand contains
@@ -187,6 +228,7 @@ tiene una [g]Escalera[/]","[m]+12[/] Mult, wenn die Hand
 eine [g]Straße[/] enthält","[m]+12[/] Mult si la main
 contient une [g]Suite[/]","[m]+12[/] Mult se a mão
 tiver uma [g]Sequência[/]"
+Shadow Proclamation,Теневая Прокламация,Proclam. Sombras,Schattenedikt,Proclamation Ombre,Proclamação Sombria
 Brand Loyalty,Верность марке,Lealtad de Marca,Markentreue,Fidélité Marque,Fidelidade
 Suit Up,Всё в масть,Mismo Palo,Farbe bekennen,Couleur Pure,Terno e Naipe
 "[m]+10[/] Mult if hand contains
@@ -204,6 +246,7 @@ tiene un [g]Color[/]","[m]+10[/] Mult, wenn die Hand
 einen [g]Flush[/] enthält","[m]+10[/] Mult si la main
 contient une [g]Couleur[/]","[m]+10[/] Mult se a mão
 tiver um [g]Flush[/]"
+Fez,Феска,Fez,Fez,Fez,Fez
 Lightweight,Облегчёнка,Ultraligero,Leichtbau,Poids Plume,Peso Pena
 Minimalist,Минималист,Minimalista,Minimalist,Minimaliste,Minimalista
 "[m]+20[/] Mult if played hand
@@ -220,6 +263,7 @@ tiene [g]3 cartas o menos[/]","[m]+20[/] Mult, wenn die Hand
 [g]3 oder weniger[/] Karten hat","[m]+20[/] Mult si la main jouée
 a [g]3 cartes ou moins[/]","[m]+20[/] Mult se a mão jogada
 tiver [g]3 ou menos[/] cartas"
+River's Diary,Дневник Ривер,Diario de River,Rivers Tagebuch,Journal de River,Diário da River
 Odometer,Одометр,Cuentakilómetros,Tacho,Compteur km,Odômetro
 Card Counter,Счётчик карт,Cuenta Cartas,Kartenzähler,Compteur Cartes,Conta-Cartas
 "Gains [m]+1[/] Mult per hand played
@@ -229,6 +273,7 @@ Card Counter,Счётчик карт,Cuenta Cartas,Kartenzähler,Compteur Cartes
 (Aktuell [m]+{val}[/] Mult)","Gagne [m]+1[/] Mult par main jouée
 (Actuel : [m]+{val}[/] Mult)","Ganha [m]+1[/] Mult por mão
 jogada (Atual: [m]+{val}[/] Mult)"
+Psychic Paper,Психобумага,Papel Psíquico,Telepathiepapier,Papier Psychique,Papel Psíquico
 Chrome Bumper,Хром-бампер,Defensa Cromada,Chrom-Stoßstange,Pare-choc Chromé,Parachoque Cromo
 Royal Guard,Королевский двор,Guardia Real,Königsgarde,Garde Royale,Guarda Real
 "Played face cars (J, Q, K)
@@ -245,6 +290,7 @@ dan [c]+30[/] Fichas al puntuar","Gespielte Bildkarten (J, Q, K)
 geben [c]+30[/] Chips beim Werten","Les figures jouées (J, Q, K)
 donnent [c]+30[/] Jetons au score","Figuras jogadas (J, Q, K)
 dão [c]+30[/] Fichas ao pontuar"
+Police Box,Полицейская будка,Cabina de Policía,Polizeibox,Cabine de Police,Cabine Policial
 Ace Driver,Ас за рулём,Piloto As,Ass-Fahrer,As du Volant,Piloto Ás
 Ace Up the Sleeve,Туз в рукаве,As en la Manga,Ass im Ärmel,As dans la Manche,Ás na Manga
 "Played Aces give [c]+20[/] Chips
@@ -254,6 +300,7 @@ Fichas y [m]+4[/] Mult al puntuar","Gespielte Asse geben [c]+20[/]
 Chips und [m]+4[/] Mult beim Werten","Les As joués donnent [c]+20[/] Jetons
 et [m]+4[/] Mult au score","Ases jogados dão [c]+20[/]
 Fichas e [m]+4[/] Mult ao pontuar"
+Jelly Babies,Мармеладки,Gominolas,Geleebabys,Jelly Babies,Balas de Goma
 Even Gears,Чётные ступени,Marchas Pares,Gerade Gänge,Rapports Pairs,Marchas Pares
 Even Odds,Ставка на чёт,Pares y Nones,Gerade Zahlen,Pairs Chanceux,Números Pares
 "Played 10, 8, 6, 4, 2
@@ -263,6 +310,7 @@ dan [m]+4[/] Mult al puntuar","Gespielte 10, 8, 6, 4, 2
 geben [m]+4[/] Mult beim Werten","Les 10, 8, 6, 4, 2 joués
 donnent [m]+4[/] Mult au score","10, 8, 6, 4, 2 jogados
 dão [m]+4[/] Mult ao pontuar"
+Long Scarf,Длинный шарф,Bufanda Larga,Langer Schal,Longue Écharpe,Cachecol Longo
 Odd Gears,Нечётные ступени,Marchas Impares,Ungerade Gänge,Rapports Impairs,Marchas Ímpares
 Odd One Out,Ставка на нечет,Impar Suelto,Ungerade Zahlen,Impairs Chanceux,Número Ímpar
 "Played A, 9, 7, 5, 3
@@ -272,6 +320,7 @@ dan [c]+31[/] Fichas al puntuar","Gespielte A, 9, 7, 5, 3
 geben [c]+31[/] Chips beim Werten","Les A, 9, 7, 5, 3 joués
 donnent [c]+31[/] Jetons au score","A, 9, 7, 5, 3 jogados
 dão [c]+31[/] Fichas ao pontuar"
+Time War Council,Совет Войны Времени,Consejo de Guerra,Zeitkriegsrat,Guerre du Temps,Conselho da Guerra
 Car Show,Автошоу,Salón del Auto,Autoshow,Salon Auto,Salão do Carro
 Full Table,Полный стол,Mesa Llena,Voller Tisch,Table Pleine,Mesa Cheia
 "[m]+4[/] Mult for each Mod you own
@@ -288,6 +337,14 @@ que tengas (Ahora [m]+{val}[/] Mult)","[m]+4[/] Mult pro Joker im Besitz
 (Aktuell [m]+{val}[/] Mult)","[m]+4[/] Mult par Joker possédé
 (Actuel : [m]+{val}[/] Mult)","[m]+4[/] Mult por Coringa que você
 tem (Atual: [m]+{val}[/] Mult)"
+"[m]+4[/] Mult for each Ally you have
+(Currently [m]+{val}[/] Mult)","Множитель [m]+4[/] за каждого союзника
+(Сейчас: Множитель [m]+{val}[/])","[m]+4[/] Mult por cada Aliado
+que tengas (Ahora [m]+{val}[/] Mult)","[m]+4[/] Mult pro Verbündetem
+(Aktuell [m]+{val}[/] Mult)","[m]+4[/] Mult par Allié possédé
+(Actuel : [m]+{val}[/] Mult)","[m]+4[/] Mult por Aliado que você
+tem (Atual: [m]+{val}[/] Mult)"
+Totter's Lane,Тоттерс-лейн,Totter's Lane,Totter's Lane,Totter's Lane,Totter's Lane
 Scrap Collector,Сборщик лома,Chatarrero,Schrottsammler,Ferrailleur,Sucateiro
 Thin Deck,Тонкая колода,Mazo Fino,Dünnes Deck,Paquet Allégé,Baralho Fino
 "[m]+3[/] Mult for each car below 52
@@ -306,6 +363,7 @@ de 52 en tu mazo (Ahora [m]+{val}[/])","[m]+3[/] Mult pro Karte unter 52
 im Deck (Aktuell [m]+{val}[/])","[m]+3[/] Mult par carte sous 52
 dans ton deck (Actuel : [m]+{val}[/])","[m]+3[/] Mult por carta abaixo de 52
 no baralho (Atual: [m]+{val}[/])"
+Time Loop,Временная петля,Bucle Temporal,Zeitschleife,Boucle Temporelle,Loop Temporal
 Rev Limiter,Отсечка,Limitador,Drehzahlbremse,Limiteur Régime,Corta-giro
 Encore,На бис,Bis,Zugabe,Bis,Bis
 "Retrigger the first scored
@@ -322,6 +380,7 @@ puntuada [g]2[/] veces más","Die erste gewertete Karte
 wird [g]2[/] Mal wiederholt","Redéclenche la première
 carte jouée [g]2[/] fois de plus","Reativa a primeira carta
 pontuada [g]2[/] vezes extras"
+Time Echo,Эхо времени,Eco Temporal,Zeitecho,Écho Temporel,Eco Temporal
 Echo Exhaust,Эхо-выхлоп,Escape Eco,Echo-Auspuff,Échappement Écho,Escape Eco
 Small Fry,Мелюзга,Cartas Bajas,Kleine Fische,Petit Joueur,Peixe Miúdo
 "Retrigger each played
@@ -331,6 +390,7 @@ jugado","Jede gespielte [g]2, 3, 4[/]
 und [g]5[/] wird wiederholt","Redéclenche chaque
 [g]2, 3, 4[/] et [g]5[/] joué","Reativa cada [g]2, 3, 4[/]
 e [g]5[/] jogado"
+First Doctor,Первый Доктор,Primer Doctor,Erster Doktor,Premier Docteur,Primeiro Doutor
 Launch Control,Лаунч-контроль,Control de Salida,Launch Control,Launch Control,Launch Control
 Opening Bet,Первая ставка,Apuesta Inicial,Ersteinsatz,Mise Initiale,Aposta Inicial
 "[x]X2[/] Mult on the [g]first[/]
@@ -340,6 +400,7 @@ mano de cada carrera","[x]X2[/] Mult auf die [g]erste[/]
 Hand jedes Rennens","[x]X2[/] Mult sur la [g]première[/]
 main de chaque course","[x]X2[/] Mult na [g]primeira[/]
 mão de cada corrida"
+Last of the Time Lords,Последний Повелитель,Últ. Señor Tiempo,Letzter Time Lord,Dernier Seigneur,Último Time Lord
 Final Lap,Финальный круг,Última Vuelta,Letzte Runde,Dernier Tour,Volta Final
 Last Call,Последний кон,Última Ronda,Letzter Aufruf,Dernier Appel,Última Rodada
 "[x]X3[/] Mult on the [g]last[/]
@@ -349,6 +410,7 @@ mano de cada carrera","[x]X3[/] Mult auf die [g]letzte[/]
 Hand jedes Rennens","[x]X3[/] Mult sur la [g]dernière[/]
 main de chaque course","[x]X3[/] Mult na [g]última[/]
 mão de cada corrida"
+Don't Blink,Не моргай,No Parpadees,Nicht blinzeln!,Ne Cligne Pas,Não Pisque
 Photo Finish,Фотофиниш,Foto Finish,Fotofinish,Photo Finish,Foto na Chegada
 Portrait,Портрет,Retrato,Porträt,Portrait,Retrato
 "First played face car
@@ -365,8 +427,10 @@ da [x]X2[/] Mult al puntuar","Die erste gespielte Bildkarte
 gibt [x]X2[/] Mult beim Werten","La première figure jouée
 donne [x]X2[/] Mult au score","A primeira figura jogada
 dá [x]X2[/] Mult ao pontuar"
+Bad Wolf,Злой Волк,Lobo Malo,Bad Wolf,Grand Méchant Loup,Lobo Mau
 Supercharger,Компрессор,Sobrealimentador,Kompressor,Compresseur,Compressor
 High Roller,Хайроллер,Gran Apostador,High Roller,Gros Flambeur,Grande Apostador
+The Oncoming Storm,Надвигающийся шторм,Tormenta Inminente,Der nahende Sturm,Tempête Imminente,Tempestade Iminente
 Getaway Driver,Водила-беглец,Piloto de Fuga,Fluchtfahrer,Pilote de Fuite,Piloto de Fuga
 Boss Hunter,Гроза боссов,Cazajefes,Bossjäger,Chasseur de Boss,Caça-Boss
 "Gains [x]X0.25[/] Mult per Boss
@@ -376,6 +440,7 @@ de Jefe ganada (Ahora [x]X{val}[/])","Erhält [x]X0.25[/] Mult pro
 gewonnenem Boss-Rennen (Aktuell [x]X{val}[/])","Gagne [x]X0.25[/] Mult par course
 de Boss gagnée (Actuel : [x]X{val}[/])","Ganha [x]X0.25[/] Mult por
 corrida Boss vencida (Atual: [x]X{val}[/])"
+Bank of Karabraxos,Банк Карабраксоса,Banco Karabraxos,Karabraxos-Bank,Banque Karabraxos,Banco Karabraxos
 Gas Station,Заправка,Gasolinera,Tankstelle,Station-service,Posto
 Allowance,Карманные деньги,Paga Extra,Taschengeld,Argent de Poche,Mesada
 "Earn [$]$4[/] at the end
@@ -385,6 +450,7 @@ de cada carrera","Erhalte [$]$4[/] am Ende
 jedes Rennens","Gagne [$]$4[/] à la fin
 de chaque course","Ganhe [$]$4[/] no fim
 de cada corrida"
+Time Credit,Кредит времени,Crédito Temporal,Zeitkredit,Crédit Temporel,Crédito Temporal
 Street Cred,Уличный респект,Fama Callejera,Straßenruf,Respect Rue,Moral de Rua
 Saver,Копилка,Ahorrador,Sparer,Économe,Poupador
 "Earn [$]$1[/] per unused discard
@@ -394,17 +460,21 @@ al final de cada carrera","Erhalte [$]$1[/] pro ungenutztem
 Ablegen am Rennende","Gagne [$]$1[/] par défausse inutilisée
 à la fin de chaque course","Ganhe [$]$1[/] por descarte não
 usado no fim de cada corrida"
+Extra Regeneration,Лишняя регенерация,Regeneración Extra,Extra-Regeneration,Régénération Bonus,Regeneração Extra
 Pit Crew,Пит-команда,Equipo de Boxes,Boxencrew,Équipe Stand,Equipe de Box
 Extra Hand,Запасная рука,Mano Extra,Extrahand,Main Bonus,Mão Extra
 [c]+1[/] hand each race,[c]+1[/] рука в каждой гонке,[c]+1[/] mano cada carrera,[c]+1[/] Hand pro Rennen,[c]+1[/] main par course,[c]+1[/] mão por corrida
+Reverse the Polarity,Сменить полярность,Invertir Polaridad,Polarität umkehren,Inverser Polarité,Inverter Polaridade
 Tow Truck,Эвакуатор,Grúa,Abschleppwagen,Dépanneuse,Guincho
 Second Chance,Второй шанс,Revancha,Zweite Chance,Seconde Chance,Segunda Chance
 [m]+1[/] discard each race,[m]+1[/] сброс в каждой гонке,[m]+1[/] descarte cada carrera,[m]+1[/] Ablegen pro Rennen,[m]+1[/] défausse par course,[m]+1[/] descarte por corrida
+Bigger on the Inside,Внутри больше,Más Grande Dentro,Innen größer,Plus Grand Dedans,Maior por Dentro
 Big Trunk,Большой багажник,Maletero Grande,Kofferraum XL,Grand Coffre,Porta-malas
 Big Pockets,Глубокие карманы,Bolsillos Hondos,Tiefe Taschen,Grandes Poches,Bolsos Fundos
 [g]+1[/] hand size,[g]+1[/] к размеру руки,[g]+1[/] tamaño de mano,[g]+1[/] Handgröße,[g]+1[/] taille de main,[g]+1[/] tamanho da mão
 Respray: %s,Покраска: %s,Repintado: %s,Lack: %s,Peinture: %s,Pintura: %s
 Suit Swap: %s,Смена масти: %s,Cambio: %s,Farbwechsel: %s,Changement: %s,Troca de Naipe: %s
+Rewrite: %s,Переписать: %s,Reescritura: %s,Umschreiben: %s,Réécriture : %s,Reescrever: %s
 "Repaint up to 3 selected
 cars as [g]%s[/]","Перекрашивает до 3 выбранных
 машин в [g]%s[/]","Repinta hasta 3 coches
@@ -419,6 +489,20 @@ elegidas a [g]%s[/]","Wandle bis zu 3 gewählte
 Karten in [g]%s[/] um","Change 3 cartes choisies
 maximum en [g]%s[/]","Troca até 3 cartas
 selecionadas para [g]%s[/]"
+Sonic Upgrade,Звуковой апгрейд,Mejora Sónica,Schall-Upgrade,Amélio Sonique,Upgrade Sônico
+"Turn up to 2 selected cards
+into [g]Sonic[/] cards
+([c]+30[/] Chips when scored)","Делает до 2 выбранных карт
+картами [g]Звук[/]
+(Фишки [c]+30[/] при подсчёте)","Convierte hasta 2 cartas
+elegidas en cartas [g]Sónico[/]
+([c]+30[/] Fichas al puntuar)","Wandle bis zu 2 gewählte
+Karten in [g]Schall[/]-Karten um
+([c]+30[/] Chips beim Werten)","Change 2 cartes choisies max
+en cartes [g]Sonique[/]
+([c]+30[/] Jetons au score)","Transforma até 2 cartas
+selecionadas em [g]Sônico[/]
+([c]+30[/] Fichas ao pontuar)"
 Nitro Kit,Комплект нитро,Kit Nitro,Nitro-Set,Kit Nitro,Kit Nitro
 Bonus Charm,Амулет бонуса,Amuleto Bono,Bonus-Talisman,Charme Bonus,Truque Bônus
 "Install [g]Nitro[/] on up to
@@ -447,6 +531,20 @@ en cartes [g]Bonus[/]
 ([c]+30[/] Jetons au score)","Transforma até 2 cartas
 selecionadas em [g]Bônus[/]
 ([c]+30[/] Fichas ao pontuar)"
+Regeneration Energy,Энергия регенерации,Energía Regen.,Regenerationskraft,Énergie Régén.,Energia Regenerativa
+"Turn up to 2 selected cards
+into [g]Energy[/] cards
+([m]+4[/] Mult when scored)","Делает до 2 выбранных карт
+картами [g]Энергия[/]
+(Множитель [m]+4[/] при подсчёте)","Convierte hasta 2 cartas
+elegidas en cartas [g]Energía[/]
+([m]+4[/] Mult al puntuar)","Wandle bis zu 2 gewählte
+Karten in [g]Energie[/]-Karten um
+([m]+4[/] Mult beim Werten)","Change 2 cartes choisies max
+en cartes [g]Énergie[/]
+([m]+4[/] Mult au score)","Transforma até 2 cartas
+selecionadas em [g]Energia[/]
+([m]+4[/] Mult ao pontuar)"
 Turbo Kit,Комплект турбо,Kit Turbo,Turbo-Set,Kit Turbo,Kit Turbo
 Power Charm,Амулет силы,Amuleto Poder,Power-Talisman,Charme Puissance,Truque Poder
 "Install [g]Turbo[/] on up to
@@ -475,6 +573,21 @@ en cartes [g]Puissance[/]
 ([m]+4[/] Mult au score)","Transforma até 2 cartas
 selecionadas em [g]Poder[/]
 ([m]+4[/] Mult ao pontuar)"
+Paradox Machine,Машина парадоксов,Máquina Paradoja,Paradoxmaschine,Machine à Paradoxe,Máquina do Paradoxo
+"Turn 1 selected card
+into a [g]Paradox[/] card
+([x]X2[/] Mult, 1 in 4 breaks)","Делает 1 выбранную карту
+картой [g]Парадокс[/]
+(Множитель [x]X2[/], риск 1 из 4)","Convierte 1 carta elegida
+en carta [g]Paradoja[/]
+([x]X2[/] Mult, 1 de 4 se rompe)","Wandle 1 gewählte Karte
+in eine [g]Paradox[/]-Karte um
+([x]X2[/] Mult, 1 zu 4 Bruch)","Change 1 carte choisie
+en carte [g]Paradoxe[/]
+([x]X2[/] Mult, 1 chance
+sur 4 de casser)","Transforma 1 carta
+selecionada em [g]Paradoxo[/]
+([x]X2[/] Mult, 1 em 4 quebra)"
 Carbon Kit,Комплект карбона,Kit de Carbono,Carbon-Set,Kit Carbone,Kit Carbono
 Glass Charm,Амулет стекла,Amuleto Cristal,Glas-Talisman,Charme Verre,Truque Vidro
 "Install a [g]Carbon[/] body on
@@ -503,6 +616,20 @@ en carte [g]Verre[/]
 ([x]X2[/] Mult, 1 chance sur 4 de casser)","Transforma 1 carta
 selecionada em [g]Vidro[/]
 ([x]X2[/] Mult, 1 em 4 quebra)"
+Bag of Jelly Babies,Пакет мармеладок,Bolsa de Gominolas,Beutel Geleebabys,Sac de Jelly Babies,Saco de Balas
+"Turn up to 2 selected cards
+into [g]Jelly Baby[/] cards
+([$]+$2[/] when scored)","Делает до 2 выбранных карт
+картами [g]Мармеладка[/]
+([$]+$2[/] при подсчёте)","Convierte hasta 2 cartas
+elegidas en cartas [g]Gominola[/]
+([$]+$2[/] al puntuar)","Wandle bis zu 2 gewählte
+Karten in [g]Geleebaby[/]-Karten um
+([$]+$2[/] beim Werten)","Change 2 cartes choisies max
+en cartes [g]Jelly Baby[/]
+([$]+$2[/] au score)","Transforma até 2 cartas
+selecionadas em [g]Bala de Goma[/]
+([$]+$2[/] ao pontuar)"
 Gold Charm,Амулет золота,Amuleto Oro,Gold-Talisman,Charme Or,Truque Ouro
 "Install [g]Gold Rims[/] on up to
 2 selected cars
@@ -530,6 +657,7 @@ en cartes [g]Or[/]
 ([$]+$2[/] au score)","Transforma até 2 cartas
 selecionadas em [g]Ouro[/]
 ([$]+$2[/] ao pontuar)"
+Exterminate,Уничтожение,Exterminar,Exterminieren,Extermination,Exterminar
 Scrapyard,Свалка,Desguace,Schrottplatz,Casse Auto,Ferro-velho
 Shredder,Шредер,Trituradora,Reißwolf,Broyeur,Triturador
 "Scrap up to 2 selected cars
@@ -546,6 +674,7 @@ selecionados (saem da garagem)"
 Karten (raus aus dem Deck)","Détruit 2 cartes choisies max
 (retirées de ton deck)","Destrói até 2 cartas
 selecionadas (saem do baralho)"
+Flesh Copy,Копия из плоти,Copia Carnal,Fleischkopie,Copie de Chair,Cópia de Carne
 Clone Shop,Клон-цех,Taller de Clones,Klon-Werkstatt,Atelier Clone,Loja de Clones
 Mirror,Зеркало,Espejo,Spiegel,Miroir,Espelho
 "Create a copy of
@@ -562,6 +691,7 @@ Mirror,Зеркало,Espejo,Spiegel,Miroir,Espelho
 1 gewählten Karte","Crée une copie de
 1 carte choisie","Cria uma cópia de
 1 carta selecionada"
+Regenerate,Регенерация,Regenerar,Regeneration,Régénérer,Regenerar
 Engine Swap,Свап мотора,Cambio de Motor,Motortausch,Swap Moteur,Troca de Motor
 Promotion,Повышение,Ascenso,Beförderung,Promotion,Promoção
 "Increase the rank of up to
@@ -578,6 +708,7 @@ Promotion,Повышение,Ascenso,Beförderung,Promotion,Promoção
 2 gewählten Karten um 1","Augmente de 1 le rang de
 2 cartes choisies maximum","Aumenta em 1 o valor de até
 2 cartas selecionadas"
+Time Heist,Ограбление во времени,Atraco Temporal,Zeitraub,Braquage Temporel,Roubo no Tempo
 Cash Grab,Сорвать куш,Billetazo,Geldregen,Coup de Cash,Grana em Dobro
 "Double your money
 (max [$]$20[/])","Удваивает твои деньги
@@ -586,6 +717,7 @@ Cash Grab,Сорвать куш,Billetazo,Geldregen,Coup de Cash,Grana em Dobro
 (max. [$]$20[/])","Double ton argent
 (max [$]$20[/])","Dobra seu dinheiro
 (máx. [$]$20[/])"
+Dimension Discount,Скидка измерений,Rebaja Dimensional,Dimensionsrabatt,Remise Dimension,Desconto Dimensional
 Dealer Discount,Скидка дилера,Descuento del Concesionario,Händlerrabatt,Remise Concession,Desconto da Concessionária
 Clearance Sale,Распродажа,Liquidación,Räumungsverkauf,Liquidation,Liquidação
 "Everything in the shop
@@ -595,22 +727,30 @@ cuesta un [g]25%[/] menos","Alles im Shop
 kostet [g]25%[/] weniger","Tout dans la boutique
 coûte [g]25%[/] de moins","Tudo na loja
 custa [g]25%[/] menos"
+Rewind,Перемотка,Rebobinar,Zurückspulen,Rembobinage,Rebobinar
 Car Wash Card,Абонемент на мойку,Tarjeta de Lavadero,Waschanlagen-Karte,Carte Lavage,Cartão Lava-Rápido
 Reroll Surplus,Избыток обновлений,Excedente de Renovación,Mischüberschuss,Relance Surplus,Rerrolagem Barata
 Rerolls cost [$]$2[/] less,Обновление дешевле на [$]$2[/],Renovar cuesta [$]$2[/] menos,"Neu mischen kostet
 [$]$2[/] weniger",Les relances coûtent [$]$2[/] de moins,Rerrolagens custam [$]$2[/] a menos
+Inside Pocket,Внутренний карман,Bolsillo Interior,Innentasche,Poche Intérieure,Bolso Interno
+[g]+1[/] pocket slot,[g]+1[/] слот кармана,[g]+1[/] hueco de bolsillo,[g]+1[/] Taschen-Platz,[g]+1[/] emplacement de poche,[g]+1[/] slot de Bolso
 Glovebox,Бардачок,Guantera,Handschuhfach,Boîte à gants,Porta-luvas
 Crystal Ball,Хрустальный шар,Bola de Cristal,Kristallkugel,Boule de cristal,Bola de Cristal
 [g]+1[/] Garage slot,[g]+1[/] слот гаража,[g]+1[/] hueco de Garaje,[g]+1[/] Garagen-Platz,[g]+1[/] emplacement de Garage,[g]+1[/] slot de Garagem
 [g]+1[/] item slot,[g]+1[/] слот предмета,[g]+1[/] hueco de objeto,[g]+1[/] Item-Platz,[g]+1[/] emplacement d'objet,[g]+1[/] slot de Item
+Spare Room,Запасная комната,Habitación Extra,Gästezimmer,Pièce en Plus,Quarto Extra
 Roof Rack,Багажник на крышу,Baca,Dachträger,Barres de toit,Bagageiro
 Antimatter,Антиматерия,Antimateria,Antimaterie,Antimatière,Antimatéria
+Second Heart,Второе сердце,Segundo Corazón,Zweites Herz,Second Cœur,Segundo Coração
 Spare Fuel Tank,Запасной бак,Depósito de Reserva,Ersatztank,Jerrican de secours,Tanque Reserva
 Grabber,Хват,Agarrador,Greifer,Grappin,Garra
+Timeline Fork,Развилка времени,Línea Bifurcada,Zeitlinien-Gabel,Fourche Temporelle,Bifurcação Temporal
 Extra Tires,Запасные шины,Neumáticos Extra,Zusatzreifen,Pneus Neufs,Pneus Extras
 Wasteful,Расточительство,Derrochador,Verschwender,Gaspilleur,Esbanjador
+Wardrobe,Гардероб,Guardarropa,Garderobe,Garde-robe,Guarda-Roupa
 Bigger Trailer,Прицеп побольше,Remolque Más Grande,Größerer Anhänger,Grande Remorque,Trailer Maior
 Paint Brush,Кисть,Pincel,Pinsel,Pinceau,Pincel
+Compound Time,Сложное время,Tiempo Compuesto,Zeitzinseszins,Temps Composé,Tempo Composto
 Savings Account,Сберегательный счёт,Cuenta de Ahorros,Sparkonto,Compte Épargne,Conta Poupança
 Seed Money,Стартовый капитал,Capital Inicial,Startkapital,Capital de départ,Capital Inicial
 "Interest cap rises
@@ -620,6 +760,14 @@ sube a [$]$10[/]","Zinsobergrenze steigt
 auf [$]$10[/]","Le plafond des intérêts
 passe à [$]$10[/]","O teto dos juros sobe
 para [$]$10[/]"
+Vortex Manipulator,Манипулятор вихря,Manip. de Vórtice,Vortex-Manipulator,Manipulateur Vortex,Manipulador Vórtice
+"Ally editions appear
+[g]twice[/] as often","Особые издания союзников
+встречаются [g]вдвое[/] чаще","Las ediciones de Aliados salen
+[g]el doble[/] de a menudo","Verbündeten-Editionen
+erscheinen [g]doppelt[/] so oft","Les éditions d'Alliés apparaissent
+[g]deux fois[/] plus souvent","Edições de Aliados surgem
+[g]o dobro[/] das vezes"
 Detailing Studio,Детейлинг-студия,Estudio de Detallado,Aufbereitungsstudio,Atelier Esthétique,Estúdio de Estética
 Hone,Заточка,Pulido,Feinschliff,Affûtage,Afinar
 "Mod editions appear
@@ -636,6 +784,14 @@ Hone,Заточка,Pulido,Feinschliff,Affûtage,Afinar
 [g]doppelt[/] so oft","Les éditions de Jokers apparaissent
 [g]deux fois[/] plus souvent","Edições de Coringas aparecem
 [g]2x[/] mais vezes"
+Star Chart,Звёздная карта,Mapa Estelar,Sternenkarte,Carte Stellaire,Mapa Estelar
+"Adventures appear
+more often in the shop","Вылазки чаще
+бывают в магазине","Las Aventuras salen
+más a menudo en la tienda","Abenteuer erscheinen
+öfter im Shop","Les Aventures apparaissent
+plus souvent dans la boutique","Aventuras aparecem
+mais na loja"
 Dyno Contract,Контракт диностенда,Contrato Dyno,Dyno-Vertrag,Contrat Dyno,Contrato Dyno
 Upgrade Dealer,Торговец прокачками,Vendedor de Mejoras,Upgrade-Händler,Revendeur d'Améliorations,Vendedor de Upgrades
 "Dyno Tunes appear
@@ -652,6 +808,14 @@ más a menudo en la tienda","Upgrades erscheinen
 öfter im Shop","Les Améliorations apparaissent
 plus souvent dans la boutique","Upgrades aparecem
 mais vezes na loja"
+Gadget Belt,Пояс гаджетов,Cinturón Gadgets,Gadget-Gürtel,Ceinture à Gadgets,Cinto de Gadgets
+"Gadgets appear
+more often in the shop","Гаджеты чаще
+бывают в магазине","Los Gadgets salen
+más a menudo en la tienda","Gadgets erscheinen
+öfter im Shop","Les Gadgets apparaissent
+plus souvent dans la boutique","Gadgets aparecem
+mais na loja"
 Workshop Contract,Контракт мастерской,Contrato de Taller,Werkstatt-Vertrag,Contrat Atelier,Contrato da Oficina
 Trick Dealer,Торговец фокусами,Vendedor de Trucos,Trick-Händler,Marchand d'Astuces,Vendedor de Truques
 "Workshop cards appear
@@ -668,6 +832,7 @@ más a menudo en la tienda","Trick-Karten erscheinen
 öfter im Shop","Les cartes Astuce apparaissent
 plus souvent dans la boutique","Cartas de Truque aparecem
 mais vezes na loja"
+Timeline Pack,Пак времени,Pack Línea Temporal,Zeitlinien-Pack,Pack Temporel,Pacote Temporal
 Garage Pack,Гаражный пак,Pack Garaje,Garagen-Pack,Pack Garage,Pacote Garagem
 Card Pack,Пак карт,Pack de Cartas,Karten-Pack,Pack de Cartes,Pacote de Cartas
 "Choose [g]1[/] of [g]3[/] cars
@@ -684,6 +849,14 @@ para tu mazo","Wähle [g]1[/] von [g]3[/] Karten
 für dein Deck","Choisis [g]1[/] carte sur [g]3[/]
 pour ton deck","Escolha [g]1[/] de [g]3[/] cartas
 para o baralho"
+Adventure Pack,Пак вылазок,Pack Aventura,Abenteuer-Pack,Pack Aventure,Pacote de Aventura
+"Choose [g]1[/] of [g]3[/] Adventures
+and level up that hand","Выбери [g]1[/] из [g]3[/] вылазок
+и улучши эту комбинацию","Elige [g]1[/] de [g]3[/] Aventuras
+y sube esa mano","Wähle [g]1[/] von [g]3[/] Abenteuern
+und level die Hand","Choisis [g]1[/] Aventure sur [g]3[/]
+et monte cette main","Escolha [g]1[/] de [g]3[/] Aventuras
+e suba essa mão de nível"
 Dyno Pack,Дино-пак,Pack Dyno,Dyno-Pack,Pack Dyno,Pacote Dyno
 Upgrade Pack,Пак прокачек,Pack de Mejoras,Upgrade-Pack,Pack Amélio,Pacote Upgrade
 "Choose [g]1[/] of [g]3[/] Dyno Tunes
@@ -700,6 +873,14 @@ y sube esa mano","Wähle [g]1[/] von [g]3[/] Upgrades
 und level die Hand","Choisis [g]1[/] Amélioration sur [g]3[/]
 et monte cette main","Escolha [g]1[/] de [g]3[/] Upgrades
 e suba essa mão"
+Gadget Pack,Пак гаджетов,Pack Gadget,Gadget-Pack,Pack Gadget,Pacote de Gadgets
+"Choose [g]1[/] of [g]3[/] Gadgets
+for your pockets","Выбери [g]1[/] из [g]3[/] гаджетов
+в свои карманы","Elige [g]1[/] de [g]3[/] Gadgets
+para tus bolsillos","Wähle [g]1[/] von [g]3[/] Gadgets
+für deine Taschen","Choisis [g]1[/] Gadget sur [g]3[/]
+pour tes poches","Escolha [g]1[/] de [g]3[/] Gadgets
+para seus Bolsos"
 Workshop Pack,Пак мастерской,Pack Taller,Werkstatt-Pack,Pack Atelier,Pacote Oficina
 Trick Pack,Пак фокусов,Pack de Trucos,Trick-Pack,Pack Astuce,Pacote Truque
 "Choose [g]1[/] of [g]3[/] Workshop cards
@@ -716,6 +897,8 @@ para tus huecos de objeto","Wähle [g]1[/] von [g]3[/] Trick-
 Karten für die Item-Plätze","Choisis [g]1[/] carte Astuce sur [g]3[/]
 pour tes objets","Escolha [g]1[/] de [g]3[/] cartas de
 Truque para os Itens"
+Allies Pack,Пак союзников,Pack de Aliados,Verbündeten-Pack,Pack d'Alliés,Pacote de Aliados
+Choose [g]1[/] of [g]2[/] Allies,Выбери [g]1[/] из [g]2[/] союзников,Elige [g]1[/] de [g]2[/] Aliados,Wähle [g]1[/] von [g]2[/] Verbündeten,Choisis [g]1[/] Allié sur [g]2[/],Escolha [g]1[/] de [g]2[/] Aliados
 Mod Pack,Пак модов,Pack de Mods,Mod-Pack,Pack de Mods,Pacote de Mods
 Joker Pack,Пак джокеров,Pack de Jokers,Joker-Pack,Pack de Jokers,Pacote Coringa
 Choose [g]1[/] of [g]2[/] Mods,Выбери [g]1[/] из [g]2[/] модов,Elige [g]1[/] de [g]2[/] Mods,Wähle [g]1[/] von [g]2[/] Mods,Choisis [g]1[/] Mod sur [g]2[/],Escolha [g]1[/] de [g]2[/] Mods
@@ -728,12 +911,16 @@ están debilitadas",Alle %s-Karten sind geschwächt,Toutes les cartes %s sont af
 são enfraquecidas"
 All %s are debuffed,Все %s ослаблены,Debilitados: todos los %s,Alle %s sind geschwächt,Tous les %s sont affaiblis,"Todo o naipe de %s
 é enfraquecido"
+Grounded TARDIS,Застрявшая ТАРДИС,TARDIS Varada,TARDIS am Boden,TARDIS Immobilisé,TARDIS Aterrada
 Emission Zone,Экозона,Zona Eco,Umweltzone,Zone Anti-Émission,Zona de Emissões
 Heartbreak Hill,Червонный холм,Colina Rompecorazones,Herzschmerz,Cœur Brisé,Coração Partido
+Dalek Ceasefire,Перемирие с далеками,Tregua Dalek,Dalek-Waffenruhe,Cessez-le-feu Dalek,Cessar-Fogo Dalek
 Import Tax,Пошлина,Aduana,Importzoll,Taxe Import,Taxa de Importação
 Diamond Lane,Бубновая полоса,Carril Diamante,Karo-Spur,Mine de Carreaux,Mina de Diamantes
+Cyber Shutdown,Киберотключение,Apagón Cyber,Cyber-Abschaltung,Arrêt Cyber,Desligamento Cyber
 Speed Camera,Радар,Radar,Blitzer,Radar,Radar
 Spade Bend,Пиковый поворот,Curva de Picas,Pik-Kurve,Fosse de Piques,Cova das Espadas
+Gallifrey Falls,Падение Галлифрея,Caída de Gallifrey,Gallifreys Fall,Chute de Gallifrey,Queda de Gallifrey
 Paved Only,Только асфальт,Solo Asfalto,Nur Asphalt,Route Goudronnée,Só Asfalto
 Club Corner,Трефовый угол,Esquina Trébol,Kreuz-Ecke,Trèfle Maudit,Esquina do Clube
 Roadblock,Блокпост,Bloqueo,Straßensperre,Barrage,Bloqueio
@@ -814,8 +1001,10 @@ Upgrade your ride,Прокачай тачку,Mejora tu bólido,Tune deine Kiste
 Cars instead of cards,Тачки вместо карт,Coches en vez de cartas,Autos statt Karten,"Des voitures, pas des cartes",Carros no lugar de cartas
 Mods,Моды,Mods,Mods,Mods,Mods
 Jokers,Джокеры,Jokers,Joker,Jokers,Coringas
+Allies,Союзники,Aliados,Verbündete,Alliés,Aliados
 Garage,Гараж,Garaje,Garage,Garage,Garagem
 Items,Предметы,Objetos,Items,Objets,Itens
+Pockets,Карманы,Bolsillos,Taschen,Poches,Bolsos
 lvl.,ур.,nv.,Stf.,niv.,nív.
 Sell,Продать,Vender,Verkaufen,Vendre,Vender
 Use,Применить,Usar,Nutzen,Utiliser,Usar
@@ -842,6 +1031,7 @@ nem efeitos nesta corrida"
 Sells for,Продаётся за,Se vende por,Verkauf für,Vendu pour,Vende por
 Dyno: %s,Диностенд: %s,Dyno: %s,Dyno: %s,Dyno : %s,Dyno: %s
 Upgrade: %s,Прокачка: %s,Mejora: %s,Upgrade: %s,Amélioration : %s,Upgrade: %s
+Adventure: %s,Вылазка: %s,Aventura: %s,Abenteuer: %s,Aventure : %s,Aventura: %s
 "Level up [g]%s[/]
 [c]+%d[/] Chips, [m]+%d[/] Mult","Прокачка [g]%s[/]
 Фишки [c]+%d[/], Множитель [m]+%d[/]","Sube de nivel [g]%s[/]
@@ -898,17 +1088,22 @@ PIT STOP,ПИТ-СТОП,PIT STOP,BOXENSTOPP,PIT STOP,PIT STOP
 Next Race,На старт,Próx. Carrera,Nächstes Rennen,Course suivante,Próx. Corrida
 MODS,МОДЫ,MODS,MODS,MODS,MODS
 JOKERS,ДЖОКЕРЫ,JOKERS,JOKER,JOKERS,CORINGAS
+ALLIES,СОЮЗНИКИ,ALIADOS,VERBÜND.,ALLIÉS,ALIADOS
 GARAGE,ГАРАЖ,GARAJE,GARAGE,GARAGE,GARAGEM
 ITEMS,ПРЕДМЕТЫ,OBJETOS,ITEMS,OBJETS,ITENS
+POCKETS,КАРМАНЫ,BOLSILLO,TASCHEN,POCHES,BOLSOS
 BOOSTER PACKS,БУСТЕР-ПАКИ,SOBRES,BOOSTER-PACKS,BOOSTERS,PACOTES
 SPONSOR,СПОНСОР,PATROC.,SPONSOR,SPONSOR,PATROCÍNIO
 VOUCHER,ВАУЧЕР,CUPÓN,GUTSCHEIN,BON,VOUCHER
+FAVOUR,УСЛУГА,FAVOR,GEFALLEN,FAVEUR,FAVOR
 Reroll,Обновить,Renovar,Neu mischen,Relancer,Rerrolar
 Not enough cash!,Не хватает денег!,¡No hay dinero suficiente!,Zu wenig Cash!,Pas assez de cash !,Grana insuficiente!
 Mod slots are full!,Слоты модов заняты!,¡No quedan huecos de Mod!,Mod-Plätze voll!,Emplacements de Mods pleins !,Slots de Mods cheios!
 Joker slots are full!,Слоты джокеров заняты!,¡No quedan huecos de Joker!,Joker-Plätze voll!,Emplacements de Jokers pleins !,Slots de Coringas cheios!
+Ally slots are full!,Слоты союзников заняты!,¡No quedan huecos de Aliado!,Verbündeten-Plätze voll!,Emplacements d'Alliés pleins !,Slots de Aliados cheios!
 Garage is full!,Гараж полон!,¡Garaje lleno!,Garage ist voll!,Garage plein !,Garagem cheia!
 Item slots are full!,Слоты предметов заняты!,¡No quedan huecos de objeto!,Item-Plätze voll!,Emplacements d'objets pleins !,Slots de Itens cheios!
+Your pockets are full!,Карманы полны!,¡Tus bolsillos están llenos!,Deine Taschen sind voll!,Tes poches sont pleines !,Seus bolsos estão cheios!
 Use it during a race,Используй во время гонки,Úsalo durante una carrera,Im Rennen nutzen,À utiliser en course,Use durante uma corrida
 Select cars: %s,Выбери машины: %s,Elige coches: %s,Wähle Autos: %s,Choisis des voitures : %s,Selecione carros: %s
 Select cards: %s,Выбери карты: %s,Elige cartas: %s,Wähle Karten: %s,Choisis des cartes : %s,Selecione cartas: %s
@@ -928,6 +1123,7 @@ Show FPS,Показывать FPS,Mostrar FPS,FPS anzeigen,Afficher les FPS,Most
 Card art,Рисунок карт,Arte de cartas,Kartenmotiv,Art des cartes,Arte das cartas
 Cars,Машины,Coches,Autos,Voitures,Carros
 Classic,Классика,Clásico,Klassisch,Classique,Clássico
+Doctor Who,Доктор Кто,Doctor Who,Doctor Who,Doctor Who,Doctor Who
 Suits,Масти,Palos,Kartenfarben,Couleurs,Naipes
 Car brands,Классы машин,Marcas de coches,Automarken,Marques auto,Marcas de carros
 Card back,Рубашка,Dorso de carta,Kartenrücken,Dos des cartes,Verso da carta
@@ -955,6 +1151,7 @@ Garage cards,Карты гаража,Cartas del Garaje,Garagenkarten,Cartes Gara
 Packs,Паки,Sobres,Packs,Packs,Pacotes
 Sponsors,Спонсоры,Patrocinadores,Sponsoren,Sponsors,Patrocínios
 Vouchers,Ваучеры,Cupones,Gutscheine,Bons,Vouchers
+Favours,Услуги,Favores,Gefallen,Faveurs,Favores
 Bosses,Боссы,Jefes,Bosse,Boss,Chefes
 Poker hands,Комбинации,Manos,Pokerhände,Mains,Mãos
 Card backs,Рубашки,Reversos,Rückseiten,Dos de carte,Versos
@@ -964,10 +1161,13 @@ Editions,Издания,Ediciones,Editionen,Éditions,Edições
 Chance: %s%%,Шанс: %s%%,Probabilidad: %s%%,Chance: %s%%,Chance : %s%%,Chance: %s%%
 DYNO TUNE,ДИНОСТЕНД,AFINACIÓN DYNO,DYNO-TUNE,TUNE DYNO,DYNO TUNE
 UPGRADE,ПРОКАЧКА,MEJORA,UPGRADE,AMÉLIO.,UPGRADE
+ADVENTURE,ВЫЛАЗКА,AVENTURA,ABENT.,AVENTURE,AVENTURA
 WORKSHOP,МАСТЕРСКАЯ,TALLER,WERKSTATT,ATELIER,OFICINA
 TRICK,ФОКУС,TRUCO,TRICK,ASTUCE,TRUQUE
+GADGET,ГАДЖЕТ,GADGET,GADGET,GADGET,GADGET
 Sponsors give a permanent bonus for the whole run. The Pit Stop offers one each ante.,Спонсоры дают постоянный бонус до конца забега. Пит-стоп предлагает одного в каждом анте.,Los Patrocinadores dan un bono permanente durante toda la partida. El Pit Stop ofrece uno en cada Ante.,Sponsoren geben einen dauerhaften Bonus für den ganzen Run. Der Boxenstopp bietet jede Ante einen an.,Les Sponsors donnent un bonus permanent pour toute la partie. Le Pit Stop en propose un à chaque ante.,Patrocínios dão um bônus permanente até o fim da run. O Pit Stop oferece um por fase.
 Vouchers give a permanent bonus for the whole run. The Pit Stop offers one each ante.,Ваучеры дают постоянный бонус до конца забега. Пит-стоп предлагает один в каждом анте.,Los Cupones dan un bono permanente durante toda la partida. El Pit Stop ofrece uno en cada Ante.,Gutscheine geben einen dauerhaften Bonus für den ganzen Run. Der Boxenstopp bietet jede Ante einen an.,Les Bons donnent un bonus permanent pour toute la partie. Le Pit Stop en propose un à chaque ante.,Vouchers dão um bônus permanente até o fim da run. O Pit Stop oferece um por fase.
+Favours give a permanent bonus for the whole run. The Pit Stop offers one each ante.,Услуги дают постоянный бонус до конца забега. Пит-стоп предлагает одну в каждом анте.,Los Favores dan un bono permanente durante toda la partida. El Pit Stop ofrece uno en cada Ante.,Gefallen geben einen dauerhaften Bonus für den ganzen Run. Der Boxenstopp bietet jede Ante einen an.,Les Faveurs donnent un bonus permanent pour toute la partie. Le Pit Stop en propose une à chaque ante.,Favores dão um bônus permanente durante toda a partida. O Pit Stop oferece um a cada Fase.
 Owned,Куплено,Adquirido,Im Besitz,Possédé,Adquirido
 Final race,Финальная гонка,Carrera final,Finalrennen,Course finale,Corrida final
 From ante %d,С анте %d,Desde ante %d,Ab Ante %d,Dès ante %d,A partir de fase %d
@@ -988,6 +1188,7 @@ Discards used,Использовано сбросов,Descartes usados,Ablagen g
 Money earned,Заработано денег,Dinero ganado,Geld verdient,Argent gagné,Dinheiro ganho
 Mods bought,Куплено модов,Mods comprados,Mods gekauft,Mods achetés,Mods comprados
 Jokers bought,Куплено джокеров,Jokers comprados,Joker gekauft,Jokers achetés,Coringas comprados
+Allies recruited,Нанято союзников,Aliados reclutados,Verbündete rekrutiert,Alliés recrutés,Aliados recrutados
 Packs opened,Открыто паков,Sobres abiertos,Packs geöffnet,Packs ouverts,Pacotes abertos
 Favorite hand,Любимая комбинация,Mano favorita,Lieblingshand,Main préférée,Mão favorita
 Press again to reset,Нажми ещё раз для сброса,Pulsa otra vez,Nochmal drücken zum Zurücksetzen,Rappuie pour réinitialiser,Clique de novo p/ zerar
@@ -1003,6 +1204,7 @@ Your deck has [color=#ffd23f]52 cards[/color]: 4 suits (%s) x 13 ranks.,В тв�
 Select up to 5 cars and [color=#2f8cff]Play[/color] them as a poker hand.,Выбери до 5 машин и [color=#2f8cff]сыграй[/color] их как покерную комбинацию.,Elige hasta 5 coches y [color=#2f8cff]Juégalos[/color] como mano de póker.,Wähle bis zu 5 Autos und [color=#2f8cff]spiele[/color] sie als Pokerhand.,Choisis jusqu'à 5 voitures et [color=#2f8cff]Joue-les[/color] comme une main de poker.,Selecione até 5 carros e [color=#2f8cff]Jogue[/color] como uma mão de pôquer.
 Select up to 5 cards and [color=#2f8cff]Play[/color] them as a poker hand.,Выбери до 5 карт и [color=#2f8cff]сыграй[/color] их как покерную комбинацию.,Elige hasta 5 cartas y [color=#2f8cff]Juégalas[/color] como mano de póker.,Wähle bis zu 5 Karten und [color=#2f8cff]spiele[/color] sie als Pokerhand.,Choisis jusqu'à 5 cartes et [color=#2f8cff]Joue-les[/color] comme une main de poker.,Selecione até 5 cartas e [color=#2f8cff]Jogue[/color] como uma mão de pôquer.
 "A Tandem is a Pair, a Gear Shift is a Straight, a Same Garage is a Flush, and so on.","Тандем - это Пара, Смена передач - Стрит, Один гараж - Флеш и так далее.","Un Tándem es una Pareja, un Cambio de Marcha es una Escalera, un Mismo Garaje es un Color, y así.","Ein Tandem ist ein Paar, ein Gangwechsel eine Straße, eine Gleiche Garage ein Flush usw.","Un Tandem est une Paire, un Passage de vitesse est une Suite, un Même Garage est une Couleur, etc.","Um Tandem é um Par, uma Troca de Marcha é uma Sequência, uma Mesma Garagem é um Flush, e por aí vai."
+"Companions are a Pair, a Timeline is a Straight, a Home Planet is a Flush, and so on.","Спутники - это Пара, Линия времени - Стрит, Родная планета - Флеш и так далее.","Los Acompañantes son una Pareja, una Línea Temporal es una Escalera, un Planeta Natal es un Color, y así.","Begleiter sind ein Paar, eine Zeitlinie ist eine Straße, ein Heimatplanet ist ein Flush usw.","Des Compagnons sont une Paire, une Ligne Temporelle est une Suite, une Planète Natale est une Couleur, etc.","Acompanhantes são um Par, uma Linha do Tempo é uma Sequência, um Planeta Natal é um Flush, e por aí vai."
 Score = [color=#2f8cff]Chips[/color] x [color=#ff4b3e]Mult[/color]. Every scored car adds its chips.,Очки = [color=#2f8cff]Фишки[/color] x [color=#ff4b3e]Множитель[/color]. Каждая засчитанная машина добавляет свои фишки.,Puntos = [color=#2f8cff]Fichas[/color] x [color=#ff4b3e]Mult[/color]. Cada coche puntuado suma sus fichas.,Punkte = [color=#2f8cff]Chips[/color] x [color=#ff4b3e]Mult[/color]. Jedes gewertete Auto bringt seine Chips.,Score = [color=#2f8cff]Jetons[/color] x [color=#ff4b3e]Mult[/color]. Chaque voiture marquée ajoute ses jetons.,Pontos = [color=#2f8cff]Fichas[/color] x [color=#ff4b3e]Mult[/color]. Cada carro pontuado soma suas fichas.
 Score = [color=#2f8cff]Chips[/color] x [color=#ff4b3e]Mult[/color]. Every scored card adds its chips.,Очки = [color=#2f8cff]Фишки[/color] x [color=#ff4b3e]Множитель[/color]. Каждая засчитанная карта добавляет свои фишки.,Puntos = [color=#2f8cff]Fichas[/color] x [color=#ff4b3e]Mult[/color]. Cada carta puntuada suma sus fichas.,Punkte = [color=#2f8cff]Chips[/color] x [color=#ff4b3e]Mult[/color]. Jede gewertete Karte bringt ihre Chips.,Score = [color=#2f8cff]Jetons[/color] x [color=#ff4b3e]Mult[/color]. Chaque carte marquée ajoute ses jetons.,Pontos = [color=#2f8cff]Fichas[/color] x [color=#ff4b3e]Mult[/color]. Cada carta pontuada soma suas fichas.
 Beat the target score before you run out of hands. [color=#ff4b3e]Discard[/color] to dig for better cars.,"Набери нужные очки, пока не кончились руки. [color=#ff4b3e]Сбрасывай[/color] машины, чтобы найти получше.",Supera el objetivo antes de quedarte sin manos. [color=#ff4b3e]Descarta[/color] para buscar mejores coches.,"Erreiche die Zielpunkte, bevor dir die Hände ausgehen. [color=#ff4b3e]Lege ab[/color], um bessere Autos zu finden.",Bats le score cible avant de manquer de mains. [color=#ff4b3e]Défausse[/color] pour chercher de meilleures voitures.,Bata a meta antes de acabarem as mãos. [color=#ff4b3e]Descarte[/color] para buscar carros melhores.
@@ -1010,12 +1212,15 @@ Beat the target score before you run out of hands. [color=#ff4b3e]Discard[/color
 "Each Ante has a Street Race, a Circuit Race and a [color=#ff4b3e]Boss Race[/color] with a nasty rule.","В каждом анте есть Уличная гонка, Кольцевая гонка и [color=#ff4b3e]Гонка босса[/color] с подлым правилом.","Cada Ante tiene una Carrera Urbana, una Carrera de Circuito y una [color=#ff4b3e]Carrera de Jefe[/color] con una regla traicionera.","Jede Ante hat ein Straßenrennen, eine Rundstrecke und ein [color=#ff4b3e]Boss-Rennen[/color] mit fieser Regel.","Chaque Ante a une Course de rue, une Course sur circuit et une [color=#ff4b3e]Course de Boss[/color] avec une règle vicieuse.","Cada Fase tem uma Corrida de Rua, uma Corrida de Circuito e uma [color=#ff4b3e]Corrida Boss[/color] com uma regra maldosa."
 "Spend cash at the [color=#e8572f]Pit Stop[/color]: Mods change how you score, Dyno Tunes level up hands, Workshop cards upgrade your cars.","Трать деньги на [color=#e8572f]Пит-стопе[/color]: Моды меняют подсчёт очков, Диностенд прокачивает комбинации, карты Мастерской улучшают твои машины.","Gasta dinero en el [color=#e8572f]Pit Stop[/color]: los Mods cambian cómo puntúas, las Afinaciones Dyno suben de nivel las manos y las cartas de Taller mejoran tus coches.","Gib Cash im [color=#e8572f]Boxenstopp[/color] aus: Mods ändern deine Wertung, Dyno-Tunes leveln Hände auf, Werkstatt-Karten tunen deine Autos.","Dépense ton cash au [color=#e8572f]Pit Stop[/color] : les Mods changent ton score, les Tunes Dyno font monter les mains en niveau, les cartes Atelier améliorent tes voitures.","Gaste grana no [color=#e8572f]Pit Stop[/color]: Mods mudam como você pontua, Dyno Tunes sobem o nível das mãos, cartas da Oficina melhoram seus carros."
 "Spend cash at the [color=#e8572f]Pit Stop[/color]: Jokers change how you score, Upgrades level up hands, Trick cards change your cards.","Трать деньги на [color=#e8572f]Пит-стопе[/color]: Джокеры меняют подсчёт очков, Прокачки улучшают комбинации, Фокусы меняют твои карты.","Gasta dinero en el [color=#e8572f]Pit Stop[/color]: los Jokers cambian cómo puntúas, las Mejoras suben de nivel las manos y las cartas de Truco cambian tus cartas.","Gib Cash im [color=#e8572f]Boxenstopp[/color] aus: Joker ändern deine Wertung, Upgrades leveln Hände auf, Trick-Karten verändern deine Karten.","Dépense ton cash au [color=#e8572f]Pit Stop[/color] : les Jokers changent ton score, les Améliorations font monter les mains en niveau, les cartes Astuce changent tes cartes.","Gaste grana no [color=#e8572f]Pit Stop[/color]: Coringas mudam como você pontua, Upgrades sobem o nível das mãos, cartas de Truque mudam suas cartas."
+"Spend cash at the [color=#e8572f]Pit Stop[/color]: Allies change how you score, Adventures level up hands, Gadgets change your cards.","Трать деньги на [color=#e8572f]Пит-стопе[/color]: Союзники меняют подсчёт очков, Вылазки прокачивают комбинации, Гаджеты меняют твои карты.","Gasta dinero en el [color=#e8572f]Pit Stop[/color]: los Aliados cambian cómo puntúas, las Aventuras suben de nivel las manos y los Gadgets cambian tus cartas.","Gib Cash im [color=#e8572f]Boxenstopp[/color] aus: Verbündete ändern deine Wertung, Abenteuer leveln Hände auf, Gadgets verändern deine Karten.","Dépense ton cash au [color=#e8572f]Pit Stop[/color] : les Alliés changent ton score, les Aventures font monter les mains en niveau, les Gadgets modifient tes cartes.","Gaste grana no [color=#e8572f]Pit Stop[/color]: Aliados mudam como você pontua, Aventuras sobem o nível das mãos, Gadgets mudam suas cartas."
 Drag Mods to change their order: they work from left to right. Cars score in the order you pick them.,"Перетаскивай моды, чтобы менять их порядок: они срабатывают слева направо. Машины засчитываются в том порядке, в котором ты их выбрал.",Arrastra los Mods para cambiar su orden: funcionan de izquierda a derecha. Los coches puntúan en el orden en que los eliges.,"Ziehe Mods, um ihre Reihenfolge zu ändern: Sie wirken von links nach rechts. Autos werten in der Reihenfolge, in der du sie wählst.",Fais glisser les Mods pour changer leur ordre : ils agissent de gauche à droite. Les voitures comptent dans l'ordre où tu les choisis.,Arraste os Mods para mudar a ordem: eles funcionam da esquerda para a direita. Os carros pontuam na ordem em que você os escolhe.
 Drag Jokers to change their order: they work from left to right. Cards score in the order you pick them.,"Перетаскивай джокеров, чтобы менять их порядок: они срабатывают слева направо. Карты засчитываются в том порядке, в котором ты их выбрал.",Arrastra los Jokers para cambiar su orden: funcionan de izquierda a derecha. Las cartas puntúan en el orden en que las eliges.,"Ziehe Joker, um ihre Reihenfolge zu ändern: Sie wirken von links nach rechts. Karten werten in der Reihenfolge, in der du sie wählst.",Fais glisser les Jokers pour changer leur ordre : ils agissent de gauche à droite. Les cartes comptent dans l'ordre où tu les choisis.,Arraste os Coringas para mudar a ordem: eles funcionam da esquerda para a direita. As cartas pontuam na ordem em que você as escolhe.
+Drag Allies to change their order: they work from left to right. Cards score in the order you pick them.,"Перетаскивай союзников, чтобы менять их порядок: они срабатывают слева направо. Карты засчитываются в том порядке, в котором ты их выбрал.",Arrastra los Aliados para cambiar su orden: funcionan de izquierda a derecha. Las cartas puntúan en el orden en que las eliges.,"Ziehe Verbündete, um ihre Reihenfolge zu ändern: Sie wirken von links nach rechts. Karten werten in der Reihenfolge, in der du sie wählst.",Glisse les Alliés pour changer leur ordre : ils agissent de gauche à droite. Les cartes marquent dans l'ordre où tu les choisis.,Arraste os Aliados para mudar a ordem: eles agem da esquerda para a direita. As cartas pontuam na ordem em que você as escolhe.
 Booster packs: open one and take 1 of the choices.,Бустер-паки: открой пак и возьми 1 из предложенного.,Sobres: abre uno y quédate con 1 de las opciones.,Booster-Packs: Öffne eins und nimm 1 der Optionen.,Boosters : ouvre-en un et prends 1 des choix.,Pacotes: abra um e leve 1 das opções.
 Win the Grand Prix at Ante 8 to become Champion.,Выиграй Гран-при на 8-м анте и стань Чемпионом.,Gana el Gran Premio en el Ante 8 para ser Campeón.,"Gewinne den Grand Prix bei Ante 8, um Champion zu werden.",Gagne le Grand Prix à l'Ante 8 pour devenir Champion.,Vença o Grande Prêmio na Fase 8 para virar Campeão.
 Some Mods come with an edition (they cost more):,Некоторые моды бывают в особом издании (они дороже):,Algunos Mods traen una edición (cuestan más):,Manche Mods haben eine Edition (sie kosten mehr):,Certains Mods ont une édition (ils coûtent plus cher) :,Alguns Mods vêm com uma edição (custam mais):
 Some Jokers come with an edition (they cost more):,Некоторые джокеры бывают в особом издании (они дороже):,Algunos Jokers traen una edición (cuestan más):,Manche Joker haben eine Edition (sie kosten mehr):,Certains Jokers ont une édition (ils coûtent plus cher) :,Alguns Coringas vêm com uma edição (custam mais):
+Some Allies come with an edition (they cost more):,Некоторые союзники бывают в особом издании (они дороже):,Algunos Aliados traen una edición (cuestan más):,Manche Verbündete haben eine Edition (sie kosten mehr):,Certains Alliés ont une édition (ils coûtent plus cher) :,Alguns Aliados vêm com uma edição (custam mais):
 Card statuses,Статусы,Estados de cartas,Karten-Status,Statuts des cartes,Status das cartas
 the boss blocks this car: it gives no chips and no effects.,босс блокирует эту машину: она не даёт фишек и эффектов.,el jefe bloquea este coche: no da fichas ni efectos.,der Boss blockiert dieses Auto: keine Chips und keine Effekte.,le boss bloque cette voiture : elle ne donne ni jetons ni effets.,o boss bloqueia este carro: ele não dá fichas nem efeitos.
 the boss blocks this card: it gives no chips and no effects.,босс блокирует эту карту: она не даёт фишек и эффектов.,el jefe bloquea esta carta: no da fichas ni efectos.,der Boss blockiert diese Karte: keine Chips und keine Effekte.,le boss bloque cette carte : elle ne donne ni jetons ni effets.,o boss bloqueia esta carta: ela não dá fichas nem efeitos.
@@ -1026,10 +1231,16 @@ the car scores one more time.,машина засчитывается ещё р�
 the card scores one more time.,карта засчитывается ещё раз.,la carta puntúa una vez más.,die Karte wird einmal mehr gewertet.,la carte marque une fois de plus.,a carta pontua mais uma vez.
 a Carbon car broke and left your garage.,машина с Карбоном сломалась и покинула гараж.,un coche de Carbono se rompió y salió de tu garaje.,ein Carbon-Auto ist kaputtgegangen und hat deine Garage verlassen.,une voiture Carbone a cassé et a quitté ton garage.,um carro Carbono quebrou e saiu da sua garagem.
 a Glass card broke and left your deck.,карта Стекло разбилась и покинула колоду.,una carta de Cristal se rompió y salió de tu mazo.,eine Glas-Karte ist zerbrochen und hat dein Deck verlassen.,une carte Verre s'est brisée et a quitté ton deck.,uma carta de Vidro quebrou e saiu do seu baralho.
+a Paradox card broke and left your deck.,карта Парадокс разрушилась и покинула колоду.,una carta Paradoja se rompió y salió de tu mazo.,eine Paradox-Karte ist zerbrochen und hat dein Deck verlassen.,une carte Paradoxe s'est brisée et a quitté ton deck.,uma carta Paradoxo quebrou e saiu do seu baralho.
 "Dyno Tunes and Cash Grab work at once. Workshop cards need cars: select them in your hand, then click the card and press Use.","Диностенд и Сорвать куш срабатывают сразу. Картам Мастерской нужны машины: выбери их в руке, затем нажми на карту и на Применить.","Las Afinaciones Dyno y Billetazo actúan al instante. Las cartas de Taller necesitan coches: elígelos en tu mano, luego haz clic en la carta y pulsa Usar.","Dyno-Tunes und Geldregen wirken sofort. Werkstatt-Karten brauchen Autos: Wähle sie in deiner Hand, klicke dann die Karte und drücke Nutzen.","Les Tunes Dyno et Coup de Cash agissent tout de suite. Les cartes Atelier ont besoin de voitures : choisis-les en main, clique sur la carte puis sur Utiliser.","Dyno Tunes e Grana em Dobro funcionam na hora. Cartas da Oficina precisam de carros: selecione-os na mão, clique na carta e aperte Usar."
 "Upgrades and Cash Grab work at once. Trick cards need cards: select them in your hand, then click the item and press Use.","Прокачки и Сорвать куш срабатывают сразу. Фокусам нужны карты: выбери их в руке, затем нажми на предмет и на Применить.","Las Mejoras y Billetazo actúan al instante. Las cartas de Truco necesitan cartas: elígelas en tu mano, luego haz clic en el objeto y pulsa Usar.","Upgrades und Geldregen wirken sofort. Trick-Karten brauchen Karten: Wähle sie in deiner Hand, klicke dann das Item und drücke Nutzen.","Les Améliorations et Coup de Cash agissent tout de suite. Les cartes Astuce ont besoin de cartes : choisis-les en main, clique sur l'objet puis sur Utiliser.","Upgrades e Grana em Dobro funcionam na hora. Cartas de Truque precisam de cartas: selecione-as na mão, clique no item e aperte Usar."
+"Adventures and Time Heist work at once. Gadgets need cards: select them in your hand, then click the gadget and press Use.","Вылазки и Ограбление во времени срабатывают сразу. Гаджетам нужны карты: выбери их в руке, затем нажми на гаджет и на Применить.","Las Aventuras y Atraco Temporal actúan al instante. Los Gadgets necesitan cartas: elígelas en tu mano, luego haz clic en el gadget y pulsa Usar.","Abenteuer und Zeitraub wirken sofort. Gadgets brauchen Karten: Wähle sie in deiner Hand, klicke dann das Gadget und drücke Nutzen.","Les Aventures et Braquage Temporel agissent tout de suite. Les Gadgets ont besoin de cartes : choisis-les en main, clique sur le gadget puis sur Utiliser.","Aventuras e Roubo no Tempo funcionam na hora. Gadgets precisam de cartas: selecione-as na mão, clique no gadget e aperte Usar."
 "Keys: Enter = Play hand, Backspace = Discard, Esc = Menu, M = Music, F11 = Fullscreen. Hover any card for details.","Клавиши: Enter - сыграть руку, Backspace - сброс, Esc - меню, M - музыка, F11 - полный экран. Наведи на любую карту, чтобы узнать подробности.","Teclas: Enter = Jugar mano, Retroceso = Descartar, Esc = Menú, M = Música, F11 = Pantalla completa. Pasa el ratón sobre cualquier carta para ver detalles.","Tasten: Enter = Hand spielen, Backspace = Ablegen, Esc = Menü, M = Musik, F11 = Vollbild. Mit der Maus über Karten für Details.","Touches : Entrée = Jouer la main, Retour arrière = Défausser, Échap = Menu, M = Musique, F11 = Plein écran. Survole une carte pour les détails.","Teclas: Enter = Jogar mão, Backspace = Descartar, Esc = Menu, M = Música, F11 = Tela cheia. Passe o mouse em qualquer carta para ver detalhes."
+"The Doctor Who theme is a fan tribute. Doctor Who, TARDIS and Daleks are trademarks of the BBC; this game is not affiliated with the BBC.","Тема «Доктор Кто» - фанатский трибьют. Doctor Who («Доктор Кто»), TARDIS (ТАРДИС) и Daleks (Далеки) - товарные знаки BBC; эта игра не связана с BBC.","El tema Doctor Who es un homenaje de fans. Doctor Who, TARDIS y Daleks son marcas registradas de la BBC; este juego no está afiliado a la BBC.","Das Doctor-Who-Theme ist eine Hommage von Fans. Doctor Who, TARDIS und Daleks sind Marken der BBC; dieses Spiel steht in keiner Verbindung zur BBC.","Le thème Doctor Who est un hommage de fans. Doctor Who, TARDIS et les Daleks sont des marques de la BBC ; ce jeu n'est pas affilié à la BBC.","O tema Doctor Who é uma homenagem de fã. Doctor Who, TARDIS e Daleks são marcas registradas da BBC; este jogo não é afiliado à BBC."
 HOW TO PLAY,КАК ИГРАТЬ,CÓMO JUGAR,ANLEITUNG,COMMENT JOUER,COMO JOGAR
+New theme: Doctor Who (a fan tribute) for the card art and the suits,Новая тема: «Доктор Кто» (фанатский трибьют) для рисунка карт и мастей,Nuevo tema: Doctor Who (un homenaje de fans) para el arte de las cartas y los palos,Neues Theme: Doctor Who (eine Fan-Hommage) für Kartenbilder und Farben,Nouveau thème : Doctor Who (un hommage de fans) pour l'art des cartes et les couleurs,Novo tema: Doctor Who (homenagem de fã) para a arte das cartas e os naipes
+"TARDIS, Daleks, Cybermen and Gallifrey suits; the Doctor, a Time Lady and a Companion on the face cards","Масти ТАРДИС, Далеки, Киберлюди и Галлифрей; Доктор, Повелительница времени и Спутник на фигурах","Palos TARDIS, Daleks, Cybermen y Gallifrey; el Doctor, una Señora del Tiempo y un Acompañante en las figuras","TARDIS-, Dalek-, Cybermen- und Gallifrey-Farben; der Doktor, eine Time Lady und ein Begleiter auf den Bildkarten","Couleurs TARDIS, Daleks, Cybermen et Gallifrey ; le Docteur, une Dame du Temps et un Compagnon sur les figures","Naipes TARDIS, Daleks, Cybermen e Gallifrey; o Doutor, uma Senhora do Tempo e um Acompanhante nas figuras"
+"Allies, Adventures, Gadgets and Favours with their own names and pictures; two new card backs","Союзники, Вылазки, Гаджеты и Услуги со своими названиями и картинками; две новые рубашки","Aliados, Aventuras, Gadgets y Favores con nombres e imágenes propios; dos reversos nuevos","Verbündete, Abenteuer, Gadgets und Gefallen mit eigenen Namen und Bildern; zwei neue Kartenrücken","Alliés, Aventures, Gadgets et Faveurs avec leurs propres noms et images ; deux nouveaux dos de cartes","Aliados, Aventuras, Gadgets e Favores com nomes e imagens próprios; dois novos versos de carta"
 "Install the game as an app on Android, iPhone or a computer; it works offline after the first start","Игру можно установить как приложение на Android, iPhone или компьютер; после первого запуска она работает без интернета","Instala el juego como app en Android, iPhone u ordenador; funciona sin conexión tras el primer inicio","Installiere das Spiel als App auf Android, iPhone oder Computer; nach dem ersten Start läuft es offline","Installe le jeu comme une appli sur Android, iPhone ou ordinateur ; il fonctionne hors ligne après le premier lancement","Instale o jogo como app no Android, iPhone ou computador; funciona offline depois da primeira vez"
 Touch-friendly: on phones the game opens in full screen and asks to rotate to landscape,Удобно на сенсорном экране: на телефоне игра открывается на весь экран и просит повернуть его горизонтально,Pensado para pantallas táctiles: en el móvil se abre a pantalla completa y pide girarlo en horizontal,Touch-freundlich: Auf dem Handy öffnet sich das Spiel im Vollbild und bittet ums Querformat,"Adapté au tactile : sur téléphone, le jeu s’ouvre en plein écran et demande de passer en paysage",Feito para toque: no celular o jogo abre em tela cheia e pede para girar na horizontal
 "One new icon everywhere: the app, the loading screen and the website","Одна новая иконка везде: у приложения, на экране загрузки и на сайте","Un nuevo icono en todas partes: la app, la pantalla de carga y la web","Ein neues Icon überall: App, Ladebildschirm und Website","Une nouvelle icône partout : l’appli, l’écran de chargement et le site","Um novo ícone em todo lugar: o app, a tela de carregamento e o site"

@@ -239,6 +239,51 @@ func _draw_card_status(enh: String) -> void:
 		draw_line(Vector2(76, 30), Vector2(20, 104), Color("ff3b30"), 6.0, true)
 
 
+## Doctor Who court card (fan tribute): a double-headed figure over the time vortex.
+## Doctor: long coat, bow tie, sonic screwdriver (TARDIS-blue frame). Time Lady: Gallifreyan
+## collar and long hair (purple frame). Companion: denim jacket (orange frame).
+func _draw_who_court(c: Vector2, suit: int, rank: int, sc: Color) -> void:
+	var accent: Color = {13: Color("1f4fa0"), 12: Color("6b3fa0"), 11: Color("d9822b")}[rank]
+	var frame := Rect2(c - Vector2(25, 43), Vector2(50, 86))
+	draw_style_box(Data.box(Color("0d1b3d"), 4, accent, 2, 0), frame)
+	for k in 2:  # vortex streaks inside the frame
+		var pts := PackedVector2Array()
+		for i in 34:
+			pts.append(c + Vector2.from_angle(i * 0.35 + k * PI) * i * 0.75)
+		for seg in Geometry2D.intersect_polyline_with_polygon(pts, PackedVector2Array([frame.position, frame.position + Vector2(frame.size.x, 0), frame.end, frame.position + Vector2(0, frame.size.y)])):
+			draw_polyline(seg, Color(0.5, 0.8, 1.0, 0.35), 2.0)
+	var skin := Color("f2c9a0")
+	var ink := Color("2b2f38")
+	for half in [false, true]:
+		draw_set_transform(c, PI if half else 0.0, Vector2.ONE)
+		var coat: Color = {13: Color("6b4a2b"), 12: Color("6b3fa0"), 11: Color("3b6fd6")}[rank]
+		draw_colored_polygon(PackedVector2Array([Vector2(-22, 0), Vector2(-20, -14), Vector2(-8, -19), Vector2(8, -19), Vector2(20, -14), Vector2(22, 0)]), coat)
+		match rank:
+			13:  # the Doctor
+				draw_colored_polygon(PackedVector2Array([Vector2(-5, -19), Vector2(5, -19), Vector2(0, -10)]), Color.WHITE)
+				draw_colored_polygon(PackedVector2Array([Vector2(-6, -20), Vector2(0, -17), Vector2(-6, -14)]), Color("c62828"))
+				draw_colored_polygon(PackedVector2Array([Vector2(6, -20), Vector2(0, -17), Vector2(6, -14)]), Color("c62828"))
+				draw_circle(Vector2(0, -27), 7.0, skin)
+				draw_colored_polygon(PackedVector2Array([Vector2(-8, -29), Vector2(-7, -36), Vector2(-3, -33), Vector2(0, -38), Vector2(3, -33), Vector2(8, -36), Vector2(8, -28)]), Color("5a3a1a"))
+				draw_line(Vector2(15, -1), Vector2(19, -22), Color("8a96a8"), 2.5)
+				draw_circle(Vector2(19.5, -24), 2.5, Art.SONIC_GREEN)
+			12:  # Time Lady
+				draw_arc(Vector2(0, -27), 11, PI, TAU, 12, Color("e08a00"), 4.0)
+				draw_colored_polygon(PackedVector2Array([Vector2(-9, -34), Vector2(9, -34), Vector2(11, -17), Vector2(7, -15), Vector2(7, -28), Vector2(-7, -28), Vector2(-7, -15), Vector2(-11, -17)]), Color("e8c56a"))
+				draw_circle(Vector2(0, -28), 6.5, skin)
+				draw_line(Vector2(-2, -24), Vector2(2, -24), Color("c62828"), 1.5)
+			11:  # Companion
+				draw_circle(Vector2(0, -27), 6.5, skin)
+				draw_colored_polygon(PackedVector2Array([Vector2(-8, -27), Vector2(-7, -34), Vector2(7, -34), Vector2(8, -27), Vector2(5, -31), Vector2(-5, -31)]), Color("2b1d14"))
+				draw_line(Vector2(-6, -18), Vector2(-3, -10), Color("dfe9ff"), 1.5)
+				draw_line(Vector2(6, -18), Vector2(3, -10), Color("dfe9ff"), 1.5)
+		draw_circle(Vector2(-2.5, -29), 0.9, ink)
+		draw_circle(Vector2(2.5, -29), 0.9, ink)
+		_draw_emblem(Vector2(0, -7), 4.0, suit, Color.WHITE)
+	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	draw_line(c + Vector2(-25, 0), c + Vector2(25, 0), accent, 1.0)
+
+
 # Pip positions of classic number cards in unit space (x -1..1, y -1..1).
 const PIPS := {
 	2: [Vector2(0, -0.8), Vector2(0, 0.8)],
@@ -279,9 +324,16 @@ func _draw_classic_card() -> void:
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	var c := Vector2(48, 67)
 	if rank == 14:
-		_draw_emblem(c, 22.0, suit, sc)
+		if Data.who_art:  # the TARDIS is the Ace
+			Art.tardis(self, c + Vector2(0, -6), 1.25)
+			_draw_emblem(c + Vector2(0, 36), 7.0, suit, sc)
+		else:
+			_draw_emblem(c, 22.0, suit, sc)
 	elif rank >= 11:
-		_draw_court(c, suit, rank, sc)
+		if Data.who_art:
+			_draw_who_court(c, suit, rank, sc)
+		else:
+			_draw_court(c, suit, rank, sc)
 	else:
 		for p in PIPS[rank]:
 			var pos := c + Vector2(p.x * 20, p.y * 38)
@@ -485,7 +537,7 @@ func _draw_cons() -> void:
 	draw_style_box(Data.box(bg, 9, border, 3), Rect2(Vector2.ZERO, SIZE))
 	draw_style_box(Data.box(bg.lightened(0.08), 6), Rect2(8, 22, 80, 60))
 	var font := get_theme_default_font()
-	var head := Data.tv("DYNO TUNE", "UPGRADE") if tune else Data.tv("WORKSHOP", "TRICK")
+	var head := Data.tv("DYNO TUNE", "UPGRADE", "ADVENTURE") if tune else Data.tv("WORKSHOP", "TRICK", "GADGET")
 	draw_string(font, Vector2(5, 17), head, HORIZONTAL_ALIGNMENT_CENTER, 86, _fit(head, 86, 10), border)
 	Art.item_art(self, data, Vector2(48, 52))
 	var label: String = tr(Data.hand_name(data.hand)) if tune else Data.text(data, "name")
@@ -535,6 +587,28 @@ func _draw_back() -> void:
 				_clip_line(Vector2(5, y), Vector2(91, y), floor_area, Color("ff3fa4"), 1.5)
 			for i in range(-4, 5):
 				_clip_line(Vector2(48 + i * 4, 70), Vector2(48 + i * 22, 130), floor_area, Color("3ff0ff"), 1.0)
+		6:  # blue box
+			var blue := Color("1f4fa0")
+			draw_style_box(Data.box(blue, 9, Color("f6f0e1"), 3), r)
+			draw_rect(Rect2(10, 10, 76, 14), Color("101820"))
+			draw_string(font, Vector2(10, 21), "POLICE BOX", HORIZONTAL_ALIGNMENT_CENTER, 76, 9, Color.WHITE)
+			for gx in 2:
+				for gy in 4:
+					var cell := Rect2(14 + gx * 36, 30 + gy * 24, 32, 20)
+					draw_rect(cell, blue.darkened(0.25))
+					if gy == 0:
+						draw_rect(cell.grow(-3), Color("dff0ff"))
+			draw_line(Vector2(48, 28), Vector2(48, 126), blue.darkened(0.4), 2.0)
+		7:  # time vortex
+			draw_style_box(Data.box(Color("0b1033"), 9, Color("7fdcff"), 3), r)
+			var panel := PackedVector2Array([Vector2(5, 5), Vector2(91, 5), Vector2(91, 129), Vector2(5, 129)])
+			for k in 3:
+				var pts := PackedVector2Array()
+				for i in 60:
+					pts.append(Vector2(48, 67) + Vector2.from_angle(i * 0.32 + k * TAU / 3) * i * 1.1)
+				for seg in Geometry2D.intersect_polyline_with_polygon(pts, panel):
+					draw_polyline(seg, [Color("7fdcff"), Color("c13cff"), Color("2f8cff")][k], 2.5, true)
+			draw_circle(Vector2(48, 67), 6, Color.WHITE)
 		_:  # classic lattice, red or blue
 			var col := Color("b3202a") if style == 4 else Color("1d4e9e")
 			draw_style_box(Data.box(Color("fbf8f0"), 9, Color("2b2f38"), 1), r)
@@ -565,6 +639,19 @@ func _draw_pack() -> void:
 	draw_style_box(Data.box(Color(0, 0, 0, 0.25), 8), Rect2(12, 22, 72, 62))
 	var c := Vector2(48, 53)
 	var classic := Data.classic_art
+	if Data.who_art:
+		match data.type:
+			"cars":
+				_draw_icon(c, "fan", Color.WHITE, col)
+				Art.clock(self, c + Vector2(22, -18), 8)
+			"tunes": Art.clock(self, c, 18)
+			"workshop": Art.sonic(self, c + Vector2(0, 2), -0.6, 1.0)
+			"mods": Art.hearts2(self, c)
+		classic = false
+		var font0 := get_theme_default_font()
+		var label0 := Data.text(data, "name")
+		draw_multiline_string(font0, Vector2(5, 102), label0, HORIZONTAL_ALIGNMENT_CENTER, 86, _fit(label0, 86, 13), 2, Color.WHITE)
+		return
 	match data.type:
 		"cars":
 			if classic:
@@ -589,7 +676,7 @@ func _draw_voucher() -> void:
 	draw_circle(Vector2(0, 67), 7, Color(0.07, 0.09, 0.12))
 	draw_circle(Vector2(96, 67), 7, Color(0.07, 0.09, 0.12))
 	var font := get_theme_default_font()
-	var head := Data.tv("SPONSOR", "VOUCHER")
+	var head := Data.tv("SPONSOR", "VOUCHER", "FAVOUR")
 	draw_string(font, Vector2(5, 18), head, HORIZONTAL_ALIGNMENT_CENTER, 86, _fit(head, 80, 10), ink)
 	Art.voucher_art(self, data.id, Vector2(48, 54))
 	var name := Data.text(data, "name")

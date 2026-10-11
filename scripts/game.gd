@@ -902,8 +902,8 @@ func _update_sidebar() -> void:
 	money_lbl.text = "$%d" % money
 	ante_lbl.text = str(ante) if endless else "%d/8" % ante
 	round_lbl.text = str(round_num)
-	mods_lbl.text = Data.tv("Mods", "Jokers") + " %d/%d" % [mods.size(), _mod_slots()]
-	cons_lbl.text = Data.tv("Garage", "Items") + " %d/%d" % [consumables.size(), _cons_slots()]
+	mods_lbl.text = Data.tv("Mods", "Jokers", "Allies") + " %d/%d" % [mods.size(), _mod_slots()]
+	cons_lbl.text = Data.tv("Garage", "Items", "Pockets") + " %d/%d" % [consumables.size(), _cons_slots()]
 	deck_view.visible = state == "play"
 	deck_lbl.visible = deck_view.visible
 	deck_lbl.text = "%d/%d" % [draw_pile.size(), deck.size()]
@@ -931,7 +931,7 @@ func _set_hand_info(name: String, poker: String, chips: float, mult: float) -> v
 
 func _show_hand_type(t: int, chips: float, mult: float) -> void:
 	var h = Data.HANDS[t]
-	_set_hand_info("%s  %s%d" % [tr(Data.hand_name(t)), tr("lvl."), levels[t]], " " if Data.classic_art else tr(h.poker), chips, mult)
+	_set_hand_info("%s  %s%d" % [tr(Data.hand_name(t)), tr("lvl."), levels[t]], " " if Data.classic_art and not Data.who_art else tr(h.poker), chips, mult)
 
 
 func _update_preview() -> void:
@@ -1039,8 +1039,8 @@ func _tip_for(cv: Control) -> Array:
 			if d.id == "tune":
 				var h = Data.HANDS[d.hand]
 				var hn := tr(Data.hand_name(d.hand))
-				title = Data.tv("Dyno: %s", "Upgrade: %s") % hn
-				if Data.classic_art:
+				title = Data.tv("Dyno: %s", "Upgrade: %s", "Adventure: %s") % hn
+				if Data.classic_art and not Data.who_art:
 					s = tr("Level up [g]%s[/]\n[c]+%d[/] Chips, [m]+%d[/] Mult") % [hn, h.lc, h.lm]
 				else:
 					s = tr("Level up [g]%s[/] (%s)\n[c]+%d[/] Chips, [m]+%d[/] Mult") % [hn, tr(h.poker), h.lc, h.lm]
@@ -1642,8 +1642,8 @@ func _open_shop(saved := {}) -> void:
 	reroll_btn.clip_text = true
 	reroll_btn.pressed.connect(_reroll)
 	shop_panel.add_child(reroll_btn)
-	for s in [[Data.tv("MODS", "JOKERS"), 230.0, 50.0, 3], [Data.tv("GARAGE", "ITEMS"), 622.0, 50.0, 2], [tr("BOOSTER PACKS"), 230.0, 250.0, 2],
-			[Data.tv("SPONSOR", "VOUCHER"), 622.0, 250.0, 2]]:
+	for s in [[Data.tv("MODS", "JOKERS", "ALLIES"), 230.0, 50.0, 3], [Data.tv("GARAGE", "ITEMS", "POCKETS"), 622.0, 50.0, 2], [tr("BOOSTER PACKS"), 230.0, 250.0, 2],
+			[Data.tv("SPONSOR", "VOUCHER", "FAVOUR"), 622.0, 250.0, 2]]:
 		var l := _label(s[0], 14, Color(1, 1, 1, 0.6), 3)
 		l.size = Vector2(s[3] * 112 - 16, 20)
 		l.position = Vector2(s[1], s[2])
@@ -1739,10 +1739,10 @@ func _buy(cv: Control) -> void:
 		_message("Not enough cash!")
 		return
 	if cv.kind == CardView.MOD and mods.size() >= _mod_slots() and cv.data.get("edition", "") != "negative":
-		_message(Data.tv("Mod slots are full!", "Joker slots are full!"))
+		_message(Data.tv("Mod slots are full!", "Joker slots are full!", "Ally slots are full!"))
 		return
 	if cv.kind == CardView.CONS and consumables.size() >= _cons_slots():
-		_message(Data.tv("Garage is full!", "Item slots are full!"))
+		_message(Data.tv("Garage is full!", "Item slots are full!", "Your pockets are full!"))
 		return
 	money -= cv.price
 	cv.price = -1
@@ -1983,14 +1983,14 @@ func _take_pack(cv: Control) -> void:
 			if cv.data.id == "tune":
 				_level_up(cv.data.hand)
 			elif consumables.size() >= _cons_slots():
-				_message(Data.tv("Garage is full!", "Item slots are full!"))
+				_message(Data.tv("Garage is full!", "Item slots are full!", "Your pockets are full!"))
 				return
 			else:
 				consumables.append(cv.data)
 				cons_views.append(cv)
 		CardView.MOD:
 			if mods.size() >= _mod_slots() and cv.data.get("edition", "") != "negative":
-				_message(Data.tv("Mod slots are full!", "Joker slots are full!"))
+				_message(Data.tv("Mod slots are full!", "Joker slots are full!", "Ally slots are full!"))
 				return
 			mods.append(cv.data)
 			mod_views.append(cv)
@@ -2116,11 +2116,13 @@ func _load_settings() -> void:
 	speed_idx = clampi(cfg.get_value("settings", "speed", 0), 0, SPEEDS.size() - 1)
 	shake_on = cfg.get_value("settings", "shake", true)
 	fullscreen = cfg.get_value("settings", "fullscreen", false)
-	Data.classic_art = cfg.get_value("settings", "classic_art", false)
-	Data.classic_suits = cfg.get_value("settings", "classic_suits", true)
+	# themes: "cars" / "classic" / "who"; older settings stored two booleans
+	var art: String = cfg.get_value("settings", "art", "classic" if cfg.get_value("settings", "classic_art", false) else "cars")
+	var suits: String = cfg.get_value("settings", "suits", "classic" if cfg.get_value("settings", "classic_suits", true) else "cars")
+	Data.set_themes(art, suits)
 	Data.back_style = posmod(cfg.get_value("settings", "back", 4), Data.BACKS.size())
 	if cfg.get_value("settings", "version", 1) < 2:  # v1.2.1: classic suits and back became the default
-		Data.classic_suits = true
+		Data.set_themes(Data.art_mode(), "classic")
 		Data.back_style = 4
 	var loc: String = cfg.get_value("settings", "locale", "")
 	if loc != "":
@@ -2148,8 +2150,8 @@ func _save_settings() -> void:
 	cfg.set_value("settings", "speed", speed_idx)
 	cfg.set_value("settings", "shake", shake_on)
 	cfg.set_value("settings", "fullscreen", fullscreen)
-	cfg.set_value("settings", "classic_art", Data.classic_art)
-	cfg.set_value("settings", "classic_suits", Data.classic_suits)
+	cfg.set_value("settings", "art", Data.art_mode())
+	cfg.set_value("settings", "suits", Data.suit_mode())
 	cfg.set_value("settings", "back", Data.back_style)
 	cfg.set_value("settings", "version", 2)
 	cfg.set_value("settings", "locale", TranslationServer.get_locale())
@@ -2188,9 +2190,8 @@ func _set_lang(code: String) -> void:
 	_show_settings()
 
 
-func _set_theme(classic_art: bool, classic_suits: bool) -> void:
-	Data.classic_art = classic_art
-	Data.classic_suits = classic_suits
+func _set_theme(art: String, suits: String) -> void:
+	Data.set_themes(art, suits)
 	_save_settings()
 	_rebuild_screen()
 	_show_settings()
@@ -2285,8 +2286,9 @@ func _show_settings() -> void:
 	g2.add_theme_constant_override("h_separation", 16)
 	g2.add_theme_constant_override("v_separation", 12)
 	right.add_child(g2)
-	_settings_row(g2, "Card art", _choice([tr("Cars"), tr("Classic")], int(Data.classic_art), func(i): _set_theme(i == 1, Data.classic_suits), 130.0))
-	_settings_row(g2, "Suits", _choice([tr("Car brands"), tr("Classic")], int(Data.classic_suits), func(i): _set_theme(Data.classic_art, i == 1), 130.0))
+	var themes := ["cars", "classic", "who"]
+	_settings_row(g2, "Card art", _choice([tr("Cars"), tr("Classic"), tr("Doctor Who")], themes.find(Data.art_mode()), func(i): _set_theme(themes[i], Data.suit_mode()), 98.0))
+	_settings_row(g2, "Suits", _choice([tr("Car brands"), tr("Classic"), tr("Doctor Who")], themes.find(Data.suit_mode()), func(i): _set_theme(Data.art_mode(), themes[i]), 98.0))
 	var bk := _hbox(6)
 	var prev_b := _button("<", Color("3a3f4b"), 18, Vector2(40, 36))
 	prev_b.pressed.connect(func(): _set_back(Data.back_style - 1))
@@ -2483,8 +2485,8 @@ func _show_collection(tab := -1) -> void:
 	tabs.position = Vector2(24, 58)
 	tabs.size = Vector2(1152, 40)
 	tabs.alignment = BoxContainer.ALIGNMENT_CENTER
-	var names := [Data.tv("Cars", "Cards"), Data.tv("Mods", "Jokers"), Data.tv("Garage cards", "Items"), tr("Packs"),
-		Data.tv("Sponsors", "Vouchers"), tr("Bosses"), tr("Poker hands"), tr("Card backs")]
+	var names := [Data.tv("Cars", "Cards"), Data.tv("Mods", "Jokers", "Allies"), Data.tv("Garage cards", "Items", "Pockets"), tr("Packs"),
+		Data.tv("Sponsors", "Vouchers", "Favours"), tr("Bosses"), tr("Poker hands"), tr("Card backs")]
 	for i in names.size():
 		var b := _button(names[i], Color("2f8f83") if i == collection_tab else Color("3a3f4b"), 14, Vector2(136, 38))
 		b.clip_text = true
@@ -2600,8 +2602,8 @@ func _gal_mods(c: Control) -> float:
 
 func _gal_items(c: Control) -> float:
 	var all := Data.consumables()
-	var groups := [[Data.tv("DYNO TUNE", "UPGRADE"), all.filter(func(x): return x.id == "tune")],
-		[Data.tv("WORKSHOP", "TRICK"), all.filter(func(x): return x.id != "tune")]]
+	var groups := [[Data.tv("DYNO TUNE", "UPGRADE", "ADVENTURE"), all.filter(func(x): return x.id == "tune")],
+		[Data.tv("WORKSHOP", "TRICK", "GADGET"), all.filter(func(x): return x.id != "tune")]]
 	var y := 0.0
 	for g in groups:
 		_gal_label(c, "%s (%d)" % [g[0], g[1].size()], Vector2(0, y), 17)
@@ -2635,7 +2637,8 @@ func _gal_packs(c: Control) -> float:
 
 func _gal_vouchers(c: Control) -> float:
 	_gal_label(c, Data.tv("Sponsors give a permanent bonus for the whole run. The Pit Stop offers one each ante.",
-		"Vouchers give a permanent bonus for the whole run. The Pit Stop offers one each ante."), Vector2(0, 0), 14, Color(1, 1, 1, 0.7))
+		"Vouchers give a permanent bonus for the whole run. The Pit Stop offers one each ante.",
+		"Favours give a permanent bonus for the whole run. The Pit Stop offers one each ante."), Vector2(0, 0), 14, Color(1, 1, 1, 0.7))
 	for i in Data.VOUCHERS.size():
 		var v: Dictionary = Data.VOUCHERS[i]
 		var x := (i % 3) * 380.0
@@ -2694,7 +2697,7 @@ func _gal_hands(c: Control) -> float:
 		var h = Data.HANDS[t]
 		var y := (Data.HANDS.size() - 1 - t) * row_h
 		var name := tr(Data.hand_name(t))
-		if not Data.classic_art:
+		if not Data.classic_art or Data.who_art:
 			name += "  (%s)" % tr(h.poker)
 		_gal_label(c, name, Vector2(0, y + 10), 18, Color.WHITE, 420)
 		var r := RichTextLabel.new()
@@ -2715,13 +2718,14 @@ func _gal_hands(c: Control) -> float:
 func _gal_backs(c: Control) -> float:
 	_gal_label(c, tr("Click a back to use it"), Vector2(0, 0), 14, Color(1, 1, 1, 0.6))
 	for i in Data.BACKS.size():
-		var x := 20.0 + i * 186
-		var cv := _gal_card(c, CardView.BACK, {}, Vector2(x, 70), 1.3)
+		var x := 60.0 + (i % 4) * 270
+		var y := 60.0 + (i / 4) * 250
+		var cv := _gal_card(c, CardView.BACK, {}, Vector2(x, y), 1.2)
 		cv.back_style = i
 		cv.selected = i == Data.back_style
 		gallery_backs.append(cv)
-		_gal_label(c, tr(Data.BACKS[i]), Vector2(x - 20, 270), 15, Color("ffd23f") if i == Data.back_style else Color.WHITE, 165).horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	return 320.0
+		_gal_label(c, tr(Data.BACKS[i]), Vector2(x - 35, y + 174), 15, Color("ffd23f") if i == Data.back_style else Color.WHITE, 185).horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	return 60.0 + ceili(Data.BACKS.size() / 4.0) * 250
 
 
 func _show_changelog() -> void:
@@ -2801,7 +2805,7 @@ func _show_stats(confirm_reset := false) -> void:
 		[Data.tv("Cars played", "Cards played"), _fmt(stats.cards_played)],
 		["Discards used", _fmt(stats.discards)],
 		["Money earned", "$" + _fmt(stats.money_earned)],
-		[Data.tv("Mods bought", "Jokers bought"), _fmt(stats.mods_bought)],
+		[Data.tv("Mods bought", "Jokers bought", "Allies recruited"), _fmt(stats.mods_bought)],
 		["Packs opened", _fmt(stats.packs_opened)],
 		["Favorite hand", tr(Data.hand_name(fav)) if stats.hand_counts[fav] > 0 else "-"],
 	]
@@ -2867,7 +2871,7 @@ func _show_info() -> void:
 	for i in range(Data.HANDS.size() - 1, -1, -1):
 		var h = Data.HANDS[i]
 		var lvl: int = levels[i]
-		var name_lbl := _label(tr(h.poker) if Data.classic_art else "%s  (%s)" % [tr(h.name), tr(h.poker)], 16, Color.WHITE, 3)
+		var name_lbl := _label(tr(h.poker) if Data.classic_art and not Data.who_art else "%s  (%s)" % [tr(Data.hand_name(i)), tr(h.poker)], 16, Color.WHITE, 3)
 		name_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 		g.add_child(name_lbl)
 		g.add_child(_label(tr("lvl.") + str(lvl), 16, Color("ffb347") if lvl > 1 else Color.WHITE, 3))
@@ -2876,7 +2880,7 @@ func _show_info() -> void:
 		g.add_child(_label(str(played_count[i]), 16, Color.WHITE, 3))
 	v.add_child(g)
 	if not vouchers.is_empty():
-		var owned := _label(Data.tv("Sponsors", "Vouchers") + ": " + ", ".join(vouchers.map(func(id): return Data.text(Data.VOUCHERS.filter(func(x): return x.id == id)[0], "name"))), 15, Color("ffd23f"), 3)
+		var owned := _label(Data.tv("Sponsors", "Vouchers", "Favours") + ": " + ", ".join(vouchers.map(func(id): return Data.text(Data.VOUCHERS.filter(func(x): return x.id == id)[0], "name"))), 15, Color("ffd23f"), 3)
 		owned.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		owned.custom_minimum_size = Vector2(580, 0)
 		v.add_child(owned)
@@ -2927,23 +2931,28 @@ func _help_text() -> String:
 	t += "- " + Data.tv("Select up to 5 cars and [color=#2f8cff]Play[/color] them as a poker hand.", "Select up to 5 cards and [color=#2f8cff]Play[/color] them as a poker hand.")
 	if not Data.classic_art:
 		t += " " + tr("A Tandem is a Pair, a Gear Shift is a Straight, a Same Garage is a Flush, and so on.")
+	elif Data.who_art:
+		t += " " + tr("Companions are a Pair, a Timeline is a Straight, a Home Planet is a Flush, and so on.")
 	t += "\n- " + Data.tv("Score = [color=#2f8cff]Chips[/color] x [color=#ff4b3e]Mult[/color]. Every scored car adds its chips.", "Score = [color=#2f8cff]Chips[/color] x [color=#ff4b3e]Mult[/color]. Every scored card adds its chips.")
 	t += "\n- " + Data.tv("Beat the target score before you run out of hands. [color=#ff4b3e]Discard[/color] to dig for better cars.", "Beat the target score before you run out of hands. [color=#ff4b3e]Discard[/color] to dig for better cards.")
 	t += "\n- " + tr("Each Ante has a Street Race, a Circuit Race and a [color=#ff4b3e]Boss Race[/color] with a nasty rule.")
 	t += "\n- " + Data.tv("Spend cash at the [color=#e8572f]Pit Stop[/color]: Mods change how you score, Dyno Tunes level up hands, Workshop cards upgrade your cars.",
-		"Spend cash at the [color=#e8572f]Pit Stop[/color]: Jokers change how you score, Upgrades level up hands, Trick cards change your cards.")
+		"Spend cash at the [color=#e8572f]Pit Stop[/color]: Jokers change how you score, Upgrades level up hands, Trick cards change your cards.",
+		"Spend cash at the [color=#e8572f]Pit Stop[/color]: Allies change how you score, Adventures level up hands, Gadgets change your cards.")
 	t += "\n- " + Data.tv("Drag Mods to change their order: they work from left to right. Cars score in the order you pick them.",
-		"Drag Jokers to change their order: they work from left to right. Cards score in the order you pick them.")
+		"Drag Jokers to change their order: they work from left to right. Cards score in the order you pick them.",
+		"Drag Allies to change their order: they work from left to right. Cards score in the order you pick them.")
 	t += "\n- " + tr("Booster packs: open one and take 1 of the choices.")
 	t += "\n- " + Data.tv("Sponsors give a permanent bonus for the whole run. The Pit Stop offers one each ante.",
-		"Vouchers give a permanent bonus for the whole run. The Pit Stop offers one each ante.")
+		"Vouchers give a permanent bonus for the whole run. The Pit Stop offers one each ante.",
+		"Favours give a permanent bonus for the whole run. The Pit Stop offers one each ante.")
 	t += "\n- " + tr("Win the Grand Prix at Ante 8 to become Champion.") + "\n"
 	t += hd.call(tr("Card upgrades"))
 	for e in Data.ENH_INFO:
 		var info: Dictionary = Data.ENH_INFO[e]
 		t += "- [color=%s]%s[/color]: %s\n" % [Data.ENH_COLORS[e].lightened(0.3).to_html(false), Data.text(info, "name"), _bb_dark(tr(info.desc)).replace("\n", " ")]
 	t += hd.call(tr("Editions"))
-	t += Data.tv("Some Mods come with an edition (they cost more):", "Some Jokers come with an edition (they cost more):") + "\n"
+	t += Data.tv("Some Mods come with an edition (they cost more):", "Some Jokers come with an edition (they cost more):", "Some Allies come with an edition (they cost more):") + "\n"
 	for e in Data.EDITIONS:
 		var ed: Dictionary = Data.EDITIONS[e]
 		t += "- [color=#7fe0d0]%s[/color]: %s\n" % [Data.text(ed, "name"), _bb_dark(Data.text(ed, "desc"))]
@@ -2952,11 +2961,14 @@ func _help_text() -> String:
 	t += "- [color=#ffd23f]%s[/color]: %s\n" % [Data.tv("Face cars", "Face cards"), tr("J, Q and K. Some effects count only them.")]
 	t += "- [color=#ffd23f]%s[/color]: %s\n" % [tr(Data.rank_name(14)), tr("Counts high or low in a %s") % tr(Data.hand_name(Scoring.STRAIGHT))]
 	t += "- [color=#d9822b]%s[/color]: %s\n" % [tr("Again!"), Data.tv("the car scores one more time.", "the card scores one more time.")]
-	t += "- [color=#aab4c3]%s[/color]: %s\n" % [tr("Broken!"), Data.tv("a Carbon car broke and left your garage.", "a Glass card broke and left your deck.")]
-	t += hd.call(Data.tv("Garage cards", "Items"))
+	t += "- [color=#aab4c3]%s[/color]: %s\n" % [tr("Broken!"), Data.tv("a Carbon car broke and left your garage.", "a Glass card broke and left your deck.", "a Paradox card broke and left your deck.")]
+	t += hd.call(Data.tv("Garage cards", "Items", "Pockets"))
 	t += Data.tv("Dyno Tunes and Cash Grab work at once. Workshop cards need cars: select them in your hand, then click the card and press Use.",
-		"Upgrades and Cash Grab work at once. Trick cards need cards: select them in your hand, then click the item and press Use.") + "\n\n"
+		"Upgrades and Cash Grab work at once. Trick cards need cards: select them in your hand, then click the item and press Use.",
+		"Adventures and Time Heist work at once. Gadgets need cards: select them in your hand, then click the gadget and press Use.") + "\n\n"
 	t += "[color=#aaaaaa]%s[/color]" % tr("Keys: Enter = Play hand, Backspace = Discard, Esc = Menu, M = Music, F11 = Fullscreen. Hover any card for details.")
+	if Data.who_art or Data.who_suits:
+		t += "\n\n[color=#888888]%s[/color]" % tr("The Doctor Who theme is a fan tribute. Doctor Who, TARDIS and Daleks are trademarks of the BBC; this game is not affiliated with the BBC.")
 	return t
 
 

@@ -3,6 +3,11 @@ extends RefCounted
 ## Add an entry for every release: deploy_web.sh refuses to release a version without one.
 
 const ENTRIES := [
+	{"version": "1.6.0", "date": "2026-10-11", "items": [
+		"New theme: Doctor Who (a fan tribute) for the card art and the suits",
+		"TARDIS, Daleks, Cybermen and Gallifrey suits; the Doctor, a Time Lady and a Companion on the face cards",
+		"Allies, Adventures, Gadgets and Favours with their own names and pictures; two new card backs",
+	]},
 	{"version": "1.5.0", "date": "2026-10-11", "items": [
 		"Install the game as an app on Android, iPhone or a computer; it works offline after the first start",
 		"Touch-friendly: on phones the game opens in full screen and asks to rotate to landscape",
